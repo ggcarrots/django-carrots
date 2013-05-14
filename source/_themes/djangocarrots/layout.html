@@ -1,0 +1,25 @@
+{%- extends "basic/layout.html" %}
+{%- block doctype %}<!DOCTYPE html>{%- endblock %}
+{%- block relbar2 %}{% endblock %}
+{% block header %}
+  {{ super() }}
+  {% if pagename == 'index' %}
+  <div class=indexwrapper>
+  {% endif %}
+{% endblock %}
+
+{%- block sidebarlogo %}
+  <a href="{{ pathto('index') }}" class="logo"><img class="logo" src="{{ pathto('_static/logo.png', 1) }}" style="width: 200px; height: 169px; margin: -10px 0 10px 0"></a>
+{% endblock %}
+
+{%- block footer %}
+  <div class="footer">
+    &copy; Copyright {{ copyright }}.
+    {%- if html_show_sphinx %}
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    {% endif %}
+  </div>
+  {% if pagename == 'index' %}
+  </div>
+  {% endif %}
+{%- endblock %}

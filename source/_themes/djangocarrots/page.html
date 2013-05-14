@@ -1,0 +1,8 @@
+{%- if meta and meta.template %}
+{%- extends meta.template %}
+{% else %}
+{%- extends "layout.html" %}
+{% endif %}
+{% block body %}
+  {{ body }}
+{% endblock %}
