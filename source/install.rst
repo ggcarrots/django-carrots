@@ -114,7 +114,14 @@ wejściu w ``Mój komputer``). Służą do tego polecenia:
 Gdy już mamy działającego Python'a, zainstalujemy jeszcze jeden program, który
 uprości instalację innych Python'owych programów i usprawni nam pracę.
 
-Pobierz skrypt `virtualenv.py`_ do swojego katalogu domowego i otwórz konsolę.
+Pobierz skrypt `virtualenv.py`_ do swojego katalogu domowego. Plik możesz zapisać
+klikając prawym klawiszem na stronę, która się pojawi i wybierając ``Zapisz jako``.
+
+W przypadku Windowsa 7 katalog domowy to przykładowo ``C:\Users\Ala\`` dla użytkownika
+``Ala``. Możesz wybrać też inny katalog, ale ważne żeby zapamiętać gdzie się znajduje i
+żeby był łatwo dostępny, bo będziemy często z niego korzystać.
+
+Przykładowo, jeżeli naszym katalogiem domowym jest ``C:\Users\lrekucki``:
 
 .. code-block:: bat
 

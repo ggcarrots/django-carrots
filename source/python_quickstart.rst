@@ -30,14 +30,6 @@ Python świetnie sprawdza się jako kalkulator:
     >>> 3**2
     9
     >>> 5 / 2
-    2
-
-Ten ostatni wynik może być dość zaskakujący. Oczekiwaliśmy raczej dostać
-dwa i pół. Z drugiej strony, dotąd używaliśmy jedynie liczb całkowitych,
-więc Python nie ma powodu aby zmuszać nas do posługiwania się ułamkami.
-Ale możemy zrobić to sami:
-
-    >>> 5.0 / 2
     2.5
 
 Należy zwrócić szczególną uwagę, że ułamki dziesiętne zapisujemy zgodnie
@@ -125,7 +117,8 @@ Nasz pierwszy program może wyglądać tak::
 
     print("Cześć, mam na imię Łukasz.")
 
-Uruchom program z linii poleceń:
+Zapisz ten program w pliku ``wizytowka.py``, a następnie uruchom go z linii poleceń
+wykonująć ``python wizytowka.py``:
 
 .. code-block:: sh
 
@@ -254,7 +247,7 @@ nową wartość, jednak wartość przypisana do ``y`` pozostaje bez zmian:
     języków operacja ``y = x`` stworzyłaby kopię wartości ``x``
     i wstawiła ją do zmiennej ``y``.
 
-    W Pythonie nigdy nic nie jest kopiowane. ``y`` staje się jedynie
+    W Pythonie nic nie jest po kryjomu kopiowane. ``y`` staje się jedynie
     alternatywną nazwą do tej samej wartości. Jeśli zmienimy tą wartość,
     zarówno ``x`` jak i ``y`` pokażą to samo.
 
@@ -292,8 +285,6 @@ należy podać w kilogramach.
 
 Komentarzem w Pythonie jest wszystko po znaku ``#`` aż do końca linii::
 
-    # -*- coding: utf-8
-
     # Waga w kilogramach
     weight = 65.5
 
@@ -303,17 +294,11 @@ Komentarzem w Pythonie jest wszystko po znaku ``#`` aż do końca linii::
     bmi = weight / height**2 # Obliczamy BMI
     print("Twoje BMI to:", bmi)
 
-Okazuje się, że wspomniana wcześniej formuła ``coding`` była zwykłym
-komentarzem. No może nie takim zwykłym, bo w odróżnieniu od innych,
-które są *całkowicie ignorowane*, wpływa na działanie programu. Jednak
-my czytając program możemy ją ignorować.
-
-
 Wywoływanie funkcji
 ===================
 
 Nasz program wygląda już całkiem nieźle, ale użytkownik chcąc policzyć
-swoje BMI nadal musi zmieniać treść programu. Wygodniej byłoby móc
+swoje BMI nadal musi zmieniać treść programu. Wygodniej byłoby gdyby
 po uruchomieniu programu mógł wpisać wymagane wartości w konsoli
 i otrzymać z powrotem swoje BMI.
 
@@ -326,30 +311,30 @@ Pierwszą, która poznamy będzie :func:`help`:
 :func:`help` jest bardzo przyjazną funkcją, bo sama nam mówi jak powinniśmy jej
 używać. Jest też nam w stanie powiedzieć jak używać innych funkcji:
 
-    >>> help(raw_input)  # doctest: +SKIP
-    Help on built-in function raw_input in module __builtin__:
+    >>> help(input)  # doctest: +SKIP
+    Help on built-in function input in module builtins:
     <BLANKLINE>
-    raw_input(...)
-        raw_input([prompt]) -> string
+    input(...)
+        input([prompt]) -> string
     <BLANKLINE>
         Read a string from standard input.  The trailing newline is stripped.
         If the user hits EOF (Unix: Ctl-D, Windows: Ctl-Z+Return), raise EOFError.
         On Unix, GNU readline is used if enabled.  The prompt string, if given,
-        is printed without a trailing newline before reading. ...
+        is printed without a trailing newline before reading.
 
-Właśnie :func:`raw_input` będziemy używać do wczytywania danych od użytkownika.
-Zgodnie z opisem wczytuję ona napis::
+Właśnie :func:`input` będziemy używać do wczytywania danych od użytkownika.
+Zgodnie z opisem wczytuje ona napis::
 
 .. TODO : wywołanie funkcji a funkcja, trzeba dopisać "()".
 
-    >>> raw_input()
+    >>> input()
     ala ma kota
     'ala ma kota'
 
 Funkcja ta będzie bardziej użyteczna jeśli zapamiętamy wczytany
 napis pod jakąś nazwą::
 
-    >>> name = raw_input()
+    >>> name = input()
     Joanna
     >>> name
     'Joanna'
@@ -360,18 +345,18 @@ Czy to już wystarcza nam do poprawienia programu ?
 
 .. testsetup:: raw_input_test
 
-    raw_input.queue.append("60.5")
+    input.queue.append("60.5")
 
 .. doctest:: raw_input_test
 
-    >>> w = raw_input()
+    >>> w = input()
     60.5
     >>> w
     '60.5'
     >>> print(w + 3)
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    TypeError: cannot concatenate 'str' and 'int' objects
+    TypeError: Can't convert 'int' object to str implicitly
 
 Jak widać Python nie wie o co nam chodzi i jakiego właściwie wyniku
 oczekujemy. Jak pokazaliśmy wcześniej zarówno napisy (``str``) jak i liczby (``int``)
@@ -381,7 +366,7 @@ napis ``"60.53"``? Tylko my to wiemy i musimy zawrzeć tą informację w program
 Poznajmy, więc dwie kolejne funkcję:
 
     >>> help(int)  # doctest: +NORMALIZE_WHITESPACE
-    Help on class int in module __builtin__:
+    Help on class int in module builtin:
     <BLANKLINE>
     class int(object)
     |  int(x[, base]) -> integer
@@ -391,7 +376,7 @@ Poznajmy, więc dwie kolejne funkcję:
 oraz:
 
     >>> help(float)  # doctest: +NORMALIZE_WHITESPACE
-    Help on class float in module __builtin__:
+    Help on class float in module builtin:
     <BLANKLINE>
     class float(object)
     |  float(x) -> floating point number
@@ -442,17 +427,17 @@ przełożyć na osiem linii naszego programu (nie licząc odstępów):
 
 .. testsetup::
 
-    raw_input.queue.append("1.75")
-    raw_input.queue.append("65.5")
+    input.queue.append("1.75")
+    input.queue.append("65.5")
 
 .. testcode::
 
     print("Podaj wzrost w metrach:")
-    height = raw_input()
+    height = input()
     height = float(height)
 
     print("Podaj wagę w kilogramach:")
-    weight = raw_input()
+    weight = input()
     weight = float(weight)
 
     bmi = weight / height**2 # Obliczamy BMI
@@ -468,13 +453,19 @@ przełożyć na osiem linii naszego programu (nie licząc odstępów):
 
 
 Podsumowując, aby wywołać funkcję musimy znać jej nazwę (poznaliśmy
-dotąd pięć: :func:`help`, :func:`raw_input`, :func:`int`, :func:`float` i :func:`quit`),
+dotąd cześć: :func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float` i :func:`quit`),
 oraz jakich danych ona od nas oczekuję (tzw. lista argumentów).
 
 Podanie samej nazwy nie wywoła funkcji, powie nam jedynie, że to funkcja:
 
-    >>> raw_input  # doctest: +SKIP
-    <built-in function raw_input>
+    >>> input  # doctest: +SKIP
+    <built-in function input>
+
+Aby wywołać funkcję musimy dopisać nawiasy po jej nazwie:
+
+    >>> input()
+
+W tym momencie funkcja zostanie wykonana przez Pythona.
 
 Wszystkie argumenty podajemy w nawiasach. Aby podać więcej niż jeden,
 rozdzielamy je przecinkiem:
@@ -504,17 +495,17 @@ wykonuje dalszą część programu pod podanym warunkiem:
 
 .. testsetup::
 
-    raw_input.queue.append("1.75")
-    raw_input.queue.append("65.5")
+    input.queue.append("1.75")
+    input.queue.append("65.5")
 
 .. testcode::
 
     print("Podaj wzrost w metrach:")
-    height = raw_input()
+    height = input()
     height = float(height)
 
     print("Podaj wagę w kilogramach:")
-    weight = raw_input()
+    weight = input()
     weight = float(weight)
 
     bmi = weight / height**2 # Obliczamy BMI
@@ -582,7 +573,7 @@ Otwórz tryb interaktywny i wpisz prosty warunek, np.::
 Na razie nic się jeszcze nie wydarzyło, o czym świadczą kropki zamiast
 zachęty ``>>>`` którą dotąd widzieliśmy. Python oczekuje od nas dalszych
 instrukcji, które mają wyć wykonane jeśli warunek ``2 > 1`` okaże się
-prawdziwy. Niech wypisze on "OK"::
+prawdziwy. Niech wypisze on "OK":
 
     >>> if 2 > 1:
     ... print("OK")
@@ -601,7 +592,7 @@ objętą warunkiem. W tym celu musimy wciąć nasz kod:
     OK
 
 Wystarczy do tego jedna spacja albo ``TAB``. Jednak wszystkie linie, które mają
-się wykonywać po sobie, muszą być wcięte tak samo::
+się wykonywać po sobie, muszą być wcięte tak samo:
 
     >>> if -1 > 0:
     ...  print("A")
@@ -809,7 +800,7 @@ zmiennoprzecinkowym ``f`` jak **float**:
     >>> "Napis: %s, Liczby: %d %f" % ("Ala", 10, 3.1415)
     'Napis: Ala, Liczby: 10 3.141500'
 
-Co prawda teraz, zamiast dziewięciu miejsc po przecinkuzawsze dostajemy
+Co prawda teraz, zamiast dziewięciu miejsc po przecinku zawsze dostajemy
 sześć, jednak formatowanie ma tą zaletę, że pozwala nam na większą
 kontrolę poprzez wstawienie pomiędzy ``%`` a znak ``f`` dodatkowych
 informacji, np. jeśli chcemy aby wyświetlić tylko dwa miejsca po kropce:
@@ -876,7 +867,7 @@ zapisać liczby całkowite, liczby zmiennoprzecinkowe, napisy oraz
 krotki z nich złożone.
 
 Poznaliśmy funkcję :func:`print`, która wypisuje informację
-użytkownikowi oraz funkcję :func:`raw_input`, która je od niego wczytuje.
+użytkownikowi oraz funkcję :func:`input`, która je od niego wczytuje.
 
 Wiemy też, że wcięcia mogą mieć znaczenie, szczególnie gdy chcemy użyć
 instrukcji :keyword:`if` (również w połączeniu z :keyword:`else` i :keyword:`elif`).

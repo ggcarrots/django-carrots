@@ -77,7 +77,7 @@ to zamaskowany program w Pythonie::
         print("Dostarczono prezent dla:", person)
     print("Dostarczono wszystkie prezenty")
 
-Większość rzeczy powinna już wyglądać znajomo. Wywołujemy tutaj dwie funkcję:
+Większość rzeczy powinna już wyglądać znajomo. Wywołujemy tutaj dwie funkcje:
 :func:`people_who_deserve_gifts` i :func:`deliver_gift` - jak one działają,
 wie tylko Mikołaj. Wynikowi wywołania pierwszej z nich nadajemy nazwę
 `gift_list`, aby móc się później do tej wartości odwołać (tak samo jak w opisie powyżej).
@@ -115,7 +115,7 @@ Stwórzmy inną listę (może być pod tą samą nazwą lub inną):
     3
 
 Podobnie jak w przypadku krotek, kolejne elementy listy rozdzielamy
-przecinkami. Inaczej niż w krotkach, nawiasy ``[`` i ``]`` są obowiązkowe.
+przecinkami. W przeciwieństwie do krotek, nawiasy ``[`` i ``]`` są obowiązkowe.
 
 Aby podejrzeć jaki element znajduje się na konkretnej pozycji na
 liście (pamiętaj, że liczymy pozycje od 0):
@@ -156,23 +156,30 @@ Problem ten rozwiąże nam funkcja :func:`range` (czyli zakres, przedział).
 Jeśli opis podany przez ``help(range)`` wyda ci się zbyt skomplikowany, oto
 kilka przykładów:
 
-    >>> range(2, 5, 1)
+    >>> list(range(2, 5, 1))
     [2, 3, 4]
-    >>> range(1, 11, 2)
+    >>> list(range(1, 11, 2))
     [1, 3, 5, 7, 9]
-    >>> range(1, 11)
+    >>> list(range(1, 11))
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    >>> range(1, 2)
+    >>> list(range(1, 2))
     [1]
-    >>> range(2)
+    >>> list(range(2))
     [0, 1]
 
-Najczęściej używa się tej ostatniej formy z pojedyńczym argumentem,
-która tworzy dla nas listę od zera do podanej liczby (ale zawsze bez niej!).
+Funkcja :func:`range` nie tworzy bezpośrednio listy, ale zwraca generator.
+Generatory pozwalają tworzyć sekwencje wartości, nie zajmując nipotrzebnie
+pamięci. Aby otrzymać listę z takiej sekwencji musimy użyć funkcji
+:func:`list`.
+
+Funkcja :func:`range` ma trzy formy. Najprostrza (i najczęściej używana),
+tworzy sekwencję od 0 do podanej liczby. Pozostałe formy pozwalają podać
+początek zakresu oraz krok. Utworzona sekwencja nigdy nie zawiera końca
+podanego zakresu.
 
 Wydrukujmy więc większą choinkę:
 
-    >>> lst = range(1, 11)
+    >>> lst = list(range(1, 11))
     >>> lst
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     >>> for i in lst:
@@ -191,12 +198,24 @@ Wydrukujmy więc większą choinkę:
 :func:`range` zaoczszędziło nam sporo pisania. Możemy zaoszczędzić
 jeszcze więcej pomijając nazywanie samej listy:
 
+    >>> for i in list(range(1, 5)):
+    ...     print(i*"#")
+    #
+    ##
+    ###
+    ####
+
+Gdy używamy słowa kluczowego :keyword:`for`, nie musimy używać funkcji
+:func:`list`. `for` potrafi poradzić sobie z funkcją `range`, więc
+można nasz program jeszcze uprościć:
+
     >>> for i in range(1, 5):
     ...     print(i*"#")
     #
     ##
     ###
     ####
+
 
 Nic nie stoi na przeszkodzie aby pętla nie mogła się znajdować
 w innej pętli. Należy jedynie pamiętać o odpowiednich wcięciach i
