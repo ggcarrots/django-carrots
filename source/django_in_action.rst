@@ -97,14 +97,14 @@ W pliku ``carrots/carrots/settings.py`` znajdź:
 .. code-block:: py
 
    DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-           'NAME': '',                      # Or path to database file if using sqlite3.
-           'USER': '',                      # Not used with sqlite3.
-           'PASSWORD': '',                  # Not used with sqlite3.
-           'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-           'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-       }
+     'default': {
+       'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+       'NAME': '',                      # Or path to database file if using sqlite3.
+       'USER': '',                      # Not used with sqlite3.
+       'PASSWORD': '',                  # Not used with sqlite3.
+       'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+       'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+     }
    }
 
 Zamień ``'django.db.backends.'`` na ``'django.db.backends.sqlite3'`` oraz dodaj ``'NAME'`` ``'carrots.db'``.
@@ -185,8 +185,8 @@ Jeśli wszystko poszło dobrze Django poprosi Cię o podanie danych konta admini
 Interfejs administracyjny
 =========================
 
-Teraz w pliku ``carrots/urls.py`` odkomentuj wszystkie linie poniżej ``Uncomment`` (poprzez usuniecie ``#`` z poczatku
-linii). Plik wynikowy powinien wygladac tak:
+Teraz w pliku ``carrots/urls.py`` odkomentuj wszystkie linie poniżej ``Uncomment`` (poprzez usuniecie ``#`` z początku
+linii). Plik wynikowy powinien wyglądać tak:
 
 .. code-block:: py
 

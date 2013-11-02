@@ -31,6 +31,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
+    'sphinx.ext.pngmath'
     # 'sphinxcontrib.blockdiag',
 ]
 
@@ -192,7 +193,9 @@ latex_elements = {
 #'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '',
+'preamble': '''
+\\usepackage{pmboxdraw}
+''',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples

@@ -486,9 +486,8 @@ wypisał odpowiednią dla obliczonego BMI klasyfikację korzystając z poniższe
 =====================   ==================
  < 18,5                      niedowaga
  18,5 – 24,99             waga prawidłowa
- ≥ 25,0                       nadwaga
+ :math:`\ge` 25,0             nadwaga
 =====================   ==================
-
 
 Skorzystamy więc z tzw. instrukcji warunkowej :keyword:`if`, która
 wykonuje dalszą część programu pod podanym warunkiem:
