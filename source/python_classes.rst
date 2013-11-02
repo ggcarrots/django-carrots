@@ -384,8 +384,8 @@ Aby się dowiedzieć jaką wystarczy użyć funkcji :func:`type`:
     <type 'int'>
     >>> type(2.0)
     <type 'float'>
-    >>> type(u"Gżegżółka")
-    <type 'unicode'>
+    >>> type("Gżegżółka")
+    <type 'str'>
     >>> x = 1, 2
     >>> type(x)
     <type 'tuple'>
@@ -399,26 +399,26 @@ Jednak Python musi dokładnie wiedzieć co znaczy być liczbą całkowitą,
 np. co ma się stać gdy dodajemy dwie liczby, a co gdy je dzielimy.
 Klasa dostarcza tych wszystkich informacji i więcej.
 
-Sprawdź co oferuję nam klasa ``unicode`` za pomocą :func:`help`.
+Sprawdź co oferuje nam klasa ``str`` za pomocą :func:`help`.
 Zacytujemy tutaj jedynie kilka ciekawszych funkcji:
 
-    >>> help(unicode.lower)
+    >>> help(str.lower)
     Help on method_descriptor:
     <BLANKLINE>
     lower(...)
-        S.lower() -> unicode
+        S.lower() -> str
     <BLANKLINE>
         Return a copy of the string S converted to lowercase.
     <BLANKLINE>
-    >>> help(unicode.upper)
+    >>> help(str.upper)
     Help on method_descriptor:
     <BLANKLINE>
     upper(...)
-        S.upper() -> unicode
+        S.upper() -> str
     <BLANKLINE>
         Return a copy of S converted to uppercase.
     <BLANKLINE>
-    >>> help(unicode.ljust)
+    >>> help(str.ljust)
     Help on method_descriptor:
     <BLANKLINE>
     ljust(...)
@@ -427,11 +427,11 @@ Zacytujemy tutaj jedynie kilka ciekawszych funkcji:
         Return S left-justified in a Unicode string of length width. Padding is
         done using the specified fill character (default is a space).
     <BLANKLINE>
-    >>> help(unicode.center)
+    >>> help(str.center)
     Help on method_descriptor:
     <BLANKLINE>
     center(...)
-        S.center(width[, fillchar]) -> unicode
+        S.center(width[, fillchar]) -> str
     <BLANKLINE>
         Return S centered in a Unicode string of length width. Padding is
         done using the specified fill character (default is a space)
@@ -440,7 +440,7 @@ Zacytujemy tutaj jedynie kilka ciekawszych funkcji:
 Wszystko to są operacje, które każdy napis potrafi wykonać. Możemy
 się do nich dostać używając kropki i wywołując jak funkcję:
 
-    >>> x = u"Ala"
+    >>> x = "Ala"
     >>> x.upper()
     u'ALA'
     >>> x.lower()
@@ -460,6 +460,11 @@ stworzyć obiekt mający jej cechy (tzw. swoją instancję):
     >>> tuple()
     ()
 
+Podsumowując, poznaliśmy już klasy :func:`int`, :func:`str`, :func:`tuple`,
+:func:`list`. Aby sprawdzić jakiej klasy jest wartość (obiekt) używamy funkcji
+:func:`type`. Aby stworzyć instancję klasy (czyli nowy obiekt) wywołujemy
+klasę podobnie jak wywoływaliśmy funkcję, dopisując nawiasy ``()``, na przykład
+``int()``.
 
 Definiowanie klass
 ------------------
