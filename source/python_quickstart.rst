@@ -593,7 +593,7 @@ objętą warunkiem. W tym celu musimy wciąć nasz kod:
 Wystarczy do tego jedna spacja albo ``TAB``. Jednak wszystkie linie, które mają
 się wykonywać po sobie, muszą być wcięte tak samo:
 
-    >>> if -1 > 0:
+    >>> if -1 < 0:
     ...  print("A")
     ...   print("B")
       File "<stdin>", line 3
@@ -601,7 +601,7 @@ się wykonywać po sobie, muszą być wcięte tak samo:
         ^
     IndentationError: unexpected indent
 
-    >>> if -1 > 0:
+    >>> if -1 < 0:
     ...     print("A")
     ...   print("B")
       File "<stdin>", line 3
@@ -609,7 +609,7 @@ się wykonywać po sobie, muszą być wcięte tak samo:
                 ^
     IndentationError: unindent does not match any outer indentation level
 
-    >>> if -1 > 0:
+    >>> if -1 < 0:
     ...   print("A")
     ...   print("B")
     ...
