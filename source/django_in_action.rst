@@ -26,7 +26,7 @@ Zainstaluj Django uruchamiając w konsoli:
 
 .. code-block:: sh
 
-   ~$ pip install django
+   ~$ pip install django==1.5.5
 
 Odpowiednia paczka zostanie pobrana z `PyPI <http://pypi.python.org>`_ - repozytorium pakietów Pythona,
 gdzie można znaleźć wiele użytecznych bibliotek.
@@ -60,8 +60,8 @@ Aby stworzyć nowy projekt ze stroną uruchamiamy:
 
    :: Windows
 
-   C:\Users\TeddyBear> python -m django-admin startproject carrots
-   C:\Users\TeddyBear> tree /f carrots
+   (warsztaty) C:\Users\TeddyBear> python -m django-admin startproject carrots
+   (warsztaty) C:\Users\TeddyBear> tree /f carrots
    Folder PATH listing
    Volume serial number is 00FA-07FF
    C:\USERS\TEDDYBEAR\DOCUMENTS\CARROTS
@@ -83,16 +83,17 @@ W pliku ``carrots/settings.py`` znajdują się ustawienia strony takie jak języ
 Plik ten możemy edytować sami. Na początku wewnątrz znajdziemy domyślne ustawienia i komentarze wyjaśniające.
 
 Plik ``manage.py`` pozwala administrować stroną, czyli utworzyć lub wyczyścić bazę danych, uruchomić prosty serwer aplikacji
-itp.
+itp. Później zobaczymy jak go używać.
 
-Plik ``carrots/urls.py`` zawiera informacje o ścieżkach na stronie.
+Plik ``carrots/urls.py`` zawiera informacje o ścieżkach (urlach) na stronie.
 
-Pozostałe pliki są mniej ciekawe. Dociekliwych odsyłam do Google.
+Pozostałe pliki są mniej ciekawe, przeważnie w ogóle się do nich nie zagląda, ani ich nie zmienia.
+Dociekliwych odsyłam do Google.
 
 Ustawienia aplikacji
 ====================
 
-W pliku ``carrots/carrots/settings.py`` znajdź:
+W pliku ``carrots/settings.py`` znajdź:
 
 .. code-block:: py
 
@@ -107,8 +108,27 @@ W pliku ``carrots/carrots/settings.py`` znajdź:
      }
    }
 
+Jest to definicja bazy danych jakiej będziemy używać. Jak widzimy, jest to zwykły słownik, zawierający klucz
+``default``. ``Django`` zawsze szuka definicji bazy właśnie pod tym kluczem, jeżeli jej nie znajdzie, to
+zgłosi błąd.
+
+Sama definicja bazy ``default`` składa się z kilku informacji: silnika jakiego używamy, nazwy bazy, użytkownika,
+hasła oraz adresu do połączenia z bazą. My będziemy używać bazy ``Sqlite``, gdyż jest to najprostrze rozwiązanie.
+Informacje takie jak użytkownik, hasło czy adres będą w tym wypadku niepotrzebne.
+
 Zamień ``'django.db.backends.'`` na ``'django.db.backends.sqlite3'`` oraz dodaj ``'NAME'`` ``'carrots.db'``.
 Plik ``carrots.db`` będzie zawierał bazę danych.
+
+Ostatecznie nasza definicja bazy może wyglądać w ten sposób::
+
+   DATABASES = {
+     'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': 'sqlite.db',
+     }
+   }
+
+
 
 Ustaw strefę czasową na Warszawę i domyślny język na polski
 ::
@@ -148,8 +168,18 @@ Odkomentuj też dwie wskazane linie w ``INSTALLED_APPS``.
        'django.contrib.admindocs',
    )
 
+``INSTALLED_APPS`` zawiera informację o zainstalowanych aplikacjach. Projekty ``Django``
+składają się z wielu aplikacji, w tym wypadku są to na przykład aplikacje: ``auth`` do
+uwierzytelniania użytkowników, ``sessions`` do zarządzania sesją użytkownika itd.
 
-Teraz pora na stworzenie bazy danych:
+Jak widać, ``INSTALLED_APPS`` jest po prostu krotką, zawierającą napisy. Odkomentowanie
+dwóch ostatnich napisów włączy aplikację do administracji. Później będziemy jej używać.
+
+Baza danych
+===========
+
+Teraz użyjemy opisanego wcześniej pliku ``manage.py`` do stworzenia
+bazy danych. Służy do tego opcja ``syncdb``:
 
 .. code-block:: sh
 
@@ -170,7 +200,7 @@ Teraz pora na stworzenie bazy danych:
 
     You just installed Django's auth system, which means you don't have any superusers defined.
     Would you like to create one now? (yes/no): yes
-    Username (leave blank to use 'admin'): admin
+    Username (leave blank to use 'fasola'): fasola
     Email address: admin@example.com
     Password:
     Password (again):
@@ -180,10 +210,29 @@ Teraz pora na stworzenie bazy danych:
     Installed 0 object(s) from 0 fixture(s)
 
 Jeśli wszystko poszło dobrze Django poprosi Cię o podanie danych konta administratora.
+Nazwę użytkownika możesz zostawić taką jaka jest proponowana, adres email może być dowolny.
+Z podanymi danymi (tzn. Username i Password) będziemy mogli później zalogować się do
+panelu administracyjnego. W powyższym przykładzie użytkownikiem będzie ``fasola``.
 
+Jeżeli chcesz dowiedzieć się więcej na temat ``manage.py`` uruchom:
+
+.. code-block:: sh
+
+    ~$ python manage.py help
+
+Dostaniesz listę wszystkich komend oraz opcji obsługiwanych przez ``manage.py``.
+
+Aby uzyskać pomoc na temat pojedynczej komendy uruchom ``manage.py help komenda`` np:
+
+.. code-block:: sh
+
+    ~$ python manage.py help syncdb
 
 Interfejs administracyjny
 =========================
+
+Napisaliśmy wcześniej, że włączyliśmy aplikację do administracji. To jeszcze
+nie znaczy, że aplikacja jest dostępna pod jakimś adresem.
 
 Teraz w pliku ``carrots/urls.py`` odkomentuj wszystkie linie poniżej ``Uncomment`` (poprzez usuniecie ``#`` z początku
 linii). Plik wynikowy powinien wyglądać tak:
@@ -201,21 +250,13 @@ linii). Plik wynikowy powinien wyglądać tak:
        # url(r'^$', 'carrots.views.home', name='home'),
        # url(r'^carrots/', include('carrots.foo.urls')),
 
-       # Uncomment the admin/doc line below to enable admin documentation:
-       url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
        # Uncomment the next line to enable the admin:
        url(r'^admin/', include(admin.site.urls)),
    )
 
-Potrzebujemy jeszcze narzędzi do dokumnetacji, uruchom:
+W ten sposób administracja będzie dostępna pod urlem ``admin/``.
 
-.. code-block:: sh
 
-   ~$ pip install docutils
-   (...)
-   Successfully installed docutils
-   Cleaning up...
 
 Następnie uruchom serwer:
 
@@ -230,7 +271,11 @@ Następnie uruchom serwer:
    Development server is running at http://127.0.0.1:8000/
    Quit the server with CTRL-BREAK.
 
-Potem wchodzimy na link http://localhost:8000/admin/.
+Nasza strona będzie dostępna pod adresem http://127.0.0.1:8000/ , lub
+http://localhost:8000/.
+
+Jak wspomnieliśmy administracja powinna być dostępna pod urlem ``admin/``, dlatego wchodzimy na
+adres http://localhost:8000/admin/.
 
 
 Tworzymy nową aplikację do ankiet.
@@ -280,6 +325,11 @@ Efekt powinien wyglądać tak::
 
         'polls',
     )
+
+Aplikacje w ``Django`` składają się z kilku plików:
+* ``models.py`` - definicje modeli dla bazy danych.
+* ``tests.py`` - testy aplikacji
+* ``views.py`` - widoki aplikacji
 
 Modele
 ======
@@ -443,7 +493,7 @@ pytań). Istnieją też inne metody, pozwalające wyciągnąć obiekty spełniaj
     DoesNotExist: Poll matching query does not exist. Lookup parameters were {'id': 2}
 
     # Wyprobujmy teraz nasza wlasna metode.
-    >>> p = Poll.objects.get(pk=1)
+    >>> p = Poll.objects.get(id=1)
     >>> p.was_published_recently()
     True
 
@@ -699,7 +749,7 @@ widoku::
     # ...
     def detail(request, poll_id):
         try:
-            p = Poll.objects.get(pk=poll_id)
+            p = Poll.objects.get(id=poll_id)
         except Poll.DoesNotExist:
             raise Http404
         return render_to_response('polls/detail.html', {'poll': p})
@@ -716,7 +766,7 @@ Tak wygląda kod szablonu ``polls/templates/polls/detail.html``:
     </ul>
 
 Nowością jest tutaj wyrzucanie wyjątku ``Http404``, gdy sprawdzimy, ze ankieta o konkretnym ID nie istnieje. Django
-obsluzy taki wyjatek wyswietlajac domyslna strone 404.
+obsluży taki wyjątek wyświetlając domyślną stronę 404.
 
 .. note::
 
@@ -760,7 +810,7 @@ Robimy to w następujacy sposób::
   from django.shortcuts import get_object_or_404
   # ...
   def detail(request, poll_id):
-      p = get_object_or_404(Poll, pk=poll_id)
+      p = get_object_or_404(Poll, id=poll_id)
       return render_to_response('polls/detail.html', {'poll': p},
                                  context_instance=RequestContext(request))
 
@@ -773,9 +823,9 @@ jeszcze danych formularza. Poprawmy to teraz::
     from polls.models import Choice
     # ...
     def vote(request, poll_id):
-        p = get_object_or_404(Poll, pk=poll_id)
+        p = get_object_or_404(Poll, id=poll_id)
         try:
-            selected_choice = p.choice_set.get(pk=request.POST['choice'])
+            selected_choice = p.choice_set.get(id=request.POST['choice'])
         except (KeyError, Choice.DoesNotExist):
             # Wyświetl błąd użytkownikowi, gdy wybrał złą opcję
             return render_to_response('polls/detail.html', {
@@ -811,7 +861,7 @@ przekierowanie za pomocą ``HttpResponseRedirect``.
 Na koniec pozostał nam do opracowania widok wyników ankiety, wyświetlany po zagłosowaniu::
 
   def results(request, poll_id):
-      p = get_object_or_404(Poll, pk=poll_id)
+      p = get_object_or_404(Poll, id=poll_id)
       return render_to_response('polls/results.html', {'poll': p},
                              context_instance=RequestContext(request))
 
@@ -857,19 +907,19 @@ głosując na nie i namawiając inne osoby aby zrobiły to samo.
                                     context_instance=RequestContext(request))
 
         def detail(request, poll_id):
-            p = get_object_or_404(Poll, pk=poll_id)
+            p = get_object_or_404(Poll, id=poll_id)
             return render_to_response('polls/detail.html', {'poll': p},
                                      context_instance=RequestContext(request))
 
         def results(request, poll_id):
-            p = get_object_or_404(Poll, pk=poll_id)
+            p = get_object_or_404(Poll, id=poll_id)
             return render_to_response('polls/results.html', {'poll': p},
                              context_instance=RequestContext(request))
 
         def vote(request, poll_id):
-            p = get_object_or_404(Poll, pk=poll_id)
+            p = get_object_or_404(Poll, id=poll_id)
             try:
-                selected_choice = p.choice_set.get(pk=request.POST['choice'])
+                selected_choice = p.choice_set.get(id=request.POST['choice'])
             except (KeyError, Choice.DoesNotExist):
                 # Wyświetl błąd użytkownikowi, gdy wybrał złą opcję
                 return render_to_response('polls/detail.html', {
@@ -899,8 +949,6 @@ głosując na nie i namawiając inne osoby aby zrobiły to samo.
           url(r'^polls/(?P<poll_id>\d+)/vote/$', 'polls.views.vote'),
           url(r'^admin/', include(admin.site.urls)),
         )
-
-
 
 .. admonition:: ``polls/models.py``
    :class: alert alert-hidden
