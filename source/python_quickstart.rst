@@ -45,7 +45,7 @@ Napisy
 ------
 
 Same liczby to jednak trochę za mało do skutecznego porozumiewania się.
-Musimy się, więc nauczyć posługiwać napisami (ang. ``string``). Oto kilka przykładów:
+Musimy więc nauczyć się posługiwać napisami (ang. ``string``). Oto kilka przykładów:
 
     >>> "Hello World"
     'Hello World'
@@ -179,7 +179,7 @@ Jak widać nasz program ma kilka problemów:
 3. Wypisywanie tylu miejsc po przecinku jest zbędne. BMI mierzy
    się z dokładnością do dwóch miejsc po przecinku.
 
-Ale programowanie, to w końcu sztuka rozwiązywania problemów, więc
+Ale programowanie to w końcu sztuka rozwiązywania problemów, więc
 do dzieła. Przy okazji poznamy kilka nowych elementów Pythona.
 
 .. _`Body Mass Index`: http://pl.wikipedia.org/wiki/Body_Mass_Index
@@ -188,9 +188,9 @@ do dzieła. Przy okazji poznamy kilka nowych elementów Pythona.
 Nazwy
 =====
 
-Spróbujmy, więc rozwiązać pierwszy problem. Na początek chcielibyśmy,
+Spróbujmy więc rozwiązać pierwszy problem. Na początek chcielibyśmy,
 aby nasz program był bardziej czytelny, tj. aby dla czytającego
-było oczywiste, która wartość to waga, a która wzrost.
+było oczywiste która wartość to waga, a która wzrost.
 
 W tym celu nadamy tym wartościom nazwy:
 
@@ -248,7 +248,7 @@ nową wartość, jednak wartość przypisana do ``y`` pozostaje bez zmian:
     i wstawiła ją do zmiennej ``y``.
 
     W Pythonie nic nie jest po kryjomu kopiowane. ``y`` staje się jedynie
-    alternatywną nazwą do tej samej wartości. Jeśli zmienimy tą wartość,
+    alternatywną nazwą do tej samej wartości. Jeśli zmienimy tę wartość,
     zarówno ``x`` jak i ``y`` pokażą to samo.
 
     W naszym przykładzie nie zmieniliśmy wartości liczby ``42``, lecz
@@ -298,11 +298,11 @@ Wywoływanie funkcji
 ===================
 
 Nasz program wygląda już całkiem nieźle, ale użytkownik chcąc policzyć
-swoje BMI nadal musi zmieniać treść programu. Wygodniej byłoby gdyby
+swoje BMI nadal musi zmieniać treść programu. Wygodniej byłoby, gdyby
 po uruchomieniu programu mógł wpisać wymagane wartości w konsoli
 i otrzymać z powrotem swoje BMI.
 
-Aby móc napisać taki program musimy nauczyć się posługiwać funkcjami.
+Aby móc napisać taki program, musimy nauczyć się posługiwać funkcjami.
 Pierwszą, która poznamy będzie :func:`help`:
 
     >>> help
@@ -341,7 +341,7 @@ napis pod jakąś nazwą::
     >>> print('Twoje imię to:", name)
     Twoje imię to: Joanna
 
-Czy to już wystarcza nam do poprawienia programu ?
+Czy to już wystarcza nam do poprawienia programu?
 
 .. testsetup:: raw_input_test
 
@@ -359,9 +359,9 @@ Czy to już wystarcza nam do poprawienia programu ?
     TypeError: Can't convert 'int' object to str implicitly
 
 Jak widać Python nie wie o co nam chodzi i jakiego właściwie wyniku
-oczekujemy. Jak pokazaliśmy wcześniej zarówno napisy (``str``) jak i liczby (``int``)
-można do siebie dodawać. Tak, więc czy chodzi nam o liczbę ``63.5`` czy
-napis ``"60.53"``? Tylko my to wiemy i musimy zawrzeć tą informację w programie.
+oczekujemy. Jak pokazaliśmy wcześniej, zarówno napisy (``str``), jak i liczby (``int``)
+można do siebie dodawać. Tak więc czy chodzi nam o liczbę ``63.5``, czy
+o napis ``"60.53"``? Tylko my to wiemy i musimy zawrzeć tę informację w programie.
 
 Poznajmy, więc dwie kolejne funkcję:
 
@@ -452,9 +452,9 @@ przełożyć na osiem linii naszego programu (nie licząc odstępów):
     Twoje BMI to: 21.387755102
 
 
-Podsumowując, aby wywołać funkcję musimy znać jej nazwę (poznaliśmy
+Podsumowując: aby wywołać funkcję, musimy znać jej nazwę (poznaliśmy
 dotąd cześć: :func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float` i :func:`quit`),
-oraz jakich danych ona od nas oczekuję (tzw. lista argumentów).
+oraz jakich danych ona od nas oczekuje (tzw. lista argumentów).
 
 Podanie samej nazwy nie wywoła funkcji, powie nam jedynie, że to funkcja:
 
@@ -563,15 +563,15 @@ w bardziej skomplikowane warunki za pomocą słów :keyword:`and` oraz
 Wcięcia
 -------
 
-Kolejna rzecz na którą warto zwrócić uwagę, to wcięcia w kodzie.
+Kolejna rzecz, na którą warto zwrócić uwagę, to wcięcia w kodzie.
 Otwórz tryb interaktywny i wpisz prosty warunek, np.::
 
     >>> if 2 > 1:
     ...
 
 Na razie nic się jeszcze nie wydarzyło, o czym świadczą kropki zamiast
-zachęty ``>>>`` którą dotąd widzieliśmy. Python oczekuje od nas dalszych
-instrukcji, które mają wyć wykonane jeśli warunek ``2 > 1`` okaże się
+zachęty ``>>>``, którą dotąd widzieliśmy. Python oczekuje od nas dalszych
+instrukcji, które mają być wykonane jeśli warunek ``2 > 1`` okaże się
 prawdziwy. Niech wypisze on "OK":
 
     >>> if 2 > 1:
@@ -644,12 +644,12 @@ programu::
     if bmi >= 25.0:
         print("nadwaga")
 
-Jednak użyliśmy jeszcze :keyword:`else` i :keyword:`elif` po to aby
+Jednak użyliśmy jeszcze :keyword:`else` i :keyword:`elif` aby
 nie musieć powtarzać podobnych warunków oraz zwiększyć czytelność.
 W bardziej skomplikowanych programach może nie być oczywiste na pierwszy
 rzut oka, że kolejny warunek jest przeciwieństwem poprzedniego.
 
-Korzystając z :keyword:`else` mamy gwarancję, że podane tam instrukcję
+Korzystając z :keyword:`else` mamy gwarancję, że podane tam instrukcje
 zostaną wykonane tylko jeśli nie zostały wykonane instrukcje wpisane
 pod :keyword:`if`::
 
@@ -665,7 +665,7 @@ pod :keyword:`if`::
             # już tego sprawdzać
             print("nadwaga")
 
-Zwróć szczególną uwagę na wcięcia ;) Każde użycie :keyword:`else`,
+Zwróć szczególną uwagę na wcięcia. ;) Każde użycie :keyword:`else`,
 będzie powodować, że nasz kod będzie coraz bardziej wcięty. Jest to
 bardzo uciążliwe, gdy mamy do sprawdzenia kilka czy kilkanaście
 wykluczających się warunków. Dlatego autorzy języka dodali drobne
@@ -690,7 +690,7 @@ Formatowanie napisów
 ====================
 
 Ostatnim problemem, o którym wspomnieliśmy, była zbyt duża ilość cyfr
-w wypisywanym BMI. Z wszystkich trzech, jest on najprostszy do rozwiązania
+w wypisywanym BMI. Ze wszystkich trzech jest on najprostszy do rozwiązania
 dlatego zostawiliśmy go sobie na koniec naszej "przygody" z kalkulatorem
 BMI.
 
@@ -753,7 +753,7 @@ Formatowanie
 
 Wracając do naszego programu: aktualnie jego wynik sprowadza się do
 jednej linijki. Teraz chcemy wypisać zarówno BMI jako
-liczbę oraz przedział w którym się mieści, tj.::
+liczbę oraz przedział, w którym się mieści, tj.::
 
     Twoje BMI jest równe: 21.39 (waga prawidłowa)
 
@@ -800,9 +800,9 @@ zmiennoprzecinkowym ``f`` jak **float**:
     'Napis: Ala, Liczby: 10 3.141500'
 
 Co prawda teraz, zamiast dziewięciu miejsc po przecinku zawsze dostajemy
-sześć, jednak formatowanie ma tą zaletę, że pozwala nam na większą
+sześć, jednak formatowanie ma tę zaletę, że pozwala nam na większą
 kontrolę poprzez wstawienie pomiędzy ``%`` a znak ``f`` dodatkowych
-informacji, np. jeśli chcemy aby wyświetlić tylko dwa miejsca po kropce:
+informacji, np. jeśli chcemy wyświetlić tylko dwa miejsca po kropce:
 
     >>> "%.2f" % 3.1415
     '3.14'
@@ -810,7 +810,7 @@ informacji, np. jeśli chcemy aby wyświetlić tylko dwa miejsca po kropce:
     '21.39'
 
 Opcji formatowania jest mnóstwo, więc nie będziemy ich tu wszystkich
-pokazywać. Jedna z bardziej przydatnych jest wyrównanie do
+pokazywać. Jedną z bardziej przydatnych jest wyrównanie do
 konkretnej liczby znaków:
 
 .. testcode::
@@ -855,7 +855,7 @@ Możemy też wyrównać napis do lewej dodając ``-`` przed liczbą znaków:
     | Pudzian         | 123.00 |
     ----------------------------
 
-Wyrównanie na środek pozostawiamy jako ćwiczenie dla czytelnika ;)
+Wyrównanie na środek pozostawiamy jako ćwiczenie dla czytelnika. ;)
 
 
 Podsumowanie
@@ -873,7 +873,7 @@ instrukcji :keyword:`if` (również w połączeniu z :keyword:`else` i :keyword:
 
 Umiemy stworzyć plik z programem i go uruchomić. Nasz program prosi
 użytkownika aby odpowiedział na kilka prostych pytań, wykonuje obliczenia
-i prezentuje w użytecznej dla niego formię.
+i prezentuje w użytecznej dla niego formie.
 
 Całkiem sporo jak na nasz pierwszy program. Przed nami jeszcze dużo pracy,
 ale jak najbardziej możemy być dumni z tego co udało nam się zrobić do
