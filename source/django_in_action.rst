@@ -736,7 +736,7 @@ która pozwala zrobić to w krótszy sposób::
   def index(request):
       latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
       return render_to_response('polls/index.html', {'latest_poll_list': latest_poll_list},
-                            context_instance=RequestContext(request)))
+                            context_instance=RequestContext(request))
 
 
 Zwracanie 404
