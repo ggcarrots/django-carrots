@@ -64,6 +64,12 @@ logowaniu (też w pliku ``settings.py``::
     LOGIN_REDIRECT_URL = '/polls/'  # tutaj ma trafić użytkownik zaraz po zalogowaniu
     LOGIN_ERROR_URL    = '/login/'
 
+W pliku ``settings.py`` odszukajmy jeszcze wpis ``SESSION_SERIALIZER`` i ustawmy go na nową wartość::
+
+    SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+    
+Jest to związane z ostatnimi zmianami w nowej wersji Django, do których nasz pakiet django-carrots nie zdążył się przystosować ;)
+
 Docelowo chcemy, aby nasza aplikacja potrafiła publikować wyniki ankiet.
 W tym celu potrzebne jest dodatkowe uprawnienie. Do pliku ``settings.py`` dopisujemy::
 
