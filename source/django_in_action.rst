@@ -501,7 +501,7 @@ Możemy też uzyskać dostęp do odpowiedzi (``Choice``) na pytania:
 
 .. code-block:: python
 
-    # Na razie nasza ankieta nie zawiera żadnych pytań. Dodajmy trochę!
+    # Na razie nasza ankieta nie zawiera żadnych odpowiedzi. Dodajmy trochę!
     >>> p.choice_set.all()
     []
 
