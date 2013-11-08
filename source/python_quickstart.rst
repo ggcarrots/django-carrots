@@ -33,7 +33,7 @@ Python świetnie sprawdza się jako kalkulator:
     2.5
 
 Należy zwrócić szczególną uwagę, że ułamki dziesiętne zapisujemy zgodnie
-z zasadami języka angielskiego, czyli z kropką zamiast przecinka.
+z zasadami języka angielskiego, czyli z kropką, a nie z przecinkiem.
 Przecinki będą nam służyły do definiowania :ref:`krotek <bmi-tuples>` (ang. ``tuple``),
 ale o tym później.
 
@@ -66,11 +66,11 @@ oraz mnożyć przez liczby całkowite:
     >>> 'Hastur' * 3
     'HasturHasturHastur'
 
-Napis zawsze musi się zaczynać i kończyć tym samym znakiem.  Może to
+Napis zawsze musi zaczynać się i kończyć tym samym znakiem.  Może to
 być apostrof (``'``) albo cudzysłów (``"``). Nie ma to wpływu na
 wartość napisu, tzn. wpisując ``"Batman"`` tworzymy napis ``Batman`` -
 cudzysłowowy nie są jego częścią, służą jedynie wskazaniu, że jest to
-napis (niestety Python nie jest aż tak sprytny aby się tego domyślić).
+napis (niestety, Python nie jest aż tak sprytny, aby się tego domyślić).
 
 
 Drukowanie napisów
@@ -100,7 +100,7 @@ są liczby:
     2 + 2 = 4
 
 Na razie na tym skończymy naszą pracę z konsolą interaktywną. Aby z niej
-wyjść wpisz poprostu `quit()`::
+wyjść, wpisz poprostu `quit()`::
 
     >>> quit()
 
@@ -108,7 +108,7 @@ wyjść wpisz poprostu `quit()`::
 Pliki źródłowe
 ==============
 
-Dotąd cały nasz kod wykonywany był w tzw. trybie interaktywnym, gdzie
+Do tej pory cały nasz kod wykonywany był w tzw. trybie interaktywnym, w którym
 podajemy komendy pojedynczo i natychmiast dostajemy na nie odpowiedź.
 Jest to świetny sposób na eksperymentowanie i poznawanie nowych elementów
 języka, więc jeszcze do niego wrócimy.
@@ -118,7 +118,7 @@ Nasz pierwszy program może wyglądać tak::
     print("Cześć, mam na imię Łukasz.")
 
 Zapisz ten program w pliku ``wizytowka.py``, a następnie uruchom go z linii poleceń
-wykonująć ``python wizytowka.py``:
+wykonując ``python wizytowka.py``:
 
 .. code-block:: sh
 
@@ -137,7 +137,7 @@ się w osobnej linii, np.::
     print("")
     print("Papa.")
 
-Puste linie nic nie robią, ale pozwalają oddzielić wizualnie różne części
+Puste linie pozwalają oddzielić wizualnie różne części
 programu, tak aby ułatwić rozczytanie jego treści. Tutaj rozdzieliliśmy
 nagłówek wiadomości od jej treści i zakończenia.
 
@@ -145,7 +145,7 @@ nagłówek wiadomości od jej treści i zakończenia.
 Kalkulator BMI
 ==============
 
-Teraz napiszemy prosty program do obliczania `BMI` (`Body Mass Index`_).
+Teraz napiszemy prosty program do kalkulacji `BMI` (`Body Mass Index`_).
 Formuła do jego obliczenia jest następująca:
 
     BMI = (masa w kg) / (wzrost w metrach) do kwadratu
@@ -167,13 +167,13 @@ W wyniku dostaniemy:
 
     Twoje BMI to: 21.387755102
 
-Jak widać nasz program ma kilka problemów:
+Jak widać, nasz program wymaga jeszcze nieco pracy:
 
 1. Jeśli ktoś inny chciałby skorzystać z tego programu, musi on
    zmienić jego treść. W dodatku musi się domyślić, które wartości
    ma zmienić.
 
-2. Osobie, która nie zna na pamięć tabelki BMI wartość `21.387755102`
+2. Osobie, która nie zna na pamięć tabelki BMI, wartość `21.387755102`
    nic nie powie.
 
 3. Wypisywanie tylu miejsc po przecinku jest zbędne. BMI mierzy
@@ -190,9 +190,9 @@ Nazwy
 
 Spróbujmy więc rozwiązać pierwszy problem. Na początek chcielibyśmy,
 aby nasz program był bardziej czytelny, tj. aby dla czytającego
-było oczywiste która wartość to waga, a która wzrost.
+było oczywiste, która wartość to waga, a która wzrost.
 
-W tym celu nadamy tym wartościom nazwy:
+Dlatego nadamy tym wartościom nazwy::
 
 .. testcode::
 
@@ -202,14 +202,14 @@ W tym celu nadamy tym wartościom nazwy:
     bmi = weight / height**2
     print("Twoje BMI to:", bmi)
 
-Wynik działania programu się nie zmienił:
+Wynik działania programu się nie zmienił::
 
 .. testoutput::
 
     Twoje BMI to: 21.387755102
 
 
-Aby lepiej zrozumieć jak działają nazwy wróćmy na chwilę do trybu
+Aby lepiej zrozumieć działanie nazw, wróćmy na chwilę do trybu
 interaktywnego i nadajmy kilka nazw:
 
     >>> x = 42
@@ -218,14 +218,14 @@ interaktywnego i nadajmy kilka nazw:
     >>> print("Rzeczy:", x, PI, name)
     Rzeczy: 42 3.1415 Amelia
 
-Możemy też nadać wiele nazw tej samej wartości:
+Możemy nadać wiele nazw tej samej wartości:
 
     >>> y = x
     >>> print(x, y)
     42 42
 
 Możemy też dowolnie zmieniać wartość przypisaną do nazwy. Nie musi
-ona być tego samego typu co poprzednio:
+ona być tego samego typu, co poprzednio:
 
     >>> x = 13
     >>> print(x)
@@ -242,24 +242,24 @@ nową wartość, jednak wartość przypisana do ``y`` pozostaje bez zmian:
 
 .. note:: Dla znających inne języki.
 
-    Pewnie dziwi Cię dlaczego nie używamy pojęcia "zmienna". To dlatego,
+    Pewnie dziwi Cię, dlaczego nie używamy pojęcia "zmienna". To dlatego,
     że nazwy w Pythonie nie działają tak samo jak zmienne. W większości
     języków operacja ``y = x`` stworzyłaby kopię wartości ``x``
     i wstawiła ją do zmiennej ``y``.
 
     W Pythonie nic nie jest po kryjomu kopiowane. ``y`` staje się jedynie
-    alternatywną nazwą do tej samej wartości. Jeśli zmienimy tę wartość,
-    zarówno ``x`` jak i ``y`` pokażą to samo.
+    alternatywną nazwą dla tej samej wartości. Jeśli zmienimy tę wartość,
+    tak ``x``, jak i ``y`` pokażą to samo.
 
-    W naszym przykładzie nie zmieniliśmy wartości liczby ``42``, lecz
+    W naszym przykładzie nie zmieniliśmy wartości liczby ``42``, a
     jedynie wartość przypisaną do ``x`` (w szczególności wartości
-    liczb są niezmienne, choć w 1897 w izba niższa stanu Indiana
-    zatwiedziła zmianę wartości liczby π na ``3``; wniosek
+    liczb są niezmienne, choć w 1897 r. izba niższa stanu Indiana
+    zatwiedziła zmianę wartości liczby ? na ``3`` - wniosek
     upadł dopiero w Senacie). Dlatego ``print(y)`` da nam ``42``.
 
 
 Jak już widzieliśmy w naszym programie, nazwy możemy nadawać też
-wynikom obliczeń oraz używać w obliczeniach:
+wynikom obliczeń oraz używać nazw w obliczeniach:
 
     >>> w = 65.5
     >>> h = 175.0 / 100.0
@@ -273,14 +273,14 @@ Jednak raz wyliczona wartość się nie zmienia:
     >>> print(w, h, bmi)
     64 1.75 21.387755102
 
-Dopóki nie każemy Pythonowi wyliczyć jej ponownie:
+dopóki nie każemy Pythonowi wyliczyć jej ponownie:
 
     >>> bmi = w / h**2
     >>> print(w, h, bmi)
     64 1.75 20.8979591837
 
 Na koniec tego rozdziału dodamy kilka komentarzy
-do naszego programu, aby użytkownik (i my sami) pamiętał, że wagę
+do naszego programu, aby użytkownik (włącznie z nami!) pamiętał, że wagę
 należy podać w kilogramach.
 
 Komentarzem w Pythonie jest wszystko po znaku ``#`` aż do końca linii::
@@ -297,19 +297,19 @@ Komentarzem w Pythonie jest wszystko po znaku ``#`` aż do końca linii::
 Wywoływanie funkcji
 ===================
 
-Nasz program wygląda już całkiem nieźle, ale użytkownik chcąc policzyć
-swoje BMI nadal musi zmieniać treść programu. Wygodniej byłoby, gdyby
+Nasz program wygląda już całkiem nieźle, ale użytkownik, chcąc policzyć
+swoje BMI, nadal musi zmieniać treść programu. Wygodniej byłoby, gdyby
 po uruchomieniu programu mógł wpisać wymagane wartości w konsoli
-i otrzymać z powrotem swoje BMI.
+i odczytać swoje BMI.
 
-Aby móc napisać taki program, musimy nauczyć się posługiwać funkcjami.
-Pierwszą, która poznamy będzie :func:`help`:
+Aby móc napisać taki program, musimy nauczyć się operowania funkcjami.
+Pierwszą, która poznamy, będzie :func:`help`:
 
     >>> help
     Type help() for interactive help, or help(object) for help about object.
 
-:func:`help` jest bardzo przyjazną funkcją, bo sama nam mówi jak powinniśmy jej
-używać. Jest też nam w stanie powiedzieć jak używać innych funkcji:
+:func:`help` jest bardzo przyjazną funkcją, bo sama nam mówi, jak powinniśmy jej
+używać. Pomaga też w zrozumieniu innych funkcji:
 
     >>> help(input)  # doctest: +SKIP
     Help on built-in function input in module builtins:
@@ -323,7 +323,7 @@ używać. Jest też nam w stanie powiedzieć jak używać innych funkcji:
         is printed without a trailing newline before reading.
 
 Właśnie :func:`input` będziemy używać do wczytywania danych od użytkownika.
-Zgodnie z opisem wczytuje ona napis::
+Jak czytamy w opisie, wczytuje ona napis::
 
 .. TODO : wywołanie funkcji a funkcja, trzeba dopisać "()".
 
@@ -331,7 +331,7 @@ Zgodnie z opisem wczytuje ona napis::
     ala ma kota
     'ala ma kota'
 
-Funkcja ta będzie bardziej użyteczna jeśli zapamiętamy wczytany
+Funkcja ta będzie bardziej użyteczna, jeśli zapamiętamy wczytany
 napis pod jakąś nazwą::
 
     >>> name = input()
@@ -358,12 +358,12 @@ Czy to już wystarcza nam do poprawienia programu?
       File "<stdin>", line 1, in <module>
     TypeError: Can't convert 'int' object to str implicitly
 
-Jak widać Python nie wie o co nam chodzi i jakiego właściwie wyniku
+Jak widać, Python nie wie, o co nam chodzi i jakiego właściwie wyniku
 oczekujemy. Jak pokazaliśmy wcześniej, zarówno napisy (``str``), jak i liczby (``int``)
-można do siebie dodawać. Tak więc czy chodzi nam o liczbę ``63.5``, czy
-o napis ``"60.53"``? Tylko my to wiemy i musimy zawrzeć tę informację w programie.
+można do siebie dodawać. Python nie wie, czy chodzi nam o liczbę ``63.5``, czy
+o napis ``"60.53"``. Tylko my to wiemy i musimy zawrzeć tę informację w programie.
 
-Poznajmy, więc dwie kolejne funkcję:
+Poznajmy więc dwie kolejne funkcje:
 
     >>> help(int)  # doctest: +NORMALIZE_WHITESPACE
     Help on class int in module builtin:
@@ -373,7 +373,7 @@ Poznajmy, więc dwie kolejne funkcję:
     |
     |  Convert a string or number to an integer, if possible. ...
 
-oraz:
+oraz
 
     >>> help(float)  # doctest: +NORMALIZE_WHITESPACE
     Help on class float in module builtin:
@@ -413,12 +413,12 @@ Zanim skorzystamy z nowo poznanych funkcji w naszym programie,
 skonstruujmy oczekiwany plan jego działania:
 
 1. Poproś użytkownika o podanie wzrostu
-2. Wczytaj od użytkownika napis i zapamiętaj go pod jakąś nazwą ``height``
+2. Wczytaj od użytkownika napis i zapamiętaj go pod nazwą ``height``
 3. Zamień napis na liczbę z ułamkiem
 4. Poproś użytkownika o podanie wagi
 5. Wczytaj od użytkownika napis i zapamiętaj pod nazwą ``weight``
 6. Zamień napis na liczbę z ułamkiem
-7. Korzystając z zapamiętanych wartości oblicz BMI i zapamiętaj jako ``bmi``
+7. Korzystając z zapamiętanych wartości, oblicz BMI i zapamiętaj jako ``bmi``
 8. Wypisz obliczone BMI
 
 
@@ -454,14 +454,14 @@ przełożyć na osiem linii naszego programu (nie licząc odstępów):
 
 Podsumowując: aby wywołać funkcję, musimy znać jej nazwę (poznaliśmy
 dotąd cześć: :func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float` i :func:`quit`),
-oraz jakich danych ona od nas oczekuje (tzw. lista argumentów).
+oraz wiedzieć, jakich danych ona od nas oczekuje (tzw. lista argumentów).
 
 Podanie samej nazwy nie wywoła funkcji, powie nam jedynie, że to funkcja:
 
     >>> input  # doctest: +SKIP
     <built-in function input>
 
-Aby wywołać funkcję musimy dopisać nawiasy po jej nazwie:
+Aby wywołać funkcję, musimy dopisać nawiasy po jej nazwie:
 
     >>> input()
 
@@ -477,8 +477,8 @@ rozdzielamy je przecinkiem:
 Sprawdzanie warunków
 ====================
 
-Przejdźmy do naszego następnego problemu. Chcemy aby nasz program
-wypisał odpowiednią dla obliczonego BMI klasyfikację korzystając z poniższej tabeli:
+Przejdźmy do naszego następnego problemu. Chcemy, aby nasz program, korzystając z poniższej tabeli, 
+wypisał odpowiednią dla obliczonego BMI klasyfikację:
 
 
 =====================   ==================
@@ -524,7 +524,7 @@ wykonuje dalszą część programu pod podanym warunkiem:
     65.5
     waga prawidłowa
 
-Porównania, prawda czy fałsz?
+Porównania: prawda czy fałsz?
 -----------------------------
 
 Pierwszym elementem, o którym jeszcze nie wspomnieliśmy, są porównania.
@@ -543,8 +543,8 @@ Dla liczb działają one identycznie jak na lekcjach matematyki:
     >>> -1 != 0
     True
 
-Wynikiem porównania jest zawsze ``True`` albo ``False``. Można je łączyć
-w bardziej skomplikowane warunki za pomocą słów :keyword:`and` oraz
+Wynikiem porównania jest zawsze ``True`` albo ``False``. 
+Porównania można łączyć w bardziej skomplikowane warunki za pomocą słów :keyword:`and` oraz
 :keyword:`or`:
 
     >>> x = 5
@@ -571,8 +571,8 @@ Otwórz tryb interaktywny i wpisz prosty warunek, np.::
 
 Na razie nic się jeszcze nie wydarzyło, o czym świadczą kropki zamiast
 zachęty ``>>>``, którą dotąd widzieliśmy. Python oczekuje od nas dalszych
-instrukcji, które mają być wykonane jeśli warunek ``2 > 1`` okaże się
-prawdziwy. Niech wypisze on "OK":
+instrukcji, które mają być wykonane, jeśli warunek ``2 > 1`` okaże się
+prawdziwy. Sprawmy, żeby wypisał "OK":
 
     >>> if 2 > 1:
     ... print("OK")
@@ -581,9 +581,9 @@ prawdziwy. Niech wypisze on "OK":
             ^
     IndentationError: expected an indented block
 
-Niestety, nie udało się nam. Python musi wiedzieć czy instrukcja, którą
-wpisaliśmy, jest kontynuacją :keyword:`if` czy kolejną instrukcją nie
-objętą warunkiem. W tym celu musimy wciąć nasz kod:
+Niestety, nie udało się nam. Python musi wiedzieć, czy instrukcja, którą
+wpisaliśmy, jest kontynuacją :keyword:`if` czy kolejną instrukcją nieobjętą warunkiem. 
+W tym celu musimy wciąć nasz kod:
 
     >>> if 2 > 1:
     ...  print("OK")
@@ -630,7 +630,7 @@ na każdy poziom wcięcia. My też będziemy tak robić:
     DONE
 
 
-Co jeśli nie?
+Co, jeśli nie?
 -------------
 
 Samo :keyword:`if` właściwie by nam wystarczyło do napisania naszego
@@ -644,7 +644,7 @@ programu::
     if bmi >= 25.0:
         print("nadwaga")
 
-Jednak użyliśmy jeszcze :keyword:`else` i :keyword:`elif` aby
+Jednak użyliśmy jeszcze :keyword:`else` i :keyword:`elif`, aby
 nie musieć powtarzać podobnych warunków oraz zwiększyć czytelność.
 W bardziej skomplikowanych programach może nie być oczywiste na pierwszy
 rzut oka, że kolejny warunek jest przeciwieństwem poprzedniego.
@@ -682,7 +682,7 @@ od razu sprawdzić kolejny warunek::
         # n >= 1 i n>= 2, ale n < 3
         print("trzy")
     else:
-        # trole umieją liczyć jedynie do trzech
+        # trolle umieją liczyć jedynie do trzech
         print("dużo")
 
 
@@ -690,7 +690,7 @@ Formatowanie napisów
 ====================
 
 Ostatnim problemem, o którym wspomnieliśmy, była zbyt duża ilość cyfr
-w wypisywanym BMI. Ze wszystkich trzech jest on najprostszy do rozwiązania
+w wypisywanym BMI. Ze wszystkich trzech jest on najprostszy do rozwiązania,
 dlatego zostawiliśmy go sobie na koniec naszej "przygody" z kalkulatorem
 BMI.
 
@@ -717,8 +717,8 @@ w liczbach, bo będzie nam potrzebny później do krotek. A oto i one:
     (1, 5)
 
 Krotka to nic innego jak kilka wartości zgrupowanych w jedną. Wartości,
-które chcemy zgrupować rozdzielamy przecinkami. Całość może być otoczona
-nawiasami dla czytelności, ale nie musi. Z wyjątkiem przypadku, gdy
+które chcemy zgrupować, rozdzielamy przecinkami. Dla zwiększenia czytelności możemy całość otoczyć
+nawiasami, ale nie jest to konieczne - z wyjątkiem przypadku, gdy
 chcemy zgrupować zero elementów (jakkolwiek dziwnie może to brzmieć):
 
     >>> ()
@@ -758,8 +758,8 @@ liczbę oraz przedział, w którym się mieści, tj.::
     Twoje BMI jest równe: 21.39 (waga prawidłowa)
 
 Zmodyfikuj aktualny program tak, aby obliczone BMI było dostępne pod
-nazwą ``bmi``, a nazwa przedziału pod nazwą ``category``. Wtedy aby
-uzyskać pożądany wynik możemy użyć :func:`print`:
+nazwą ``bmi``, a nazwa przedziału pod nazwą ``category``. Wtedy będziemy mogli użyć :func:`print` 
+i uzyskać pożądany wynik:
 
 .. testsetup::
 
@@ -790,7 +790,7 @@ Na szczęście jest lepszy sposób:
 
 Mamy tutaj napis i krotkę połączone znakiem ``%``. Napis jest szablonem,
 który będziemy wypełniać wartościami z krotki. Miejsca do wstawienia
-oznaczone są również procentem (``%``). Litera, która następuję po nim
+oznaczone są również procentem (``%``). Następująca po nim litera
 określa jakiego rodzaju wartość będziemy chcieli wstawić w to miejsce.
 I tak, liczbom całkowitym odpowiada ``i`` jak **integer** (zamiennie używa się
 też ``d`` jak **decimal**), napisom ``s`` jak **string**, a liczbom
@@ -799,7 +799,7 @@ zmiennoprzecinkowym ``f`` jak **float**:
     >>> "Napis: %s, Liczby: %d %f" % ("Ala", 10, 3.1415)
     'Napis: Ala, Liczby: 10 3.141500'
 
-Co prawda teraz, zamiast dziewięciu miejsc po przecinku zawsze dostajemy
+Teraz zamiast dziewięciu miejsc po przecinku zawsze dostajemy
 sześć, jednak formatowanie ma tę zaletę, że pozwala nam na większą
 kontrolę poprzez wstawienie pomiędzy ``%`` a znak ``f`` dodatkowych
 informacji, np. jeśli chcemy wyświetlić tylko dwa miejsca po kropce:
@@ -865,15 +865,15 @@ W tym rozdziale poznaliśmy podstawy składni Pythona. Wiemy jak
 zapisać liczby całkowite, liczby zmiennoprzecinkowe, napisy oraz
 krotki z nich złożone.
 
-Poznaliśmy funkcję :func:`print`, która wypisuje informację
+Poznaliśmy funkcję :func:`print`, która wypisuje informacje
 użytkownikowi oraz funkcję :func:`input`, która je od niego wczytuje.
 
 Wiemy też, że wcięcia mogą mieć znaczenie, szczególnie gdy chcemy użyć
 instrukcji :keyword:`if` (również w połączeniu z :keyword:`else` i :keyword:`elif`).
 
 Umiemy stworzyć plik z programem i go uruchomić. Nasz program prosi
-użytkownika aby odpowiedział na kilka prostych pytań, wykonuje obliczenia
-i prezentuje w użytecznej dla niego formie.
+użytkownika, aby odpowiedział na kilka prostych pytań, wykonuje obliczenia
+i prezentuje wynik w użytecznej dla niego formie.
 
 Całkiem sporo jak na nasz pierwszy program. Przed nami jeszcze dużo pracy,
 ale jak najbardziej możemy być dumni z tego co udało nam się zrobić do
