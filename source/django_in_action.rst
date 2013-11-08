@@ -532,14 +532,14 @@ Możemy też uzyskać dostęp do odpowiedzi (``Choice``) na pytania:
 
 
 
-Wyswietlanie stron internetowych
+Wyświetlanie stron internetowych
 ================================
 
 Wejście pod główny adres http://localhost:8000/ nadal powoduje wyświetlenie brzydkiej strony błędu. Nie może tak dalej
 być!
 
 Dobrze jest zacząć pracę nad nowym serwisem internetowym od przemyślenia struktury URLi (adresów). Wiemy, ze będziemy
-chcieli wyświetlić listę wszystkich ankiet na stronie, pozwolic użytkownikom zagłosowac oraz wyświetlić zbiorcze wyniki
+chcieli wyświetlić listę wszystkich ankiet na stronie, pozwolić użytkownikom zagłosować oraz wyświetlić zbiorcze wyniki
 ankiety.
 
 Jeszcze raz otwórzmy plik ``urls.py`` i dodajmy cztery nowe wpisy, ostatecznie plik powinien wyglądać następująco::
@@ -560,7 +560,7 @@ Jeszcze raz otwórzmy plik ``urls.py`` i dodajmy cztery nowe wpisy, ostatecznie 
 Przyjrzyjmy się temu przykładowi raz jeszcze. Każdy argument przekazany do funkcji ``patterns`` (poza pierwszym, ale
 o tym potem) określa nam wzorzec URL (adresu). Wzorzec ten zapisany jest za pomocą
 `wyrażenia regularnego <http://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne#Wyra.C5.BCenia_regularne_w_praktyce>`_.
-Jest to trudne techniczne określenie na malutki język,służący do zwięzłej reprezentacji wzorćów tekstu.
+Jest to trudne techniczne określenie na malutki język, służący do zwięzłej reprezentacji wzorców tekstu.
 
 Kiedy użytkownik próbuje wejść na określony adres na naszej stronie, taki jak http://localhost:8000/polls/1/
 Django wybiera część URL po trzecim ukośniku (w tym przypadku ``polls/1/``)  i próbuje ją kolejno dopasować do wyrazeń
@@ -585,13 +585,13 @@ Kiedy próbujemy do niego dopasować tekst (nadal myślimy o ``polls/1/``), musi
    * Istnieje skrótowa notacja dla takich grup. Zamiast wypisywać wszystkie małe litery alfabetu, możemy napisac ``[a-z]``
      aby dopasować dowolną jedną małą literę. Tak samo dla dużych liter ``[A-Z]`` lub cyfr ``[0-9]``.
    * Dopasować jedną cyfrę można jeszcze krócej, używając znaczka ``\d``.
-   * Jeżeli po dowolnym z powyższych wyrażeń postawimy znak ``?``, zostanie ono potraktowane jako *opcjonalne*. Oznacze
-     to, ze jeżeli w ciągu dopasowywanym nie będzie takiego wyrażenia, nadal będzie mozliwe jego dopasowanie. Jeżeli
+   * Jeżeli po dowolnym z powyższych wyrażeń postawimy znak ``?``, zostanie ono potraktowane jako *opcjonalne*. Oznacza
+     to, ze jeżeli w ciągu dopasowywanym nie będzie takiego wyrażenia, nadal będzie możliwe jego dopasowanie. Jeżeli
      będzie, zostanie dopasowane.
    * Jeżeli po wyrażeniu postawimy znak ``*`` dopasuje się ono z dowolną ilością powtorzeń wyrażenia (wliczając w to zero
      powtórzeń, czyli tak jakby bylo *opcjonalne*).
    * Jeżeli po wyrażeniu postawimy znak ``+`` dopasuje się ono z dowolną ilością powtórzeń wyrażenia, z wyjątkiem zera
-     powtórzen (tzn. wyrażenie musi wystąpić conajmniej raz).
+     powtórzeń (tzn. wyrażenie musi wystąpić co najmniej raz).
    * Jeżeli kilka znaków obejmiemy nawiasami zwykłymi, np. tak ``(\d\d)`` zostaną one potraktowane jako grupa i wszystkie
      powyższe modyfikatory będą na nie działały w całości. Jeżeli dodatkowo napiszemy to z ``(?P<NAZWA>napis)``, grupa
      zostanie nazwana i będzie się do niej można potem odwołać pod nazwą ``NAZWA``. Jest to bardzo popularne przy pracy w
@@ -604,7 +604,7 @@ Czy widzisz już, ze przykładowe wyrażenie dopasuje się do ``polls/1/``? Dlac
 
 Kiedy już Django znajdzie dopasowanie, popatrzy na drugą część linii. Określa ona widok, który ma być wywołany w celu
 utworzenia strony dla użytkownika. Dla ``polls/1/`` będzie to ``polls.views.detail``. Wszystkie nazwane grupy zostaną
-przekazane widokowi jako argumenty o tej samej nazwie, tak jakby wywolać z konsoli:
+przekazane widokowi jako argumenty o tej samej nazwie, tak jakby wywołać z konsoli:
 
 .. code-block:: python
 
@@ -621,8 +621,8 @@ dobrze::
 
   Could not import polls.views.detail. View does not exist in module polls.views.
 
-Ach, to dlatego, ze nie zdefiniowalismy jeszcze widoku (Django podpowiada nam, że szukało ``polls.views.detail``,
-niestety pod powodzenia)! Otworzmy w tym celu plik `polls/views.py` i dodajmy kilka nowych funkcji::
+Ach, to dlatego, że nie zdefiniowaliśmy jeszcze widoku (Django podpowiada nam, że szukało ``polls.views.detail``,
+niestety bez powodzenia)! Otworzmy w tym celu plik `polls/views.py` i dodajmy kilka nowych funkcji::
 
   from django.http import HttpResponse
 
@@ -638,15 +638,15 @@ niestety pod powodzenia)! Otworzmy w tym celu plik `polls/views.py` i dodajmy ki
   def vote(request, poll_id):
       return HttpResponse("You're voting on poll %s." % poll_id)
 
-Tak wygladają najprostsze możliwe widoki. Nie zwracają one zwykłych ciagow znaków, tak jak funkcja budująca choinkę w
-Pythonie, bo muszą mówić protokołem HTTP, który jest nieco bardziej skomplikowany (tutaj dobrze byłoby zobaczyc w
-przeglądarce, co się tak naprawde dzieje, gdy wchodzimy pod adres http://localhost:8000/polls/1/).
+Tak wyglądają najprostsze możliwe widoki. Nie zwracają one zwykłych ciągów znaków, tak jak funkcja budująca choinkę w
+Pythonie, bo muszą mówić protokołem HTTP, który jest nieco bardziej skomplikowany (tutaj dobrze byłoby zobaczyć w
+przeglądarce, co się tak naprawdę dzieje, gdy wchodzimy pod adres http://localhost:8000/polls/1/).
 
 
 Widok, który naprawdę coś robi
 ==============================
 
-Nasze widoki na razie nie robią zbyt wiele. Dajmy im troche popracowac!
+Nasze widoki na razie nie robią zbyt wiele. Dajmy im trochę popracować!
 
 Wszystko czego Django potrzebuje od widoku to obiekt
 `HttpResponse <https://docs.djangoproject.com/en/1.4/ref/request-response/#django.http.HttpResponse>`_
