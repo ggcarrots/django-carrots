@@ -2,12 +2,12 @@
 Uspołeczniamy się
 =================
 
-Aby tworzyć aplikacje, które integrują się z Facebookiem musimy mieć konto deweloperskie.
+Aby tworzyć aplikacje, które integrują się z Facebookiem, musimy mieć konto deweloperskie.
 W tym celu musimy wejść na stronę dla programistów (`Facebook developers`_).
 Tam klikamy na ``Zarejestruj się teraz``, a następnie ``zweryfikuj swoje konto``.
 Na kolejnej stronie zostaniemy poproszeni o podanie swojego numeru telefonu w celu weryfikacji.
 
-Gdy zweryfikujemy swoje konto możemy stworzyć naszą pierwszą aplikację dla Facebooka.
+Gdy zweryfikujemy swoje konto, możemy stworzyć naszą pierwszą aplikację dla Facebooka.
 Na stronie dla programistów klikamy zakładkę ``Apps``, a następnie ``Utwórz aplikację``.
 
 Teraz musimy podać nazwę aplikacji (``Nazwa aplikacji``). Pozostałe pola (``App Namespace`` oraz ``Web Hosting``)
@@ -78,14 +78,14 @@ W tym celu potrzebne jest dodatkowe uprawnienie. Do pliku ``settings.py`` dopisu
 Prośba o to uprawnienie (``publish_stream``) jest wysyłana do Facebooka, a użytkownik musi je zaakceptować
 zanim użyje naszej aplikacji.
 
-oraz dopisać linijkę do pliku ``urls.py``::
+Musimy też dopisać linijkę do pliku ``urls.py``::
 
     urlpatterns = patterns('',
         ...
         url(r'^', include('account.urls')),
     )
 
-Tyle jeżeli chodzi o konfigurację, teraz możemy uruchomić syncdb:
+Tyle, jeżeli chodzi o konfigurację, teraz możemy uruchomić syncdb:
 
 .. code-block:: sh
 
@@ -113,7 +113,7 @@ Ankiety na Facebook`u
 
 Aplikacja ``account`` zawiera pomocniczą funkcję ``publish_to_facebook`` pozwalającą publikować na wallu
 danego użytkownika. Potrzebne będą nam dwie rzeczy: użytkownik, który wysłał głos oraz tekst, który chcemy opublikować.
-Użytkownik jest dostępny poprzez request jako ``request.user``, a tekst pozostawiam kreatywności uczestniczek.
+Użytkownik jest dostępny poprzez request jako ``request.user``, a tekst pozostawiam kreatywności uczestniczek i uczestników.
 Widok ``vote`` powinien ostatecznie wyglądać tak (linie pogrubione zostały dopisane):
 
 .. code-block:: python
@@ -143,8 +143,8 @@ Widok ``vote`` powinien ostatecznie wyglądać tak (linie pogrubione zostały do
 Wymaganie logowania
 ===================
 
-Ostatnia poprawką, którą powinniśmy wprowadzić, to wymuszenie zalogowania się przez użytkownika.
-Głosować powinny móc tylko osoby, które się zalogowały, osoby nie zalogowane powinny zostać
+Ostatnia poprawka, którą powinniśmy wprowadzić, to wymuszenie zalogowania się przez użytkownika.
+Głosować powinny móc tylko osoby, które się zalogowały, osoby niezalogowane powinny zostać
 przeniesione na stronę logowania.
 
 Można ten efekt uzyskać dodając dekorator `login_required` do widoku `vote`:
@@ -162,10 +162,10 @@ Można ten efekt uzyskać dodając dekorator `login_required` do widoku `vote`:
     def vote(request, poll_id):
         #...
 
-Wdrozenie
+Wdrożenie
 =========
 
-Dokumentacja zostala wdrozona przez `niezwykly serwer Megiteam <http://www.megiteam.pl/pomoc/djangocarrots/>`_ :-)
+Dokumentacja została wdrożona przez `niezwykły serwer Megiteam <http://www.megiteam.pl/pomoc/djangocarrots/>`_ :-)
 
 .. _developers.facebook.com: https://developers.facebook.com/apps
 
