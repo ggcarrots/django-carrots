@@ -2,9 +2,9 @@
 Instalacja
 ==========
 
-Na potrzeby naszych warsztatów będzie nam potrzebny interpreter języka
-Python w wersji 3.2 lub 3.3. Poniżej znajdują się wskazówki jak
-sprawdzić czy już go nie mamy, ewentualnie zainstalować wraz z
+Na potrzeby warsztatów będzie nam potrzebny interpreter języka
+Python w wersji 3.2 lub 3.3. Poniżej znajdują się wskazówki, jak
+sprawdzić, czy już go nie mamy, ewentualnie zainstalować wraz z
 przydatnymi narzędziami.
 
 Windows
@@ -12,14 +12,14 @@ Windows
 
 Wersje dla Windows można pobrać bezpośrednio ze strony `python.org`_.
 Po ściągnięciu pliku ``*.exe`` uruchom go i postępuj zgonie z instrukcjami.
-Ważne jest aby zapamiętać ścieżkę, którą wybraliśmy jako katalog instalaji,
+Ważne jest, aby zapamiętać ścieżkę, którą wybraliśmy jako katalog instalaji,
 bo będzie nam ona potrzebna przy :ref:`instalacji narzędzi <narzędzia>`.
 
 
 Linux (Ubuntu, Fedora, etc.) lub Mac
 ====================================
 
-Aby sprawdzić czy i jaką wersję mamy wpisz w linii poleceń:
+Aby sprawdzić, czy i jaką wersję mamy, wpisz w linii poleceń:
 
 .. code-block:: sh
 
@@ -27,7 +27,7 @@ Aby sprawdzić czy i jaką wersję mamy wpisz w linii poleceń:
     Python 3.3.1
 
 
-Jeśli nie ma dostępnej komendy python, lub wypisuję ona nieodpowiednią wersję.
+Jeśli nie ma dostępnej komendy python lub wyświetla ona nieodpowiednią wersję:
 
 Ubuntu
 ------
@@ -46,17 +46,17 @@ W linii poleceń wpisz::
 OS X
 ----
 
-Ściągnij i zainstaluj paczkę dla twojej wersji systemu ze strony `python.org`_.
+Ze strony `python.org`_ ściągnij i zainstaluj paczkę dla Twojej wersji systemu.
 
 
 Inne
 ----
 
-Użyj systemu paczek odpowiedniego dla twojej dystrybucji. Jeśli takiego nie ma
-lub nie możesz znaleźć Python'a, to możesz go zainstalować używając źródeł
+Użyj systemu paczek odpowiedniego dla Twojej dystrybucji. Jeśli takiego nie ma
+lub nie możesz znaleźć Pythona, to możesz go zainstalować, używając źródeł
 za strony `python.org`_. Wymagany będzie kompilator i biblioteka readline.
 
-Po cichu zakładamy, że użytkownicy mniej popularnych (nie znaczy gorszych)
+Po cichu zakładamy, że użytkownicy mniej popularnych (nie znaczy, że gorszych)
 dystrybucji na pewno sobie poradzą z tym zadaniem :).
 
 
@@ -70,7 +70,7 @@ Linia poleceń Windows
 ---------------------
 
 Większość pracy będziemy wykonywać z linii poleceń. Aby uruchomić linię
-poleceń Windows kliknij ``Start`` a następnie ``Uruchom...``. W otwartym oknie
+poleceń Windows, kliknij ``Start``, a następnie ``Uruchom...``. W otwartym oknie
 wpisz ``cmd`` i kliknij ``OK``. Pojawi się nowe okno z białym tekstem na
 czarnym tle:
 
@@ -88,7 +88,7 @@ aktualnie się znajdujemy oraz czeka na podanie polecenia. W dalszej części
 warsztatów ``C:\Users\Imie>`` będziemy czasem skracać do  ``~$``, niezależnie
 od używanego systemu (Windows, Linux, MacOS).
 
-Z linii poleceń można poruszać się po zawartości dysku (podobnie jak po
+Z pomocą linii poleceń można poruszać się po zawartości dysku (podobnie jak po
 wejściu w ``Mój komputer``). Służą do tego polecenia:
 
 ``dir``
@@ -97,31 +97,30 @@ wejściu w ``Mój komputer``). Służą do tego polecenia:
     naszego katalogu domowego.
 
 ``cd katalog``
-    Zmiana aktualnego katalogu. Przykładowo będąc w katalogu ``C:\Users\Imie``,
-    wykonanie ``cd Documents`` spowoduje wejście do katalogu z naszymi
-    dokumentatmi. Możesz teraz sprawdzić co spowoduje wykonanie polecenia ``dir``
-    i widzisz coś znajomego.
+    Służy do zmiany aktualnego katalogu. Przykładowo, jeśli jesteśmy w katalogu ``C:\Users\Imie``,
+    wykonanie ``cd Documents`` przeniesie nas do katalogu z naszymi
+    dokumentatmi. Jeśli teraz wykonasz polecenia ``dir``, zobaczysz coś znajomego.
 
-    Polecenie ``cd..`` spowoduje przejście do wyższego katalogu.
+    Polecenie ``cd..`` powoduje przejście do katalogu poziom wyżej.
 
 ``mkdir katalog``
-    Utworzenie nowego katalogu
+    Tworzy nowy katalog.
 
 
 Środowisko wirtualne
 --------------------
 
-Gdy już mamy działającego Python'a, zainstalujemy jeszcze jeden program, który
-uprości instalację innych Python'owych programów i usprawni nam pracę.
+Gdy już mamy działającego Pythona, zainstalujemy jeszcze jeden program, który
+uprości instalację innych Pythonowych programów i usprawni nam pracę.
 
 Pobierz skrypt `virtualenv.py`_ do swojego katalogu domowego. Plik możesz zapisać
-klikając prawym klawiszem na stronę, która się pojawi i wybierając ``Zapisz jako``.
+klikając prawym klawiszem na stronę, która pojawi się po kliknięciu w odnośnik i wybierając ``Zapisz jako``.
 
-W przypadku Windowsa 7 katalog domowy to przykładowo ``C:\Users\Ala\`` dla użytkownika
-``Ala``. Możesz wybrać też inny katalog, ale ważne żeby zapamiętać gdzie się znajduje i
-żeby był łatwo dostępny, bo będziemy często z niego korzystać.
+W przypadku Windowsa 7 ścieżka do katalogu domowego dla użytkownika ``Ala`` będzie wyglądała tak: ``C:\Users\Ala\`` .
+Możesz wybrać też inny katalog, ale ważne jest, żeby zapamiętać, gdzie znajduje się zapisywany plik. 
+Musi być łatwo dostępny, bo będziemy często z niego korzystać.
 
-Przykładowo, jeżeli naszym katalogiem domowym jest ``C:\Users\lrekucki``:
+Na przykład, jeżeli naszym katalogiem domowym jest ``C:\Users\lrekucki``, linia poleceń będzie wyglądała tak:
 
 .. code-block:: bat
 
@@ -134,7 +133,7 @@ Przykładowo, jeżeli naszym katalogiem domowym jest ``C:\Users\lrekucki``:
     ~$ python3.3 virtualenv.py warsztaty --system-site-packages --distribute --python=python3
 
 
-W twoim katalogu domowym powstanie katalog ``warsztaty`` zawierający tzw.
+W Twoim katalogu domowym powstanie katalog ``warsztaty`` zawierający tzw.
 wirtualne środowisko. Na razie istotne jest dla nas tylko to, że po jego aktywacji:
 
 .. code-block:: bat
@@ -147,10 +146,10 @@ wirtualne środowisko. Na razie istotne jest dla nas tylko to, że po jego aktyw
     # Linux i Mac
     ~$ source warsztaty/bin/activate
 
-Komenda python będzie uruchamiała dobrą wersję Python'a, więc nie będziemy
+komenda python będzie uruchamiała dobrą wersję Pythona, więc nie będziemy
 musieli ani dopisywać pełnej ścieżki na początku, ani wersji na końcu.
 
-Uruchom w terminalu
+Uruchom w terminalu:
 
 .. code-block:: bat
 
@@ -180,7 +179,7 @@ Uruchom w terminalu
 IPython
 -------
 
-Zainstaluj ``IPython``
+Zainstaluj ``IPython``:
 
 .. code-block:: sh
 
