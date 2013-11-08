@@ -11,18 +11,18 @@ programy. Stworzenie interaktywnej strony w samym Pythonie wymagałoby ogromnego
 Django daje nam zestaw narzędzi, funkcji (takich jak poznaliśmy wcześniej, ale bardziej rozbudowanych) i klas
 ułatwiających tworzenie stron.
 
-Do w pełni internatywnej strony potrzebne jest nam kilka elementów:
+Do w pełni internatywnej strony potrzebujemy kilku elementów:
 
-* serwer aplikacji - Tutaj wykorzystamy Django
-* pliki HTML i CSS - odpowiedzialne za to jak wygląda strona
-* Baza danych - tutaj będą przechowywane dane takie jak pytania ankiety i odpowiedzi.
+* serwera aplikacji - tutaj wykorzystamy Django,
+* plików HTML i CSS - odpowiedzialnych za wygląd strony,
+* bazy danych - w niej przechowywane będą dane takie jak pytania ankiety i odpowiedzi.
 
 Zaczniemy od stworzenia serwera aplikacji.
 
 Instalacja
 ==========
 
-Zainstaluj Django uruchamiając w konsoli:
+Zainstaluj Django, uruchamiając w konsoli:
 
 .. code-block:: sh
 
@@ -37,7 +37,7 @@ Poczatek projektu
 
 Django dostarcza skrypt administracyjny "django-admin.py". Pozwala on stworzyć szkielet naszej strony.
 
-Aby stworzyć nowy projekt ze stroną uruchamiamy:
+Aby stworzyć nowy projekt ze stroną, uruchamiamy:
 
 .. code-block:: sh
 
@@ -79,15 +79,15 @@ Struktura projektu
 
 Nowo utworzony projekt zawiera katalog "carrots" i kilka podstawowych plików.
 
-W pliku ``carrots/settings.py`` znajdują się ustawienia strony takie jak język, baza danych, zainstalowane aplikacje.
+W pliku ``carrots/settings.py`` znajdują się ustawienia strony, takie jak język, baza danych, zainstalowane aplikacje.
 Plik ten możemy edytować sami. Na początku wewnątrz znajdziemy domyślne ustawienia i komentarze wyjaśniające.
 
-Plik ``manage.py`` pozwala administrować stroną, czyli utworzyć lub wyczyścić bazę danych, uruchomić prosty serwer aplikacji
-itp. Później zobaczymy jak go używać.
+Plik ``manage.py`` pozwala administrować stroną, czyli utworzyć lub wyczyścić bazę danych, uruchomić prosty serwer
+aplikacji itp. Później zobaczymy, jak go używać.
 
 Plik ``carrots/urls.py`` zawiera informacje o ścieżkach (urlach) na stronie.
 
-Pozostałe pliki są mniej ciekawe, przeważnie w ogóle się do nich nie zagląda, ani ich nie zmienia.
+Pozostałe pliki są mniej ciekawe, przeważnie w ogóle się do nich nie zagląda, ani się ich nie zmienia.
 Dociekliwych odsyłam do Google.
 
 Ustawienia aplikacji
@@ -108,12 +108,12 @@ W pliku ``carrots/settings.py`` znajdź:
      }
    }
 
-Jest to definicja bazy danych jakiej będziemy używać. Jak widzimy, jest to zwykły słownik, zawierający klucz
-``default``. ``Django`` zawsze szuka definicji bazy właśnie pod tym kluczem, jeżeli jej nie znajdzie, to
+Jest to definicja bazy danych, której będziemy używać. Jak widzimy, jest to zwykły słownik, zawierający klucz
+``default``. ``Django`` zawsze szuka definicji bazy właśnie pod tym kluczem, a jeżeli jej nie znajdzie, to
 zgłosi błąd.
 
-Sama definicja bazy ``default`` składa się z kilku informacji: silnika jakiego używamy, nazwy bazy, użytkownika,
-hasła oraz adresu do połączenia z bazą. My będziemy używać bazy ``Sqlite``, gdyż jest to najprostrze rozwiązanie.
+Sama definicja bazy ``default`` składa się z kilku informacji: silnika, jakiego używamy, nazwy bazy, użytkownika,
+hasła oraz adresu do połączenia z bazą. My będziemy używać bazy ``Sqlite``, gdyż jest to najprostsze rozwiązanie.
 Informacje takie jak użytkownik, hasło czy adres będą w tym wypadku niepotrzebne.
 
 Zamień ``'django.db.backends.'`` na ``'django.db.backends.sqlite3'`` oraz dodaj ``'NAME'`` ``'carrots.db'``.
@@ -144,7 +144,7 @@ Ustaw strefę czasową na Warszawę i domyślny język na polski
    LANGUAGE_CODE = 'pl'
 
 
-Dla uproszczenia wyłączymy też zaawansowaną obsługe stref czasowych w bazie
+Dla uproszczenia wyłączymy też zaawansowaną obsługę stref czasowych w bazie
 danych - nie bedzie ona potrzebna w naszym projekcie::
 
    # If you set this to False, Django will not use timezone-aware datetimes.
@@ -172,7 +172,7 @@ Odkomentuj też dwie wskazane linie w ``INSTALLED_APPS``.
 składają się z wielu aplikacji, w tym wypadku są to na przykład aplikacje: ``auth`` do
 uwierzytelniania użytkowników, ``sessions`` do zarządzania sesją użytkownika itd.
 
-Jak widać, ``INSTALLED_APPS`` jest po prostu krotką, zawierającą napisy. Odkomentowanie
+Jak widać, ``INSTALLED_APPS`` jest po prostu krotką zawierającą napisy. Odkomentowanie
 dwóch ostatnich napisów włączy aplikację do administracji. Później będziemy jej używać.
 
 Baza danych
@@ -209,12 +209,12 @@ bazy danych. Służy do tego opcja ``syncdb``:
     Installing indexes ...
     Installed 0 object(s) from 0 fixture(s)
 
-Jeśli wszystko poszło dobrze Django poprosi Cię o podanie danych konta administratora.
-Nazwę użytkownika możesz zostawić taką jaka jest proponowana, adres email może być dowolny.
+Jeśli wszystko poszło, dobrze Django poprosi Cię o podanie danych konta administratora.
+Nazwę użytkownika możesz zostawić taką, jaka jest proponowana, adres email może być dowolny.
 Z podanymi danymi (tzn. Username i Password) będziemy mogli później zalogować się do
 panelu administracyjnego. W powyższym przykładzie użytkownikiem będzie ``fasola``.
 
-Jeżeli chcesz dowiedzieć się więcej na temat ``manage.py`` uruchom:
+Jeżeli chcesz dowiedzieć się więcej na temat ``manage.py``, uruchom:
 
 .. code-block:: sh
 
@@ -222,7 +222,7 @@ Jeżeli chcesz dowiedzieć się więcej na temat ``manage.py`` uruchom:
 
 Dostaniesz listę wszystkich komend oraz opcji obsługiwanych przez ``manage.py``.
 
-Aby uzyskać pomoc na temat pojedynczej komendy uruchom ``manage.py help komenda`` np:
+Aby uzyskać pomoc na temat pojedynczej komendy, uruchom ``manage.py help komenda`` np:
 
 .. code-block:: sh
 
@@ -327,15 +327,15 @@ Efekt powinien wyglądać tak::
     )
 
 Aplikacje w ``Django`` składają się z kilku plików:
-* ``models.py`` - definicje modeli dla bazy danych.
-* ``tests.py`` - testy aplikacji
-* ``views.py`` - widoki aplikacji
+* ``models.py`` - definicje modeli dla bazy danych,
+* ``tests.py`` - testy aplikacji,
+* ``views.py`` - widoki aplikacji.
 
 Modele
 ======
 
 Następnym krokiem będzie zdefiniowanie modeli naszej aplikacji.
-Model opisuje co i w jaki sposób może być przechowywane w bazie danych.
+Model opisuje, co i w jaki sposób może być przechowywane w bazie danych.
 
 Nasza aplikacja będzie zawierać pytania oraz odpowiedzi do nich, dlatego utworzymy dwa modele: ``Poll`` oraz ``Choice``.
 Model ``Poll`` zawiera treść pytania i datę publikacji. Model ``Choice`` zawiera odwołanie do odpowiedniego pytania,
@@ -354,7 +354,7 @@ W pliku ``polls/models.py`` wpisujemy::
         choice_text = models.CharField(max_length=200)
         votes = models.IntegerField(default=0)
 
-Dodając nowe modele zmieniliśmy schemat bazy danych.
+Dodając nowe modele, zmieniliśmy schemat bazy danych.
 Musimy ponownie wykonać ``syncdb``, aby nowe modele pojawiły się w bazie danych.
 
 .. warning::
@@ -371,9 +371,10 @@ Musimy ponownie wykonać ``syncdb``, aby nowe modele pojawiły się w bazie dany
    Installing indexes ...
    Installed 0 object(s) from 0 fixture(s)
 
-I tyle! Pewnie chcielibysmy jednak miec tez mozliwosc edytowania obiektow. Najlatwiej to zrobic w interfejsie administracyjnym.
+I tyle! Pewnie chcielibysmy jednak mieć też możliwość edytowania obiektów. Najłatwiej to zrobić w interfejsie 
+administracyjnym.
 
-Tworzymy plik ``polls/admin.py`` a w nim::
+Tworzymy plik ``polls/admin.py``, a w nim::
 
     from django.contrib import admin
     from polls.models import Poll, Choice
@@ -383,16 +384,16 @@ Tworzymy plik ``polls/admin.py`` a w nim::
 
 .. note::
 
-    Niektóre zmiany wymagają ponownego uruchomienia serwera.  W konsoli gdzie jest uruchomiony
-    serwer wciskamy ``Ctrl+C`` i wykonujemy ``python manage.py runserver`` ponownie.
+    Niektóre zmiany wymagają ponownego uruchomienia serwera.  W konsoli, gdzie jest uruchomiony
+    serwer, wciskamy ``Ctrl+C`` i wykonujemy ``python manage.py runserver`` raz jeszcze.
 
-Gdy wejdziemy ponownie na http://localhost:8000/admin/ zobaczymy, ze pojawila się tam nowa zakladka `Polls`.
+Gdy ponownie wejdziemy na http://localhost:8000/admin/, zobaczymy, że pojawiła się tam nowa zakładka `Polls`.
 
 
 Zabawa w konsoli
 ================
 
-Django udostępnia swoją konsolę. Jest to zwykła konsola Pythona (tzn. możemy robić dokładnie te same rzeczy co po
+Django udostępnia swoją konsolę. Jest to zwykła konsola Pythona (tzn. możemy robić dokładnie te same rzeczy,co po
 uruchomieniu polecenia ``python``), ale dodatkowo możemy korzystać z narzędzi i modeli Django.
 
 .. code-block:: sh
@@ -403,15 +404,15 @@ Gdy już jesteś w shellu::
 
     >>> from polls.models import Poll, Choice
 
-    # Wszystkie ankiety w bazie, teraz nie ma tam nic, dlatego dostajemy pustą listę
+    # Wszystkie ankiety w bazie; teraz nie ma tam nic, dlatego dostajemy pustą listę
     >>> Poll.objects.all()
     []
 
-    # Tworzymy pierwszą ankiete.
+    # Tworzymy pierwszą ankietę.
     >>> import datetime
     >>> p = Poll(question="What's new?", pub_date=datetime.datetime.now())
 
-    # Zapisujemy ankiete w bazie danych. W tym celu zawsze trzeba wywołać metodę save().
+    # Zapisujemy ankietę w bazie danych. W tym celu zawsze trzeba wywołać metodę save().
     >>> p.save()
 
     # Każdy obiekt w bazie danych ma przypisane unikalne dla siebie ID.
@@ -424,20 +425,20 @@ Gdy już jesteś w shellu::
     >>> p.pub_date
     datetime.datetime(2012, 2, 26, 13, 0, 0, 775217)
 
-    # Po zmianie atrybutów ponownie wywołujemy save() aby zapisać zmiany do bazy.
+    # Po zmianie atrybutów ponownie wywołujemy save(), aby zapisać zmiany do bazy.
     >>> p.question = "What's up?"
     >>> p.save()
 
-    # objects.all() zwraca liste wszystkich obiektow w bazie danych
+    # objects.all() zwraca listę wszystkich obiektów w bazie danych
     >>> Poll.objects.all()
     [<Poll: Poll object>]
 
 Modele w Django są klasami, a w klasach możemy definiować metody. Metoda to taka funkcja, która dodatkowo dostaje
-parametr ``self`` będący aktualnym obiektem (np aktualną ankietą). Metody w klasach (modelach) pozwalają dodawać
+parametr ``self``, będący aktualnym obiektem (np. aktualną ankietą). Metody w klasach (modelach) pozwalają dodawać
 dodatkowe zachowania lub zmieniać istniejące.
 
 Jedną z takich metod jest ``__str__``, która pozwala zmienić sposób wyświetlania modelu (ankiety lub pytania).
-``<Poll: Poll object>`` niewiele nam mówi. Naprawmy to dodając metodę ``__str__`` do ``Poll`` i ``Choice``::
+``<Poll: Poll object>`` niewiele nam mówi. Naprawmy to, dodając metodę ``__str__`` do ``Poll`` i ``Choice``::
 
     class Poll(models.Model):
         # ...
@@ -462,7 +463,7 @@ Możemy też dodawać inne metody::
         def was_published_recently(self):
             return self.pub_date >= datetime.datetime.now() - datetime.timedelta(days=1)
 
-Zauważcie, że musielismy dodać ``import datetime`` aby móc używac obiektów reprezentujących czas w Pythonie.
+Zauważcie, że musieliśmy dodać ``import datetime``, aby móc korzystać z obiektów reprezentujących czas w Pythonie.
 
 Zapiszmy te zmiany i uruchommy intepreter za pomocą polecenia ``python manage.py shell`` raz jeszcze::
 
@@ -472,12 +473,12 @@ Zapiszmy te zmiany i uruchommy intepreter za pomocą polecenia ``python manage.p
     >>> Poll.objects.all()
     [<Poll: What's up?>]
 
-Do tej pory używaliśmy metody ``all``, która pozwala wyciągnąć listę wszystkich obiektów danego typu (np wszystkich
-pytań). Istnieją też inne metody, pozwalające wyciągnąć obiekty spełniające określone warunki:
+Do tej pory używaliśmy metody ``all``, która pozwala wyciągnąć listę wszystkich obiektów danego typu (np. wszystkich
+pytań). Istnieją też inne metody pozwalające wyciągnąć obiekty spełniające określone warunki:
 
 .. code-block:: python
 
-    # Django pozwala na bardzo latwe wyszukiwanie obiektow w bazie danych. Spojrzmy na kilka przykladow.
+    # Django pozwala na bardzo łatwe wyszukiwanie obiektow w bazie danych. Spójrzmy na kilka przykładów.
     >>> Poll.objects.filter(id=1)
     [<Poll: What's up?>]
     >>> Poll.objects.filter(question__startswith='What')
@@ -485,14 +486,14 @@ pytań). Istnieją też inne metody, pozwalające wyciągnąć obiekty spełniaj
     >>> Poll.objects.get(pub_date__year=2012)
     <Poll: What's up?>
 
-    # Proba pobrania nieistniejacego obiektu spowoduje silne protesty Pythona.
-    # Ale do tego jestesmy juz przyzwyczajeni.
+    # Próba pobrania nieistniejącego obiektu spowoduje silne protesty Pythona.
+    # Ale do tego jesteśmy już przyzwyczajeni.
     >>> Poll.objects.get(id=2)
     Traceback (most recent call last):
         ...
     DoesNotExist: Poll matching query does not exist. Lookup parameters were {'id': 2}
 
-    # Wyprobujmy teraz nasza wlasna metode.
+    # Wypróbujmy teraz naszą własną metodę.
     >>> p = Poll.objects.get(id=1)
     >>> p.was_published_recently()
     True
@@ -501,7 +502,7 @@ Możemy też uzyskać dostęp do odpowiedzi (``Choice``) na pytania:
 
 .. code-block:: python
 
-    # Na razie nasza ankieta nie zawiera żadnych odpowiedzi. Dodajmy trochę!
+    # Na razie nasza ankieta nie zawiera żadnych odpowiedzi. Dodajmy jakieś!
     >>> p.choice_set.all()
     []
 
@@ -512,17 +513,17 @@ Możemy też uzyskać dostęp do odpowiedzi (``Choice``) na pytania:
     <Choice: The sky>
     >>> c = p.choice_set.create(choice_text='Just hacking again', votes=0)
 
-    # Mając obiekt "Choice" możemy też znaleźć ankietę, do której należy.
+    # Mając obiekt "Choice", możemy też znaleźć ankietę, do której on należy.
     >>> c.poll
     <Poll: What's up?>
 
-    # ...I na odwrót, wszystkie odpowiedzi dla danej ankiety
+    # ...I na odwrót, wszystkie odpowiedzi dla danej ankiety.
     >>> p.choice_set.all()
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
     >>> p.choice_set.count()
     3
 
-    # A teraz coś trudniejszego. Co to zapytanie robi?
+    # A teraz coś trudniejszego. Co robi to zapytanie?
     >>> Choice.objects.filter(poll__pub_date__year=2012)
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
 
@@ -538,11 +539,11 @@ Wyświetlanie stron internetowych
 Wejście pod główny adres http://localhost:8000/ nadal powoduje wyświetlenie brzydkiej strony błędu. Nie może tak dalej
 być!
 
-Dobrze jest zacząć pracę nad nowym serwisem internetowym od przemyślenia struktury URLi (adresów). Wiemy, ze będziemy
+Dobrze jest zacząć pracę nad nowym serwisem internetowym od przemyślenia struktury URLi (adresów). Wiemy, że będziemy
 chcieli wyświetlić listę wszystkich ankiet na stronie, pozwolić użytkownikom zagłosować oraz wyświetlić zbiorcze wyniki
 ankiety.
 
-Jeszcze raz otwórzmy plik ``urls.py`` i dodajmy cztery nowe wpisy, ostatecznie plik powinien wyglądać następująco::
+Jeszcze raz otwórzmy plik ``urls.py`` i dodajmy cztery nowe wpisy. Ostatecznie plik powinien wyglądać następująco::
 
   from django.conf.urls import patterns, include, url
 
@@ -560,11 +561,11 @@ Jeszcze raz otwórzmy plik ``urls.py`` i dodajmy cztery nowe wpisy, ostatecznie 
 Przyjrzyjmy się temu przykładowi raz jeszcze. Każdy argument przekazany do funkcji ``patterns`` (poza pierwszym, ale
 o tym potem) określa nam wzorzec URL (adresu). Wzorzec ten zapisany jest za pomocą
 `wyrażenia regularnego <http://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne#Wyra.C5.BCenia_regularne_w_praktyce>`_.
-Jest to trudne techniczne określenie na malutki język, służący do zwięzłej reprezentacji wzorców tekstu.
+Jest to trudne techniczne określenie malutkiego języka, służącego do zwięzłej reprezentacji wzorców tekstu.
 
-Kiedy użytkownik próbuje wejść na określony adres na naszej stronie, taki jak http://localhost:8000/polls/1/
-Django wybiera część URL po trzecim ukośniku (w tym przypadku ``polls/1/``)  i próbuje ją kolejno dopasować do wyrazeń
-regularnych z ``urlpatterns``. Przyjrzyjmy się przykładowi takiego wyrazenia::
+Kiedy użytkownik próbuje wejść na określony adres na naszej stronie, taki jak http://localhost:8000/polls/1/,
+Django wybiera część URL po trzecim ukośniku (w tym przypadku ``polls/1/``)  i próbuje ją kolejno dopasować do wyrażeń
+regularnych z ``urlpatterns``. Przyjrzyjmy się przykładowi takiego wyrażenia::
 
   r'^polls/(?P<poll_id>\d+)/vote/$'
 
@@ -575,32 +576,32 @@ Kiedy próbujemy do niego dopasować tekst (nadal myślimy o ``polls/1/``), musi
    :class: alert alert-info
 
    * Każda litera i cyfra wyrażenia regularnego pasuje tylko do takiej samej litery/cyfry ciągu dopasowywanego. Tak samo
-     ukosnik (``/``), spacja (`` ``), podkreślenie (``_``) i myślnik (``-``).
+     ukośnik (``/``), spacja (`` ``), podkreślenie (``_``) i myślnik (``-``).
    * ``^`` pasuje tylko do początku ciągu znaków (nie do znaku, "początek" należy tutaj traktować jak abstrakcyjny twór
      przed pierwszym znakiem).
    * ``$`` pasuje tylko do końca ciągu znaków (na podobnej zasadzie co "początek").
    * Kropka (``.``) pasuje do dowolnego znaku.
    * Jeżeli kilka znaków obejmiemy nawiasami kwadratowymi, np. tak ``[aBde]``, taka grupa liczy się jako jedna całość i
      dopasuje się do dowolnego jednego znaku z wewnątrz grupy.
-   * Istnieje skrótowa notacja dla takich grup. Zamiast wypisywać wszystkie małe litery alfabetu, możemy napisac ``[a-z]``
+   * Istnieje skrótowa notacja dla takich grup. Zamiast wypisywać wszystkie małe litery alfabetu, możemy napisac ``[a-z]``,
      aby dopasować dowolną jedną małą literę. Tak samo dla dużych liter ``[A-Z]`` lub cyfr ``[0-9]``.
    * Dopasować jedną cyfrę można jeszcze krócej, używając znaczka ``\d``.
    * Jeżeli po dowolnym z powyższych wyrażeń postawimy znak ``?``, zostanie ono potraktowane jako *opcjonalne*. Oznacza
-     to, ze jeżeli w ciągu dopasowywanym nie będzie takiego wyrażenia, nadal będzie możliwe jego dopasowanie. Jeżeli
+     to, że jeżeli w ciągu dopasowywanym nie będzie takiego wyrażenia, nadal będzie możliwe jego dopasowanie. Jeżeli
      będzie, zostanie dopasowane.
-   * Jeżeli po wyrażeniu postawimy znak ``*`` dopasuje się ono z dowolną ilością powtorzeń wyrażenia (wliczając w to zero
-     powtórzeń, czyli tak jakby bylo *opcjonalne*).
-   * Jeżeli po wyrażeniu postawimy znak ``+`` dopasuje się ono z dowolną ilością powtórzeń wyrażenia, z wyjątkiem zera
+   * Jeżeli po wyrażeniu postawimy znak ``*``, dopasuje się ono z dowolną ilością powtorzeń wyrażenia (wliczając w to zero
+     powtórzeń, czyli tak jakby było *opcjonalne*).
+   * Jeżeli po wyrażeniu postawimy znak ``+``, dopasuje się ono z dowolną ilością powtórzeń wyrażenia, z wyjątkiem zera
      powtórzeń (tzn. wyrażenie musi wystąpić co najmniej raz).
-   * Jeżeli kilka znaków obejmiemy nawiasami zwykłymi, np. tak ``(\d\d)`` zostaną one potraktowane jako grupa i wszystkie
+   * Jeżeli kilka znaków obejmiemy nawiasami zwykłymi, np. tak ``(\d\d)``, zostaną one potraktowane jako grupa i wszystkie
      powyższe modyfikatory będą na nie działały w całości. Jeżeli dodatkowo napiszemy to z ``(?P<NAZWA>napis)``, grupa
      zostanie nazwana i będzie się do niej można potem odwołać pod nazwą ``NAZWA``. Jest to bardzo popularne przy pracy w
      Django.
 
-Uff... Jest jeszcze wiele reguł ale tak naprawdę nikt ich wszystkich nie pamięta. Te powyższe wystarczają w większości
+Uff... Jest jeszcze wiele reguł, ale tak naprawdę nikt ich wszystkich nie pamięta. Te powyższe wystarczają w większości
 przypadków.
 
-Czy widzisz już, ze przykładowe wyrażenie dopasuje się do ``polls/1/``? Dlaczego?
+Czy widzisz już, że przykładowe wyrażenie dopasuje się do ``polls/1/``? Dlaczego?
 
 Kiedy już Django znajdzie dopasowanie, popatrzy na drugą część linii. Określa ona widok, który ma być wywołany w celu
 utworzenia strony dla użytkownika. Dla ``polls/1/`` będzie to ``polls.views.detail``. Wszystkie nazwane grupy zostaną
@@ -614,7 +615,7 @@ przekazane widokowi jako argumenty o tej samej nazwie, tak jakby wywołać z kon
 Pierwszy widok
 ==============
 
-Dobra, zobaczmy jak to działa w praktyce. Niestety wejscie pod adres http://localhost:8000/polls/1/ nie konczy się
+Dobra, zobaczmy, jak to działa w praktyce. Niestety, wejście pod adres http://localhost:8000/polls/1/ nie kończy się
 dobrze::
 
   ViewDoesNotExist at /polls/1/
@@ -622,7 +623,7 @@ dobrze::
   Could not import polls.views.detail. View does not exist in module polls.views.
 
 Ach, to dlatego, że nie zdefiniowaliśmy jeszcze widoku (Django podpowiada nam, że szukało ``polls.views.detail``,
-niestety bez powodzenia)! Otworzmy w tym celu plik `polls/views.py` i dodajmy kilka nowych funkcji::
+niestety bez powodzenia)! Otwórzmy w tym celu plik `polls/views.py` i dodajmy kilka nowych funkcji::
 
   from django.http import HttpResponse
 
@@ -648,10 +649,10 @@ Widok, który naprawdę coś robi
 
 Nasze widoki na razie nie robią zbyt wiele. Dajmy im trochę popracować!
 
-Wszystko czego Django potrzebuje od widoku to obiekt
+Wszystko, czego Django potrzebuje od widoku, to obiekt
 `HttpResponse <https://docs.djangoproject.com/en/1.4/ref/request-response/#django.http.HttpResponse>`_
 lub wyrzucenie wyjątku. Cała reszta jest pod naszą kontrolą. Możemy na przykład użyć funkcji, które poznaliśmy w trybie
-interaktywnym aby wyświetlić wszystkie ankiety użytkownikowi::
+interaktywnym, aby wyświetlić wszystkie ankiety użytkownikowi::
 
   from polls.models import Poll
   from django.http import HttpResponse
@@ -667,8 +668,8 @@ interaktywnym aby wyświetlić wszystkie ankiety użytkownikowi::
     wypadku zmieniła się funkcja ``index`` oraz sam początek pliku (dodana linijka
     ``from django.http import HttpResponse``).
 
-Działa! Jest tylko jeden problem z tym przykładem: Określamy w widoku nie tylko to, co ma być zwrócone, ale też w jakim
-formacie ma zostać zwrócone użytkownikowi serwisu. Jedna z najważniejszych umiejętności programisty jest umiejetność
+Działa! Jest tylko jeden problem z tym przykładem: określamy w widoku nie tylko to, co ma być zwrócone, ale też w jakim
+formacie ma zostać zwrócone użytkownikowi serwisu. Jedną z najważniejszych umiejętności programisty jest umiejętność
 odróżniania i rozdzielania dwóch niezależnych rzeczy. Programisci Django o tym pomyśleli i stworzyli system szablonow::
 
   from django.template import Context, loader
@@ -686,13 +687,13 @@ odróżniania i rozdzielania dwóch niezależnych rzeczy. Programisci Django o t
 Za obsługę szablonu w tym wypadku są odpowiedzialne funkcje ``get_template`` (Znajduje szablon) oraz ``render`` (zmienia
 szablon na test, który dostanie ostatecznie użytkownik).
 
-Kod jest trochę dluższy, ale zaraz zobaczymy o ile wszystko będzie czytelniejsze. Najpierw załadujmy jednak stronę
+Kod jest trochę dłuższy, ale zaraz zobaczymy, o ile bardziej wszystko będzie czytelne. Najpierw załadujmy jednak stronę
 http://localhost:8000/polls/, aby zobaczyć wynik naszej pracy::
 
   TemplateDoesNotExist at /polls/
   polls/index.html
 
-Ups! No tak, nie dodaliśmy jeszcze szablonu. Aby to zrobić, stworzmy plik ``polls/templates/polls/index.html`` i dodajmy
+Ups! No tak, nie dodaliśmy jeszcze szablonu. Aby to zrobić, stwórzmy plik ``polls/templates/polls/index.html`` i dodajmy
 do niego:
 
 .. note::
@@ -716,18 +717,19 @@ Po przeładowaniu strony w przeglądarce powinniśmy zobaczyć listę zawierają
 
 .. note::
 
-    Jeżeli po odświerzeniu strony nadal widać błąd, należy ponownie uruchomić serwer. W konsoli gdzie jest uruchomiony
-    serwer wciskamy ``Ctrl+C`` i wykonujemy ``python manage.py runserver`` ponownie. Teraz powinno już dzialać.
+    Jeżeli po odświeżeniu strony nadal widać błąd, należy ponownie uruchomić serwer. W konsoli, w której już jest 
+    uruchomiony serwer, wciskamy ``Ctrl+C`` i wykonujemy ``python manage.py runserver`` ponownie.
+    Teraz powinno już działać.
 
 .. note::
 
-   HTML i CSS sa formatami slużacymi do określania wyglądu stron internetowych. Szablonow Django będziemy używac po to
-   aby generować kod HTML. Dobry opis HTML znajduje się w ksiazce
+   HTML i CSS sa formatami służącymi do określania wyglądu stron internetowych. Szablonów Django będziemy używać po to,
+   aby generować kod HTML. Dobry opis HTML znajduje się w książce
    `Interactive Data Visualization for the Web <http://ofps.oreilly.com/titles/9781449339739/k_00000003.html>`_.
-   Zachwycającą własnością sieci WWW jest to, ze kody HTML i CSS każdej strony są calkiem jawne. Polecam obejrzenie kodu
+   Zachwycającą własnością sieci WWW jest to, że kody HTML i CSS każdej strony są zupełnie jawne. Polecam obejrzenie kodu
    ulubionych stron.
 
-Prawie w każdym widoku będziemy chcieli ostatecznie użyc szablonu. Dlatego w Django jest funkcja ``render_to_response``,
+Prawie w każdym widoku będziemy chcieli ostatecznie użyć szablonu. Dlatego w Django jest funkcja ``render_to_response``,
 która pozwala zrobić to w krótszy sposób::
 
   from django.shortcuts import render_to_response
@@ -742,7 +744,7 @@ która pozwala zrobić to w krótszy sposób::
 Zwracanie 404
 =============
 
-Zajmijmy się teraz widokiem szczegółow ankiety -- strona, która wyświetla pytania z konkretnej ankiety. Tak wygląda kod
+Zajmijmy się teraz widokiem szczegółow ankiety -- strony, która wyświetla pytania z konkretnej ankiety. Tak wygląda kod
 widoku::
 
     from django.http import Http404
@@ -765,18 +767,18 @@ Tak wygląda kod szablonu ``polls/templates/polls/detail.html``:
     {% endfor %}
     </ul>
 
-Nowością jest tutaj wyrzucanie wyjątku ``Http404``, gdy sprawdzimy, ze ankieta o konkretnym ID nie istnieje. Django
-obsluży taki wyjątek wyświetlając domyślną stronę 404.
+Nowością jest tutaj wyrzucanie wyjątku ``Http404``, gdy sprawdzimy, że ankieta o konkretnym ID nie istnieje. Django
+obsłuży taki wyjątek, wyświetlając domyślną stronę 404.
 
 .. note::
 
    Można zmienić stronę wyswietlaną przez Django w wypadku błędu 404 (brak strony) i 500 (nieoczekiwany błąd serwera).
-   W tym celu trzeba stworzyć szablony ``404.html`` i ``500.html``. Przed sprawdzeniem czy to zadziałało należy zmienić
-   ``DEBUG`` w pliku ``settings.py`` na ``False``. W innym wypadku Django nadal będzie wyświetlac swoje pomocnicze
+   W tym celu trzeba stworzyć szablony ``404.html`` i ``500.html``. Przed sprawdzeniem, czy to zadziałało, należy zmienić
+   ``DEBUG`` w pliku ``settings.py`` na ``False``, inaczej Django nadal będzie wyświetlać swoje pomocnicze
    *żółte* strony.
 
 
-Obsluga formularzy
+Obsługa formularzy
 ==================
 
 Zmieńmy szablon ``polls/templates/polls/details.html``, dodając tam prosty formularz HTML.
@@ -845,16 +847,16 @@ Obiekt ``request`` zawiera dane wysłane przez użytkownika, a ``request.POST`` 
 wysłanego przez użytkownika. W ten sposób wiemy, która opcja została wybrana.
 
 Tutaj pojawia się ważna kwestia. Może okazać się, że widok dostał nieistniejącą odpowiedź.
-Zawsze musimy sprawdzać dane otrzymane od użytkownika i reagować na sytuację, gdy te dane są bezsensowne.
+Zawsze musimy sprawdzać dane otrzymane od użytkownika i reagować, jeśli te dane są bezsensowne.
 To właśnie dzieje się w po :keyword:`except`. Odsyłamy wtedy użytkownika do ankiety i wyświetlamy błąd.
 
 Jeżeli użytkownik wybrał poprawną opcję, możemy zwiększyć liczbę głosów i zapisać zmiany.
 Następnie wykonujemy przekierowanie za pomocą ``HttpResponseRedirect`` do wcześniej napisanego
 widoku detali ankiety.
 
-Kolejna istotna sprawa. Po zagłosowaniu mogliśmy po prostu wyświetlić jakąś stronę, podobnie jak na końcu widoku detali
-(za pomocą ``render_to_response``). To niestety mogłoby prowadzić do ponownego wysyłania ankiety, jeżeli użytkownik
-zacznie bawić się przyciskami ``wstecz`` i ``dalej`` w przeglądarce, albo po prostu odświerzył stronę (klawiszem ``f5``)
+Kolejna istotna sprawa: po zagłosowaniu mogliśmy po prostu wyświetlić jakąś stronę, podobnie jak na końcu widoku detali
+(za pomocą ``render_to_response``). To, niestety, mogłoby prowadzić do ponownego wysyłania ankiety, jeżeli użytkownik
+zacznie bawić się przyciskami ``wstecz`` i ``dalej`` w przeglądarce, albo po prostu odświeży stronę (klawiszem ``f5``)
 W skrócie, zawsze po poprawnym wysłaniu formularza (w tym wypadku, zagłosowaniu na ankietę) powinniśmy wykonać
 przekierowanie za pomocą ``HttpResponseRedirect``.
 
@@ -879,8 +881,8 @@ Szablon ``polls/templates/polls/results.html``:
 
   <a href="/polls/{{ poll.id }}/">Vote again?</a>
 
-To wszystko! Wejdź pod adres http://localhost:8000/admin/ i stwórz kilka nowych ankiet i pytań a potem pobaw się
-głosując na nie i namawiając inne osoby aby zrobiły to samo.
+To wszystko! Wejdź pod adres http://localhost:8000/admin/ i stwórz kilka nowych ankiet i pytań, a potem pobaw się,
+głosując na nie i namawiając inne osoby, aby zrobiły to samo.
 
 
 .. admonition:: ``polls/views.py``
@@ -929,7 +931,7 @@ głosując na nie i namawiając inne osoby aby zrobiły to samo.
 
             selected_choice.votes += 1
             selected_choice.save()
-            # Przekieruj użytkownika do widoku detali ankiety na, którą właśnie zagłosował
+            # Przekieruj użytkownika do widoku detali ankiety, na którą właśnie zagłosował
             return HttpResponseRedirect(reverse('polls.views.results', args=(p.id,)))
 
 .. admonition:: ``urls.py``
