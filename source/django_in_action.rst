@@ -527,7 +527,7 @@ Możemy też uzyskać dostęp do odpowiedzi (``Choice``) na pytania:
     >>> Choice.objects.filter(poll__pub_date__year=2012)
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
 
-    # Na koniec usuńmy jedno z pytań. Służy do tego metoda "delete".
+    # Na koniec usuńmy jedną z odpowiedzi. Służy do tego metoda "delete".
     >>> c = p.choice_set.filter(choice_text__startswith='Just hacking')
     >>> c.delete()
 
