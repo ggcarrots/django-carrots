@@ -848,7 +848,7 @@ wysłanego przez użytkownika. W ten sposób wiemy, która opcja została wybran
 
 Tutaj pojawia się ważna kwestia. Może okazać się, że widok dostał nieistniejącą odpowiedź.
 Zawsze musimy sprawdzać dane otrzymane od użytkownika i reagować, jeśli te dane są bezsensowne.
-To właśnie dzieje się w po :keyword:`except`. Odsyłamy wtedy użytkownika do ankiety i wyświetlamy błąd.
+To właśnie dzieje się po :keyword:`except`. Odsyłamy wtedy użytkownika do ankiety i wyświetlamy błąd.
 
 Jeżeli użytkownik wybrał poprawną opcję, możemy zwiększyć liczbę głosów i zapisać zmiany.
 Następnie wykonujemy przekierowanie za pomocą ``HttpResponseRedirect`` do wcześniej napisanego

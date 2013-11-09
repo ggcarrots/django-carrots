@@ -478,14 +478,14 @@ funkcje:
     class Dog(object):
 
         def bark(self):
-            print(u"Woof! Woof!")
+            print("Woof! Woof!")
 
 ::
 
     class Dog(object):
 
         def bark(self):
-            print(u"Woof! Woof!")
+            print("Woof! Woof!")
 
 Klasy rozpoczynają się od słowa :keyword:`class`, po którym podajemy
 nazwę nowej klasy. Czym jest ``(object)`` wyjaśni się później, gdy
@@ -537,8 +537,8 @@ o specjalnej nazwie ``__init__``:
         def bark(self):
             return "Woof! %s! Woof!" % (self.name,)
 
-    burek = Dog(u"Burek")
-    pluto = Dog(u"Pluto")
+    burek = Dog("Burek")
+    pluto = Dog("Pluto")
     print(burek.bark())
     print(pluto.bark())
 
@@ -642,7 +642,7 @@ do tej szerokości. Łącząc całą naszą dotychczasową wiedzę:
 
 .. testsetup:: tree-final
 
-    raw_input.queue.append("7")
+    input.queue.append("7")
 
 .. testcode:: tree-final
 
@@ -654,8 +654,8 @@ do tej szerokości. Łącząc całą naszą dotychczasową wiedzę:
         for i in range(3, size+1, 2):
             print_segment(i, size)
 
-    print(u"Podaj wielkość choinki:")
-    n = int(raw_input())
+    print("Podaj wielkość choinki:")
+    n = int(input())
     print_tree(n)
 
 .. testoutput:: tree-final

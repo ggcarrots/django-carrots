@@ -254,7 +254,7 @@ nową wartość, jednak wartość przypisana do ``y`` pozostaje bez zmian:
     W naszym przykładzie nie zmieniliśmy wartości liczby ``42``, a
     jedynie wartość przypisaną do ``x`` (w szczególności wartości
     liczb są niezmienne, choć w 1897 r. izba niższa stanu Indiana
-    zatwiedziła zmianę wartości liczby ? na ``3`` - wniosek
+    zatwiedziła zmianę wartości liczby pi na ``3`` - wniosek
     upadł dopiero w Senacie). Dlatego ``print(y)`` da nam ``42``.
 
 
@@ -443,6 +443,9 @@ przełożyć na osiem linii naszego programu (nie licząc odstępów):
     bmi = weight / height**2 # Obliczamy BMI
     print("Twoje BMI to:", bmi)
 
+Powyższy program możesz zapisać do pliku bmi.py i uruchomić ``python bmi.py``. W efekcie powinniśmy
+dostać:
+
 .. testoutput::
 
     Podaj wzrost w metrach:
@@ -450,7 +453,6 @@ przełożyć na osiem linii naszego programu (nie licząc odstępów):
     Podaj wagę w kilogramach:
     65.5
     Twoje BMI to: 21.387755102
-
 
 Podsumowując: aby wywołać funkcję, musimy znać jej nazwę (poznaliśmy
 dotąd cześć: :func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float` i :func:`quit`),
