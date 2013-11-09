@@ -192,7 +192,7 @@ Spróbujmy więc rozwiązać pierwszy problem. Na początek chcielibyśmy,
 aby nasz program był bardziej czytelny, tj. aby dla czytającego
 było oczywiste, która wartość to waga, a która wzrost.
 
-Dlatego nadamy tym wartościom nazwy::
+Dlatego nadamy tym wartościom nazwy:
 
 .. testcode::
 
@@ -202,7 +202,7 @@ Dlatego nadamy tym wartościom nazwy::
     bmi = weight / height**2
     print("Twoje BMI to:", bmi)
 
-Wynik działania programu się nie zmienił::
+Wynik działania programu się nie zmienił:
 
 .. testoutput::
 
