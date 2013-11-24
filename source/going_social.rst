@@ -68,7 +68,7 @@ W pliku ``settings.py`` odszukajmy jeszcze wpis ``SESSION_SERIALIZER`` i ustawmy
 
     SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
     
-Jest to związane z ostatnimi zmianami w nowej wersji Django, do których nasz pakiet django-carrots nie zdążył się przystosować ;)
+Jest to związane z ostatnimi zmianami w nowej wersji Django, do których nasz pakiet django-carrots nie zdążył się przystosować. ;)
 
 Docelowo chcemy, aby nasza aplikacja potrafiła publikować wyniki ankiet.
 W tym celu potrzebne jest dodatkowe uprawnienie. Do pliku ``settings.py`` dopisujemy::
@@ -85,7 +85,8 @@ Musimy też dopisać linijkę do pliku ``urls.py``::
         url(r'^', include('account.urls')),
     )
 
-Tyle, jeżeli chodzi o konfigurację, teraz możemy uruchomić syncdb:
+To wszystko jeżeli chodzi o konfigurację. Możemy teraz uruchomić syncdb, aby
+Django zsynchronizowało bazę danych z właśnie wprowadzonymi zmianami:
 
 .. code-block:: sh
 
@@ -98,20 +99,20 @@ Tyle, jeżeli chodzi o konfigurację, teraz możemy uruchomić syncdb:
     Installing indexes ...
     Installed 0 object(s) from 0 fixture(s)
 
-aby django zsynchronizowało bazę danych z właśnie wprowadzonymi zmianami,
-i uruchomić server:
+
+A następnie możemy uruchomić serwer:
 
 .. code-block:: sh
 
     ~$ python manage.py runserver
 
-Przy odrobinie szczęścia, wchodząc na stronę `http://localhost:8000/` zobaczymy napis
+Przy odrobinie szczęścia, po wejściu na stronę `http://localhost:8000/` zobaczymy napis
 "Login with Facebook", po kliknięciu na który powinniśmy zostać zalogowani za pomocą Facebooka.
 
-Ankiety na Facebook`u
+Ankiety na Facebooku
 =====================
 
-Aplikacja ``account`` zawiera pomocniczą funkcję ``publish_to_facebook`` pozwalającą publikować na wallu
+Aplikacja ``account`` zawiera pomocniczą funkcję ``publish_to_facebook``, pozwalającą publikować na tablicy
 danego użytkownika. Potrzebne będą nam dwie rzeczy: użytkownik, który wysłał głos oraz tekst, który chcemy opublikować.
 Użytkownik jest dostępny poprzez request jako ``request.user``, a tekst pozostawiam kreatywności uczestniczek i uczestników.
 Widok ``vote`` powinien ostatecznie wyglądać tak (linie pogrubione zostały dopisane):
@@ -144,7 +145,7 @@ Wymaganie logowania
 ===================
 
 Ostatnia poprawka, którą powinniśmy wprowadzić, to wymuszenie zalogowania się przez użytkownika.
-Głosować powinny móc tylko osoby, które się zalogowały, osoby niezalogowane powinny zostać
+Głosować powinny móc tylko osoby, które się zalogowały, natomiast osoby niezalogowane powinny zostać
 przeniesione na stronę logowania.
 
 Można ten efekt uzyskać dodając dekorator `login_required` do widoku `vote`:
@@ -165,7 +166,7 @@ Można ten efekt uzyskać dodając dekorator `login_required` do widoku `vote`:
 Wdrożenie
 =========
 
-Dokumentacja została wdrożona przez `niezwykły serwer Megiteam <http://www.megiteam.pl/pomoc/djangocarrots/>`_ :-)
+Dokumentacja została wdrożona przez `niezwykły serwer Megiteam <http://www.megiteam.pl/pomoc/djangocarrots/>`_. :-)
 
 .. _developers.facebook.com: https://developers.facebook.com/apps
 

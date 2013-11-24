@@ -15,7 +15,7 @@ Do w pełni internatywnej strony potrzebujemy kilku elementów:
 
 * serwera aplikacji - tutaj wykorzystamy Django,
 * plików HTML i CSS - odpowiedzialnych za wygląd strony,
-* bazy danych - w niej przechowywane będą dane takie jak pytania ankiety i odpowiedzi.
+* bazy danych - w niej przechowywane będą dane takie jak pytania, ankiety i odpowiedzi.
 
 Zaczniemy od stworzenia serwera aplikacji.
 
@@ -32,7 +32,7 @@ Odpowiednia paczka zostanie pobrana z `PyPI <http://pypi.python.org>`_ - repozyt
 gdzie można znaleźć wiele użytecznych bibliotek.
 
 
-Poczatek projektu
+Początek projektu
 =================
 
 Django dostarcza skrypt administracyjny "django-admin.py". Pozwala on stworzyć szkielet naszej strony.
@@ -256,8 +256,6 @@ linii). Plik wynikowy powinien wyglądać tak:
 
 W ten sposób administracja będzie dostępna pod urlem ``admin/``.
 
-
-
 Następnie uruchom serwer:
 
 .. code-block:: sh
@@ -281,7 +279,8 @@ adres http://localhost:8000/admin/.
 Tworzymy nową aplikację do ankiet.
 ==================================
 
-Na razie stworzyliśmy projekt ``carrots``. Projekty w Django dzielą się na aplikacje dostarczające określone funkcje.
+Na razie stworzyliśmy projekt ``carrots``. Projekty w Django składają się z
+aplikacji, dostarczających określone funkcje.
 
 My chcemy umieścić na naszej stronie ankiety, dlatego dodamy aplikację ``polls``.
 
@@ -371,7 +370,7 @@ Musimy ponownie wykonać ``syncdb``, aby nowe modele pojawiły się w bazie dany
    Installing indexes ...
    Installed 0 object(s) from 0 fixture(s)
 
-I tyle! Pewnie chcielibysmy jednak mieć też możliwość edytowania obiektów. Najłatwiej to zrobić w interfejsie 
+I tyle! Pewnie chcielibyśmy jednak mieć też możliwość edytowania obiektów. Najłatwiej to zrobić w interfejsie
 administracyjnym.
 
 Tworzymy plik ``polls/admin.py``, a w nim::
@@ -393,8 +392,9 @@ Gdy ponownie wejdziemy na http://localhost:8000/admin/, zobaczymy, że pojawiła
 Zabawa w konsoli
 ================
 
-Django udostępnia swoją konsolę. Jest to zwykła konsola Pythona (tzn. możemy robić dokładnie te same rzeczy,co po
-uruchomieniu polecenia ``python``), ale dodatkowo możemy korzystać z narzędzi i modeli Django.
+Django udostępnia swoją konsolę. Jest to zwykła konsola Pythona (tzn. możemy
+robić dokładnie te same rzeczy, co po uruchomieniu polecenia ``python``), ale
+dodatkowo możemy korzystać z narzędzi i modeli Django.
 
 .. code-block:: sh
 
@@ -478,7 +478,7 @@ pytań). Istnieją też inne metody pozwalające wyciągnąć obiekty spełniaj�
 
 .. code-block:: python
 
-    # Django pozwala na bardzo łatwe wyszukiwanie obiektow w bazie danych. Spójrzmy na kilka przykładów.
+    # Django pozwala na bardzo łatwe wyszukiwanie obiektów w bazie danych. Spójrzmy na kilka przykładów.
     >>> Poll.objects.filter(id=1)
     [<Poll: What's up?>]
     >>> Poll.objects.filter(question__startswith='What')
@@ -486,7 +486,7 @@ pytań). Istnieją też inne metody pozwalające wyciągnąć obiekty spełniaj�
     >>> Poll.objects.get(pub_date__year=2012)
     <Poll: What's up?>
 
-    # Próba pobrania nieistniejącego obiektu spowoduje silne protesty Pythona.
+    # Próba pobrania nieistniejącego obiektu spowoduje głośne protesty Pythona.
     # Ale do tego jesteśmy już przyzwyczajeni.
     >>> Poll.objects.get(id=2)
     Traceback (most recent call last):
@@ -494,7 +494,7 @@ pytań). Istnieją też inne metody pozwalające wyciągnąć obiekty spełniaj�
     DoesNotExist: Poll matching query does not exist. Lookup parameters were {'id': 2}
 
     # Wypróbujmy teraz naszą własną metodę.
-    >>> p = Poll.objects.get(id=1)
+    >>> p = Poll.objects.get(pk=1)
     >>> p.was_published_recently()
     True
 
@@ -639,9 +639,9 @@ niestety bez powodzenia)! Otwórzmy w tym celu plik `polls/views.py` i dodajmy k
   def vote(request, poll_id):
       return HttpResponse("You're voting on poll %s." % poll_id)
 
-Tak wyglądają najprostsze możliwe widoki. Nie zwracają one zwykłych ciągów znaków, tak jak funkcja budująca choinkę w
+Tak wygladają najprostsze możliwe widoki. Nie zwracają one zwykłych ciagów znaków, tak jak funkcja budująca choinkę w
 Pythonie, bo muszą mówić protokołem HTTP, który jest nieco bardziej skomplikowany (tutaj dobrze byłoby zobaczyć w
-przeglądarce, co się tak naprawdę dzieje, gdy wchodzimy pod adres http://localhost:8000/polls/1/).
+przeglądarce co się tak naprawde dzieje, gdy wchodzimy pod adres http://localhost:8000/polls/1/).
 
 
 Widok, który naprawdę coś robi
@@ -668,9 +668,11 @@ interaktywnym, aby wyświetlić wszystkie ankiety użytkownikowi::
     wypadku zmieniła się funkcja ``index`` oraz sam początek pliku (dodana linijka
     ``from django.http import HttpResponse``).
 
-Działa! Jest tylko jeden problem z tym przykładem: określamy w widoku nie tylko to, co ma być zwrócone, ale też w jakim
-formacie ma zostać zwrócone użytkownikowi serwisu. Jedną z najważniejszych umiejętności programisty jest umiejętność
-odróżniania i rozdzielania dwóch niezależnych rzeczy. Programisci Django o tym pomyśleli i stworzyli system szablonow::
+Działa! Jest tylko jeden problem z tym przykładem: określamy w widoku nie tylko
+to, co ma być zwrócone, ale też w jakim formacie ma zostać zwrócone
+użytkownikowi serwisu. Jedną z najważniejszych umiejętności programisty jest
+zdolność do odróżnienia i rozdzielenia dwóch niezależnych rzeczy. Programiści
+Django o tym pomyśleli i stworzyli system szablonow::
 
   from django.template import Context, loader
   from polls.models import Poll
@@ -804,9 +806,9 @@ Zmieńmy szablon ``polls/templates/polls/details.html``, dodając tam prosty for
    stron internetowych. Wiecej opisane jest w
    `dokumentacji Cross Site Request Forgery <https://docs.djangoproject.com/en/1.4/ref/contrib/csrf/>`_.
 
-Aby działały niektóre tagi szablonu (w szczególnosci ``{% csrf_token %}``), musimy przekazać do `render_to_response`
+Aby działały niektóre tagi szablonu (w szczególności ``{% csrf_token %}``), musimy przekazać do `render_to_response`
 obiekt `RequestContext <https://docs.djangoproject.com/en/1.4/ref/templates/api/#subclassing-context-requestcontext>`_.
-Robimy to w następujacy sposób::
+Robimy to w następujący sposób::
 
   from django.template import RequestContext
   from django.shortcuts import get_object_or_404
@@ -835,10 +837,10 @@ jeszcze danych formularza. Poprawmy to teraz::
                 'error_message': "Musisz wybrać poprawną opcję.",
             }, context_instance=RequestContext(request))
 
-        # Zapisz nową liczbę głósów
+        # Zapisz nową liczbę głosów
         selected_choice.votes += 1
         selected_choice.save()
-        # Przekieruj użytkownika do widoku detali ankiety na, którą właśnie zagłosował
+        # Przekieruj użytkownika do widoku detali ankiety, na którą właśnie zagłosował
         return HttpResponseRedirect(reverse('polls.views.results', args=(p.id,)))
 
 W tym widoku pojawia się sporo nowych koncepcji, o których nie mówiliśmy.
@@ -855,9 +857,9 @@ Następnie wykonujemy przekierowanie za pomocą ``HttpResponseRedirect`` do wcze
 widoku detali ankiety.
 
 Kolejna istotna sprawa: po zagłosowaniu mogliśmy po prostu wyświetlić jakąś stronę, podobnie jak na końcu widoku detali
-(za pomocą ``render_to_response``). To, niestety, mogłoby prowadzić do ponownego wysyłania ankiety, jeżeli użytkownik
-zacznie bawić się przyciskami ``wstecz`` i ``dalej`` w przeglądarce, albo po prostu odświeży stronę (klawiszem ``f5``)
-W skrócie, zawsze po poprawnym wysłaniu formularza (w tym wypadku, zagłosowaniu na ankietę) powinniśmy wykonać
+(za pomocą ``render_to_response``). Niestety, mogłoby to prowadzić do ponownego wysłania ankiety, gdyby użytkownik
+zaczął bawić się przyciskami ``wstecz`` i ``dalej`` w przeglądarce lub gdyby po prostu odświeżył stronę (np. klawiszem ``f5``)
+W skrócie, zawsze po poprawnym wysłaniu formularza (w tym wypadku: zagłosowaniu na ankietę) powinniśmy wykonać
 przekierowanie za pomocą ``HttpResponseRedirect``.
 
 Na koniec pozostał nam do opracowania widok wyników ankiety, wyświetlany po zagłosowaniu::
