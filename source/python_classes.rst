@@ -2,7 +2,7 @@
   Choinka
 ===========
 
-Zbliżają się Święta, czas na prezenty ;) A przynajmniej na drzweka iglaste
+Zbliżają się Święta, czas na prezenty. ;) A przynajmniej na drzewka iglaste
 w każdym centrum handlowym. W ramach ćwiczenia spróbujemy narysować
 takie drzewko w konsoli.
 
@@ -57,7 +57,7 @@ jesteśmy Świętym Mikołajem, który ma za zadanie dostarczyć wszystkim
 prezenty.
 
 Jak wiadomo, Mikołaj posiada listę osób, którym należą się prezenty.
-Najprostszym podejściem, które gwarantuję, że nikogo nie
+Najprostszym podejściem, które gwarantuje, że nikogo nie
 pominiemy, będzie przechodzenie po kolei po liście i dostarczanie kolejnym
 osobom ich prezentów. Abstrahując od fizycznych aspektów zadania [#speed]_,
 procedura dostarczania prezentów mogłaby wyglądać tak::
@@ -88,7 +88,7 @@ Nowym elementem jest sama pętla, która składa się z:
 * nazwy, którą chcemy nadawać kolejnym elementom,
 * słowa :keyword:`in`,
 * wartości będącej listą lub nazwy która się do takiej odwołuje,
-* treści wciętej o jeden poziom (dokładnie tak samo jak to było w przypadku :keyword:`if`).
+* treści wciętej o jeden poziom (dokładnie tak samo, jak w przypadku :keyword:`if`).
 
 No tak, ale wciąż nie powiedzieliśmy niczego o listach. To dlatego, że
 nie różnią się one zbytnio od ich intuicyjnego pojmowania w życiu
@@ -153,7 +153,7 @@ W ten sam sposób możemy wydrukować pierwszą cześć naszej pół-choinki:
 
 No tak, ale nadal musieliśmy ręcznie wypisać zawartość całej listy.
 Problem ten rozwiąże nam funkcja :func:`range` (czyli zakres, przedział).
-Jeśli opis podany przez ``help(range)`` wyda ci się zbyt skomplikowany, oto
+Jeśli opis podany przez ``help(range)`` wyda Ci się zbyt skomplikowany, oto
 kilka przykładów:
 
     >>> list(range(2, 5, 1))
@@ -168,11 +168,11 @@ kilka przykładów:
     [0, 1]
 
 Funkcja :func:`range` nie tworzy bezpośrednio listy, ale zwraca generator.
-Generatory pozwalają tworzyć sekwencje wartości, nie zajmując nipotrzebnie
+Generatory pozwalają tworzyć sekwencje wartości, nie zajmując niepotrzebnie
 pamięci. Aby otrzymać listę z takiej sekwencji, musimy użyć funkcji
 :func:`list`.
 
-Funkcja :func:`range` ma trzy formy. Najprostsza (i najczęściej używana)
+Funkcja :func:`range` ma trzy formy. Najprostsza (i najczęściej używana),
 tworzy sekwencję od 0 do podanej liczby. Pozostałe formy pozwalają podać
 początek zakresu oraz krok. Utworzona sekwencja nigdy nie zawiera końca
 podanego zakresu.
@@ -195,7 +195,7 @@ Wydrukujmy więc większą choinkę:
     *********
     **********
 
-:func:`range` zaoczszędziło nam sporo pisania. Możemy zaoszczędzić
+:func:`range` zaoszczędziło nam sporo pisania. Możemy zaoszczędzić
 jeszcze więcej, jeśli pominiemy nazwanie samej listy:
 
     >>> for i in list(range(1, 5)):
@@ -255,8 +255,8 @@ Definiowanie funkcji
 ====================
 
 Widzieliśmy już, w jaki sposób funkcje rozwiązują wiele z naszych problemów. Jednak
-nie rozwiązują ich wszystkich - a przynajmniej nie do końca tak jak chcielibyśmy.
-Musi wtedy sami rozwiązać dany problem. Jeśli występuje on często
+nie rozwiązują ich wszystkich - a przynajmniej nie do końca tak, jak chcielibyśmy.
+Musimy wtedy sami rozwiązać dany problem. Jeśli występuje on często
 w naszym programie, to miło byłoby mieć funkcję, która zrobi to za nas.
 
 Python daje nam taką możliwość:
@@ -378,7 +378,7 @@ nam dziesiątki linii dodatkowych informacji na temat :func:`int`.
 Każdy obiekt ma klasę
 ---------------------
 
-Aby dowiedzieć się, jaką, wystarczy użyć funkcji :func:`type`:
+Aby dowiedzieć się jaką, wystarczy użyć funkcji :func:`type`:
 
     >>> type(2)
     <type 'int'>
@@ -395,7 +395,7 @@ Aby dowiedzieć się, jaką, wystarczy użyć funkcji :func:`type`:
 Gdy używamy w naszym programie liczby, spodziewamy się, że będzie się
 ona zachowywać tak jak liczba - bazujemy na naszej intuicji.
 
-Jednak Python musi dokładnie wiedzieć, co znaczy być liczbą całkowitą,
+Jednak Python musi dokładnie wiedzieć co to znaczy być liczbą całkowitą,
 np. co ma się stać, gdy dodajemy dwie liczby, a co, gdy je dzielimy.
 Klasa dostarcza tych wszystkich informacji, a nawet więcej.
 
@@ -437,7 +437,7 @@ Zacytujemy tutaj jedynie kilka ciekawszych funkcji:
         done using the specified fill character (default is a space)
     <BLANKLINE>
 
-Wszystko to są operacje, które każdy napis potrafi wykonać. Możemy
+Wszystko to są operacje, które potrafi wykonać każdy napis. Możemy
 się do nich dostać, używając kropki i wywołując jak funkcję:
 
     >>> x = "Ala"
@@ -466,7 +466,7 @@ Podsumowując, poznaliśmy już klasy :func:`int`, :func:`str`, :func:`tuple`,
 klasę, podobnie jak wywoływaliśmy funkcję, dopisując nawiasy ``()``, na przykład
 ``int()``.
 
-Definiowanie klass
+Definiowanie klas
 ------------------
 
 Możemy tworzyć własne funkcje, podobnie możemy tworzyć
@@ -510,7 +510,7 @@ Argument ten może nazywać się dowolnie, ale intuicyjne jest, aby nazwać go `
 Atrybuty obiektów
 -----------------
 
-Obiekty poza metodami (funckjami), mogą posiadać też atrybuty:
+Obiekty poza metodami (funkcjami) mogą posiadać też atrybuty:
 
 .. testcode:: simple-class
 
@@ -636,8 +636,8 @@ Pojawia się jednak kolejny problem:
      *****
     *******
 
-Jako, że z góry wiemy, jakiej wielkości będzie najszerszy segment, możemy
-dodać dodatkowy argument do :func:`print_segment`, tak aby wyrównywać
+Jako że z góry wiemy jakiej wielkości będzie najszerszy segment, możemy
+dodać kolejny argument do :func:`print_segment`, tak aby wyrównywać
 do tej szerokości. Łącząc całą naszą dotychczasową wiedzę:
 
 .. testsetup:: tree-final

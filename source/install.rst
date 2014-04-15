@@ -4,7 +4,7 @@ Instalacja
 
 Na potrzeby warsztatów będzie nam potrzebny interpreter języka
 Python w wersji 3.2 lub 3.3. Poniżej znajdują się wskazówki, jak
-sprawdzić, czy już go nie mamy, ewentualnie zainstalować wraz z
+sprawdzić, czy już go mamy, ewentualnie zainstalować wraz z
 przydatnymi narzędziami.
 
 Windows
@@ -12,14 +12,14 @@ Windows
 
 Wersje dla Windows można pobrać bezpośrednio ze strony `python.org`_.
 Po ściągnięciu pliku ``*.exe`` uruchom go i postępuj zgonie z instrukcjami.
-Ważne jest, aby zapamiętać ścieżkę, którą wybraliśmy jako katalog instalaji,
+Ważne jest, aby zapamiętać ścieżkę, którą wybraliśmy jako katalog instalacji,
 bo będzie nam ona potrzebna przy :ref:`instalacji narzędzi <narzędzia>`.
 
 
 Linux (Ubuntu, Fedora, etc.) lub Mac
 ====================================
 
-Aby sprawdzić, czy i jaką wersję mamy, wpisz w linii poleceń:
+Aby sprawdzić czy i jaką wersję mamy, wpisz w linii poleceń:
 
 .. code-block:: sh
 
@@ -57,7 +57,7 @@ lub nie możesz znaleźć Pythona, to możesz go zainstalować, używając źró
 za strony `python.org`_. Wymagany będzie kompilator i biblioteka readline.
 
 Po cichu zakładamy, że użytkownicy mniej popularnych (nie znaczy, że gorszych)
-dystrybucji na pewno sobie poradzą z tym zadaniem :).
+dystrybucji Linuksa na pewno sobie poradzą z tym zadaniem :).
 
 
 
@@ -81,7 +81,7 @@ czarnym tle:
 
     C:\Users\Imie>
 
-Tekst może trochę się różnić w zależności od używanej warsji Windowsa.
+Tekst może trochę się różnić w zależności od używanej wersji Windowsa.
 
 ``C:\Users\Imie>`` to tak zwany ``prompt``. Informuje nas o katalogu, w którym
 aktualnie się znajdujemy oraz czeka na podanie polecenia. W dalszej części
@@ -99,7 +99,7 @@ wejściu w ``Mój komputer``). Służą do tego polecenia:
 ``cd katalog``
     Służy do zmiany aktualnego katalogu. Przykładowo, jeśli jesteśmy w katalogu ``C:\Users\Imie``,
     wykonanie ``cd Documents`` przeniesie nas do katalogu z naszymi
-    dokumentatmi. Jeśli teraz wykonasz polecenia ``dir``, zobaczysz coś znajomego.
+    dokumentami. Jeśli teraz wykonasz polecenie ``dir``, zobaczysz coś znajomego.
 
     Polecenie ``cd..`` powoduje przejście do katalogu poziom wyżej.
 
@@ -111,10 +111,10 @@ wejściu w ``Mój komputer``). Służą do tego polecenia:
 --------------------
 
 Gdy już mamy działającego Pythona, zainstalujemy jeszcze jeden program, który
-uprości instalację innych Pythonowych programów i usprawni nam pracę.
+uprości instalację innych pythonowych programów i usprawni nam pracę.
 
 Pobierz skrypt `virtualenv.py`_ do swojego katalogu domowego. Plik możesz zapisać
-klikając prawym klawiszem na stronę, która pojawi się po kliknięciu w odnośnik i wybierając ``Zapisz jako``.
+klikając prawym przyciskiem myszy na stronę, która pojawi się po kliknięciu w odnośnik i wybierając ``Zapisz jako``.
 
 W przypadku Windowsa 7 ścieżka do katalogu domowego dla użytkownika ``Ala`` będzie wyglądała tak: ``C:\Users\Ala\`` .
 Możesz wybrać też inny katalog, ale ważne jest, żeby zapamiętać, gdzie znajduje się zapisywany plik. 
@@ -146,7 +146,7 @@ wirtualne środowisko. Na razie istotne jest dla nas tylko to, że po jego aktyw
     # Linux i Mac
     ~$ source warsztaty/bin/activate
 
-komenda python będzie uruchamiała dobrą wersję Pythona, więc nie będziemy
+komenda ``python`` będzie uruchamiała dobrą wersję Pythona, więc nie będziemy
 musieli ani dopisywać pełnej ścieżki na początku, ani wersji na końcu.
 
 Uruchom w terminalu:

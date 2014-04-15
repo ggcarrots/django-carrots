@@ -633,7 +633,7 @@ na każdy poziom wcięcia. My też będziemy tak robić:
 
 
 Co, jeśli nie?
--------------
+--------------
 
 Samo :keyword:`if` właściwie by nam wystarczyło do napisania naszego
 programu::
