@@ -18,6 +18,6 @@ Spis treści
 
    install
    python_quickstart
-   python_classes
+   python_xmas_tree
    django_in_action
    going_social
