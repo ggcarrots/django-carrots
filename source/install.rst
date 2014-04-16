@@ -227,3 +227,7 @@ Zainstaluj ``IPython``:
 .. code-block:: sh
 
     (warsztaty) ~$ pip install ipython
+
+.. note::
+
+    Jeżeli polecenie ``pip`` nie działa, spróbuj ``pip3``.

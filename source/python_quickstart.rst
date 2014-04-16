@@ -592,7 +592,7 @@ Otwórz tryb interaktywny i wpisz prosty warunek, np.::
     >>> if 2 > 1:
     ...
 
-Na razie nic się jeszcze nie wydarzyło, o czym świadczą kropki zamiast
+Na razie nic się jeszcze nie wydarzyło, o czym świadczą kropki ``...`` zamiast
 zachęty ``>>>``, którą dotąd widzieliśmy. Python oczekuje od nas dalszych
 instrukcji, które mają być wykonane, jeśli warunek ``2 > 1`` okaże się
 prawdziwy. Sprawmy, żeby wypisał "OK":

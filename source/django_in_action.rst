@@ -26,7 +26,7 @@ Zainstaluj Django, uruchamiając w konsoli:
 
 .. code-block:: sh
 
-   ~$ pip install django==1.5.5
+   (warsztaty) ~$ pip install django==1.6.2
 
 Odpowiednia paczka zostanie pobrana z `PyPI <http://pypi.python.org>`_ - repozytorium pakietów Pythona,
 gdzie można znaleźć wiele użytecznych bibliotek.
@@ -43,8 +43,8 @@ Aby stworzyć nowy projekt ze stroną, uruchamiamy:
 
    # Linux
 
-   ~$ django-admin.py startproject carrots
-   ~$ tree carrots
+   (warsztaty) ~$ django-admin.py startproject carrots
+   (warsztaty) ~$ tree carrots
    carrots/
    ├── carrots
    │   ├── __init__.py
@@ -93,87 +93,29 @@ Dociekliwych odsyłam do Google.
 Ustawienia aplikacji
 ====================
 
-W pliku ``carrots/settings.py`` znajdź:
-
-.. code-block:: py
-
-   DATABASES = {
-     'default': {
-       'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-       'NAME': '',                      # Or path to database file if using sqlite3.
-       'USER': '',                      # Not used with sqlite3.
-       'PASSWORD': '',                  # Not used with sqlite3.
-       'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-       'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-     }
-   }
-
-Jest to definicja bazy danych, której będziemy używać. Jak widzimy, jest to zwykły słownik, zawierający klucz
-``default``. ``Django`` zawsze szuka definicji bazy właśnie pod tym kluczem, a jeżeli jej nie znajdzie, to
-zgłosi błąd.
-
-Sama definicja bazy ``default`` składa się z kilku informacji: silnika, jakiego używamy, nazwy bazy, użytkownika,
-hasła oraz adresu do połączenia z bazą. My będziemy używać bazy ``Sqlite``, gdyż jest to najprostsze rozwiązanie.
-Informacje takie jak użytkownik, hasło czy adres będą w tym wypadku niepotrzebne.
-
-Zamień ``'django.db.backends.'`` na ``'django.db.backends.sqlite3'`` oraz dodaj ``'NAME'`` ``'carrots.db'``.
-Plik ``carrots.db`` będzie zawierał bazę danych.
-
-Ostatecznie nasza definicja bazy może wyglądać w ten sposób::
-
-   DATABASES = {
-     'default': {
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': 'sqlite.db',
-     }
-   }
-
-
-
-Ustaw strefę czasową na Warszawę i domyślny język na polski
+W pliku ``carrots/settings.py`` znajdź ``TIME_ZONE`` oraz ``LANGUAGE_CODE`` i ustaw strefę czasową na
+Warszawę i domyślny język na polski. Ostatecznie te dwie linie powinny wyglądać następująco:
 ::
 
-   # Local time zone for this installation. Choices can be found here:
-   # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-   # although not all choices may be available on all operating systems.
-   # In a Windows environment this must be set to your system time zone.
    TIME_ZONE = 'Europe/Warsaw'
 
-   # Language code for this installation. All choices can be found here:
-   # http://www.i18nguy.com/unicode/language-identifiers.html
    LANGUAGE_CODE = 'pl'
 
 
 Dla uproszczenia wyłączymy też zaawansowaną obsługę stref czasowych w bazie
-danych - nie bedzie ona potrzebna w naszym projekcie::
+danych - nie bedzie ona potrzebna w naszym projekcie. Znajdź ``USE_TZ`` w pliku
+``settings.py`` i ustaw je na False::
 
-   # If you set this to False, Django will not use timezone-aware datetimes.
    USE_TZ = False
 
+..
+.. ``INSTALLED_APPS`` zawiera informację o zainstalowanych aplikacjach. Projekty ``Django``
+.. składają się z wielu aplikacji, w tym wypadku są to na przykład aplikacje: ``auth`` do
+.. uwierzytelniania użytkowników, ``sessions`` do zarządzania sesją użytkownika itd.
 
-Odkomentuj też dwie wskazane linie w ``INSTALLED_APPS``.
-
-::
-
-   INSTALLED_APPS = (
-       'django.contrib.auth',
-       'django.contrib.contenttypes',
-       'django.contrib.sessions',
-       'django.contrib.sites',
-       'django.contrib.messages',
-       'django.contrib.staticfiles',
-       # Uncomment the next line to enable the admin:
-       'django.contrib.admin',
-       # Uncomment the next line to enable admin documentation:
-       'django.contrib.admindocs',
-   )
-
-``INSTALLED_APPS`` zawiera informację o zainstalowanych aplikacjach. Projekty ``Django``
-składają się z wielu aplikacji, w tym wypadku są to na przykład aplikacje: ``auth`` do
-uwierzytelniania użytkowników, ``sessions`` do zarządzania sesją użytkownika itd.
-
-Jak widać, ``INSTALLED_APPS`` jest po prostu krotką zawierającą napisy. Odkomentowanie
-dwóch ostatnich napisów włączy aplikację do administracji. Później będziemy jej używać.
+..
+.. Jak widać, ``INSTALLED_APPS`` jest po prostu krotką zawierającą napisy. Odkomentowanie
+.. dwóch ostatnich napisów włączy aplikację do administracji. Później będziemy jej używać.
 
 Baza danych
 ===========
@@ -183,8 +125,8 @@ bazy danych. Służy do tego opcja ``syncdb``:
 
 .. code-block:: sh
 
-   ~$ cd carrots
-   ~$ python manage.py syncdb
+   (warsztaty) ~$ cd carrots
+   (warsztaty) ~/carrots$ python manage.py syncdb
 
     Creating tables ...
     Creating table auth_permission
@@ -218,7 +160,7 @@ Jeżeli chcesz dowiedzieć się więcej na temat ``manage.py``, uruchom:
 
 .. code-block:: sh
 
-    ~$ python manage.py help
+    (warsztaty) ~/carrots$ python manage.py help
 
 Dostaniesz listę wszystkich komend oraz opcji obsługiwanych przez ``manage.py``.
 
@@ -226,53 +168,29 @@ Aby uzyskać pomoc na temat pojedynczej komendy, uruchom ``manage.py help komend
 
 .. code-block:: sh
 
-    ~$ python manage.py help syncdb
+    (warsztaty) ~/carrots$ python manage.py help syncdb
 
 Interfejs administracyjny
 =========================
 
-Napisaliśmy wcześniej, że włączyliśmy aplikację do administracji. To jeszcze
-nie znaczy, że aplikacja jest dostępna pod jakimś adresem.
-
-Teraz w pliku ``carrots/urls.py`` odkomentuj wszystkie linie poniżej ``Uncomment`` (poprzez usuniecie ``#`` z początku
-linii). Plik wynikowy powinien wyglądać tak:
-
-.. code-block:: py
-
-   from django.conf.urls import patterns, include, url
-
-   # Uncomment the next two lines to enable the admin:
-   from django.contrib import admin
-   admin.autodiscover()
-
-   urlpatterns = patterns('',
-       # Examples:
-       # url(r'^$', 'carrots.views.home', name='home'),
-       # url(r'^carrots/', include('carrots.foo.urls')),
-
-       # Uncomment the next line to enable the admin:
-       url(r'^admin/', include(admin.site.urls)),
-   )
-
-W ten sposób administracja będzie dostępna pod urlem ``admin/``.
-
-Następnie uruchom serwer:
+W tym momencie możemy uruchomić naszą aplikację.
+Uruchom serwer wpisując ``python manage.py runserver``:
 
 .. code-block:: sh
 
-   ~$ python manage.py runserver
+   (warsztaty) ~/carrots$ python manage.py runserver
    Validating models...
 
    0 errors found
    April 19, 2013 - 20:14:37
-   Django version 1.5.1, using settings 'carrots.settings'
+   Django version 1.6.2, using settings 'carrots.settings'
    Development server is running at http://127.0.0.1:8000/
    Quit the server with CTRL-BREAK.
 
 Nasza strona będzie dostępna pod adresem http://127.0.0.1:8000/ , lub
 http://localhost:8000/.
 
-Jak wspomnieliśmy administracja powinna być dostępna pod urlem ``admin/``, dlatego wchodzimy na
+Panel administracyjny jest dostępny pod ścieżką ``admin/``, dlatego wchodzimy na
 adres http://localhost:8000/admin/.
 
 
@@ -284,12 +202,12 @@ aplikacji, dostarczających określone funkcje.
 
 My chcemy umieścić na naszej stronie ankiety, dlatego dodamy aplikację ``polls``.
 
-Z linii poleceń wpisz:
+Z linii poleceń wpisz ``python manage.py startapp polls``:
 
 ::
 
-   ~$ python manage.py startapp polls
-   ~$ tree .
+   (warsztaty) ~/carrots$ python manage.py startapp polls
+   (warsztaty) ~/carrots$ tree .
    .
    ├── carrots
    │   ├── __init__.py
@@ -300,6 +218,7 @@ Z linii poleceń wpisz:
    ├── manage.py
    └── polls
        ├── __init__.py
+       ├── admin.py
        ├── models.py
        ├── tests.py
        └── views.py
@@ -311,21 +230,17 @@ W pliku ``carrots/settings.py`` musimy dodać aplikację ``polls`` do ``INSTALLE
 Efekt powinien wyglądać tak::
 
     INSTALLED_APPS = (
+        'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
         'django.contrib.sessions',
-        'django.contrib.sites',
         'django.contrib.messages',
         'django.contrib.staticfiles',
-        # Uncomment the next line to enable the admin:
-        'django.contrib.admin',
-        # Uncomment the next line to enable admin documentation:
-        'django.contrib.admindocs',
-
-        'polls',
+        'polls'
     )
 
 Aplikacje w ``Django`` składają się z kilku plików:
+* ``admin.py`` - definicje dla panelu administracyjnego,
 * ``models.py`` - definicje modeli dla bazy danych,
 * ``tests.py`` - testy aplikacji,
 * ``views.py`` - widoki aplikacji.
@@ -335,6 +250,7 @@ Modele
 
 Następnym krokiem będzie zdefiniowanie modeli naszej aplikacji.
 Model opisuje, co i w jaki sposób może być przechowywane w bazie danych.
+Z punktu widzenia języka Python, jest to zwykła klasa, dziedzicząca po ``models.Model``.
 
 Nasza aplikacja będzie zawierać pytania oraz odpowiedzi do nich, dlatego utworzymy dwa modele: ``Poll`` oraz ``Choice``.
 Model ``Poll`` zawiera treść pytania i datę publikacji. Model ``Choice`` zawiera odwołanie do odpowiedniego pytania,
@@ -362,7 +278,7 @@ Musimy ponownie wykonać ``syncdb``, aby nowe modele pojawiły się w bazie dany
 
 .. code-block:: sh
 
-   ~$ python manage.py syncdb
+   (warsztaty) ~/carrots$ python manage.py syncdb
    Creating tables ...
    Creating table polls_poll
    Creating table polls_choice
@@ -373,13 +289,15 @@ Musimy ponownie wykonać ``syncdb``, aby nowe modele pojawiły się w bazie dany
 I tyle! Pewnie chcielibyśmy jednak mieć też możliwość edytowania obiektów. Najłatwiej to zrobić w interfejsie
 administracyjnym.
 
-Tworzymy plik ``polls/admin.py``, a w nim::
+W pliku ``polls/admin.py`` wpisujemy::
 
     from django.contrib import admin
     from polls.models import Poll, Choice
 
     admin.site.register(Poll)
     admin.site.register(Choice)
+
+W ten sposób modele ``Poll`` oraz ``Choice`` będą dostępne w panelu administracyjnym.
 
 .. note::
 
@@ -398,38 +316,45 @@ dodatkowo możemy korzystać z narzędzi i modeli Django.
 
 .. code-block:: sh
 
-   ~$ python manage.py shell
+   (warsztaty) ~/carrots$ python manage.py shell
 
 Gdy już jesteś w shellu::
 
     >>> from polls.models import Poll, Choice
 
-    # Wszystkie ankiety w bazie; teraz nie ma tam nic, dlatego dostajemy pustą listę
+Wszystkie ankiety w bazie; teraz nie ma tam nic, dlatego dostajemy pustą listę::
+
     >>> Poll.objects.all()
     []
 
-    # Tworzymy pierwszą ankietę.
+Tworzymy pierwszą ankietę::
+
     >>> import datetime
     >>> p = Poll(question="What's new?", pub_date=datetime.datetime.now())
 
-    # Zapisujemy ankietę w bazie danych. W tym celu zawsze trzeba wywołać metodę save().
+Zapisujemy ankietę w bazie danych. W tym celu zawsze trzeba wywołać metodę ``save()``::
+
     >>> p.save()
 
-    # Każdy obiekt w bazie danych ma przypisane unikalne dla siebie ID.
+Każdy obiekt w bazie danych ma przypisane unikalne dla siebie ID::
+
     >>> p.id
     1
 
-    # p jest zwykłym obiektem. Możemy czytać jego atrybuty.
+``p`` jest zwykłym obiektem. Możemy czytać jego atrybuty::
+
     >>> p.question
     "What's new?"
     >>> p.pub_date
     datetime.datetime(2012, 2, 26, 13, 0, 0, 775217)
 
-    # Po zmianie atrybutów ponownie wywołujemy save(), aby zapisać zmiany do bazy.
+Po zmianie atrybutów ponownie wywołujemy ``save()``, aby zapisać zmiany do bazy::
+
     >>> p.question = "What's up?"
     >>> p.save()
 
-    # objects.all() zwraca listę wszystkich obiektów w bazie danych
+``objects.all()`` zwraca listę wszystkich obiektów w bazie danych::
+
     >>> Poll.objects.all()
     [<Poll: Poll object>]
 
@@ -453,7 +378,8 @@ Jedną z takich metod jest ``__str__``, która pozwala zmienić sposób wyświet
 Django będzie używało tych metod przy wyświetlaniu obiektów, nie tylko w konsoli, ale również we wspomnianym wcześniej
 interfejsie administracyjnym.
 
-Możemy też dodawać inne metody::
+Możemy też dodawać inne metody. W pliku ``carrots/polls/models.py`` dopisz
+(koemntarze ``# ...`` tutaj oznaczają kod znajdujący się już w pliku)::
 
     import datetime
     from django.utils import timezone
@@ -605,12 +531,7 @@ Czy widzisz już, że przykładowe wyrażenie dopasuje się do ``polls/1/``? Dla
 
 Kiedy już Django znajdzie dopasowanie, popatrzy na drugą część linii. Określa ona widok, który ma być wywołany w celu
 utworzenia strony dla użytkownika. Dla ``polls/1/`` będzie to ``polls.views.detail``. Wszystkie nazwane grupy zostaną
-przekazane widokowi jako argumenty o tej samej nazwie, tak jakby wywołać z konsoli:
-
-.. code-block:: python
-
-  detail(request=<HttpRequest object>, poll_id='1')
-
+przekazane widokowi jako argumenty o tej samej nazwie.
 
 Pierwszy widok
 ==============
