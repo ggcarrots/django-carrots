@@ -3,7 +3,7 @@ Instalacja
 ==========
 
 Na potrzeby warsztatów będzie nam potrzebny interpreter języka
-Python w wersji 3.2 lub 3.3. Poniżej znajdują się wskazówki, jak
+Python w wersji 3.4. Poniżej znajdują się wskazówki, jak
 sprawdzić, czy już go mamy, ewentualnie zainstalować wraz z
 przydatnymi narzędziami.
 
@@ -11,7 +11,7 @@ Windows
 =======
 
 Wersje dla Windows można pobrać bezpośrednio ze strony `python.org`_.
-Po ściągnięciu pliku ``*.exe`` uruchom go i postępuj zgonie z instrukcjami.
+Po ściągnięciu pliku ``*.msi`` uruchom go i postępuj zgonie z instrukcjami.
 Ważne jest, aby zapamiętać ścieżkę, którą wybraliśmy jako katalog instalacji,
 bo będzie nam ona potrzebna przy :ref:`instalacji narzędzi <narzędzia>`.
 
@@ -24,8 +24,7 @@ Aby sprawdzić czy i jaką wersję mamy, wpisz w linii poleceń:
 .. code-block:: sh
 
     $ python --version
-    Python 3.3.1
-
+    Python 3.4.0
 
 Jeśli nie ma dostępnej komendy python lub wyświetla ona nieodpowiednią wersję:
 
@@ -34,14 +33,14 @@ Ubuntu
 
 W linii poleceń wpisz::
 
-    sudo apt-get install python3
+    sudo apt-get install python3.4
 
 Fedora
 ------
 
 W linii poleceń wpisz::
 
-    sudo yum install python3
+    sudo yum install python3.4
 
 OS X
 ----
@@ -85,7 +84,7 @@ Tekst może trochę się różnić w zależności od używanej wersji Windowsa.
 
 ``C:\Users\Imie>`` to tak zwany ``prompt``. Informuje nas o katalogu, w którym
 aktualnie się znajdujemy oraz czeka na podanie polecenia. W dalszej części
-warsztatów ``C:\Users\Imie>`` będziemy czasem skracać do  ``~$``, niezależnie
+warsztatów ``C:\Users\Imie>`` będziemy skracać do  ``~$``, niezależnie
 od używanego systemu (Windows, Linux, MacOS).
 
 Z pomocą linii poleceń można poruszać się po zawartości dysku (podobnie jak po
@@ -110,27 +109,23 @@ wejściu w ``Mój komputer``). Służą do tego polecenia:
 Środowisko wirtualne
 --------------------
 
-Gdy już mamy działającego Pythona, zainstalujemy jeszcze jeden program, który
-uprości instalację innych pythonowych programów i usprawni nam pracę.
-
-Pobierz skrypt `virtualenv.py`_ do swojego katalogu domowego. Plik możesz zapisać
-klikając prawym przyciskiem myszy na stronę, która pojawi się po kliknięciu w odnośnik i wybierając ``Zapisz jako``.
+Musimy wybrać teraz katalog dla naszego środowiska wirtualnego. Środowisko wirtualne pozwala
+odizolować naszą pracę od innych części systemu. Może być to przykładowo katalog domowy użytkownika.
 
 W przypadku Windowsa 7 ścieżka do katalogu domowego dla użytkownika ``Ala`` będzie wyglądała tak: ``C:\Users\Ala\`` .
-Możesz wybrać też inny katalog, ale ważne jest, żeby zapamiętać, gdzie znajduje się zapisywany plik. 
-Musi być łatwo dostępny, bo będziemy często z niego korzystać.
+Możesz wybrać też inny katalog, ale ważne jest, żeby zapamiętać, gdzie znajduje się nasze środowisko.
 
 Na przykład, jeżeli naszym katalogiem domowym jest ``C:\Users\lrekucki``, linia poleceń będzie wyglądała tak:
 
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> C:\Python33\python virtualenv.py warsztaty --system-site-packages --distribute
+    C:\Users\lrekucki> C:\Python34\python -m venv warsztaty
 
 .. code-block:: sh
 
     # Linux i Mac
-    ~$ python3.3 virtualenv.py warsztaty --system-site-packages --distribute --python=python3
+    ~$ python3.4 -m venv warsztaty
 
 
 W Twoim katalogu domowym powstanie katalog ``warsztaty`` zawierający tzw.
@@ -156,28 +151,76 @@ Uruchom w terminalu:
     :: Windows
     (warsztaty) C:\Users\lrekucki>where python
     C:\Users\lrekucki\warsztaty\Scripts\python.exe
+
+    (warsztaty) C:\Users\lrekucki>where pip
+    C:\Users\lrekucki\warsztaty\Scripts\pip.exe
     ...
 
     (warsztaty) C:\Users\lrekucki>python --version
-    3.3.1
+    3.4.0
 
 .. code-block:: sh
 
     # Linux i Mac
     (warsztaty) ~$ which python
-    /home/lrekucki/warsztaty/bin/python.exe
+    /home/lrekucki/warsztaty/bin/python
+    (warsztaty) ~$ which pip
+    /home/lrekucki/warsztaty/bin/pip
     ...
 
     (warsztaty) ~$ python --version
-    3.3.1
+    3.4.0
 
 
-.. _python.org: http://python.org/download/releases/3.3.1/
-.. _virtualenv.py: https://raw.github.com/pypa/virtualenv/c881ae56d34a578b3f61326ed7745ef2e6d269d0/virtualenv.py
+.. _python.org: http://python.org/download/releases/3.4.0/
+
+W razie problemów po wpisaniu ``which pip`` może być potrzeba przeinstalowania pip:
+
+.. code-block:: sh
+
+    python -m pip uninstall pip
+    python -m ensurepip
+
+Podsumowanie
+------------
+
+Instalacja nowego środowiska wirtualnego:
+
+.. code-block:: bat
+
+    :: Windows
+    C:\Users\lrekucki> C:\Python34\python -m venv warsztaty
+
+.. code-block:: sh
+
+    # Linux i Mac
+    ~$ python3.4 -m venv warsztaty
+
+Aktywacja środowiska wirtualnego:
+
+.. code-block:: bat
+
+    :: Windows
+    C:\Users\lrekucki> warsztaty\Scripts\activate
+
+.. code-block:: sh
+
+    # Linux i Mac
+    ~$ source warsztaty/bin/activate
+
+Upewnij się, że używasz właściwej wersji pythona:
+
+.. code-block:: sh
+
+    (warsztaty) ~$ python --version
+    3.4.0
 
 
 IPython
 -------
+
+Ewentualnie możemy zainstalować ``IPython``, który poprawi wygląd i wygodę korzystania
+z konsoli Pythona.
 
 Zainstaluj ``IPython``:
 

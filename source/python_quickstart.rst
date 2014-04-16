@@ -2,15 +2,22 @@
 Wprowadzenie do Pythona
 =======================
 
-Zacznijmy od uruchomienia interpretera, który zainstalowaliśmy w poprzednim rozdziale:
+Zacznijmy od uruchomienia interpretera, który zainstalowaliśmy w poprzednim rozdziale. Uruchom:
 
 .. code-block:: sh
 
     (warsztaty) ~$ python
-    Python 3.3.1 (...)
+    Python 3.4.0 (...)
     Type "copyright", "credits" or "license" for more information.
 
     >>>
+
+Wcześniej pracowaliśmy w konsoli systemu operacyjnego i mogliśmy wydawać mu polecenia.
+Zachętą dla nas był ``~$``. Po uruchomieniu polecenia ``python`` zmienił się znak zachęty na
+``>>>``. To jest informacja dla nas, że teraz wydajemy wyłącznie polecenia w języku Python.
+Poprzednie polecenia (takie jak: ``cd``, ``mkdir``) nie będą działać. W tym momencie
+zaczynamy uczyć się nowego języka. Znaków ``>>>`` (podobnie jak ``~$``) nie wpisujemy sami.
+
 
 Teraz możemy coś policzyć, np. wpisując ``2 + 2``:
 
@@ -26,7 +33,7 @@ Python świetnie sprawdza się jako kalkulator:
     >>> (3 - 5) * 7
     -14
     >>> 21 / 7
-    3
+    3.0
     >>> 3**2
     9
     >>> 5 / 2
@@ -104,6 +111,8 @@ wyjść, wpisz poprostu `quit()`::
 
     >>> quit()
 
+Lub (szybciej) wciskając na klawiaturze ``Ctrl+D`` w przypadku Linuxa lub ``Ctrl+Z`` w
+przypadku Windowsa.
 
 Pliki źródłowe
 ==============
@@ -122,9 +131,9 @@ wykonując ``python wizytowka.py``:
 
 .. code-block:: sh
 
-    $ python wizytowka.py
+    (warsztaty) ~$ python wizytowka.py
     Cześć, mam na imię Łukasz.
-    $
+    (warsztaty) ~$
 
 Pojedynczy program może zawierać więcej niż jedno polecenie. Każde powinno znajdować
 się w osobnej linii, np.::
@@ -283,6 +292,9 @@ Na koniec tego rozdziału dodamy kilka komentarzy
 do naszego programu, aby użytkownik (włącznie z nami!) pamiętał, że wagę
 należy podać w kilogramach.
 
+Komentarze pozwalają umieścić w pliku dowolny tekst, który zostanie
+zignorowany przez interpreter Pythona.
+
 Komentarzem w Pythonie jest wszystko po znaku ``#`` aż do końca linii::
 
     # Waga w kilogramach
@@ -331,8 +343,17 @@ Jak czytamy w opisie, wczytuje ona napis::
     ala ma kota
     'ala ma kota'
 
-Funkcja ta będzie bardziej użyteczna, jeśli zapamiętamy wczytany
-napis pod jakąś nazwą::
+W tym momencie zapoznamy się z "wywoływaniem funkcji". Robi się to za pomocą
+nawiasów ``()``, które informują interpreter, że ma daną funkcję wywołać.
+Wywołanie funkcji spowoduje uruchomienie jej. Jeżeli zapomnimy wpisać ``()``
+po nazwie funkcji, nie zostanie ona wywołana i **nie** dostaniemy żadnego
+błędu (ponieważ jest to ciągle poprawny program).
+
+Wywołane funkcje najczęściej _zwracają_ jakąś wartość. Funkcja :func:`input`
+zwraca napis, dlatego możemy użyć jej wszędzie tam gdzie do tej pory używaliśmy
+napisów.
+
+Przykładowo możemy zapamiętać wczytany napis pod jakąś nazwą::
 
     >>> name = input()
     Joanna
@@ -455,7 +476,7 @@ dostać:
     Twoje BMI to: 21.387755102
 
 Podsumowując: aby wywołać funkcję, musimy znać jej nazwę (poznaliśmy
-dotąd cześć: :func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float` i :func:`quit`),
+dotąd część: :func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float` i :func:`quit`),
 oraz wiedzieć, jakich danych ona od nas oczekuje (tzw. lista argumentów).
 
 Podanie samej nazwy nie wywoła funkcji, powie nam jedynie, że to funkcja:
@@ -529,7 +550,7 @@ wykonuje dalszą część programu pod podanym warunkiem:
 Porównania: prawda czy fałsz?
 -----------------------------
 
-Pierwszym elementem, o którym jeszcze nie wspomnieliśmy, są porównania.
+Kolejnym elementem, o którym jeszcze nie wspomnieliśmy, są porównania.
 Dla liczb działają one identycznie jak na lekcjach matematyki:
 
     >>> 2 > 1
