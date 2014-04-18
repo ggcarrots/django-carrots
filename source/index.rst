@@ -14,10 +14,12 @@ Spis treści
 -----------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    install
    python_quickstart
    python_xmas_tree
    django_in_action
+   django_models
+   django_views
    going_social
