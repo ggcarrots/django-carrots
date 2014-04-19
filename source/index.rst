@@ -22,4 +22,5 @@ Spis treści
    django_in_action
    django_models
    django_views
-   going_social
+
+.. going_social
