@@ -84,21 +84,23 @@ dobrze::
   Could not import polls.views.detail. View does not exist in module polls.views.
 
 Ach, to dlatego, że nie zdefiniowaliśmy jeszcze widoku (Django podpowiada nam, że szukało ``polls.views.detail``,
-niestety bez powodzenia)! Otwórzmy w tym celu plik `polls/views.py` i dodajmy kilka nowych funkcji::
+niestety bez powodzenia)!
 
-  from django.http import HttpResponse
+Popraw plik ``polls/views.py``, aby wyglądał następująco::
 
-  def index(request):
-      return HttpResponse("Hello, world. You're at the poll index.")
+    from django.http import HttpResponse
 
-  def detail(request, poll_id):
-      return HttpResponse("You're looking at poll %s." % poll_id)
+    def index(request):
+        return HttpResponse("Hello, world. You're at the poll index.")
 
-  def results(request, poll_id):
-      return HttpResponse("You're looking at the results of poll %s." % poll_id)
+    def detail(request, poll_id):
+        return HttpResponse("You're looking at poll %s." % poll_id)
 
-  def vote(request, poll_id):
-      return HttpResponse("You're voting on poll %s." % poll_id)
+    def results(request, poll_id):
+        return HttpResponse("You're looking at the results of poll %s." % poll_id)
+
+    def vote(request, poll_id):
+        return HttpResponse("You're voting on poll %s." % poll_id)
 
 Tak wygladają najprostsze możliwe widoki. Nie zwracają one zwykłych ciagów znaków, tak jak funkcja budująca choinkę w
 Pythonie, bo muszą mówić protokołem HTTP, który jest nieco bardziej skomplikowany (tutaj dobrze byłoby zobaczyć w
@@ -113,10 +115,16 @@ Nasze widoki na razie nie robią zbyt wiele. Dajmy im trochę popracować!
 Wszystko, czego Django potrzebuje od widoku, to obiekt
 `HttpResponse <https://docs.djangoproject.com/en/1.4/ref/request-response/#django.http.HttpResponse>`_
 lub wyrzucenie wyjątku. Cała reszta jest pod naszą kontrolą. Możemy na przykład użyć funkcji, które poznaliśmy w trybie
-interaktywnym, aby wyświetlić wszystkie ankiety użytkownikowi::
+interaktywnym, aby wyświetlić wszystkie ankiety użytkownikowi.
 
-  from polls.models import Poll
-  from django.http import HttpResponse
+Dopisz na początek pliku ``polls/views.py``::
+
+    from django.http import HttpResponse
+    from polls.models import Poll
+
+Rozbuduj funkcję ``index`` aby wyglądała następująco:
+
+.. code-block:: python
 
   def index(request):
       latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
@@ -125,19 +133,21 @@ interaktywnym, aby wyświetlić wszystkie ankiety użytkownikowi::
 
 .. note::
 
-    Teraz nie podajemy już całej treści pliku, bo byłaby ona za długa. Podawane są tylko najważniejsze zmiany. W tym
-    wypadku zmieniła się funkcja ``index`` oraz sam początek pliku (dodana linijka
-    ``from django.http import HttpResponse``).
+    Teraz nie podajemy już całej treści pliku, bo byłaby ona za długa. Podawane są tylko najważniejsze zmiany.
 
 Działa! Jest tylko jeden problem z tym przykładem: określamy w widoku nie tylko
 to, co ma być zwrócone, ale też w jakim formacie ma zostać zwrócone
 użytkownikowi serwisu. Jedną z najważniejszych umiejętności programisty jest
-zdolność do odróżnienia i rozdzielenia dwóch niezależnych rzeczy. Programiści
-Django o tym pomyśleli i stworzyli system szablonow::
+zdolność do odróżnienia i rozdzielenia dwóch niezależnych rzeczy: danych oraz wyglądu.
+Programiści Django o tym pomyśleli i stworzyli system szablonow:
+
+Dopisz na początek pliku ``polls/views.py``::
 
   from django.template import Context, loader
-  from polls.models import Poll
-  from django.http import HttpResponse
+
+To pozwoli nam używać systemu szablonów.
+
+Rozbuduj funkcję ``index`` w tym samym pliku aby wyglądała następująco::
 
   def index(request):
       latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
@@ -159,11 +169,6 @@ http://localhost:8000/polls/, aby zobaczyć wynik naszej pracy::
 Ups! No tak, nie dodaliśmy jeszcze szablonu. Aby to zrobić, stwórzmy plik ``polls/templates/polls/index.html`` i dodajmy
 do niego:
 
-.. note::
-    Szablony aplikacji znajdują się w katalogu ``templates`` aplikacji, a funkcja ``get_template`` sama szuka szablonów
-    w tych katalogach, dlatego nie musieliśmy podawać całej ścieżki ``polls/templates/polls/index.html``, wystarczyło
-    ``polls/index.html``.
-
 .. code-block:: django
 
   {% if latest_poll_list %}
@@ -175,6 +180,11 @@ do niego:
   {% else %}
       <p>No polls are available.</p>
   {% endif %}
+
+.. note::
+    Szablony aplikacji znajdują się w katalogu ``templates`` aplikacji, a funkcja ``get_template`` sama szuka szablonów
+    w tych katalogach, dlatego nie musieliśmy podawać całej ścieżki ``polls/templates/polls/index.html``, wystarczyło
+    ``polls/index.html``.
 
 Po przeładowaniu strony w przeglądarce powinniśmy zobaczyć listę zawierającą wszystkie utworzone wcześniej ankiety.
 
@@ -192,34 +202,54 @@ Po przeładowaniu strony w przeglądarce powinniśmy zobaczyć listę zawierają
    Zachwycającą własnością sieci WWW jest to, że kody HTML i CSS każdej strony są zupełnie jawne. Polecam obejrzenie kodu
    ulubionych stron.
 
-Prawie w każdym widoku będziemy chcieli ostatecznie użyć szablonu. Dlatego w Django jest funkcja ``render_to_response``,
-która pozwala zrobić to w krótszy sposób::
+Prawie w każdym widoku będziemy chcieli ostatecznie użyć szablonu. Dlatego w Django jest funkcja ``render``,
+która pozwala zrobić to w krótszy sposób.
 
-  from django.shortcuts import render_to_response
+Popraw początek pliku ``polls/views.py``, aby wyglądał następująco::
+
+  from django.shortcuts import render
   from polls.models import Poll
+
+Popraw funkcję ``index``, aby wyglądała następująco::
 
   def index(request):
       latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
-      return render_to_response('polls/index.html', {'latest_poll_list': latest_poll_list},
-                            context_instance=RequestContext(request))
+      return render(
+          request,
+          'polls/index.html',
+          {'latest_poll_list': latest_poll_list})
 
 
 Zwracanie 404
 -------------
 
-Zajmijmy się teraz widokiem szczegółow ankiety -- strony, która wyświetla pytania z konkretnej ankiety. Tak wygląda kod
-widoku::
+Zajmijmy się teraz widokiem szczegółow ankiety -- strony, która wyświetla pytania z konkretnej ankiety.
+
+Dopisz na początku pliku ``polls/views``::
 
     from django.http import Http404
-    # ...
+
+``Http404`` to wyjątek udostępniony przez Django. W sytuacji, gdy nasza aplikacja nie potrafi odnaleźć
+żądanej przez użytkownika ankiety, możemy rzucić ten wyjątek (przez napisanie ``raise Http404``). Efektem
+tego będzie wyświetlenie strony błędu 404 w przeglądarce.
+
+.. note::
+
+   Można zmienić stronę wyswietlaną przez Django w wypadku błędu 404 (brak strony) i 500 (nieoczekiwany błąd serwera).
+   W tym celu trzeba stworzyć szablony ``404.html`` i ``500.html``. Przed sprawdzeniem, czy to zadziałało, należy zmienić
+   ``DEBUG`` w pliku ``settings.py`` na ``False``, inaczej Django nadal będzie wyświetlać swoje pomocnicze
+   *żółte* strony.
+
+Popraw funkcję ``detail`` aby wyglądała następująco::
+
     def detail(request, poll_id):
         try:
             p = Poll.objects.get(id=poll_id)
         except Poll.DoesNotExist:
             raise Http404
-        return render_to_response('polls/detail.html', {'poll': p})
+        return render(request, 'polls/detail.html', {'poll': p})
 
-Tak wygląda kod szablonu ``polls/templates/polls/detail.html``:
+Następnie stwórz plik ``polls/templates/polls/detail.html`` o następującej treści:
 
 .. code-block:: django
 
@@ -230,21 +260,13 @@ Tak wygląda kod szablonu ``polls/templates/polls/detail.html``:
     {% endfor %}
     </ul>
 
-Nowością jest tutaj wyrzucanie wyjątku ``Http404``, gdy sprawdzimy, że ankieta o konkretnym ID nie istnieje. Django
-obsłuży taki wyjątek, wyświetlając domyślną stronę 404.
-
-.. note::
-
-   Można zmienić stronę wyswietlaną przez Django w wypadku błędu 404 (brak strony) i 500 (nieoczekiwany błąd serwera).
-   W tym celu trzeba stworzyć szablony ``404.html`` i ``500.html``. Przed sprawdzeniem, czy to zadziałało, należy zmienić
-   ``DEBUG`` w pliku ``settings.py`` na ``False``, inaczej Django nadal będzie wyświetlać swoje pomocnicze
-   *żółte* strony.
-
 
 Obsługa formularzy
 ------------------
 
 Zmieńmy szablon ``polls/templates/polls/details.html``, dodając tam prosty formularz HTML.
+
+Popraw plik ``polls/templates/polls/details.html``, aby wyglądał następująco:
 
 .. code-block:: django
 
@@ -267,36 +289,28 @@ Zmieńmy szablon ``polls/templates/polls/details.html``, dodając tam prosty for
    stron internetowych. Wiecej opisane jest w
    `dokumentacji Cross Site Request Forgery <https://docs.djangoproject.com/en/1.4/ref/contrib/csrf/>`_.
 
-Aby działały niektóre tagi szablonu (w szczególności ``{% csrf_token %}``), musimy przekazać do `render_to_response`
-obiekt `RequestContext <https://docs.djangoproject.com/en/1.4/ref/templates/api/#subclassing-context-requestcontext>`_.
-Robimy to w następujący sposób::
-
-  from django.template import RequestContext
-  from django.shortcuts import get_object_or_404
-  # ...
-  def detail(request, poll_id):
-      p = get_object_or_404(Poll, id=poll_id)
-      return render_to_response('polls/detail.html', {'poll': p},
-                                 context_instance=RequestContext(request))
-
 Uważny czytelnik zauważy, że formularz wysyłany jest na adres ``/polls/{{ poll.id }}/vote/``, który nie obsługuje
-jeszcze danych formularza. Poprawmy to teraz::
+jeszcze danych formularza. Dodamy teraz obsługę formularzy.
+
+Na początku pliku ``polls/views.py`` dopisz::
 
     from django.http import HttpResponseRedirect
     from django.core.urlresolvers import reverse
-
+    from django.shortcuts import get_object_or_404
     from polls.models import Choice
-    # ...
+
+Popraw funkcję ``vote``, aby wyglądała następująco::
+
     def vote(request, poll_id):
         p = get_object_or_404(Poll, id=poll_id)
         try:
             selected_choice = p.choice_set.get(id=request.POST['choice'])
         except (KeyError, Choice.DoesNotExist):
             # Wyświetl błąd użytkownikowi, gdy wybrał złą opcję
-            return render_to_response('polls/detail.html', {
+            return render(request, 'polls/detail.html', {
                 'poll': p,
                 'error_message': "Musisz wybrać poprawną opcję.",
-            }, context_instance=RequestContext(request))
+            })
 
         # Zapisz nową liczbę głosów
         selected_choice.votes += 1
@@ -318,19 +332,20 @@ Następnie wykonujemy przekierowanie za pomocą ``HttpResponseRedirect`` do wcze
 widoku detali ankiety.
 
 Kolejna istotna sprawa: po zagłosowaniu mogliśmy po prostu wyświetlić jakąś stronę, podobnie jak na końcu widoku detali
-(za pomocą ``render_to_response``). Niestety, mogłoby to prowadzić do ponownego wysłania ankiety, gdyby użytkownik
+(za pomocą ``render``). Niestety, mogłoby to prowadzić do ponownego wysłania ankiety, gdyby użytkownik
 zaczął bawić się przyciskami ``wstecz`` i ``dalej`` w przeglądarce lub gdyby po prostu odświeżył stronę (np. klawiszem ``f5``)
 W skrócie, zawsze po poprawnym wysłaniu formularza (w tym wypadku: zagłosowaniu na ankietę) powinniśmy wykonać
 przekierowanie za pomocą ``HttpResponseRedirect``.
 
-Na koniec pozostał nam do opracowania widok wyników ankiety, wyświetlany po zagłosowaniu::
+Na koniec pozostał nam do opracowania widok wyników ankiety, wyświetlany po zagłosowaniu.
+
+Popraw funkcję ``results``, aby wyglądała następująco::
 
   def results(request, poll_id):
       p = get_object_or_404(Poll, id=poll_id)
-      return render_to_response('polls/results.html', {'poll': p},
-                             context_instance=RequestContext(request))
+      return render(request, 'polls/results.html', {'poll': p})
 
-Szablon ``polls/templates/polls/results.html``:
+Oraz stwórz plik ``polls/templates/polls/results.html``, o następującej treści:
 
 .. code-block:: django
 
@@ -353,33 +368,36 @@ głosując na nie i namawiając inne osoby, aby zrobiły to samo.
 
    .. code-block:: python
 
-        from django.http import Http404
-        from django.http import HttpResponse
         from django.http import HttpResponseRedirect
-        from django.template import Context, loader
-        from django.template import RequestContext
-        from django.shortcuts import render_to_response
-        from django.shortcuts import get_object_or_404
         from django.core.urlresolvers import reverse
+        from django.shortcuts import get_object_or_404
 
         from polls.models import Choice
+        from django.http import Http404
+        from django.shortcuts import render
         from polls.models import Poll
+
 
         def index(request):
             latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
-            return render_to_response('polls/index.html',
-                                    {'latest_poll_list': latest_poll_list},
-                                    context_instance=RequestContext(request))
+            return render(
+                request,
+                'polls/index.html',
+                {'latest_poll_list': latest_poll_list})
+
 
         def detail(request, poll_id):
-            p = get_object_or_404(Poll, id=poll_id)
-            return render_to_response('polls/detail.html', {'poll': p},
-                                     context_instance=RequestContext(request))
+            try:
+                p = Poll.objects.get(id=poll_id)
+            except Poll.DoesNotExist:
+                raise Http404
+            return render(request, 'polls/detail.html', {'poll': p})
+
 
         def results(request, poll_id):
             p = get_object_or_404(Poll, id=poll_id)
-            return render_to_response('polls/results.html', {'poll': p},
-                             context_instance=RequestContext(request))
+            return render(request, 'polls/results.html', {'poll': p})
+
 
         def vote(request, poll_id):
             p = get_object_or_404(Poll, id=poll_id)
@@ -387,11 +405,12 @@ głosując na nie i namawiając inne osoby, aby zrobiły to samo.
                 selected_choice = p.choice_set.get(id=request.POST['choice'])
             except (KeyError, Choice.DoesNotExist):
                 # Wyświetl błąd użytkownikowi, gdy wybrał złą opcję
-                return render_to_response('polls/detail.html', {
+                return render(request, 'polls/detail.html', {
                     'poll': p,
                     'error_message': "Musisz wybrać poprawną opcję.",
-                }, context_instance=RequestContext(request))
+                })
 
+            # Zapisz nową liczbę głosów
             selected_choice.votes += 1
             selected_choice.save()
             # Przekieruj użytkownika do widoku detali ankiety, na którą właśnie zagłosował
