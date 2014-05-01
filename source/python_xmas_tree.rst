@@ -381,16 +381,16 @@ Każdy obiekt ma klasę
 Aby dowiedzieć się jaką, wystarczy użyć funkcji :func:`type`:
 
     >>> type(2)
-    <type 'int'>
+    <class 'int'>
     >>> type(2.0)
-    <type 'float'>
+    <class 'float'>
     >>> type("Gżegżółka")
-    <type 'str'>
+    <class 'str'>
     >>> x = 1, 2
     >>> type(x)
-    <type 'tuple'>
+    <class 'tuple'>
     >>> type([])
-    <type 'list'>
+    <class 'list'>
 
 Gdy używamy w naszym programie liczby, spodziewamy się, że będzie się
 ona zachowywać tak jak liczba - bazujemy na naszej intuicji.
@@ -422,7 +422,7 @@ Zacytujemy tutaj jedynie kilka ciekawszych funkcji:
     Help on method_descriptor:
     <BLANKLINE>
     ljust(...)
-        S.ljust(width[, fillchar]) -> int
+        S.ljust(width[, fillchar]) -> str
     <BLANKLINE>
         Return S left-justified in a Unicode string of length width. Padding is
         done using the specified fill character (default is a space).
@@ -433,7 +433,7 @@ Zacytujemy tutaj jedynie kilka ciekawszych funkcji:
     center(...)
         S.center(width[, fillchar]) -> str
     <BLANKLINE>
-        Return S centered in a Unicode string of length width. Padding is
+        Return S centered in a string of length width. Padding is
         done using the specified fill character (default is a space)
     <BLANKLINE>
 
@@ -442,11 +442,11 @@ się do nich dostać, używając kropki i wywołując jak funkcję:
 
     >>> x = "Ala"
     >>> x.upper()
-    u'ALA'
+    'ALA'
     >>> x.lower()
-    u'ala'
+    'ala'
     >>> x.center(9)
-    u'   Ala   '
+    '   Ala   '
 
 I jeszcze jedna istotna funkcjonalność każdej klasy - potrafi ona
 stworzyć obiekt mający jej cechy (tzw. swoją instancję):

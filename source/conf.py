@@ -309,21 +309,26 @@ intersphinx_mapping = {'http://docs.python.org/3/': None}
 
 todo_include_todos = True
 
-doctest_global_setup = u"""
+doctest_global_setup = """
 import itertools
 import collections
+import functools
 
-def _raw_input(prompt=''):
-    value = raw_input.queue.popleft()
-    print prompt + value
-    return value
+def __replaced_input():
+    orig_input = input
 
-__builtins__['raw_input'] = _raw_input
+    @functools.wraps(orig_input)
+    def _input(prompt=""):
+        if not input.queue:
+            value = ""
+        else:
+            value = input.queue.popleft()
+        print(prompt + value)
+        return value
 
-raw_input.queue = collections.deque()
+    _input.queue = collections.deque()
+    return _input
 
-def _input(prompt=''):
-    return eval(raw_input(prompt))
+__builtins__['input'] = __replaced_input()
 
-__builtins__['input'] = _input
 """

@@ -139,11 +139,11 @@ Pojedynczy program może zawierać więcej niż jedno polecenie. Każde powinno 
 się w osobnej linii, np.::
 
     print("Cześć,")
-    print("")
+    print()
 
     print("Mam na imię Łukasz.")
 
-    print("")
+    print()
     print("Papa.")
 
 Puste linie pozwalają oddzielić wizualnie różne części
@@ -174,7 +174,7 @@ W wyniku dostaniemy:
 
 .. testoutput::
 
-    Twoje BMI to: 21.387755102
+    Twoje BMI to: 21.387755102040817
 
 Jak widać, nasz program wymaga jeszcze nieco pracy:
 
@@ -182,7 +182,7 @@ Jak widać, nasz program wymaga jeszcze nieco pracy:
    zmienić jego treść. W dodatku musi się domyślić, które wartości
    ma zmienić.
 
-2. Osobie, która nie zna na pamięć tabelki BMI, wartość `21.387755102`
+2. Osobie, która nie zna na pamięć tabelki BMI, wartość `21.387755102040817`
    nic nie powie.
 
 3. Wypisywanie tylu miejsc po przecinku jest zbędne. BMI mierzy
@@ -215,7 +215,7 @@ Wynik działania programu się nie zmienił:
 
 .. testoutput::
 
-    Twoje BMI to: 21.387755102
+    Twoje BMI to: 21.387755102040817
 
 
 Aby lepiej zrozumieć działanie nazw, wróćmy na chwilę do trybu
@@ -274,19 +274,19 @@ wynikom obliczeń oraz używać nazw w obliczeniach:
     >>> h = 175.0 / 100.0
     >>> bmi = w / h**2
     >>> print(w, h, bmi)
-    65.5 1.75 21.387755102
+    65.5 1.75 21.387755102040817
 
 Jednak raz wyliczona wartość się nie zmienia:
 
     >>> w = 64
     >>> print(w, h, bmi)
-    64 1.75 21.387755102
+    64 1.75 21.387755102040817
 
 dopóki nie każemy Pythonowi wyliczyć jej ponownie:
 
     >>> bmi = w / h**2
     >>> print(w, h, bmi)
-    64 1.75 20.8979591837
+    64 1.75 20.897959183673468
 
 Na koniec tego rozdziału dodamy kilka komentarzy
 do naszego programu, aby użytkownik (włącznie z nami!) pamiętał, że wagę
@@ -323,8 +323,8 @@ Pierwszą, która poznamy, będzie :func:`help`:
 :func:`help` jest bardzo przyjazną funkcją, bo sama nam mówi, jak powinniśmy jej
 używać. Pomaga też w zrozumieniu innych funkcji:
 
-    >>> help(input)  # doctest: +SKIP
-    Help on built-in function input in module builtins:
+    >>> help(input)
+    Help on function input in module builtins:
     <BLANKLINE>
     input(...)
         input([prompt]) -> string
@@ -333,13 +333,12 @@ używać. Pomaga też w zrozumieniu innych funkcji:
         If the user hits EOF (Unix: Ctl-D, Windows: Ctl-Z+Return), raise EOFError.
         On Unix, GNU readline is used if enabled.  The prompt string, if given,
         is printed without a trailing newline before reading.
+    <BLANKLINE>
 
 Właśnie :func:`input` będziemy używać do wczytywania danych od użytkownika.
-Jak czytamy w opisie, wczytuje ona napis::
+Jak czytamy w opisie, wczytuje ona napis:
 
-.. TODO : wywołanie funkcji a funkcja, trzeba dopisać "()".
-
-    >>> input()
+    >>> input()  # doctest: +SKIP
     ala ma kota
     'ala ma kota'
 
@@ -353,22 +352,28 @@ Wywołane funkcje najczęściej _zwracają_ jakąś wartość. Funkcja :func:`in
 zwraca napis, dlatego możemy użyć jej wszędzie tam gdzie do tej pory używaliśmy
 napisów.
 
-Przykładowo możemy zapamiętać wczytany napis pod jakąś nazwą::
+Przykładowo możemy zapamiętać wczytany napis pod jakąś nazwą:
+
+.. testsetup::
+
+    input.queue.append("Joanna")
+
+.. doctest::
 
     >>> name = input()
     Joanna
     >>> name
     'Joanna'
-    >>> print('Twoje imię to:", name)
+    >>> print("Twoje imię to:", name)
     Twoje imię to: Joanna
 
 Czy to już wystarcza nam do poprawienia programu?
 
-.. testsetup:: raw_input_test
+.. testsetup::
 
     input.queue.append("60.5")
 
-.. doctest:: raw_input_test
+.. doctest::
 
     >>> w = input()
     60.5
@@ -387,23 +392,29 @@ o napis ``"60.53"``. Tylko my to wiemy i musimy zawrzeć tę informację w progr
 Poznajmy więc dwie kolejne funkcje:
 
     >>> help(int)  # doctest: +NORMALIZE_WHITESPACE
-    Help on class int in module builtin:
+    Help on class int in module builtins:
     <BLANKLINE>
     class int(object)
-    |  int(x[, base]) -> integer
-    |
-    |  Convert a string or number to an integer, if possible. ...
+     |  int(x=0) -> integer
+     |  int(x, base=10) -> integer
+     |
+     |  Convert a number or string to an integer, or return 0 if no arguments
+     |  are given.  If x is a number, return x.__int__().  For floating point
+     |  numbers, this truncates towards zero.
+     |
+     |  ...
 
 oraz
 
     >>> help(float)  # doctest: +NORMALIZE_WHITESPACE
-    Help on class float in module builtin:
+    Help on class float in module builtins:
     <BLANKLINE>
     class float(object)
-    |  float(x) -> floating point number
-    |
-    |  Convert a string or number to a floating point number, if possible.
-    |  ...
+     |  float(x) -> floating point number
+     |
+     |  Convert a string or number to a floating point number, if possible.
+     |
+     |  ...
 
 Funkcja :func:`help` nie omieszkała nas poinformować, iż w rzeczywistości
 :func:`int` i :func:`float` nie są funkcjami, lecz klasami
@@ -473,7 +484,7 @@ dostać:
     1.75
     Podaj wagę w kilogramach:
     65.5
-    Twoje BMI to: 21.387755102
+    Twoje BMI to: 21.387755102040817
 
 Podsumowując: aby wywołać funkcję, musimy znać jej nazwę (poznaliśmy
 dotąd część: :func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float` i :func:`quit`),
@@ -484,9 +495,11 @@ Podanie samej nazwy nie wywoła funkcji, powie nam jedynie, że to funkcja:
     >>> input  # doctest: +SKIP
     <built-in function input>
 
+.. We skip the test above because we can't mock input.__repr__ :(
+
 Aby wywołać funkcję, musimy dopisać nawiasy po jej nazwie:
 
-    >>> input()
+    >>> input()  # doctest: +SKIP
 
 W tym momencie funkcja zostanie wykonana przez Pythona.
 
@@ -500,7 +513,7 @@ rozdzielamy je przecinkiem:
 Sprawdzanie warunków
 ====================
 
-Przejdźmy do naszego następnego problemu. Chcemy, aby nasz program, korzystając z poniższej tabeli, 
+Przejdźmy do naszego następnego problemu. Chcemy, aby nasz program, korzystając z poniższej tabeli,
 wypisał odpowiednią dla obliczonego BMI klasyfikację:
 
 
@@ -566,7 +579,7 @@ Dla liczb działają one identycznie jak na lekcjach matematyki:
     >>> -1 != 0
     True
 
-Wynikiem porównania jest zawsze ``True`` albo ``False``. 
+Wynikiem porównania jest zawsze ``True`` albo ``False``.
 Porównania można łączyć w bardziej skomplikowane warunki za pomocą słów :keyword:`and` oraz
 :keyword:`or`:
 
@@ -595,7 +608,7 @@ Otwórz tryb interaktywny i wpisz prosty warunek, np.::
 Na razie nic się jeszcze nie wydarzyło, o czym świadczą kropki ``...`` zamiast
 zachęty ``>>>``, którą dotąd widzieliśmy. Python oczekuje od nas dalszych
 instrukcji, które mają być wykonane, jeśli warunek ``2 > 1`` okaże się
-prawdziwy. Sprawmy, żeby wypisał "OK":
+prawdziwy. Sprawmy, żeby wypisał "OK"::
 
     >>> if 2 > 1:
     ... print("OK")
@@ -605,7 +618,7 @@ prawdziwy. Sprawmy, żeby wypisał "OK":
     IndentationError: expected an indented block
 
 Niestety, nie udało się nam. Python musi wiedzieć, czy instrukcja, którą
-wpisaliśmy, jest kontynuacją :keyword:`if` czy kolejną instrukcją nieobjętą warunkiem. 
+wpisaliśmy, jest kontynuacją :keyword:`if` czy kolejną instrukcją nieobjętą warunkiem.
 W tym celu musimy wciąć nasz kod:
 
     >>> if 2 > 1:
@@ -614,7 +627,7 @@ W tym celu musimy wciąć nasz kod:
     OK
 
 Wystarczy do tego jedna spacja albo ``TAB``. Jednak wszystkie linie, które mają
-się wykonywać po sobie, muszą być wcięte tak samo:
+się wykonywać po sobie, muszą być wcięte tak samo::
 
     >>> if -1 < 0:
     ...  print("A")
@@ -781,12 +794,12 @@ liczbę oraz przedział, w którym się mieści, tj.::
     Twoje BMI jest równe: 21.39 (waga prawidłowa)
 
 Zmodyfikuj aktualny program tak, aby obliczone BMI było dostępne pod
-nazwą ``bmi``, a nazwa przedziału pod nazwą ``category``. Wtedy będziemy mogli użyć :func:`print` 
+nazwą ``bmi``, a nazwa przedziału pod nazwą ``category``. Wtedy będziemy mogli użyć :func:`print`
 i uzyskać pożądany wynik:
 
 .. testsetup::
 
-    bmi = 21.387755102
+    bmi = 21.387755102040817
     category = "waga prawidłowa"
 
 .. testcode::
@@ -796,14 +809,14 @@ i uzyskać pożądany wynik:
 .. testoutput::
     :hide:
 
-    Twoje BMI jest równe: 21.387755102 (waga prawidłowa)
+    Twoje BMI jest równe: 21.387755102040817 (waga prawidłowa)
 
 No prawie, nadal mamy zbyt dużo cyfr. W dodatku mielibyśmy problem,
 gdybyśmy chcieli np. wygenerować taki napis i zapamiętać pod jakąś
 nazwą, bo korzystamy z :func:`print` do rozdzielania elementów.
 Na szczęście jest lepszy sposób:
 
-    >>> bmi = 21.387755102
+    >>> bmi = 21.387755102040817
     >>> category = "waga prawidłowa"
     >>> wynik = "Twoje BMI: %f (%s)" % (bmi, category)
     >>> wynik
@@ -829,7 +842,7 @@ informacji, np. jeśli chcemy wyświetlić tylko dwa miejsca po kropce:
 
     >>> "%.2f" % 3.1415
     '3.14'
-    >>> "%.2f" % 21.387755102
+    >>> "%.2f" % 21.387755102040817
     '21.39'
 
 Opcji formatowania jest mnóstwo, więc nie będziemy ich tu wszystkich
