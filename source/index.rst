@@ -3,7 +3,7 @@ Przewodnik Django Carrots
 =========================
 
 Masz przed sobą przewodnik do nauki Pythona i Django.
-Nawet jeśli nie umiesz jeszcze programować, podążając za przewodnikiem i wykonując wszystkie ćwiczenia, powinnaś/powinieneś być w stanie stworzyć własną stronę internetową i zintegrować ją z Facebookiem.
+Nawet jeśli nie umiesz jeszcze programować, podążając za przewodnikiem i wykonując wszystkie ćwiczenia, powinnaś/powinieneś być w stanie stworzyć własną stronę internetową.
 
 Przewodnik jest częścią warsztatów Django Carrots organizowanych przez Geek Girls Carrots.
 Możesz go użyć przy organizacji własnych warsztatów lub do samodzielnej nauki.
