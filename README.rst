@@ -8,9 +8,9 @@ their first website in Python and Django.
 Loose outline
 
 #. Installing Python and setting up development environment
-#. Playing with Python
+#. Python basics
+#. "Snakes!" online competition
 #. Creating a polling application in Django
-#. Connecting the application to other sites (Facebook)
 #. Deploying the application
 
 
