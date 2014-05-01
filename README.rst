@@ -19,10 +19,22 @@ Build instructions
 
 Just run::
 
-  pip install -r requirements.txt
-  make html
+    $ pip install -r requirements.txt
+    $ make html
 
 Documentation should be created in ``build/html`` directory.
+
+Print version
+-------------
+
+For print version you will need XeTeX engine (because PDFLatex doesn't support
+Unicode, go figure)::
+
+    $ make latex
+    $ cd build\latex
+
+    # Open workshops.tex and remove '\DeclareCharacter' directive
+    $ xelatex workshops.tex
 
 
 Why Python 3?
