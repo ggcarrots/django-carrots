@@ -1,58 +1,59 @@
 ======================
-Wprowadzenie do Django
+Introduction to Django
 ======================
 
 
-Co to jest Django?
-==================
+What is Django?
+===============
 
-Do tej pory poznaliśmy Pythona. Python to tylko język (i zestaw podstawowych bibliotek), pozwalający tworzyć
-programy. Stworzenie interaktywnej strony w samym Pythonie wymagałoby ogromnego nakładu pracy, dlatego użyjemy Django.
-Django daje nam zestaw narzędzi, funkcji (takich jak poznaliśmy wcześniej, ale bardziej rozbudowanych) i klas
-ułatwiających tworzenie stron.
+So far we have been learning about Python. Python is just a language (and a set of basic libraries) 
+that allows you to create programs. Creating an interactive website in Python requires a huge amount 
+of work, that is why we will use Django. Django gives us a set of tools, features (as the functions we 
+learned earlier, but more complex ones), and classes which facilitate creation of websites.
 
-Do w pełni internatywnej strony potrzebujemy kilku elementów:
+On order to obtain a fully interactive website we need a few items:
 
-* serwera aplikacji - tutaj wykorzystamy Django,
-* plików HTML i CSS - odpowiedzialnych za wygląd strony,
-* bazy danych - w niej przechowywane będą dane takie jak pytania, ankiety i odpowiedzi.
+* application server - here we use Django
+* HTML and CSS files responsible for the appearance of the website
+* Databases to store survey questions and answers.
 
-Zaczniemy od stworzenia serwera aplikacji.
+We will start by creating an application server.
 
-Tworzenie nowego projektu
-=========================
+Creation of the new project
+===========================
 
-Instalacja
-----------
+Installation
+------------
 
-Zainstaluj Django, uruchamiając w konsoli ``pip install django==1.6.2``:
+Install Django by running it on the console ``pip install django==1.6.2``:
 
 .. code-block:: sh
 
-   (warsztaty) ~$ pip install django==1.6.2
+   (workshops) ~$ pip install django==1.6.2
    Downloading/unpacking django==1.6.2
      Downloading Django-1.6.2-py2.py3-none-any.whl (6.7MB): 6.7MB downloaded
    Installing collected packages: django
    Successfully installed django
    Cleaning up...
 
-Odpowiednia paczka zostanie pobrana z `PyPI <http://pypi.python.org>`_ - repozytorium pakietów Pythona,
-gdzie można znaleźć wiele użytecznych bibliotek.
+A suitable package will be downloaded from `PyPI <http://pypi.python.org>`_ - a package repository 
+where you can find many useful libraries.
 
 
-Początek projektu
------------------
+Beginning of project
+--------------------
 
-Django dostarcza skrypt administracyjny "django-admin.py". Pozwala on stworzyć szkielet naszej strony.
+Django provides the administrative script ”django-admin.py". It allows you to create the scheme of our 
+site.
 
-Aby stworzyć nowy projekt ze stroną, uruchamiamy ``django-admin.py startproject carrots``:
+To create a new project with the site, we launch ``django-admin.py startproject carrots``:
 
 .. code-block:: sh
 
    # Linux
 
-   (warsztaty) ~$ django-admin.py startproject carrots
-   (warsztaty) ~$ tree carrots
+   (workshops) ~$ django-admin.py startproject carrots
+   (workshops) ~$ tree carrots
    carrots/
    ├── carrots
    │   ├── __init__.py
@@ -68,8 +69,8 @@ Aby stworzyć nowy projekt ze stroną, uruchamiamy ``django-admin.py startprojec
 
    :: Windows
 
-   (warsztaty) C:\Users\TeddyBear> python -m django-admin startproject carrots
-   (warsztaty) C:\Users\TeddyBear> tree /f carrots
+   (workshops) C:\Users\TeddyBear> python -m django-admin startproject carrots
+   (workshops) C:\Users\TeddyBear> tree /f carrots
    Folder PATH listing
    Volume serial number is 00FA-07FF
    C:\USERS\TEDDYBEAR\DOCUMENTS\CARROTS
@@ -82,27 +83,29 @@ Aby stworzyć nowy projekt ze stroną, uruchamiamy ``django-admin.py startprojec
            __init__.py
 
 
-Struktura projektu
-------------------
-
-Nowo utworzony projekt zawiera katalog "carrots" i kilka podstawowych plików.
-
-W pliku ``carrots/settings.py`` znajdują się ustawienia strony, takie jak język, baza danych, zainstalowane aplikacje.
-Plik ten możemy edytować sami. Na początku wewnątrz znajdziemy domyślne ustawienia i komentarze wyjaśniające.
-
-Plik ``manage.py`` pozwala administrować stroną, czyli utworzyć lub wyczyścić bazę danych, uruchomić prosty serwer
-aplikacji itp. Później zobaczymy, jak go używać.
-
-Plik ``carrots/urls.py`` zawiera informacje o ścieżkach (urlach) na stronie.
-
-Pozostałe pliki są mniej ciekawe, przeważnie w ogóle się do nich nie zagląda, ani się ich nie zmienia.
-Dociekliwych odsyłam do Google.
-
-Ustawienia aplikacji
+Structure of project
 --------------------
 
-W pliku ``carrots/settings.py`` znajdź ``TIME_ZONE`` oraz ``LANGUAGE_CODE`` i ustaw strefę czasową na
-Warszawę i domyślny język na polski. Ostatecznie te dwie linie powinny wyglądać następująco:
+The newly created project contains a "carrots" directory and some basic files.
+
+The file ``carrots/settings.py`` includes the settings such as the language, a database, installed 
+applications. We can edit the file by ourselves. Inside you will find the default settings and 
+explanatory comments.
+
+
+``manage.py``file allows us to administer the web site, create or clear the database, run a simple 
+application server, etc. Later we will see how to use it.
+
+
+File ``carrots/urls.py`` contains information about the paths in the site.
+
+Other files are less interesting. Usually we do not look inside them at all nor we modify them. The 
+more curious ones can find more information by Google.
+
+Settings of application
+-----------------------
+
+In the ``carrots/settings.py`` file find ``TIME_ZONE`` and set time zone as Warsaw. You should get the following:
 ::
 
    TIME_ZONE = 'Europe/Warsaw'
@@ -110,9 +113,7 @@ Warszawę i domyślny język na polski. Ostatecznie te dwie linie powinny wyglą
    LANGUAGE_CODE = 'pl'
 
 
-Dla uproszczenia wyłączymy też zaawansowaną obsługę stref czasowych w bazie
-danych - nie bedzie ona potrzebna w naszym projekcie. Znajdź ``USE_TZ`` w pliku
-``settings.py`` i ustaw je na False::
+To make it simpler we also exclude the advanced support for time zones in the database - it will not be needed in our project. In the s``ettings.py`` file please find  ``USE_TZ``  and set them as False:
 
    USE_TZ = False
 
@@ -125,16 +126,15 @@ danych - nie bedzie ona potrzebna w naszym projekcie. Znajdź ``USE_TZ`` w pliku
 .. Jak widać, ``INSTALLED_APPS`` jest po prostu krotką zawierającą napisy. Odkomentowanie
 .. dwóch ostatnich napisów włączy aplikację do administracji. Później będziemy jej używać.
 
-Baza danych
------------
+Database
+--------
 
-Teraz użyjemy opisanego wcześniej pliku ``manage.py`` do stworzenia
-bazy danych. Służy do tego opcja ``syncdb``. Uruchom ``python manage.py syncdb`` w katalogu projektu:
+Now it's time to use the previously described file ``manage.py`` to create the database. For this purpose we execute the option ``syncdb``. In the project directory run ``python manage.py syncdb``:
 
 .. code-block:: sh
 
-   (warsztaty) ~$ cd carrots
-   (warsztaty) ~/carrots$ python manage.py syncdb
+   (workshops) ~$ cd carrots
+   (workshops) ~/carrots$ python manage.py syncdb
 
     Creating tables ...
     Creating table auth_permission
@@ -159,34 +159,33 @@ bazy danych. Służy do tego opcja ``syncdb``. Uruchom ``python manage.py syncdb
     Installing indexes ...
     Installed 0 object(s) from 0 fixture(s)
 
-Jeśli wszystko poszło, dobrze Django poprosi Cię o podanie danych konta administratora.
-Nazwę użytkownika możesz zostawić taką, jaka jest proponowana, adres email może być dowolny.
-Z podanymi danymi (tzn. Username i Password) będziemy mogli później zalogować się do
-panelu administracyjnego. W powyższym przykładzie użytkownikiem będzie ``fasola``.
+If all goes well Django asks you to provide data of the administrator account. The user name you may 
+leave as it is proposed, you can give any e-mail address.  Memorize the provided data (i.e, username 
+and password) so that you can log in the control panel. In the above example, the user will be ``beans
+``.
 
-Jeżeli chcesz dowiedzieć się więcej na temat ``manage.py``, uruchom ``python manage.py help``:
-
-.. code-block:: sh
-
-    (warsztaty) ~/carrots$ python manage.py help
-
-Dostaniesz listę wszystkich komend oraz opcji obsługiwanych przez ``manage.py``.
-
-Aby uzyskać pomoc na temat pojedynczej komendy, uruchom ``manage.py help komenda`` np:
+ If you want to learn more about ``manage.py``, run python ``manage.py help``:
 
 .. code-block:: sh
 
-    (warsztaty) ~/carrots$ python manage.py help syncdb
+    (workshops) ~/carrots$ python manage.py help
 
-Interfejs administracyjny
--------------------------
+ You will get a list of all commands and options supported by ``manage.py``. 
 
-W tym momencie możemy uruchomić naszą aplikację.
-Uruchom serwer wpisując ``python manage.py runserver``:
+To get help on a single command, run  ``manage.py help`` command:
 
 .. code-block:: sh
 
-   (warsztaty) ~/carrots$ python manage.py runserver
+    (workshops) ~/carrots$ python manage.py help syncdb
+
+Administration interface
+------------------------
+
+Now we can run our aplication. Run server by typing ``python manage.py runserver``:
+
+.. code-block:: sh
+
+   (workshops) ~/carrots$ python manage.py runserver
    Validating models...
 
    0 errors found
@@ -195,27 +194,26 @@ Uruchom serwer wpisując ``python manage.py runserver``:
    Development server is running at http://127.0.0.1:8000/
    Quit the server with CTRL-BREAK.
 
-Nasza strona będzie dostępna pod adresem http://127.0.0.1:8000/ , lub
-http://localhost:8000/.
+Our website will be available on the  http://127.0.0.1:8000/  or http://localhost:8000/ adress. 
 
-Panel administracyjny jest dostępny pod ścieżką ``admin/``, dlatego wchodzimy na
-adres http://localhost:8000/admin/.
+Administration panel is available on ``admin/`` path, that’s why we will go to 
+http://localhost:8000/admin/.
 
 
-Tworzymy nową aplikację do ankiet
----------------------------------
+We create a new application for questionnaires
+----------------------------------------------
 
-Na razie stworzyliśmy projekt ``carrots``. Projekty w Django składają się z
-aplikacji, dostarczających określone funkcje.
+For now, we have created a project ``carrots``. Projects in Django are divided into apps that provide 
+specific functions.
 
-My chcemy umieścić na naszej stronie ankiety, dlatego dodamy aplikację ``polls``.
+We want to publish questionnaires on our website, that’s why we will add the application ``polls``.
 
-Z linii poleceń wpisz ``python manage.py startapp polls``:
+From the command line type ``python manage.py startapp polls``:
 
 ::
 
-   (warsztaty) ~/carrots$ python manage.py startapp polls
-   (warsztaty) ~/carrots$ tree .
+   (workshops) ~/carrots$ python manage.py startapp polls
+   (workshops) ~/carrots$ tree .
    .
    ├── carrots
    │   ├── __init__.py
@@ -233,9 +231,9 @@ Z linii poleceń wpisz ``python manage.py startapp polls``:
 
    2 directories, 14 files
 
-Po stworzeniu aplikacji trzeba ją jeszcze aktywować w naszym projekcie.
-W pliku ``carrots/settings.py`` musimy dodać aplikację ``polls`` do ``INSTALLED_APPS``.
-Efekt powinien wyglądać tak::
+After creating the application it must be activated in our project. In the file ``carrots/settings.py``
+we have to add the application ``polls to`` ``INSTALLED_APPS``. The result should look like as 
+follows::
 
     INSTALLED_APPS = (
         'django.contrib.admin',
@@ -247,37 +245,37 @@ Efekt powinien wyglądać tak::
         'polls'
     )
 
-Aplikacje w ``Django`` składają się z kilku plików:
-* ``admin.py`` - definicje dla panelu administracyjnego,
-* ``models.py`` - definicje modeli dla bazy danych,
-* ``tests.py`` - testy aplikacji,
-* ``views.py`` - widoki aplikacji.
+Applications in ``Django`` consists of several files:
+* ``admin.py`` - definitions for the administration panel,
+* ``models.py`` - definitions of the models for the database,
+* ``tests.py`` - testing applications,
+* ``views.py`` - views of the application.
 
-Podsumowanie
-------------
+Summary
+-------
 
-Instalacja Django:
+Django installation:
 
 .. code-block:: sh
 
-   (warsztaty) ~$ pip install django==1.6.2
+   (workshops) ~$ pip install django==1.6.2
 
-Tworzenie katalogu projektu:
+Project directory creation
 
 .. code-block:: sh
 
    # Linux
 
-   (warsztaty) ~$ django-admin.py startproject carrots
+   (workshops) ~$ django-admin.py startproject carrots
 
 
 .. code-block:: bat
 
    :: Windows
 
-   (warsztaty) C:\Users\TeddyBear> python -m django-admin startproject carrots
+   (workshops) C:\Users\TeddyBear> python -m django-admin startproject carrots
 
-Ustawienie strefy czasowej oraz języka w pliku ``carrots/settings.py``::
+Setup of time zone in ``carrots/settings.py`` file::
 
    TIME_ZONE = 'Europe/Warsaw'
 
@@ -285,22 +283,22 @@ Ustawienie strefy czasowej oraz języka w pliku ``carrots/settings.py``::
 
    USE_TZ = False
 
-Utworzenie bazy danych (należy także uruchomić po dodaniu każdego modelu):
+Creation of database (you need to run that command after adding every new model):
 
 .. code-block:: sh
 
-   (warsztaty) ~/carrots$ python manage.py syncdb
+   (workshops) ~/carrots$ python manage.py syncdb
 
-Uruchomienie serwera:
-
-.. code-block:: sh
-
-   (warsztaty) ~/carrots$ python manage.py runserver
-
-Utworzenie nowej aplikacji o nazwie ``polls``:
+Server's start-up:
 
 .. code-block:: sh
 
-   (warsztaty) ~/carrots$ python manage.py startapp polls
+   (workshops) ~/carrots$ python manage.py runserver
 
-Pamiętaj, aby po utworzeniu aplikacji dopisać ją do ``INSTALLED_APPS``.
+Creation of the new application named ``polls``:
+
+.. code-block:: sh
+
+   (workshops) ~/carrots$ python manage.py startapp polls
+
+Just remember that after creating an application you should add it to ``INSTALLED_APPS``.

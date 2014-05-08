@@ -1,13 +1,11 @@
-===========
-  Choinka
-===========
+==================
+  Christmas Tree
+==================
 
-Zbliżają się Święta, czas na prezenty. ;) A przynajmniej na drzewka iglaste
-w każdym centrum handlowym. W ramach ćwiczenia spróbujemy narysować
-takie drzewko w konsoli.
+Christmas are coming, Christmas presents time and, at least for Christmas trees :) in every shopping centre. As an exercise, we will try to draw a tree in the
+console.
 
-Zaczniemy od najprostszej możliwej wersji zadania, aby później rozszerzyć
-je do bardziej funkcjonalnej. Tak więc, na zachętę, pół choinki:
+We are going to start from the most basic version of this exercise so that we can later extend it to a more functional version. As an incentive, let’s make a half of the Christmas tree: 
 
 .. testcode::
 
@@ -41,84 +39,75 @@ je do bardziej funkcjonalnej. Tak więc, na zachętę, pół choinki:
     *****
     ******
 
-Nie wygląda to najgorzej, ale trochę pisania było. A co, gdybyśmy chcieli
-mniejszą choinkę? Albo większą, złożoną z setek elementów do wydrukowania
-na papierze A0? To stanowczo zbyt dużo pisania, nawet gdyby robić to
-przy użyciu mnożenia napisów (``"*" * 100``, itd.). Ewidentnie jest to
-czynność tak powtarzalna, że program może to zrobić za nas.
+It doesn’t look bad, but we have had to do a lot of typing. What if we would like to have a smaller 
+tree? Or a bigger one, composed of hundreds of elements to be printed on a page size A0? Definitely 
+too much typing, even if we would do it by multiplying strings  (``"*" * 100``, itd.). Obviously it is 
+such a repetitive activity that the program can do it for us.
 
 
-Listy i pętla ``for``
-=====================
 
-Do wykonywania takich powtarzalnych czynności będą służyły nam pętle.
-Pozostając w świątecznym klimacie, wyobraźmy sobie na chwilę, że
-jesteśmy Świętym Mikołajem, który ma za zadanie dostarczyć wszystkim
-prezenty.
+Lists and The ``for`` loop
+==========================
 
-Jak wiadomo, Mikołaj posiada listę osób, którym należą się prezenty.
-Najprostszym podejściem, które gwarantuje, że nikogo nie
-pominiemy, będzie przechodzenie po kolei po liście i dostarczanie kolejnym
-osobom ich prezentów. Abstrahując od fizycznych aspektów zadania [#speed]_,
-procedura dostarczania prezentów mogłaby wyglądać tak::
+Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere, imagine for a moment that we are the Santa Claus and we have to deliver to everyone Christmas gifts. 
 
-    Niech ListaOsób zawiera osoby, którym należy się prezent.
+As you know, Santa has a list of people who deserve gifts. The simplest approach to guarantee that no 
+one is omitted, will be to check sequentially the list and deliver their gifts to one after another. 
+Aside from the physical aspects of the task [#speed]_, the procedure of delivering the gifts could 
+look like this::
 
-    Dla każdej osoby (dalej znanej jako Osoba), będącej na ListaOsób:
-        Dostarcz prezent do Osoba
+    Let the People List contain people who should receive gifts.
 
-Formatowanie powyższego tekstu nie jest przypadkowe. Właściwie jest
-to zamaskowany program w Pythonie::
+    For each person (known as the Person), which is on the list of people:
+        Provide a gift to Person
+
+Formatting of text above is not accidental. This is actually a disguised program in Python::
 
     gift_list = people_who_deserve_gifts()
 
     for person in gift_list:
         deliver_gift(person)
-        print("Dostarczono prezent dla:", person)
-    print("Dostarczono wszystkie prezenty")
+        print("Gift delivered to:", person)
+    print("All gifts delivered")
 
-Większość rzeczy powinna już wyglądać znajomo. Wywołujemy tutaj dwie funkcje:
-:func:`people_who_deserve_gifts` i :func:`deliver_gift` - jak one działają,
-wie tylko Mikołaj. Wynikowi wywołania pierwszej z nich nadajemy nazwę
-`gift_list`, aby móc się później do tej wartości odwołać (tak samo jak w opisie powyżej).
+Most of the things should look familiar to you. We are calling here two functions: 
+:func:`people_who_deserve_gifts` i :func:`deliver_gift` - their functioning is known only by Santa 
+Claus. Result of the first one can be named `gift_list`, so that we could refer to this value later (
+the same as described above).
 
-Nowym elementem jest sama pętla, która składa się z:
+A new element is a loop itself, which consists of: 
 
-* słowa :keyword:`for`,
-* nazwy, którą chcemy nadawać kolejnym elementom,
-* słowa :keyword:`in`,
-* wartości będącej listą lub nazwy która się do takiej odwołuje,
-* treści wciętej o jeden poziom (dokładnie tak samo, jak w przypadku :keyword:`if`).
+* the word :keyword:`for`,
+* names we want to give to the next elements,
+* the word :keyword:`in`,
+* the value of a list or the name that refers to it.
+* the content indented of one level (the same way as in the case of :keyword:`if`).
 
-No tak, ale wciąż nie powiedzieliśmy niczego o listach. To dlatego, że
-nie różnią się one zbytnio od ich intuicyjnego pojmowania w życiu
-codziennym. Spokojnie możemy myśleć o listach w Pythonie tak samo,
-jak o każdej innej liście (zakupów, gości na impreze, wyników z kolokwium, itd.)
-zapisanej na kartce i ponumerowanej.
+Still we haven’t said anything about lists, as they do not differ much from the intuitional concept of 
+lists in the everyday life. We can easily think of lists in Python as we think of any other list (a 
+shopping list, a guest list, exam results etc.) written on a paper and numbered.
 
-Zacznijmy od pustej kartki (włącz tryb interaktywny):
+Let's start with a blank page (activate interactive mode):
 
     >>> L = []
     >>> L
     []
 
-W każdym momencie możemy sprawdzić, ile mamy zapisanych elementów
-na naszej liście - robimy to za pomocą funkcji :func:`len`.
+At any time we can check how many items we have saved on our list by using the function :func:`len`.
 
     >>> len(L)
     0
 
-Stwórzmy inną listę (może być pod tą samą nazwą lub inną):
+Let's make another list (which can have the same name or a different one):
 
     >>> L = ["Ala", "Ola", "Jacek"]
     >>> len(L)
     3
 
-Podobnie jak w przypadku krotek, kolejne elementy listy rozdzielamy
-przecinkami. Inaczej niż w przypadku krotek, nawiasy ``[`` i ``]`` są obowiązkowe.
+As in the case of tuples, consecutive elements of the list are separated by commas. Unlike tuples, 
+brackets ``[`` i ``]`` are obligatory.
 
-Aby podejrzeć, jaki element znajduje się na konkretnej pozycji na
-liście (pamiętaj, że liczymy pozycje od 0), wpisujemy:
+To preview a particular position of an element on the list (remember that we count the positions from 0 ):
 
     >>> L[0]
     'Ala'
@@ -131,8 +120,7 @@ liście (pamiętaj, że liczymy pozycje od 0), wpisujemy:
      File "<stdin>", line 1, in <module>
     IndexError: list index out of range
 
-Możemy też wykorzystać pętle :keyword:`for`, aby wykonać jakieś
-instrukcje dla każdego elementu na liście:
+We can also use the loop :keyword:`for`,to execute instructions for every element of the list:
 
     >>> for name in L:
     ...     print("Imie:", name)
@@ -141,7 +129,7 @@ instrukcje dla każdego elementu na liście:
     Imie: Ola
     Imie: Jacek
 
-W ten sam sposób możemy wydrukować pierwszą cześć naszej pół-choinki:
+In the same way, we can print the first part of our half of the Christmas tree:
 
     >>> lst = [1, 2, 3]
     >>> for n in lst:
@@ -151,10 +139,10 @@ W ten sam sposób możemy wydrukować pierwszą cześć naszej pół-choinki:
     **
     ***
 
-No tak, ale nadal musieliśmy ręcznie wypisać zawartość całej listy.
-Problem ten rozwiąże nam funkcja :func:`range` (czyli zakres, przedział).
-Jeśli opis podany przez ``help(range)`` wyda Ci się zbyt skomplikowany, oto
-kilka przykładów:
+Well, unfortunately we still have to type the entire contents of the list. This problem can be solved 
+by the function :func:`range` (czyli zakres, przedział). If the description provided by ``help(range)``
+seems too complicated for you, here you have a few examples:
+
 
     >>> list(range(2, 5, 1))
     [2, 3, 4]
@@ -167,17 +155,17 @@ kilka przykładów:
     >>> list(range(2))
     [0, 1]
 
-Funkcja :func:`range` nie tworzy bezpośrednio listy, ale zwraca generator.
-Generatory pozwalają tworzyć sekwencje wartości, nie zajmując niepotrzebnie
-pamięci. Aby otrzymać listę z takiej sekwencji, musimy użyć funkcji
+The function :func:`range` does not directly create the list, but it returns a generator. Generators 
+allow you to create sequences of values, without taking unnecessary memory. In order to obtain a  list 
+of the sequence, we use the function
 :func:`list`.
 
-Funkcja :func:`range` ma trzy formy. Najprostsza (i najczęściej używana),
-tworzy sekwencję od 0 do podanej liczby. Pozostałe formy pozwalają podać
-początek zakresu oraz krok. Utworzona sekwencja nigdy nie zawiera końca
-podanego zakresu.
+The :func:`range` has three forms. The most basic and most used one creates a sequence from 0 to the 
+given number. The other forms allow you to specify the start of the range and a step. The created 
+sequence never includes the end of the specified range.
 
-Wydrukujmy więc większą choinkę:
+
+Then let’s print a larger Christmas tree:
 
     >>> lst = list(range(1, 11))
     >>> lst
@@ -195,8 +183,7 @@ Wydrukujmy więc większą choinkę:
     *********
     **********
 
-:func:`range` zaoszczędziło nam sporo pisania. Możemy zaoszczędzić
-jeszcze więcej, jeśli pominiemy nazwanie samej listy:
+:func:`range` has saved a lot of our time. We can save even more if we omit naming the list:
 
     >>> for i in list(range(1, 5)):
     ...     print(i*"#")
@@ -205,9 +192,9 @@ jeszcze więcej, jeśli pominiemy nazwanie samej listy:
     ###
     ####
 
-Gdy używamy słowa kluczowego :keyword:`for`, nie musimy używać funkcji
-:func:`list`. `for` potrafi poradzić sobie z funkcją `range`, więc
-można nasz program uprościć jeszcze bardziej:
+When you use the keyword :keyword:`for`, we do not have to use the
+:func:`list`. `for` can cope with the function of `range`, so we can simplify our program even more:
+
 
     >>> for i in range(1, 5):
     ...     print(i*"#")
@@ -217,10 +204,9 @@ można nasz program uprościć jeszcze bardziej:
     ####
 
 
-Nic nie stoi na przeszkodzie, aby jedną pętlę umieścić wewnątrz innej.
-Należy jedynie pamiętać o odpowiednich wcięciach i
-użyciu innych nazw, np. ``i`` i ``j`` (lub też bardziej adekwatnych do
-zawartości listy):
+
+Nothing stands in the way of placing one loop inside another loop. Just remember to use appropriate 
+indentations and use different names e.g. ``i`` and ``j`` (or more associated with the list content):
 
     >>> for i in range(1, 3):
     ...    for j in range(2, 4):
@@ -230,7 +216,7 @@ zawartości listy):
     2 2
     2 3
 
-Dzięki temu możemy powtarzać nasz kawałek choinki:
+Using this technique, we can repeat our piece of the Christmas tree:
 
     >>> for i in range(3): # powtórz 3 razy
     ...    for size in range(1, 4):
@@ -245,21 +231,21 @@ Dzięki temu możemy powtarzać nasz kawałek choinki:
     **
     ***
 
-Zanim przejdziesz do kolejnego rozdziału, stwórz plik ``xmas.py`` z
-tym programem i spróbuj go przerobić tak, aby przy każdym z trzech powtórzeń
-pierwszej (zewnętrznej) pętli, druga wykonywała się jeden raz więcej. W ten sposób
-powinniśmy otrzymać naszą pół-choinkę z początku rozdziału.
+Before proceeding to the next chapter, create ``xmas.py`` file with this program and try to modify it 
+so that each of the three repetitions of the first (external) loop, the second one was executed one 
+more time. This way, we should get our half of the Christmas tree described at the beginning of the 
+chapter.
 
 
-Definiowanie funkcji
-====================
+Defining a function
+===================
 
-Widzieliśmy już, w jaki sposób funkcje rozwiązują wiele z naszych problemów. Jednak
-nie rozwiązują ich wszystkich - a przynajmniej nie do końca tak, jak chcielibyśmy.
-Musimy wtedy sami rozwiązać dany problem. Jeśli występuje on często
-w naszym programie, to miło byłoby mieć funkcję, która zrobi to za nas.
+We have already seen how functions solve many of our problems. However, they not solve them all – or 
+at least not exactly the way we would like functions to solve them.
+Sometimes we must solve a problem on our own. If it occurs often in our program, it would be nice to 
+have a function that solves it for us.
 
-Python daje nam taką możliwość:
+Python gives us the opportunity:
 
     >>> def print_triangle(n):
     ...     for size in range(1, n+1):
@@ -276,27 +262,26 @@ Python daje nam taką możliwość:
     ****
     *****
 
-Przyjrzyjmy się bliżej tzw. definicji funkcji :func:`print_triangle`:
+Let's have a closer look at the function :func:`print_triangle`::
 
     def print_triangle(n):
         for size in range(1, n+1):
             print(size*"*")
 
-Definicja funkcji zaczyna się zawsze od słowa :keyword:`def`. Następnie
-podajemy nazwę, którą wybraliśmy dla naszej funkcji. W nawiasach musimy
-wskazać, jak mają zostać nazwane jej argumenty, gdy zostanie ona wywołana.
-W kolejnych liniach zaś podajemy instrukcje, które mają zostać wykonane,
-gdy użyjemy tej funkcji.
+The definition of a function always starts with the word :keyword:`def`. Next, we give the name to our 
+function. In brackets we indicate what names should be given to its arguments when the function is 
+called. In the following lines we provide instructions to be executed when we use the function.
 
-Jak widać na przykładzie, instrukcje w funkcji mogą zawierać
-nazwy, które podaliśmy jako nazwy argumentów. Zasada działania jest
-następująca - jeśli stworzyliśmy funkcję z trzema argumentami:
+
+As shown in the example, the instructions in the function may include names that we have given as the 
+names of the arguments.The principle of operation is as follows - if you have created a function with 
+three arguments:
 
     >>> def foo(a, b, c):
     ...     print("FOO", a, b, c)
 
-to wywołując ją (tak samo jak każdą inną wcześniej), musimy podać
-wartości dla każdego z argumentów:
+When calling the function (the same way as with any function we have called before), you need to 
+specify values for each one of the arguments:
 
     >>> foo(1, "Ala", 2 + 3 + 4)
     FOO 1 Ala 9
@@ -304,9 +289,8 @@ wartości dla każdego z argumentów:
     >>> foo(x, x + 1, x + 2)
     FOO 42 43 44
 
-Pamiętaj, że nazwy to tylko etykiety. Jeśli zmienimy etykietkę
-z jednej na inną, to pozostałe etykiety się nie zmienią - tak
-będzie też z argumentami:
+Note that the name is just a label. If we change a label for another one, the other labels will not 
+change – the same happens with the arguments:
 
     >>> def plus_five(n):
     ...     n = n + 5
@@ -318,22 +302,21 @@ będzie też z argumentami:
     43
 
 
-Zwracanie wartości
-------------------
+Returning values
+----------------
 
-Funkcje, z których wcześniej korzystaliśmy, miały jedną istotną własność,
-której brakuje tym, które stworzyliśmy sami - zwracały wartość zamiast
-natychmiast ją wypisywać. Aby osiągnąć ten sam efekt, należy użyć
-instrukcji :keyword:`return`. Jest to specjalna instrukcja, która
-może występować jedynie w funkcjach.
+The functions which we have previously used had one important property that is missing in the 
+functions created by ourselves - they returned the value instead of printing it immediately. To 
+achieve the same effect, you should use the instruction :keyword:`return`. This is a special 
+instruction that can be found only in the functions.
 
-Możemy teraz ulepszyć nasz kalkulator BMI, dodając do niego funkcję
-obliczającą BMI::
+
+We can now improve our BMI calculator by adding a function to compute BMI::
 
     def calc_bmi(height, weight):
         return weight / height ** 2
 
-Na koniec rozwiążemy w elegacki sposób problem z końca poprzedniego rozdziału:
+Finally, in a smooth way we will solve the problem from the end of the previous chapter:
 
 
 .. testcode::
@@ -361,24 +344,23 @@ Na koniec rozwiążemy w elegacki sposób problem z końca poprzedniego rozdzia�
     ****
 
 
-Obiekty i klasy
-===============
+Objects and classes
+===================
 
-Właściwie ten rozdział mógłby być tematem całej serii zajęć, my jednak
-skupimy się na absolutnych podstawach, które będą nam potrzebne przy
-pracy z Django.
+In fact, this chapter could be the subject of a series of workshops, but we will focus on the most 
+basic things, which we will need while working with Django.
 
-Wartości to obiekty
--------------------
+Values are objects
+------------------
 
-Wszystko, co do tej pory nazywaliśmy wartością, możemy nazwać też obiektem.
-Widzieliśmy to na przykładzie liczb całkowitych, gdy :func:`help` wypisało
-nam dziesiątki linii dodatkowych informacji na temat :func:`int`.
+Everything that we have called a value up to the moment we can call also “an object”. We saw it in the 
+example of integers, when :func:`help` printed for us dozens of additional lines of information about :
+func:`int`.
 
-Każdy obiekt ma klasę
----------------------
+Every object has a class
+------------------------
 
-Aby dowiedzieć się jaką, wystarczy użyć funkcji :func:`type`:
+If you want to know what is a class of an object, just use the function :func:`type`:
 
     >>> type(2)
     <class 'int'>
@@ -392,15 +374,14 @@ Aby dowiedzieć się jaką, wystarczy użyć funkcji :func:`type`:
     >>> type([])
     <class 'list'>
 
-Gdy używamy w naszym programie liczby, spodziewamy się, że będzie się
-ona zachowywać tak jak liczba - bazujemy na naszej intuicji.
+When we use numbers in our program, we expect that it will behave like a number - we rely on our 
+intuition.
 
-Jednak Python musi dokładnie wiedzieć co to znaczy być liczbą całkowitą,
-np. co ma się stać, gdy dodajemy dwie liczby, a co, gdy je dzielimy.
-Klasa dostarcza tych wszystkich informacji, a nawet więcej.
+However, Python has to know exactly what it means to be an integer, e.g., what should happen when we 
+sum up two numbers and what when we divide them. The class provides all this information and even more.
 
-Sprawdź, co oferuje nam klasa ``str``, za pomocą :func:`help`.
-Zacytujemy tutaj jedynie kilka ciekawszych funkcji:
+By using :func:`help` , check what the class ``str`` gives us. Here we give just a few interesting 
+features:
 
     >>> help(str.lower)
     Help on method_descriptor:
@@ -437,8 +418,8 @@ Zacytujemy tutaj jedynie kilka ciekawszych funkcji:
         done using the specified fill character (default is a space)
     <BLANKLINE>
 
-Wszystko to są operacje, które potrafi wykonać każdy napis. Możemy
-się do nich dostać, używając kropki i wywołując jak funkcję:
+All these are operations that each string can do. We can get to them by using dots and calling the 
+function:
 
     >>> x = "Ala"
     >>> x.upper()
@@ -448,8 +429,8 @@ się do nich dostać, używając kropki i wywołując jak funkcję:
     >>> x.center(9)
     '   Ala   '
 
-I jeszcze jedna istotna funkcjonalność każdej klasy - potrafi ona
-stworzyć obiekt mający jej cechy (tzw. swoją instancję):
+And one more important function of each class - it can create an object with its attributes (so 
+called, “instance”):
 
     >>> int()
     0
@@ -460,18 +441,17 @@ stworzyć obiekt mający jej cechy (tzw. swoją instancję):
     >>> tuple()
     ()
 
-Podsumowując, poznaliśmy już klasy :func:`int`, :func:`str`, :func:`tuple`,
-:func:`list`. Aby sprawdzić, jakiej klasy jest wartość (obiekt), używamy funkcji
-:func:`type`. Aby stworzyć instancję klasy (czyli nowy obiekt), wywołujemy
-klasę, podobnie jak wywoływaliśmy funkcję, dopisując nawiasy ``()``, na przykład
+In summary, we've looked at the class :func:`int`, :func:`str`, :func:`tuple`,
+:func:`list`. To find out which class is the value (object), we use the function
+:func:`type`. To create an instance of a class (a new object), we call the class, like we have called 
+the function, adding parentheses ``()``, e.g.
 ``int()``.
 
-Definiowanie klas
-------------------
+Define classes
+--------------
 
-Możemy tworzyć własne funkcje, podobnie możemy tworzyć
-własne klasy. W gruncie rzeczy klasa to nic innego jak zgrupowane
-funkcje:
+Just as you can create your own functions, you can create your own classes. In fact, a class is 
+nothing but a group of functions:
 
 .. testsetup:: simple-class
 
@@ -487,13 +467,12 @@ funkcje:
         def bark(self):
             print("Woof! Woof!")
 
-Klasy rozpoczynają się od słowa :keyword:`class`, po którym podajemy
-nazwę nowej klasy. Czym jest ``(object)`` wyjaśni się później, gdy
-będziemy chcieli stworzyć bardziej skomplikowane klasy.
+Classes begin with the word :keyword:`class`, after which we give the name of the new class. What (
+object) is will be explained later, when we will be creating more complex classes.
 
-Warto natomiast zwrócić uwagę na fakt, że każda funkcja w klasie musi mieć
-co najmniej jeden argument. Jego wartością będzie obiekt, z którego wywołaliśmy
-tę funkcję (czyli to, co przed kropką):
+However, it is worth to know that every function in the class must have at least one argument. Its 
+value is an object from which we have called this function (that is to say the object placed before 
+the dot):
 
 .. testcode:: simple-class
 
@@ -504,28 +483,27 @@ tę funkcję (czyli to, co przed kropką):
 
     Woof! Woof!
 
-Argument ten może nazywać się dowolnie, ale intuicyjne jest, aby nazwać go ``self``.
+This argument can be named as you wish, but it is intuitive to call it ``self``.
 
 
-Atrybuty obiektów
------------------
+Attributes of objects
+---------------------
 
-Obiekty poza metodami (funkcjami) mogą posiadać też atrybuty:
+Besides methods (functions) the objects can also have attributes:
 
 .. testcode:: simple-class
 
     burek = Dog()
-    burek.name = "Burek"
+    burek.name = "Snoopy"
 
     print(burek.name)
 
 .. testoutput:: simple-class
 
-    Burek
+    Snoopy
 
-Czasami chcemy, aby każdy obiekt danej klasy miał jakiś atrybut, np. każdy
-pies powinien mieć imię. Możemy dodać takie wymaganie, definiując funkcję
-o specjalnej nazwie ``__init__``:
+Sometimes we want for every object of the class to have an attribute, such as every dog should have a 
+name. We can add this requirement by defining a function with a special name ``__init__``:
 
 .. testcode:: init-class
 
@@ -537,25 +515,24 @@ o specjalnej nazwie ``__init__``:
         def bark(self):
             return "Woof! %s! Woof!" % (self.name,)
 
-    burek = Dog("Burek")
+    burek = Dog("Snoopy")
     pluto = Dog("Pluto")
     print(burek.bark())
     print(pluto.bark())
 
 .. testoutput:: init-class
 
-    Woof! Burek! Woof!
+    Woof! Snoopy! Woof!
     Woof! Pluto! Woof!
 
 
-Pełna choinka
-=============
+The Entire Christmas tree
+=========================
 
-Poprzedni rozdział był dość teoretyczny, więc teraz postaramy się
-skorzystać przynajmniej z części tej wiedzy, kończąc nasz program
-do wyświetlania choinki.
+The previous chapter was fairly theoretical, so now we'll try to use at least a part of this knowledge 
+by completing our program to display a Christmas tree.
 
-Dla przypomnienia::
+For the record::
 
     # xmas.py
 
@@ -566,19 +543,18 @@ Dla przypomnienia::
     for i in range(2, 5):
         print_triangle(i)
 
-Jak możemy ulepszyć funkcję :func:`print_triangle`, aby wyświetlała
-cały segment choinki, a nie tylko pół?
+How can we improve the function :func:`print_triangle`, o display the entire segment of the Christmas 
+tree, not just half of it?
 
-Przede wszystkim ustalmy, jak ma wyglądać wynik dla konrektnej
-wartości argumentu ``n``. Wydaje się sensowne, aby ``n`` było szerokością.
-Wtedy dla ``n = 5`` oczekiwalibyśmy::
+
+First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``. It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect::
 
       *
      ***
     *****
 
-Warto zauważyć, że każda linia składa się z dwóch gwiazdek więcej
-niż poprzednia. Możemy więc skorzystać z trzeciego argumentu :func:`range`:
+It is worth noting that each line consists of two asterix more than the previous one. So we can use 
+the third argument :func:`range`:
 
 .. testcode::
 
@@ -594,8 +570,9 @@ niż poprzednia. Możemy więc skorzystać z trzeciego argumentu :func:`range`:
     ***
     *****
 
-Nie do końca o to chodziło, bo brakuje wyrównania do środka. Z pomocą
-przychodzi metoda :func:`unicode.center` wspomniana w poprzednim rozdziale:
+It is not exactly what we have wanted, as it should be aligned in the centre. The method/function :func
+:`unicode.center` mentioned in the previous section, helps us:
+
 
 .. testcode::
 
@@ -612,7 +589,7 @@ przychodzi metoda :func:`unicode.center` wspomniana w poprzednim rozdziale:
      ***
     *****
 
-Pojawia się jednak kolejny problem:
+However, a new problem appears:
 
 .. testcode::
 
@@ -636,9 +613,10 @@ Pojawia się jednak kolejny problem:
      *****
     *******
 
-Jako że z góry wiemy jakiej wielkości będzie najszerszy segment, możemy
-dodać kolejny argument do :func:`print_segment`, tak aby wyrównywać
-do tej szerokości. Łącząc całą naszą dotychczasową wiedzę:
+If we know in advance, what size the widest segment is, we can add an additional argument to  :func:`
+print_segment`,  to align to the width. Combining all of the knowledge we have acquired up to the 
+moment:
+
 
 .. testsetup:: tree-final
 
@@ -654,14 +632,14 @@ do tej szerokości. Łącząc całą naszą dotychczasową wiedzę:
         for i in range(3, size+1, 2):
             print_segment(i, size)
 
-    print("Podaj wielkość choinki:")
+    print("Choose size of the Christmas tree:")
     n = int(input())
     print_tree(n)
 
 .. testoutput:: tree-final
     :options: +NORMALIZE_WHITESPACE
 
-    Podaj wielkość choinki:
+    Choose size of the Christmas tree:
     7
        *
       ***
@@ -674,11 +652,11 @@ do tej szerokości. Łącząc całą naszą dotychczasową wiedzę:
     *******
 
 
-Zadanie dla chętnych
---------------------
+Task for volunteers
+-------------------
 
-Stwórz klasę ``XMASTree`` która dla podanego rozmiaru i wywołaniu
-metody ``draw`` wydrukuje poniższe obrazki (rozmiary 1, 2 i 3):
+Create a class ``XMASTree`` which for a given size and upon calling the method ``draw`` will print the 
+following pictures (sizes 1, 2 and 3):
 
 ::
 
@@ -713,8 +691,8 @@ metody ``draw`` wydrukuje poniższe obrazki (rozmiary 1, 2 i 3):
 
 
 
-.. rubric:: Przypisy
+.. rubric:: Notes
 
-.. [#speed] Zakładając, że mamy 24 godziny na dostarczenie po jednym
-    prezencie dla każdego na świecie, na każdy prezent przypada około
-    10 mikrosekund.
+.. [#speed]  Assuming you have 24 hours to deliver one gift for everyone in the world, 
+    for one gift you have about 10 microseconds.
+

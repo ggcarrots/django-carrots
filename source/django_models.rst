@@ -1,16 +1,17 @@
 
-Modele
+Models
 ======
 
-Następnym krokiem będzie zdefiniowanie modeli naszej aplikacji.
-Model opisuje, co i w jaki sposób może być przechowywane w bazie danych.
-Z punktu widzenia języka Python, jest to zwykła klasa, dziedzicząca po ``models.Model``.
+The next step is to define the model of our application. The model describes what and how can be 
+stored in the database. From Python point of view that is a basic class, which inherits from ``models.
+Model.`` 
 
-Nasza aplikacja będzie zawierać pytania oraz odpowiedzi do nich, dlatego utworzymy dwa modele: ``Poll`` oraz ``Choice``.
-Model ``Poll`` zawiera treść pytania i datę publikacji. Model ``Choice`` zawiera odwołanie do odpowiedniego pytania,
-treść odpowiedzi oraz liczbę głosów.
+Our application will include questions and answers to them, so we'll create two models: ``Poll`` and ``
+Choice``. The model ``Poll`` contains the contents of questions and the date of publication. The model 
+``Choice`` contains a reference to the relevant questions, the content of responses and the number of 
+votes.
 
-W pliku ``polls/models.py`` wpisujemy::
+In the file ``polls/models.py`` we type::
 
     from django.db import models
 
@@ -23,16 +24,15 @@ W pliku ``polls/models.py`` wpisujemy::
         choice_text = models.CharField(max_length=200)
         votes = models.IntegerField(default=0)
 
-Dodając nowe modele, zmieniliśmy schemat bazy danych.
-Musimy ponownie wykonać ``syncdb``, aby nowe modele pojawiły się w bazie danych.
+By adding new models we have changed the database schema. We need to make the ``syncdb`` again so that 
+new models could appear in the database.
 
 .. warning::
-    Po wykonaniu ``syncdb`` nie można już dodać nowych pól do modelu. Można dodawać tylko nowe modele.
-    Są sposoby, żeby to obejść, ale o tym w innej bajce.
+    After executing the ``syncdb``, you can not add new fields to the model. You can only add new models. There are ways to avoid it, but … it is a totally different story
 
 .. code-block:: sh
 
-   (warsztaty) ~/carrots$ python manage.py syncdb
+   (workshops) ~/carrots$ python manage.py syncdb
    Creating tables ...
    Creating table polls_poll
    Creating table polls_choice
@@ -40,10 +40,10 @@ Musimy ponownie wykonać ``syncdb``, aby nowe modele pojawiły się w bazie dany
    Installing indexes ...
    Installed 0 object(s) from 0 fixture(s)
 
-I tyle! Pewnie chcielibyśmy jednak mieć też możliwość edytowania obiektów. Najłatwiej to zrobić w interfejsie
-administracyjnym.
+That’s it! However, probably we would like to be able to edit objects. The easiest way is to do it in 
+the administrative interface.
 
-W pliku ``polls/admin.py`` wpisujemy::
+We create a file ``polls/admin.py`` and the file includes::
 
     from django.contrib import admin
     from polls.models import Poll, Choice
@@ -51,73 +51,72 @@ W pliku ``polls/admin.py`` wpisujemy::
     admin.site.register(Poll)
     admin.site.register(Choice)
 
-W ten sposób modele ``Poll`` oraz ``Choice`` będą dostępne w panelu administracyjnym.
+By that ``Poll`` and ``Choice`` model will be available in administration panel.  
 
 .. note::
 
-    Niektóre zmiany wymagają ponownego uruchomienia serwera.  W konsoli, gdzie jest uruchomiony
-    serwer, wciskamy ``Ctrl+C`` i wykonujemy ``python manage.py runserver`` raz jeszcze.
+    Some changes require a server restart. In the console with the server activated push the buttons ``Ctrl+C`` and then ``pythonmanage.py runserver`` again.
 
-Gdy ponownie wejdziemy na http://localhost:8000/admin/, zobaczymy, że pojawiła się tam nowa zakładka `Polls`.
+When we go back to http://localhost:8000/admin/ we will see that a new bookmark ``Polls`` appeared.
 
 
-Zabawa w konsoli
-----------------
+Playing in the console
+----------------------
 
-Django udostępnia swoją konsolę. Jest to zwykła konsola Pythona (tzn. możemy
-robić dokładnie te same rzeczy, co po uruchomieniu polecenia ``python``), ale
-dodatkowo możemy korzystać z narzędzi i modeli Django.
+Django provides its own console. It is a simple Python console (where we can do exactly the same thing 
+as when you activate the command ``python``), but we can also use the tools and models of Django.
 
 .. code-block:: sh
 
-   (warsztaty) ~/carrots$ python manage.py shell
+   (workshops) ~/carrots$ python manage.py shell
 
-Gdy już jesteś w shellu::
+When you are in the shell already::
 
     >>> from polls.models import Poll, Choice
 
-Wszystkie ankiety w bazie; teraz nie ma tam nic, dlatego dostajemy pustą listę::
+All the surveys in the database; and now there's nothing here, so we get an empty list::
 
     >>> Poll.objects.all()
     []
 
-Tworzymy pierwszą ankietę::
+We create the first survey::
 
     >>> import datetime
     >>> p = Poll(question="What's new?", pub_date=datetime.datetime.now())
 
-Zapisujemy ankietę w bazie danych. W tym celu zawsze trzeba wywołać metodę ``save()``::
+Save the poll in the database. For this purpose, you always need to call ``save()``::
 
     >>> p.save()
 
-Każdy obiekt w bazie danych ma przypisane unikalne dla siebie ID::
+Each object in the database is assigned to a unique ID::
 
     >>> p.id
     1
 
-``p`` jest zwykłym obiektem. Możemy czytać jego atrybuty::
+``p`` is a simple object. We can read its attributes::
 
     >>> p.question
     "What's new?"
     >>> p.pub_date
     datetime.datetime(2012, 2, 26, 13, 0, 0, 775217)
 
-Po zmianie atrybutów ponownie wywołujemy ``save()``, aby zapisać zmiany do bazy::
+After changing of attributes we again call ``save()`` to save changes::
 
     >>> p.question = "What's up?"
     >>> p.save()
 
-``objects.all()`` zwraca listę wszystkich obiektów w bazie danych::
+``objects.all()`` returns a list of all the objects in the database::
 
     >>> Poll.objects.all()
     [<Poll: Poll object>]
 
-Modele w Django są klasami, a w klasach możemy definiować metody. Metoda to taka funkcja, która dodatkowo dostaje
-parametr ``self``, będący aktualnym obiektem (np. aktualną ankietą). Metody w klasach (modelach) pozwalają dodawać
-dodatkowe zachowania lub zmieniać istniejące.
+Django models are classes and classes can define methods. A method is a function that gets an extra 
+parameter ``self``, which is the current object (e.g, the current questionnaire). Methods in classes (
+models) allow you to add additional behaviors or change the existing ones.
 
-Jedną z takich metod jest ``__str__``, która pozwala zmienić sposób wyświetlania modelu (ankiety lub pytania).
-``<Poll: Poll object>`` niewiele nam mówi. Naprawmy to, dodając metodę ``__str__`` do ``Poll`` i ``Choice``::
+One of the methods is the ``__ str__()``, which allows you to change the display of the model (a 
+questionnaire or a question). <Poll: Poll object> doesn’t tell us much. Let's fix that by adding the 
+method ``__ str__`` to ``Poll`` and ``Choice``::
 
     class Poll(models.Model):
         # ...
@@ -129,11 +128,11 @@ Jedną z takich metod jest ``__str__``, która pozwala zmienić sposób wyświet
         def __str__(self):
             return self.choice_text
 
-Django będzie używało tych metod przy wyświetlaniu obiektów, nie tylko w konsoli, ale również we wspomnianym wcześniej
-interfejsie administracyjnym.
+Django will use these methods for displaying objects, not just in the console, but also in the 
+aforementioned administration interface.
 
-Możemy też dodawać inne metody. W pliku ``carrots/polls/models.py`` dopisz
-(koemntarze ``# ...`` tutaj oznaczają kod znajdujący się już w pliku)::
+We can also add other methods.  In the ``carrots/polls/models.py`` append (comments ``#…`` in here 
+mean the code located in the file)::
 
     import datetime
     from django.utils import timezone
@@ -143,22 +142,24 @@ Możemy też dodawać inne metody. W pliku ``carrots/polls/models.py`` dopisz
         def was_published_recently(self):
             return self.pub_date >= datetime.datetime.now() - datetime.timedelta(days=1)
 
-Zauważcie, że musieliśmy dodać ``import datetime``, aby móc korzystać z obiektów reprezentujących czas w Pythonie.
+Note that we had to add an ``import datetime`` to use objects representing the time in Python.
 
-Zapiszmy te zmiany i uruchommy intepreter za pomocą polecenia ``python manage.py shell`` raz jeszcze::
+Let’s save the changes and run intepreter with the command ``python manage.py`` shell once again::
 
     >>> from polls.models import Poll, Choice
 
-    # Sprawdzmy czy dziala nasza nowa metoda __str__()
+    # Let’s find out if our method __str__() works
     >>> Poll.objects.all()
     [<Poll: What's up?>]
 
-Do tej pory używaliśmy metody ``all``, która pozwala wyciągnąć listę wszystkich obiektów danego typu (np. wszystkich
-pytań). Istnieją też inne metody pozwalające wyciągnąć obiekty spełniające określone warunki:
+Up to the moment we have used the method ``all`` which allows you to get a list of all objects of a 
+defined type (e.g. all questions). There are other methods that allow to find objects that meet 
+certain conditions:
 
 .. code-block:: python
 
-    # Django pozwala na bardzo łatwe wyszukiwanie obiektów w bazie danych. Spójrzmy na kilka przykładów.
+    # Django provides a very easy search of the objects in the database. Let's look at
+    some examples.
     >>> Poll.objects.filter(id=1)
     [<Poll: What's up?>]
     >>> Poll.objects.filter(question__startswith='What')
@@ -166,65 +167,65 @@ pytań). Istnieją też inne metody pozwalające wyciągnąć obiekty spełniaj�
     >>> Poll.objects.get(pub_date__year=2012)
     <Poll: What's up?>
 
-    # Próba pobrania nieistniejącego obiektu spowoduje głośne protesty Pythona.
-    # Ale do tego jesteśmy już przyzwyczajeni.
+    # The attempt to retrieve a nonexistent object will make Python to protest strongly.
+    # But we have already got used to this.
     >>> Poll.objects.get(id=2)
     Traceback (most recent call last):
         ...
     DoesNotExist: Poll matching query does not exist. Lookup parameters were {'id': 2}
 
-    # Wypróbujmy teraz naszą własną metodę.
+    # Let’s try our own method.
     >>> p = Poll.objects.get(pk=1)
     >>> p.was_published_recently()
     True
 
-Możemy też uzyskać dostęp do odpowiedzi (``Choice``) na pytania:
+We can also have access to the answers (``Choice``) questions:
 
 .. code-block:: python
 
-    # Na razie nasza ankieta nie zawiera żadnych odpowiedzi. Dodajmy jakieś!
+    # For now our questionnaire does not include any questions. Let's add some!
     >>> p.choice_set.all()
     []
 
-    # ... na przykład trzy. Użyjemy do tego metody "create". W wyniku dostaniemy obiekt "Choice".
+    # .. for example three. We will use the method "create". As a result, we get anobject "Choice".
     >>> p.choice_set.create(choice_text='Not much', votes=0)
     <Choice: Not much>
     >>> p.choice_set.create(choice_text='The sky', votes=0)
     <Choice: The sky>
     >>> c = p.choice_set.create(choice_text='Just hacking again', votes=0)
 
-    # Mając obiekt "Choice", możemy też znaleźć ankietę, do której on należy.
+    # With the object "Choice" we can find the questionnaire  to which it belongs.
     >>> c.poll
     <Poll: What's up?>
 
-    # ...I na odwrót, wszystkie odpowiedzi dla danej ankiety.
+    # ...Vice versa, all of the answers to the questionnaire
     >>> p.choice_set.all()
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
     >>> p.choice_set.count()
     3
 
-    # A teraz coś trudniejszego. Co robi to zapytanie?
+    # And now something more difficult. What does this question do?
     >>> Choice.objects.filter(poll__pub_date__year=2012)
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
 
-    # Na koniec usuńmy jedną z odpowiedzi. Służy do tego metoda "delete".
+    # Finally, let's remove one of the questions. Use method ``delete``.
     >>> c = p.choice_set.filter(choice_text__startswith='Just hacking')
     >>> c.delete()
 
-Podsumowanie
-------------
+Summary
+-------
 
-* Modele tworzymy definiując klasy dziedziczące po ``models.Model`` w pliku ``polls/models.py``.
-* Po utworzeniu nowego modelu pamiętaj, aby uruchomić ``python manage.py syncdb``.
-* Pobranie wszystkich obiektów danego modelu::
+* We are creating models by defining classes inheriting from ``models.Model`` in ``polls/models.py file``.
+* After new model creation we have to remember to run python ``manage.py syncdb``.
+* To download every object in the model::
 
     Poll.objects.all()
 
-* Pobranie obiektów spełniających określony warunek::
+* To download the object which satisfies the condition::
 
     Poll.objects.filter(question__startswith='What')
 
-* Pobranie pojedynczego obiektu::
+* To download single object::
 
     Poll.objects.get(id=2)
 

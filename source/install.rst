@@ -1,233 +1,231 @@
-==========
-Instalacja
-==========
+============
+Installation
+============
 
-Na potrzeby warsztatów będzie nam potrzebny interpreter języka
-Python w wersji 3.4. Poniżej znajdują się wskazówki, jak
-sprawdzić, czy już go mamy, ewentualnie zainstalować wraz z
-przydatnymi narzędziami.
+During our workshops we will need an interpreter of Python language, version 3.4. Below there are some tips how to check if we already have the interpreter or how to install it together with tools.
 
 Windows
 =======
 
-Wersje dla Windows można pobrać bezpośrednio ze strony `python.org`_.
-Po ściągnięciu pliku ``*.msi`` uruchom go i postępuj zgonie z instrukcjami.
-Ważne jest, aby zapamiętać ścieżkę, którą wybraliśmy jako katalog instalacji,
-bo będzie nam ona potrzebna przy :ref:`instalacji narzędzi <narzędzia>`.
+You can download versions for Windows directly from `python.org`_.
+After downloading the file  ``*.msi`` open it and follow the instructions.
+WIt is important to remember the path of installation – the directory – we will need the information during the :ref: `installation of tools <tools>`.
 
 
-Linux (Ubuntu, Fedora, etc.) lub Mac
-====================================
+Linux (Ubuntu, Fedora, etc.) or Mac
+===================================
 
-Aby sprawdzić czy i jaką wersję mamy, wpisz w linii poleceń:
+In order to check our version of Python, enter in the command line the following:
 
 .. code-block:: sh
 
     $ python --version
     Python 3.4.0
 
-Jeśli nie ma dostępnej komendy python lub wyświetla ona nieodpowiednią wersję:
+If the python command is not available or the wrong version appears:
 
 Ubuntu
 ------
 
-W linii poleceń wpisz::
+In the command line enter::
 
     sudo apt-get install python3.4
 
 Fedora
 ------
 
-W linii poleceń wpisz::
+In the command line enter::
 
     sudo yum install python3.4
 
 OS X
 ----
 
-Ze strony `python.org`_ ściągnij i zainstaluj paczkę dla Twojej wersji systemu.
+Download and install the package for your system version from`python.org`_ .
 
 
-Inne
-----
+Other
+-----
 
-Użyj systemu paczek odpowiedniego dla Twojej dystrybucji. Jeśli takiego nie ma
-lub nie możesz znaleźć Pythona, to możesz go zainstalować, używając źródeł
-za strony `python.org`_. Wymagany będzie kompilator i biblioteka readline.
+Use the system of packages adequate for your distribution. If there is no adequate system
+or you can not find python, you can install it using the sources on`python.org`_. Wwebsite. 
+A compiler and redline library will be required.
 
-Po cichu zakładamy, że użytkownicy mniej popularnych (nie znaczy, że gorszych)
-dystrybucji Linuksa na pewno sobie poradzą z tym zadaniem :).
+Unofficially we assume that the users of less popular (but not worse!) distributions 
+for sure will manage the task without any problem :).
 
 
 
-.. _narzędzia:
+.. _tools:
 
-Narzędzia
-=========
+Tools
+=====
 
-Linia poleceń Windows
----------------------
+Windows command line
+--------------------
 
-Większość pracy będziemy wykonywać z linii poleceń. Aby uruchomić linię
-poleceń Windows, kliknij ``Start``, a następnie ``Uruchom...``. W otwartym oknie
-wpisz ``cmd`` i kliknij ``OK``. Pojawi się nowe okno z białym tekstem na
-czarnym tle:
+Most of the work we will perform using the command line. To activate the command line in Windows 
+click on ``Start``, and then ``Run...``. In the open window type ``cmd`` nd click ``OK``. 
+A new window will appear with a white text on a black background:
+
 
 .. code-block:: bat
 
     Microsoft Windows [Wersja 6.1.7601]
-    Copyright (c) 2009 Microsoft Corporation. Wszelkie prawa zastrzeżone.
+    Copyright (c) 2009 Microsoft Corporation. All rights reserved.
 
-    C:\Users\Imie>
 
-Tekst może trochę się różnić w zależności od używanej wersji Windowsa.
+    C:\Users\Name>
 
-``C:\Users\Imie>`` to tak zwany ``prompt``. Informuje nas o katalogu, w którym
-aktualnie się znajdujemy oraz czeka na podanie polecenia. W dalszej części
-warsztatów ``C:\Users\Imie>`` będziemy skracać do  ``~$``, niezależnie
-od używanego systemu (Windows, Linux, MacOS).
+Text may be different depending on the version of Windows you use.
 
-Z pomocą linii poleceń można poruszać się po zawartości dysku (podobnie jak po
-wejściu w ``Mój komputer``). Służą do tego polecenia:
+``C:\Users\Name>``  is a prompt. It informs us of the directory in which we are 
+at the moment and waits for a command.
+Later during the workshop ``C:\Users\Name>`` we will cut to the  ``~$``, independently of your 
+operating system (Windows, Linux, MacOS).
+
+Using the command line you can move around the content of the disc (in a similar way as by entering  ``
+Mój komputer``).  The following commands are to be used:
 
 ``dir``
-    Wyświetla zawartość aktualnego katalogu. Przykładowo, jeżeli ``prompt``
-    pokazuje katalog ``C:\Users\Imie``, to polecenie ``dir`` wyświetli zawartość
-    naszego katalogu domowego.
+    Displays the contents of the current directory. For example, if the ``prompt``
+    shows  ``C:\Users\Name``, the ``dir`` command displays the contents of our home directory. 
 
-``cd katalog``
-    Służy do zmiany aktualnego katalogu. Przykładowo, jeśli jesteśmy w katalogu ``C:\Users\Imie``,
-    wykonanie ``cd Documents`` przeniesie nas do katalogu z naszymi
-    dokumentami. Jeśli teraz wykonasz polecenie ``dir``, zobaczysz coś znajomego.
+``cd directory``
+    Changes the current directory. For example, if you’re in the ``C:\Users\Name``,
+    by entering ``cd Documents`` you access the directory with your documents. If you execute the 
+    ``dir``command you will see something familiar.
+    The command  ``cd..`` will move you to the directory on an upper level. 
 
-    Polecenie ``cd..`` powoduje przejście do katalogu poziom wyżej.
-
-``mkdir katalog``
-    Tworzy nowy katalog.
+``mkdir directory``
+    Creates a new directory.
 
 
-Środowisko wirtualne
---------------------
+Virtual environment
+-------------------
 
-Musimy wybrać teraz katalog dla naszego środowiska wirtualnego. Środowisko wirtualne pozwala
-odizolować naszą pracę od innych części systemu. Może być to przykładowo katalog domowy użytkownika.
+Now we have to chose the directory for our virtual enviroment. The virtual enviroment will allow to 
+isolate our work from other system’s parts. For example you can choose the user home directory. 
 
-W przypadku Windowsa 7 ścieżka do katalogu domowego dla użytkownika ``Ala`` będzie wyglądała tak: ``C:\Users\Ala\`` .
-Możesz wybrać też inny katalog, ale ważne jest, żeby zapamiętać, gdzie znajduje się nasze środowisko.
+ For Windows 7 the path to the home directory for the user  ``Ala`` will look like this: 
+``C:\Users\Ala\`` . You can select a different directory but it is important to remember where the 
+file is saved. It must be easily accessible, because we will use it often. 
 
-Na przykład, jeżeli naszym katalogiem domowym jest ``C:\Users\lrekucki``, linia poleceń będzie wyglądała tak:
+For example, if our home directory is ``C:\Users\lrekucki``, the command line would look like this:
 
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> C:\Python34\python -m venv warsztaty
+    C:\Users\lrekucki> C:\Python34\python -m venv workshops
 
 .. code-block:: sh
 
     # Linux i Mac
-    ~$ python3.4 -m venv warsztaty
+    ~$ python3.4 -m venv workshops
 
 
-W Twoim katalogu domowym powstanie katalog ``warsztaty`` zawierający tzw.
-wirtualne środowisko. Na razie istotne jest dla nas tylko to, że po jego aktywacji:
+In your home directory there will be created a directory ``workshops`` ontaining so called “virtual 
+environment”. 
+For now, it is important for us that after it is activated:
 
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> warsztaty\Scripts\activate
+    C:\Users\lrekucki> workshops\Scripts\activate
 
 .. code-block:: sh
 
     # Linux i Mac
-    ~$ source warsztaty/bin/activate
+    ~$ source workshops/bin/activate
 
-komenda ``python`` będzie uruchamiała dobrą wersję Pythona, więc nie będziemy
-musieli ani dopisywać pełnej ścieżki na początku, ani wersji na końcu.
+The ``python`` command will run the correct version of Python, so we will not have to enter the full 
+path at the beginning nor the version at the end.. 
 
-Uruchom w terminalu:
+
+Activate  in the terminal:
 
 .. code-block:: bat
 
     :: Windows
-    (warsztaty) C:\Users\lrekucki>where python
-    C:\Users\lrekucki\warsztaty\Scripts\python.exe
+    (workshops) C:\Users\lrekucki>where python
+    C:\Users\lrekucki\workshops\Scripts\python.exe
 
-    (warsztaty) C:\Users\lrekucki>where pip
-    C:\Users\lrekucki\warsztaty\Scripts\pip.exe
+    (workshops) C:\Users\lrekucki>where pip
+    C:\Users\lrekucki\workshops\Scripts\pip.exe
     ...
 
-    (warsztaty) C:\Users\lrekucki>python --version
+    (workshops) C:\Users\lrekucki>python --version
     3.4.0
 
 .. code-block:: sh
 
     # Linux i Mac
-    (warsztaty) ~$ which python
-    /home/lrekucki/warsztaty/bin/python
-    (warsztaty) ~$ which pip
-    /home/lrekucki/warsztaty/bin/pip
+    (workshops) ~$ which python
+    /home/lrekucki/workshops/bin/python
+    (workshops) ~$ which pip
+    /home/lrekucki/workshops/bin/pip
     ...
 
-    (warsztaty) ~$ python --version
+    (workshops) ~$ python --version
     3.4.0
 
 
 .. _python.org: http://python.org/download/releases/3.4.0/
 
-W razie problemów po wpisaniu ``which pip`` może być potrzeba przeinstalowania pip:
+If there will appear any problem after typing ``which pip`` there could be a need to reinstall pip:
 
 .. code-block:: sh
 
     python -m pip uninstall pip
     python -m ensurepip
 
-Podsumowanie
-------------
+Summary
+-------
 
-Instalacja nowego środowiska wirtualnego:
-
-.. code-block:: bat
-
-    :: Windows
-    C:\Users\lrekucki> C:\Python34\python -m venv warsztaty
-
-.. code-block:: sh
-
-    # Linux i Mac
-    ~$ python3.4 -m venv warsztaty
-
-Aktywacja środowiska wirtualnego:
+New virtual environment installation:
 
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> warsztaty\Scripts\activate
+    C:\Users\lrekucki> C:\Python34\python -m venv  workshops
 
 .. code-block:: sh
 
     # Linux i Mac
-    ~$ source warsztaty/bin/activate
+    ~$ python3.4 -m venv workshops
 
-Upewnij się, że używasz właściwej wersji pythona:
+Virtual environment activation:
+
+.. code-block:: bat
+
+    :: Windows
+    C:\Users\lrekucki> workshops\Scripts\activate
 
 .. code-block:: sh
 
-    (warsztaty) ~$ python --version
+    # Linux i Mac
+    ~$ source workshops/bin/activate
+
+Just make sure that you use the proper Python version:
+
+.. code-block:: sh
+
+    (workshops) ~$ python --version
     3.4.0
 
 
 IPython
 -------
 
-Ewentualnie możemy zainstalować ``IPython``, który poprawi wygląd i wygodę korzystania
-z konsoli Pythona.
+Eventually you can instal ``IPython``, hich can improve the look and comfort when using a Python 
+from the console.
 
-Zainstaluj ``IPython``:
+``IPython`` installation::
 
 .. code-block:: sh
 
-    (warsztaty) ~$ pip install ipython
+    (workshops) ~$ pip install ipython
 
 .. note::
 
-    Jeżeli polecenie ``pip`` nie działa, spróbuj ``pip3``.
+   If``pip`` ommand doesn't work, then please use ``pip3``.

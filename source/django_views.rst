@@ -1,15 +1,15 @@
 
-Wyświetlanie stron internetowych
-================================
+Rendering websites
+==================
 
-Wejście pod główny adres http://localhost:8000/ nadal powoduje wyświetlenie brzydkiej strony błędu. Nie może tak dalej
-być!
+Entering the main address http://localhost:8000/ still displays an ugly error page. It can not be like 
+that!
 
-Dobrze jest zacząć pracę nad nowym serwisem internetowym od przemyślenia struktury URLi (adresów). Wiemy, że będziemy
-chcieli wyświetlić listę wszystkich ankiet na stronie, pozwolić użytkownikom zagłosować oraz wyświetlić zbiorcze wyniki
-ankiety.
+It's good to start working on a new website after preparing a plan of URLs (addresses). We know we 
+will want to see a list of all the questionnaires on the site, let users vote and display the 
+aggregated results of the questionnaire.
 
-Jeszcze raz otwórzmy plik ``urls.py`` i dodajmy cztery nowe wpisy. Ostatecznie plik powinien wyglądać następująco::
+Let's open the file ``urls.py`` again and add four new entries. Eventually the file should look as follows::
 
   from django.conf.urls import patterns, include, url
 
@@ -24,69 +24,65 @@ Jeszcze raz otwórzmy plik ``urls.py`` i dodajmy cztery nowe wpisy. Ostatecznie 
       url(r'^admin/', include(admin.site.urls)),
   )
 
-Przyjrzyjmy się temu przykładowi raz jeszcze. Każdy argument przekazany do funkcji ``patterns`` (poza pierwszym, ale
-o tym potem) określa nam wzorzec URL (adresu). Wzorzec ten zapisany jest za pomocą
-`wyrażenia regularnego <http://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne#Wyra.C5.BCenia_regularne_w_praktyce>`_.
-Jest to trudne techniczne określenie malutkiego języka, służącego do zwięzłej reprezentacji wzorców tekstu.
+Let's look at this example again. Each argument passed to the function ``patterns`` (except for the first one, but more on that later) determines our pattern URL (address). This pattern is written using a `regular expression <http://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne#Wyra.C5.BCenia_regularne_w_praktyce>`_. This is a difficult technical term for a tiny language used for 
+concise representation of text patterns.
 
-Kiedy użytkownik próbuje wejść na określony adres na naszej stronie, taki jak http://localhost:8000/polls/1/,
-Django wybiera część URL po trzecim ukośniku (w tym przypadku ``polls/1/``)  i próbuje ją kolejno dopasować do wyrażeń
-regularnych z ``urlpatterns``. Przyjrzyjmy się przykładowi takiego wyrażenia::
+
+When a user tries to enter a specific address on our website, such as: http://localhost:8000/polls/1/,
+Django selects the third part of the URL after the slash (in this case, ``polls/1/``) and tries to turn it subsequently into a regular expression to match the ``urlpatterns``. Let's look at an example of such expressions::
 
   r'^polls/(?P<poll_id>\d+)/vote/$'
 
-Tak naprawdę jest to normalny ciąg znaków (może poza poczatkowym ``r``, które jest tu używane tylko dla wygody).
-Kiedy próbujemy do niego dopasować tekst (nadal myślimy o ``polls/1/``), musimy pamietać o następujacych zasadach:
+This is a normal string (maybe except for the initial ``r``, which is used here only for
+convenience). When we try to adjust the text to the string (we still think of ``polls/1/``), we need 
+to remember the following:
 
-.. admonition:: Wyrażenia regularne
+.. admonition:: Regular expressions:
    :class: alert alert-info
 
-   * Każda litera i cyfra wyrażenia regularnego pasuje tylko do takiej samej litery/cyfry ciągu dopasowywanego. Tak samo
-     ukośnik (``/``), spacja (`` ``), podkreślenie (``_``) i myślnik (``-``).
-   * ``^`` pasuje tylko do początku ciągu znaków (nie do znaku, "początek" należy tutaj traktować jak abstrakcyjny twór
-     przed pierwszym znakiem).
-   * ``$`` pasuje tylko do końca ciągu znaków (na podobnej zasadzie co "początek").
-   * Kropka (``.``) pasuje do dowolnego znaku.
-   * Jeżeli kilka znaków obejmiemy nawiasami kwadratowymi, np. tak ``[aBde]``, taka grupa liczy się jako jedna całość i
-     dopasuje się do dowolnego jednego znaku z wewnątrz grupy.
-   * Istnieje skrótowa notacja dla takich grup. Zamiast wypisywać wszystkie małe litery alfabetu, możemy napisac ``[a-z]``,
-     aby dopasować dowolną jedną małą literę. Tak samo dla dużych liter ``[A-Z]`` lub cyfr ``[0-9]``.
-   * Dopasować jedną cyfrę można jeszcze krócej, używając znaczka ``\d``.
-   * Jeżeli po dowolnym z powyższych wyrażeń postawimy znak ``?``, zostanie ono potraktowane jako *opcjonalne*. Oznacza
-     to, że jeżeli w ciągu dopasowywanym nie będzie takiego wyrażenia, nadal będzie możliwe jego dopasowanie. Jeżeli
-     będzie, zostanie dopasowane.
-   * Jeżeli po wyrażeniu postawimy znak ``*``, dopasuje się ono z dowolną ilością powtorzeń wyrażenia (wliczając w to zero
-     powtórzeń, czyli tak jakby było *opcjonalne*).
-   * Jeżeli po wyrażeniu postawimy znak ``+``, dopasuje się ono z dowolną ilością powtórzeń wyrażenia, z wyjątkiem zera
-     powtórzeń (tzn. wyrażenie musi wystąpić co najmniej raz).
-   * Jeżeli kilka znaków obejmiemy nawiasami zwykłymi, np. tak ``(\d\d)``, zostaną one potraktowane jako grupa i wszystkie
-     powyższe modyfikatory będą na nie działały w całości. Jeżeli dodatkowo napiszemy to z ``(?P<NAZWA>napis)``, grupa
-     zostanie nazwana i będzie się do niej można potem odwołać pod nazwą ``NAZWA``. Jest to bardzo popularne przy pracy w
-     Django.
+   * Each letter and number of the regular expression applies to the same letter / number of the adjusted string. The same with the
+     slash (``/``), space (`` ``), the underscore (``_) and hyphen (``-``).
+   * ``^`` applies only to the beginning of the string (“the beginning” is here an abstract symbol 
+     before the first character)
+   * ``$`` matches only the end of the string (in a similar way as “the beginning”).
+   * The dot (``.``) matches any character.
+   * If several characters are put in the square brackets, like this: ``[abde]``, the group counts as 
+     one unit and will match any of the characters within the group.
+   * There is an abbreviated notation for such groups. Rather than write all the small letters of the
+     alphabet, we can write ``[a-z]`` to match any single lowercase letter. Same for the upper case letters ``[A-Z]`` or digits ``[0-9]``.
+   * Matching one number can be even shorter by using the stamp ``\d``.
+   * If after any of the above expressions we put the sign ``?`` it will be treated as optional. This 
+     means that if in the matched string there is no such an expression it will still be possible to match it. If it exits, it will be matched.
+   * If we put ``*`` after the expression it will match with any number of repetitions, except for a 
+     zero of repetitions, that is to say, as if it was optional.
+   * If we put ``+`` after the expression it will match with any number of repetitions, except for a 
+     zero repetitions (the expression must occur at least once).
+   * If several characters are put in regular brackets, such as ``(\d \d)`` they will be treated as a 
+     group and all of these modifiers will work with the whole group of characters. If you also write it with ``(? P <NAME> string)``, the group can be later called as NAME. It is very popular while working with Django.
 
-Uff... Jest jeszcze wiele reguł, ale tak naprawdę nikt ich wszystkich nie pamięta. Te powyższe wystarczają w większości
-przypadków.
+Phew ... There are many rules, but no one really can remember them all. The above is sufficient in 
+most cases.
 
-Czy widzisz już, że przykładowe wyrażenie dopasuje się do ``polls/1/``? Dlaczego?
+Do you see already that the sample phrase matches the ``polls/1/?`` Why?
 
-Kiedy już Django znajdzie dopasowanie, popatrzy na drugą część linii. Określa ona widok, który ma być wywołany w celu
-utworzenia strony dla użytkownika. Dla ``polls/1/`` będzie to ``polls.views.detail``. Wszystkie nazwane grupy zostaną
-przekazane widokowi jako argumenty o tej samej nazwie.
+Once Django finds a match it will look at the second part of the line. It defines the view, which is 
+called to create the site for the user. For ``polls/1/`` it will be ``polls.views.detail``. All named 
+groups will be transferred to the view as arguments of the same name.
 
-Pierwszy widok
---------------
+First view
+----------
 
-Dobra, zobaczmy, jak to działa w praktyce. Niestety, wejście pod adres http://localhost:8000/polls/1/ nie kończy się
-dobrze::
+Ok, let's see how it works in practice. Unfortunately, entering the address
+http://localhost:8000/polls/1/ does not end well::
 
   ViewDoesNotExist at /polls/1/
 
   Could not import polls.views.detail. View does not exist in module polls.views.
 
-Ach, to dlatego, że nie zdefiniowaliśmy jeszcze widoku (Django podpowiada nam, że szukało ``polls.views.detail``,
-niestety bez powodzenia)!
+This is because we have not defined the view yet (Django tells us that was looking for ``polls.views.
+detail``, unfortunately without any success).
 
-Popraw plik ``polls/views.py``, aby wyglądał następująco::
+Let’s open the file in the ``polls/views.py`` and add a few new features::
 
     from django.http import HttpResponse
 
@@ -102,27 +98,28 @@ Popraw plik ``polls/views.py``, aby wyglądał następująco::
     def vote(request, poll_id):
         return HttpResponse("You're voting on poll %s." % poll_id)
 
-Tak wygladają najprostsze możliwe widoki. Nie zwracają one zwykłych ciagów znaków, tak jak funkcja budująca choinkę w
-Pythonie, bo muszą mówić protokołem HTTP, który jest nieco bardziej skomplikowany (tutaj dobrze byłoby zobaczyć w
-przeglądarce co się tak naprawde dzieje, gdy wchodzimy pod adres http://localhost:8000/polls/1/).
+These are the simplest possible views. They do not return regular strings, such as the function which 
+builds the Christmas tree in Python, because they have to speak HTTP protocol, which is a bit more 
+complicated (Here it would be interesting to see in a browser, what's going on when you enter the 
+address http://localhost:8000/polls/1/).
 
 
-Widok, który naprawdę coś robi
-------------------------------
+View that really does something
+-------------------------------
 
-Nasze widoki na razie nie robią zbyt wiele. Dajmy im trochę popracować!
+For now our views don’t do much. Let's give them some work!
 
-Wszystko, czego Django potrzebuje od widoku, to obiekt
+Everything Django needs from the view is a
 `HttpResponse <https://docs.djangoproject.com/en/1.4/ref/request-response/#django.http.HttpResponse>`_
-lub wyrzucenie wyjątku. Cała reszta jest pod naszą kontrolą. Możemy na przykład użyć funkcji, które poznaliśmy w trybie
-interaktywnym, aby wyświetlić wszystkie ankiety użytkownikowi.
+object or a thrown exception. All the rest is under our control. For example, we can use the functions that we learned in the interactive mode to display all the polls for the user.
 
-Dopisz na początek pliku ``polls/views.py``::
+
+At the beginning of the ``polls/views.py`` file append::
 
     from django.http import HttpResponse
     from polls.models import Poll
 
-Rozbuduj funkcję ``index`` aby wyglądała następująco:
+Expand function ``index`` to look as below:
 
 .. code-block:: python
 
@@ -133,21 +130,21 @@ Rozbuduj funkcję ``index`` aby wyglądała następująco:
 
 .. note::
 
-    Teraz nie podajemy już całej treści pliku, bo byłaby ona za długa. Podawane są tylko najważniejsze zmiany.
+    Now we do not give the entire content of the file as it would be too long. Only the most important changes should be reported.
 
-Działa! Jest tylko jeden problem z tym przykładem: określamy w widoku nie tylko
-to, co ma być zwrócone, ale też w jakim formacie ma zostać zwrócone
-użytkownikowi serwisu. Jedną z najważniejszych umiejętności programisty jest
-zdolność do odróżnienia i rozdzielenia dwóch niezależnych rzeczy: danych oraz wyglądu.
-Programiści Django o tym pomyśleli i stworzyli system szablonow:
+It works! There is only one problem with this example: we define in the view not only what has to be 
+returned, but also in what format it should be returned to the site user. One of the most important 
+skills of a programmer is the ability to distinguish and divide the two independent things. 
 
-Dopisz na początek pliku ``polls/views.py``::
+Django programmers thought about it and decided to create a system of templates:
+
+At the beginning of the ``polls/views.py`` file append::
 
   from django.template import Context, loader
 
-To pozwoli nam używać systemu szablonów.
+That will let us to use template system.
 
-Rozbuduj funkcję ``index`` w tym samym pliku aby wyglądała następująco::
+In the same file expand function ``index`` to look as below::
 
   def index(request):
       latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
@@ -157,17 +154,16 @@ Rozbuduj funkcję ``index`` w tym samym pliku aby wyglądała następująco::
       })
       return HttpResponse(t.render(c))
 
-Za obsługę szablonu w tym wypadku są odpowiedzialne funkcje ``get_template`` (Znajduje szablon) oraz ``render`` (zmienia
-szablon na test, który dostanie ostatecznie użytkownik).
+The functions: ``get_template`` (it finds a template) and render (it changes the template into a text 
+will be finally delivered to the user) are responsible for our template handling.
 
-Kod jest trochę dłuższy, ale zaraz zobaczymy, o ile bardziej wszystko będzie czytelne. Najpierw załadujmy jednak stronę
-http://localhost:8000/polls/, aby zobaczyć wynik naszej pracy::
+The code is a bit longer, but we will see soon that everything is much more clear. However, first 
+let’s load the page http://localhost:8000/polls/ to see the result of our work::
 
   TemplateDoesNotExist at /polls/
   polls/index.html
 
-Ups! No tak, nie dodaliśmy jeszcze szablonu. Aby to zrobić, stwórzmy plik ``polls/templates/polls/index.html`` i dodajmy
-do niego:
+Oops! Well, we still haven’t added the template. To do this, let's create a file ``polls/templates/polls/index.html`` and add to it:
 
 .. code-block:: django
 
@@ -182,35 +178,29 @@ do niego:
   {% endif %}
 
 .. note::
-    Szablony aplikacji znajdują się w katalogu ``templates`` aplikacji, a funkcja ``get_template`` sama szuka szablonów
-    w tych katalogach, dlatego nie musieliśmy podawać całej ścieżki ``polls/templates/polls/index.html``, wystarczyło
-    ``polls/index.html``.
+    Application ``templates`` are located in the directory ``templates of applications`` and the function get_template searches templates in these directories, that is why we didn’t have to give the entire path ``polls/templates/polls/index.html``, ``polls/index.html.`` was enough.
 
-Po przeładowaniu strony w przeglądarce powinniśmy zobaczyć listę zawierającą wszystkie utworzone wcześniej ankiety.
+When you reload the page in a browser you should see a list of all the polls created earlier.
 
 .. note::
 
-    Jeżeli po odświeżeniu strony nadal widać błąd, należy ponownie uruchomić serwer. W konsoli, w której już jest
-    uruchomiony serwer, wciskamy ``Ctrl+C`` i wykonujemy ``python manage.py runserver`` ponownie.
-    Teraz powinno już działać.
+    If you refresh the page and you still see an error, you must restart the server. In the console where the server is running press ``Ctrl + C`` and execute ``python manage.py runserver`` again. It should work now.
 
 .. note::
 
-   HTML i CSS sa formatami służącymi do określania wyglądu stron internetowych. Szablonów Django będziemy używać po to,
-   aby generować kod HTML. Dobry opis HTML znajduje się w książce
+   HTML and CSS are the formats that define the appearance of web pages. We will use Django templates to generate the HTML code. A good description of HTML is in the book
    `Interactive Data Visualization for the Web <http://ofps.oreilly.com/titles/9781449339739/k_00000003.html>`_.
-   Zachwycającą własnością sieci WWW jest to, że kody HTML i CSS każdej strony są zupełnie jawne. Polecam obejrzenie kodu
-   ulubionych stron.
+   The incredible characteristics of the Web is that HTML and CSS codes of every site are public. We recommend to watch the code of your favorite sites.
 
-Prawie w każdym widoku będziemy chcieli ostatecznie użyć szablonu. Dlatego w Django jest funkcja ``render``,
-która pozwala zrobić to w krótszy sposób.
+Almost in every view you will need eventually to use a template. Therefore, in Django there is a 
+function ``render`` which allows you to do this in a shorter way:
 
-Popraw początek pliku ``polls/views.py``, aby wyglądał następująco::
+Please correct beginning of the file ``polls/views.py`` to looks as below::
 
   from django.shortcuts import render
   from polls.models import Poll
 
-Popraw funkcję ``index``, aby wyglądała następująco::
+Please correct ``index`` function to looks as below::
 
   def index(request):
       latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
@@ -220,27 +210,26 @@ Popraw funkcję ``index``, aby wyglądała następująco::
           {'latest_poll_list': latest_poll_list})
 
 
-Zwracanie 404
--------------
+Returning 404 code
+------------------
 
-Zajmijmy się teraz widokiem szczegółow ankiety -- strony, która wyświetla pytania z konkretnej ankiety.
+Now let’s focus on the view of the poll details – a site which displays questions from a defined 
+questionnaire.
 
-Dopisz na początku pliku ``polls/views``::
+At the beginning of the ``polls/views.py`` file append::
 
     from django.http import Http404
 
-``Http404`` to wyjątek udostępniony przez Django. W sytuacji, gdy nasza aplikacja nie potrafi odnaleźć
-żądanej przez użytkownika ankiety, możemy rzucić ten wyjątek (przez napisanie ``raise Http404``). Efektem
-tego będzie wyświetlenie strony błędu 404 w przeglądarce.
+``Http404`` is an exception shared by Django. We can use this exception in case our aplication can’t 
+found a poll desired by user (by writing ``raise Http404``). As a result browser will show the error 
+404 page.
+
 
 .. note::
 
-   Można zmienić stronę wyswietlaną przez Django w wypadku błędu 404 (brak strony) i 500 (nieoczekiwany błąd serwera).
-   W tym celu trzeba stworzyć szablony ``404.html`` i ``500.html``. Przed sprawdzeniem, czy to zadziałało, należy zmienić
-   ``DEBUG`` w pliku ``settings.py`` na ``False``, inaczej Django nadal będzie wyświetlać swoje pomocnicze
-   *żółte* strony.
+   You can change the page displayed by Django in case of the error 404 (the page does not exist) and 500 (unexpected server error). To do this, you need to create templates ``404.html`` and ``500.html``. Before checking if it works, change ``DEBUG`` in the ``settings.py`` file to ``False``. Otherwise, Django will continue to display its auxiliary yellow pages.
 
-Popraw funkcję ``detail`` aby wyglądała następująco::
+PChange ``detail`` function as below::
 
     def detail(request, poll_id):
         try:
@@ -249,7 +238,7 @@ Popraw funkcję ``detail`` aby wyglądała następująco::
             raise Http404
         return render(request, 'polls/detail.html', {'poll': p})
 
-Następnie stwórz plik ``polls/templates/polls/detail.html`` o następującej treści:
+Then create ``polls/templates/polls/detail.html`` file with content as below:
 
 .. code-block:: django
 
@@ -261,12 +250,12 @@ Następnie stwórz plik ``polls/templates/polls/detail.html`` o następującej t
     </ul>
 
 
-Obsługa formularzy
-------------------
+Form management
+---------------
 
-Zmieńmy szablon ``polls/templates/polls/details.html``, dodając tam prosty formularz HTML.
+Let's change the template ``polls/templates/polls/details.html``, by adding a simple HTML form.
 
-Popraw plik ``polls/templates/polls/details.html``, aby wyglądał następująco:
+Change ``polls/templates/polls/details.html`` file as below:
 
 .. code-block:: django
 
@@ -285,67 +274,66 @@ Popraw plik ``polls/templates/polls/details.html``, aby wyglądał następująco
 
 .. note::
 
-   ``{% csrf_token %}`` to bardzo magiczny sposób zabezpieczenia przed stosunkowo nowym sposobem ataku na użytkowników
-   stron internetowych. Wiecej opisane jest w
+   ``{% csrf_token %}``  is a very magical way to protect websites from new forms of attack on websites users. More information in the documentation
    `dokumentacji Cross Site Request Forgery <https://docs.djangoproject.com/en/1.4/ref/contrib/csrf/>`_.
 
-Uważny czytelnik zauważy, że formularz wysyłany jest na adres ``/polls/{{ poll.id }}/vote/``, który nie obsługuje
-jeszcze danych formularza. Dodamy teraz obsługę formularzy.
+Attentive reader will note that form is send to ``/polls/{{ poll.id }}/vote/`` adress, which does not 
+support data from forms yet. Now we will add forms' support. 
 
-Na początku pliku ``polls/views.py`` dopisz::
+At the beginning of the ``polls/views.py`` file append::
 
     from django.http import HttpResponseRedirect
     from django.core.urlresolvers import reverse
     from django.shortcuts import get_object_or_404
     from polls.models import Choice
 
-Popraw funkcję ``vote``, aby wyglądała następująco::
+Correct ``vote`` function, as below::
 
     def vote(request, poll_id):
         p = get_object_or_404(Poll, id=poll_id)
         try:
             selected_choice = p.choice_set.get(id=request.POST['choice'])
         except (KeyError, Choice.DoesNotExist):
-            # Wyświetl błąd użytkownikowi, gdy wybrał złą opcję
+            # If user would choose the wrong option, show error
             return render(request, 'polls/detail.html', {
                 'poll': p,
-                'error_message': "Musisz wybrać poprawną opcję.",
+                'error_message': "You have to choose correct option.",
             })
 
-        # Zapisz nową liczbę głosów
+        # Save the new number of votes
         selected_choice.votes += 1
         selected_choice.save()
-        # Przekieruj użytkownika do widoku detali ankiety, na którą właśnie zagłosował
-        return HttpResponseRedirect(reverse('polls.views.results', args=(p.id,)))
+        # Redirect a user to poll detail view, on which he or she just voted.  
+       return HttpResponseRedirect(reverse('polls.views.results', args=(p.id,)))
 
-W tym widoku pojawia się sporo nowych koncepcji, o których nie mówiliśmy.
+In the view there are a lot of new ideas here which we have not discussed yet.
 
-Obiekt ``request`` zawiera dane wysłane przez użytkownika, a ``request.POST`` zawiera dane z formularza
-wysłanego przez użytkownika. W ten sposób wiemy, która opcja została wybrana.
+The ``request`` object contains the data sent by the user and ``request.POST`` contains the form data sent by the user. In this way we know which option was selected.
 
-Tutaj pojawia się ważna kwestia. Może okazać się, że widok dostał nieistniejącą odpowiedź.
-Zawsze musimy sprawdzać dane otrzymane od użytkownika i reagować, jeśli te dane są bezsensowne.
-To właśnie dzieje się po :keyword:`except`. Odsyłamy wtedy użytkownika do ankiety i wyświetlamy błąd.
+Here comes the important question. It may turn out that the view received a nonexistent answer. We 
+always have to check the data received from the user and respond to a situation when the data has no 
+sense. This is what happens in the :keyword:`except`clause. Then we redirect the user to the 
+questionnaire and display the error.
 
-Jeżeli użytkownik wybrał poprawną opcję, możemy zwiększyć liczbę głosów i zapisać zmiany.
-Następnie wykonujemy przekierowanie za pomocą ``HttpResponseRedirect`` do wcześniej napisanego
-widoku detali ankiety.
+If the user selects the correct option, we can increase the number of votes and save the changes. Then
+we make a redirection by using ``HttpResponseRedirect`` to the previously written view of the details 
+of questionnaire.
 
-Kolejna istotna sprawa: po zagłosowaniu mogliśmy po prostu wyświetlić jakąś stronę, podobnie jak na końcu widoku detali
-(za pomocą ``render``). Niestety, mogłoby to prowadzić do ponownego wysłania ankiety, gdyby użytkownik
-zaczął bawić się przyciskami ``wstecz`` i ``dalej`` w przeglądarce lub gdyby po prostu odświeżył stronę (np. klawiszem ``f5``)
-W skrócie, zawsze po poprawnym wysłaniu formularza (w tym wypadku: zagłosowaniu na ankietę) powinniśmy wykonać
-przekierowanie za pomocą ``HttpResponseRedirect``.
+Another important issue: after voting we could just display the page, like at the end of the view of 
+details (by using render). Unfortunately this could lead to the resending of the questionnaire. If the 
+user starts playing with the back and forward buttons in the browser, or just refreshes the page (by 
+pressing F5) In short, always after the correct form is submitted (in this case, voting for a poll), 
+we should perform a redirection by using HttpResponseRedirect.
 
-Na koniec pozostał nam do opracowania widok wyników ankiety, wyświetlany po zagłosowaniu.
+At the end we still have to develop a view of the poll results, displayed after voting.
 
-Popraw funkcję ``results``, aby wyglądała następująco::
+Correct ``results function``, as below::
 
   def results(request, poll_id):
       p = get_object_or_404(Poll, id=poll_id)
       return render(request, 'polls/results.html', {'poll': p})
 
-Oraz stwórz plik ``polls/templates/polls/results.html``, o następującej treści:
+And create ``polls/templates/polls/results.html`` file, with the following content:
 
 .. code-block:: django
 
@@ -359,8 +347,8 @@ Oraz stwórz plik ``polls/templates/polls/results.html``, o następującej treś
 
   <a href="/polls/{{ poll.id }}/">Vote again?</a>
 
-To wszystko! Wejdź pod adres http://localhost:8000/admin/ i stwórz kilka nowych ankiet i pytań, a potem pobaw się,
-głosując na nie i namawiając inne osoby, aby zrobiły to samo.
+That's it! Enter the address http://localhost:8000/admin/ and create several new polls and questions. 
+Then play with voting them and invite others to do the same.
 
 
 .. admonition:: ``polls/views.py``
