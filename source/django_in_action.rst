@@ -25,7 +25,7 @@ Tworzenie nowego projektu
 Instalacja
 ----------
 
-Zainstaluj Django, uruchamiając w konsoli ``pip install django==1.6.2``:
+Zainstaluj Django, uruchamiając z linii poleceń:
 
 .. code-block:: sh
 
@@ -36,16 +36,16 @@ Zainstaluj Django, uruchamiając w konsoli ``pip install django==1.6.2``:
    Successfully installed django
    Cleaning up...
 
-Odpowiednia paczka zostanie pobrana z `PyPI <http://pypi.python.org>`_ - repozytorium pakietów Pythona,
+Odpowiednia paczka zostanie pobrana z PyPI_ - repozytorium pakietów Pythona,
 gdzie można znaleźć wiele użytecznych bibliotek.
 
 
 Początek projektu
 -----------------
 
-Django dostarcza skrypt administracyjny "django-admin.py". Pozwala on stworzyć szkielet naszej strony.
+Django dostarcza skrypt administracyjny ``django-admin.py``. Pozwala on stworzyć szkielet naszej strony.
 
-Aby stworzyć nowy projekt ze stroną, uruchamiamy ``django-admin.py startproject carrots``:
+Aby stworzyć nowy projekt ze stroną, uruchamiamy :django:django-admin:`django-admin.py startproject carrots <django:startproject>`:
 
 .. code-block:: sh
 
@@ -68,11 +68,11 @@ Aby stworzyć nowy projekt ze stroną, uruchamiamy ``django-admin.py startprojec
 
    :: Windows
 
-   (warsztaty) C:\Users\TeddyBear> python -m django-admin startproject carrots
+   (warsztaty) C:\Users\TeddyBear>django-admin.py startproject carrots
    (warsztaty) C:\Users\TeddyBear> tree /f carrots
    Folder PATH listing
-   Volume serial number is 00FA-07FF
-   C:\USERS\TEDDYBEAR\DOCUMENTS\CARROTS
+   Volume serial number is NNNN-MMMM
+   C:\USERS\TEDDYBEAR\CARROTS
    │   manage.py
    │
    └───carrots
@@ -90,18 +90,17 @@ Nowo utworzony projekt zawiera katalog "carrots" i kilka podstawowych plików.
 W pliku ``carrots/settings.py`` znajdują się ustawienia strony, takie jak język, baza danych, zainstalowane aplikacje.
 Plik ten możemy edytować sami. Na początku wewnątrz znajdziemy domyślne ustawienia i komentarze wyjaśniające.
 
-Plik ``manage.py`` pozwala administrować stroną, czyli utworzyć lub wyczyścić bazę danych, uruchomić prosty serwer
+Skrypt ``manage.py`` pozwala administrować stroną, czyli utworzyć lub wyczyścić bazę danych, uruchomić prosty serwer
 aplikacji itp. Później zobaczymy, jak go używać.
 
-Plik ``carrots/urls.py`` zawiera informacje o ścieżkach (urlach) na stronie.
+Plik ``carrots/urls.py`` zawiera informacje o ścieżkach (URL'ach) na stronie.
 
 Pozostałe pliki są mniej ciekawe, przeważnie w ogóle się do nich nie zagląda, ani się ich nie zmienia.
-Dociekliwych odsyłam do Google.
 
 Ustawienia aplikacji
 --------------------
 
-W pliku ``carrots/settings.py`` znajdź ``TIME_ZONE`` oraz ``LANGUAGE_CODE`` i ustaw strefę czasową na
+W pliku ``carrots/settings.py`` znajdź :django:setting:`TIME_ZONE` oraz :django:setting:`LANGUAGE_CODE` i ustaw strefę czasową na
 Warszawę i domyślny język na polski. Ostatecznie te dwie linie powinny wyglądać następująco:
 ::
 
@@ -111,7 +110,7 @@ Warszawę i domyślny język na polski. Ostatecznie te dwie linie powinny wyglą
 
 
 Dla uproszczenia wyłączymy też zaawansowaną obsługę stref czasowych w bazie
-danych - nie bedzie ona potrzebna w naszym projekcie. Znajdź ``USE_TZ`` w pliku
+danych - nie bedzie ona potrzebna w naszym projekcie. Znajdź :django:setting:`USE_TZ` w pliku
 ``settings.py`` i ustaw je na False::
 
    USE_TZ = False
@@ -129,12 +128,16 @@ Baza danych
 -----------
 
 Teraz użyjemy opisanego wcześniej pliku ``manage.py`` do stworzenia
-bazy danych. Służy do tego opcja ``syncdb``. Uruchom ``python manage.py syncdb`` w katalogu projektu:
+bazy danych. Służy do tego komenda  :django:django-admin:`syncdb <django:syncdb>`.
+
+Uruchom ``python manage.py syncdb`` w katalogu projektu:
 
 .. code-block:: sh
 
    (warsztaty) ~$ cd carrots
    (warsztaty) ~/carrots$ python manage.py syncdb
+
+::
 
     Creating tables ...
     Creating table auth_permission
@@ -150,7 +153,7 @@ bazy danych. Służy do tego opcja ``syncdb``. Uruchom ``python manage.py syncdb
 
     You just installed Django's auth system, which means you don't have any superusers defined.
     Would you like to create one now? (yes/no): yes
-    Username (leave blank to use 'fasola'): fasola
+    Username (leave blank to use 'TeddyBear'):
     Email address: admin@example.com
     Password:
     Password (again):
@@ -160,11 +163,11 @@ bazy danych. Służy do tego opcja ``syncdb``. Uruchom ``python manage.py syncdb
     Installed 0 object(s) from 0 fixture(s)
 
 Jeśli wszystko poszło, dobrze Django poprosi Cię o podanie danych konta administratora.
-Nazwę użytkownika możesz zostawić taką, jaka jest proponowana, adres email może być dowolny.
-Z podanymi danymi (tzn. Username i Password) będziemy mogli później zalogować się do
-panelu administracyjnego. W powyższym przykładzie użytkownikiem będzie ``fasola``.
+Nazwę użytkownika możesz zostawić taką, jaka jest proponowana. Adres email może być dowolny.
+Podane dane będą Ci później potrzebne any zalogować się do panelu administracyjnego.
 
-Jeżeli chcesz dowiedzieć się więcej na temat ``manage.py``, uruchom ``python manage.py help``:
+Jeżeli chcesz dowiedzieć się więcej na temat dostępnych komend skryptu ``manage.py``,
+uruchom :django:django-admin:`python manage.py help <django:help>`:
 
 .. code-block:: sh
 
@@ -182,11 +185,14 @@ Interfejs administracyjny
 -------------------------
 
 W tym momencie możemy uruchomić naszą aplikację.
-Uruchom serwer wpisując ``python manage.py runserver``:
+Uruchom serwer wpisując :django:django-admin:`python manage.py runserver <django:runserver>`:
 
 .. code-block:: sh
 
    (warsztaty) ~/carrots$ python manage.py runserver
+
+::
+
    Validating models...
 
    0 errors found
@@ -210,12 +216,15 @@ aplikacji, dostarczających określone funkcje.
 
 My chcemy umieścić na naszej stronie ankiety, dlatego dodamy aplikację ``polls``.
 
-Z linii poleceń wpisz ``python manage.py startapp polls``:
+Z linii poleceń wpisz :django:django-admin:`python manage.py startapp polls <django:startapp>`:
 
-::
+.. code-block:: sh
 
    (warsztaty) ~/carrots$ python manage.py startapp polls
    (warsztaty) ~/carrots$ tree .
+
+::
+
    .
    ├── carrots
    │   ├── __init__.py
@@ -234,7 +243,7 @@ Z linii poleceń wpisz ``python manage.py startapp polls``:
    2 directories, 14 files
 
 Po stworzeniu aplikacji trzeba ją jeszcze aktywować w naszym projekcie.
-W pliku ``carrots/settings.py`` musimy dodać aplikację ``polls`` do ``INSTALLED_APPS``.
+W pliku ``carrots/settings.py`` musimy dodać aplikację ``polls`` do :django:setting:`INSTALLED_APPS`.
 Efekt powinien wyglądać tak::
 
     INSTALLED_APPS = (
@@ -247,14 +256,15 @@ Efekt powinien wyglądać tak::
         'polls'
     )
 
-Aplikacje w ``Django`` składają się z kilku plików:
+Aplikacje w Django składają się z kilku plików:
+
 * ``admin.py`` - definicje dla panelu administracyjnego,
 * ``models.py`` - definicje modeli dla bazy danych,
 * ``tests.py`` - testy aplikacji,
 * ``views.py`` - widoki aplikacji.
 
 Podsumowanie
-------------
+============
 
 Instalacja Django:
 
@@ -303,4 +313,4 @@ Utworzenie nowej aplikacji o nazwie ``polls``:
 
    (warsztaty) ~/carrots$ python manage.py startapp polls
 
-Pamiętaj, aby po utworzeniu aplikacji dopisać ją do ``INSTALLED_APPS``.
+Pamiętaj, aby po utworzeniu aplikacji dopisać ją do :django:setting:`INSTALLED_APPS`.

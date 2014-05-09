@@ -33,7 +33,7 @@ Kiedy użytkownik próbuje wejść na określony adres na naszej stronie, taki j
 Django wybiera część URL po trzecim ukośniku (w tym przypadku ``polls/1/``)  i próbuje ją kolejno dopasować do wyrażeń
 regularnych z ``urlpatterns``. Przyjrzyjmy się przykładowi takiego wyrażenia::
 
-  r'^polls/(?P<poll_id>\d+)/vote/$'
+   r'^polls/(?P<poll_id>\d+)/vote/$'
 
 Tak naprawdę jest to normalny ciąg znaków (może poza poczatkowym ``r``, które jest tu używane tylko dla wygody).
 Kiedy próbujemy do niego dopasować tekst (nadal myślimy o ``polls/1/``), musimy pamietać o następujacych zasadach:
@@ -42,23 +42,33 @@ Kiedy próbujemy do niego dopasować tekst (nadal myślimy o ``polls/1/``), musi
    :class: alert alert-info
 
    * Każda litera i cyfra wyrażenia regularnego pasuje tylko do takiej samej litery/cyfry ciągu dopasowywanego. Tak samo
-     ukośnik (``/``), spacja (`` ``), podkreślenie (``_``) i myślnik (``-``).
+     ukośnik (``/``), spacja, podkreślenie (``_``) i myślnik (``-``).
+
    * ``^`` pasuje tylko do początku ciągu znaków (nie do znaku, "początek" należy tutaj traktować jak abstrakcyjny twór
      przed pierwszym znakiem).
+
    * ``$`` pasuje tylko do końca ciągu znaków (na podobnej zasadzie co "początek").
+
    * Kropka (``.``) pasuje do dowolnego znaku.
+
    * Jeżeli kilka znaków obejmiemy nawiasami kwadratowymi, np. tak ``[aBde]``, taka grupa liczy się jako jedna całość i
      dopasuje się do dowolnego jednego znaku z wewnątrz grupy.
+
    * Istnieje skrótowa notacja dla takich grup. Zamiast wypisywać wszystkie małe litery alfabetu, możemy napisac ``[a-z]``,
      aby dopasować dowolną jedną małą literę. Tak samo dla dużych liter ``[A-Z]`` lub cyfr ``[0-9]``.
+
    * Dopasować jedną cyfrę można jeszcze krócej, używając znaczka ``\d``.
+
    * Jeżeli po dowolnym z powyższych wyrażeń postawimy znak ``?``, zostanie ono potraktowane jako *opcjonalne*. Oznacza
      to, że jeżeli w ciągu dopasowywanym nie będzie takiego wyrażenia, nadal będzie możliwe jego dopasowanie. Jeżeli
      będzie, zostanie dopasowane.
+
    * Jeżeli po wyrażeniu postawimy znak ``*``, dopasuje się ono z dowolną ilością powtorzeń wyrażenia (wliczając w to zero
      powtórzeń, czyli tak jakby było *opcjonalne*).
+
    * Jeżeli po wyrażeniu postawimy znak ``+``, dopasuje się ono z dowolną ilością powtórzeń wyrażenia, z wyjątkiem zera
      powtórzeń (tzn. wyrażenie musi wystąpić co najmniej raz).
+
    * Jeżeli kilka znaków obejmiemy nawiasami zwykłymi, np. tak ``(\d\d)``, zostaną one potraktowane jako grupa i wszystkie
      powyższe modyfikatory będą na nie działały w całości. Jeżeli dodatkowo napiszemy to z ``(?P<NAZWA>napis)``, grupa
      zostanie nazwana i będzie się do niej można potem odwołać pod nazwą ``NAZWA``. Jest to bardzo popularne przy pracy w
@@ -112,8 +122,7 @@ Widok, który naprawdę coś robi
 
 Nasze widoki na razie nie robią zbyt wiele. Dajmy im trochę popracować!
 
-Wszystko, czego Django potrzebuje od widoku, to obiekt
-`HttpResponse <https://docs.djangoproject.com/en/1.4/ref/request-response/#django.http.HttpResponse>`_
+Wszystko, czego Django potrzebuje od widoku, to obiekt :class:`django.http.HttpResponse`
 lub wyrzucenie wyjątku. Cała reszta jest pod naszą kontrolą. Możemy na przykład użyć funkcji, które poznaliśmy w trybie
 interaktywnym, aby wyświetlić wszystkie ankiety użytkownikowi.
 
@@ -122,7 +131,7 @@ Dopisz na początek pliku ``polls/views.py``::
     from django.http import HttpResponse
     from polls.models import Poll
 
-Rozbuduj funkcję ``index`` aby wyglądała następująco:
+Rozbuduj funkcję :func:`index` aby wyglądała następująco:
 
 .. code-block:: python
 
@@ -147,7 +156,7 @@ Dopisz na początek pliku ``polls/views.py``::
 
 To pozwoli nam używać systemu szablonów.
 
-Rozbuduj funkcję ``index`` w tym samym pliku aby wyglądała następująco::
+Rozbuduj funkcję :func:`index` w tym samym pliku aby wyglądała następująco::
 
   def index(request):
       latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
@@ -157,34 +166,35 @@ Rozbuduj funkcję ``index`` w tym samym pliku aby wyglądała następująco::
       })
       return HttpResponse(t.render(c))
 
-Za obsługę szablonu w tym wypadku są odpowiedzialne funkcje ``get_template`` (Znajduje szablon) oraz ``render`` (zmienia
-szablon na test, który dostanie ostatecznie użytkownik).
+Za obsługę szablonu w tym wypadku są odpowiedzialne funkcje :func:`~django.template.loader.get_template`
+(Znajduje szablon) oraz :meth:`~django.template.render` (zmienia szablon na test, który dostanie ostatecznie użytkownik).
 
 Kod jest trochę dłuższy, ale zaraz zobaczymy, o ile bardziej wszystko będzie czytelne. Najpierw załadujmy jednak stronę
 http://localhost:8000/polls/, aby zobaczyć wynik naszej pracy::
 
-  TemplateDoesNotExist at /polls/
-  polls/index.html
+   TemplateDoesNotExist at /polls/
+   polls/index.html
 
 Ups! No tak, nie dodaliśmy jeszcze szablonu. Aby to zrobić, stwórzmy plik ``polls/templates/polls/index.html`` i dodajmy
 do niego:
 
 .. code-block:: django
 
-  {% if latest_poll_list %}
-  <ul>
-      {% for poll in latest_poll_list %}
-          <li><a href="/polls/{{ poll.id }}/">{{ poll.question }}</a></li>
-      {% endfor %}
-  </ul>
-  {% else %}
-      <p>No polls are available.</p>
-  {% endif %}
+   {% if latest_poll_list %}
+   <ul>
+       {% for poll in latest_poll_list %}
+           <li><a href="/polls/{{ poll.id }}/">{{ poll.question }}</a></li>
+       {% endfor %}
+   </ul>
+   {% else %}
+       <p>No polls are available.</p>
+   {% endif %}
 
 .. note::
-    Szablony aplikacji znajdują się w katalogu ``templates`` aplikacji, a funkcja ``get_template`` sama szuka szablonów
-    w tych katalogach, dlatego nie musieliśmy podawać całej ścieżki ``polls/templates/polls/index.html``, wystarczyło
-    ``polls/index.html``.
+
+    Szablony aplikacji znajdują się w katalogu ``templates`` aplikacji, a funkcja :func:`~django.template.loader.get_template`
+    sama szuka szablonów w tych katalogach, dlatego nie musieliśmy podawać całej ścieżki
+    ``polls/templates/polls/index.html``, wystarczyło ``polls/index.html``.
 
 Po przeładowaniu strony w przeglądarce powinniśmy zobaczyć listę zawierającą wszystkie utworzone wcześniej ankiety.
 
@@ -202,7 +212,7 @@ Po przeładowaniu strony w przeglądarce powinniśmy zobaczyć listę zawierają
    Zachwycającą własnością sieci WWW jest to, że kody HTML i CSS każdej strony są zupełnie jawne. Polecam obejrzenie kodu
    ulubionych stron.
 
-Prawie w każdym widoku będziemy chcieli ostatecznie użyć szablonu. Dlatego w Django jest funkcja ``render``,
+Prawie w każdym widoku będziemy chcieli ostatecznie użyć szablonu. Dlatego w Django jest funkcja :func:`django.shortcuts.render`,
 która pozwala zrobić to w krótszy sposób.
 
 Popraw początek pliku ``polls/views.py``, aby wyglądał następująco::
@@ -210,7 +220,7 @@ Popraw początek pliku ``polls/views.py``, aby wyglądał następująco::
   from django.shortcuts import render
   from polls.models import Poll
 
-Popraw funkcję ``index``, aby wyglądała następująco::
+Popraw funkcję :func:`index`, aby wyglądała następująco::
 
   def index(request):
       latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
@@ -237,10 +247,10 @@ tego będzie wyświetlenie strony błędu 404 w przeglądarce.
 
    Można zmienić stronę wyswietlaną przez Django w wypadku błędu 404 (brak strony) i 500 (nieoczekiwany błąd serwera).
    W tym celu trzeba stworzyć szablony ``404.html`` i ``500.html``. Przed sprawdzeniem, czy to zadziałało, należy zmienić
-   ``DEBUG`` w pliku ``settings.py`` na ``False``, inaczej Django nadal będzie wyświetlać swoje pomocnicze
+   :django:setting:`DEBUG` w pliku ``settings.py`` na ``False``, inaczej Django nadal będzie wyświetlać swoje pomocnicze
    *żółte* strony.
 
-Popraw funkcję ``detail`` aby wyglądała następująco::
+Popraw funkcję :func:`detail` aby wyglądała następująco::
 
     def detail(request, poll_id):
         try:
@@ -285,9 +295,9 @@ Popraw plik ``polls/templates/polls/details.html``, aby wyglądał następująco
 
 .. note::
 
-   ``{% csrf_token %}`` to bardzo magiczny sposób zabezpieczenia przed stosunkowo nowym sposobem ataku na użytkowników
-   stron internetowych. Wiecej opisane jest w
-   `dokumentacji Cross Site Request Forgery <https://docs.djangoproject.com/en/1.4/ref/contrib/csrf/>`_.
+   Tag :django:templatetag:`{% csrf_token %} <django:csrf_token>` zabezpiecza nasz formularz przed `atakiem
+   typu Cross-Site Request Forgery <https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_%28CSRF%29>`_.
+   Więcej na temat zabezpieczeń przeciwko CSRF w Django można znaleźć :mod:`tutaj <django:django.middleware.csrf>`.
 
 Uważny czytelnik zauważy, że formularz wysyłany jest na adres ``/polls/{{ poll.id }}/vote/``, który nie obsługuje
 jeszcze danych formularza. Dodamy teraz obsługę formularzy.
@@ -299,7 +309,7 @@ Na początku pliku ``polls/views.py`` dopisz::
     from django.shortcuts import get_object_or_404
     from polls.models import Choice
 
-Popraw funkcję ``vote``, aby wyglądała następująco::
+Popraw funkcję :func:`vote`, aby wyglądała następująco::
 
     def vote(request, poll_id):
         p = get_object_or_404(Poll, id=poll_id)
@@ -320,7 +330,8 @@ Popraw funkcję ``vote``, aby wyglądała następująco::
 
 W tym widoku pojawia się sporo nowych koncepcji, o których nie mówiliśmy.
 
-Obiekt ``request`` zawiera dane wysłane przez użytkownika, a ``request.POST`` zawiera dane z formularza
+Obiekt :class:`request <django:django.http.HttpRequest>` zawiera dane wysłane
+przez użytkownika, a :attr:`request.POST <django:django.http.HttpRequest.POST>` zawiera dane z formularza
 wysłanego przez użytkownika. W ten sposób wiemy, która opcja została wybrana.
 
 Tutaj pojawia się ważna kwestia. Może okazać się, że widok dostał nieistniejącą odpowiedź.
@@ -328,18 +339,19 @@ Zawsze musimy sprawdzać dane otrzymane od użytkownika i reagować, jeśli te d
 To właśnie dzieje się po :keyword:`except`. Odsyłamy wtedy użytkownika do ankiety i wyświetlamy błąd.
 
 Jeżeli użytkownik wybrał poprawną opcję, możemy zwiększyć liczbę głosów i zapisać zmiany.
-Następnie wykonujemy przekierowanie za pomocą ``HttpResponseRedirect`` do wcześniej napisanego
+Następnie wykonujemy przekierowanie za pomocą :class:`~django.http.HttpResponseRedirect` do wcześniej napisanego
 widoku detali ankiety.
 
 Kolejna istotna sprawa: po zagłosowaniu mogliśmy po prostu wyświetlić jakąś stronę, podobnie jak na końcu widoku detali
-(za pomocą ``render``). Niestety, mogłoby to prowadzić do ponownego wysłania ankiety, gdyby użytkownik
-zaczął bawić się przyciskami ``wstecz`` i ``dalej`` w przeglądarce lub gdyby po prostu odświeżył stronę (np. klawiszem ``f5``)
+(za pomocą :func:`~django.shortcuts.render`). Niestety, mogłoby to prowadzić do ponownego wysłania ankiety, gdyby użytkownik
+zaczął bawić się przyciskami "wstecz" i "dalej" w przeglądarce lub gdyby po prostu odświeżył stronę (np. klawiszem ``f5``).
+
 W skrócie, zawsze po poprawnym wysłaniu formularza (w tym wypadku: zagłosowaniu na ankietę) powinniśmy wykonać
-przekierowanie za pomocą ``HttpResponseRedirect``.
+przekierowanie za pomocą :class:`~django.http.HttpResponseRedirect`.
 
 Na koniec pozostał nam do opracowania widok wyników ankiety, wyświetlany po zagłosowaniu.
 
-Popraw funkcję ``results``, aby wyglądała następująco::
+Popraw funkcję :func:`results`, aby wyglądała następująco::
 
   def results(request, poll_id):
       p = get_object_or_404(Poll, id=poll_id)
