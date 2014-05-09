@@ -10,9 +10,7 @@
 #
 # All configuration values have a default; values that are commented out
 # serve to show the default.
-
-from __future__ import unicode_literals
-
+#
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -48,8 +46,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Django Carrots'
-copyright = u'Geek Girls Carrots and others'
+project = 'Django Carrots'
+copyright = 'Geek Girls Carrots and others'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -236,8 +234,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'warsztatydjango', 'Django Carrots',
-     [u'Geek Girls Carrots and others'], 1)
+    ('index', 'djangocarrots', 'Django Carrots', ['Geek Girls Carrots and others'], 1)
 ]
 
 # If true, show URL addresses after external links.
