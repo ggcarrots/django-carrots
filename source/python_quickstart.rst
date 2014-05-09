@@ -842,7 +842,7 @@ the option of aligning to a specific number of characters:
     |             Pudzian | 123.00 |
     --------------------------------
 
-We can also align the string ``-``  to the left by putting before the number of characters::
+We can also align the string ``-``  to the left by putting before the number of characters:
 
 .. testcode::
 
