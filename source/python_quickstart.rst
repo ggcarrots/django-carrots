@@ -12,15 +12,15 @@ Let’s start with running   the interpreter which we installed in the previous 
 
     >>>
 
-Earlier we were working in the operating system's command line and we could give commands. 
-The prompt was ``~$``. After running the ``python`` command, prompt changed to 
+Earlier we were working in the operating system's command line and we could give commands.
+The prompt was ``~$``. After running the ``python`` command, prompt changed to
 ``>>>``.  For us that means that for now we may use commands only in Python language. Recent commands (
-such as: ``cd``, ``mkdir``) will not work. That is the moment when we start to learn a new language! 
+such as: ``cd``, ``mkdir``) will not work. That is the moment when we start to learn a new language!
 
-We will not type signs ``>>>`` (the same as with ``~$``) - the interpreter will do that for us. 
+We will not type signs ``>>>`` (the same as with ``~$``) - the interpreter will do that for us.
 
 
-Now we can count something, for example:``2 + 2``:
+Now we can count something, for example: ``2 + 2``:
 
     >>> 2 + 2
     4
@@ -40,8 +40,8 @@ Python is excellent as a calculator:
     >>> 5 / 2
     2.5
 
-Please pay special attention to writing decimals: use a period, not a comma. Commas will be used to 
-define :ref:`tuple <bmi-tuples>` but more on that later. 
+Please pay special attention to writing decimals: use a period, not a comma. Commas will be used to
+define :ref:`tuple <bmi-tuples>` but more on that later.
 
 
 Introduce yourself
@@ -52,7 +52,7 @@ Strings
 
 Numbers, however, are not enough to communicate effectively. So we need to learn how to use ``strings``
 .
-Here are some examples:  
+Here are some examples:
 
     >>> "Hello World"
     'Hello World'
@@ -73,8 +73,8 @@ or they can be multiplied by whole numbers:
     >>> 'Hastur' * 3
     'HasturHasturHastur'
 
-The string must always begin and end with the same character. This may be an apostrophe (``'``) or 
-double quotes (``"``). It has no effect on the value of the string, i.e, typing ``"Batman"`` we create 
+The string must always begin and end with the same character. This may be an apostrophe (``'``) or
+double quotes (``"``). It has no effect on the value of the string, i.e, typing ``"Batman"`` we create
 a string ``Batman`` - double quotes are not a part of it, they only indicate that it is a string (
 unfortunately, Python is not so clever to guess it by itself).
 
@@ -87,14 +87,14 @@ But how to present value in a readable form? We can do it by using the command  
     >>> print("Hello World")
     Hello World
 
-In a similar way we can write several strings in a single line, without adding them to each other. 
+In a similar way we can write several strings in a single line, without adding them to each other.
 They will be separated by spaces:
 
-    >>> print("Hi, my name is Lucas", "Łukasz")
-    Hi, my name is Lucas
+    >>> print("Hi, my name is", "Łukasz")
+    Hi, my name is Łukasz
 
-:func:`print` command has many more applications as it can write almost everything. 
-For now, the only other kind of values we know are numbers: 
+:func:`print` command has many more applications as it can write almost everything.
+For now, the only other kind of values we know are numbers:
 
 
     >>> print(1)
@@ -121,7 +121,7 @@ Our first program may look as follows::
 
     print("Hi, my name is Lucas")
 
-Save this program in the ``visitingcard.py``,file, and then run it from the command line using the 
+Save this program in the ``visitingcard.py`` file, and then run it from the command line using the
 ``python visitingcard.py``:
 
 .. code-block:: sh
@@ -140,7 +140,7 @@ A single program can contain more than one command. Each should be in a separate
     print()
     print("Bye.")
 
-We can insert blank lines wherever we want in out .py file to increase its readability. 
+We can insert blank lines wherever we want in ``visitingcard.py`` file to increase its readability.
 Here we split the message header from its content and its end.
 
 
@@ -152,13 +152,13 @@ The formula for its calculation is as follows::
 
     BMI = (mass (kg)) / (height (m)) squared
 
-We can divide, exponentate, and print out numbers. So let's create a new file called ``bmi.py`` 
+We can divide, exponentate, and print out numbers. So let's create a new file called ``bmi.py``
 and try to write a program that calculates our BMI:
 
 
 .. testcode::
 
-    print("Your BMI is:", 65.5 / (1.75)**2)
+    print("Your BMI is:", 65.5 / (1.75 ** 2))
 
 After a command::
 
@@ -170,17 +170,17 @@ We get the following result:
 
     Your BMI is: 21.387755102040817
 
-As you can see, our program still needs some improvements: 
+As you can see, our program still needs some improvements:
 
-1. If someone else would like to use this program, we must change the contents of .py file.
+1. If someone else would like to use this program, we must change the contents of ``bmi.py`` file.
 
-2. For a person who does not know the value of BMI table by heart, the value 21.387755102 won’t say 
+2. For a person who does not know the value of BMI table by heart, the value 21.387755102 won’t say
    anything.
 
-3. Printing so many decimal places is unnecessary. BMI is measured with an accuracy of two decimal 
+3. Printing so many decimal places is unnecessary. BMI is measured with an accuracy of two decimal
    places.
 
-Anyway, programming is an art of solving problems, so … lets get to work! It will give us an 
+Anyway, programming is an art of solving problems, so … lets get to work! It will give us an
 opportunity to learn about some new features of Python.
 
 .. _`Body Mass Index`: http://pl.wikipedia.org/wiki/Body_Mass_Index
@@ -189,11 +189,11 @@ opportunity to learn about some new features of Python.
 Names
 =====
 
-Let's try to solve the first problem. At the beginning we would like to make our program more 
-readable, i.e so that for the person reading the results, it would be obvious which value is the 
+Let's try to solve the first problem. At the beginning we would like to make our program more
+readable, i.e so that for the person reading the results, it would be obvious which value is the
 weight, and which is the height.
 
- That's why we give names to these values​​: 
+ That's why we give names to these values​​:
 
 .. testcode::
 
@@ -201,16 +201,16 @@ weight, and which is the height.
     height = 1.75
 
     bmi = weight / height**2
-    print("Twoje BMI to:", bmi)
+    print("Your BMI is:", bmi)
 
-The result has not changed: 
+The result has not changed:
 
 .. testoutput::
 
     Your BMI is: 21.387755102040817
 
 
-In order to understand better how names work, let’s go back for a while 
+In order to understand better how names work, let’s go back for a while
 to the interactive mode and give a few names to some values:
 
     >>> x = 42
@@ -219,7 +219,7 @@ to the interactive mode and give a few names to some values:
     >>> print("Things:", x, PI, name)
     Things: 42 3.1415 Amelia
 
-One value can have many names: 
+One value can have many names:
 
     >>> y = x
     >>> print(x, y)
@@ -242,22 +242,22 @@ a new value, but the value assigned to ``y`` remains unchanged:
 
 .. note:: For the ones who already know other programming languages.
 
-    You probably wonder why we do not use the term "zmienna". 
-    This is because the names in Python do not work the same way as variables. 
+    You probably wonder why we do not use the term "variable".
+    This is because the names in Python do not work the same way as variables.
     In most languages, the operation  ``y = x`` would create a copy of the ``x``
     and would introduce it in the variable ``y``.
 
-    In Python nothing is duplicated. ``y`` becomes only an alternative name for the same value. 
+    In Python nothing is duplicated. ``y`` becomes only an alternative name for the same value.
     If you change this value, both the ``x``, and ``y`` will show the same thing.
 
-    In our example we did not change the value of the number ``42``, 
-    but only the value assigned to  ``x`` (in particular, the values of the numbers 
-    are not modified, however in 1897 the lower house of the Indiana state accepted 
+    In our example we did not change the value of the number ``42``,
+    but only the value assigned to  ``x`` (in particular, the values of the numbers
+    are not modified, however in 1897 the lower house of the Indiana state accepted
     changing the value of the number π to ``3`` - the proposal was rejected only in the Senate).
     Therefore, the print  ``print(y)`` will give us ``42``.
 
-As we have seen in our program, we can also give names to the results of calculations and use names in 
-calculations: 
+As we have seen in our program, we can also give names to the results of calculations and use names in
+calculations:
 
     >>> w = 65.5
     >>> h = 175.0 / 100.0
@@ -265,19 +265,19 @@ calculations:
     >>> print(w, h, bmi)
     65.5 1.75 21.387755102040817
 
-Although once a value is calculated, it is not modified: 
+Although once a value is calculated, it is not modified:
 
     >>> w = 64
     >>> print(w, h, bmi)
     64 1.75 21.387755102040817
 
-Until we give the Python the command to repeat the calculation again: 
+Until we give the Python the command to repeat the calculation again:
 
     >>> bmi = w / h**2
     >>> print(w, h, bmi)
     64 1.75 20.897959183673468
 
-At the end of this chapter we will add some comments to our program so that the user (and we too!) 
+At the end of this chapter we will add some comments to our program so that the user (and we too!)
 would remember that the weight has to be given in kilograms.
 
 Comments allowe us to put any text in a file. Comments will be ignored by interpreter.
@@ -297,17 +297,17 @@ A comment in Python is everything after the character ``#`` till the end of the 
 Calling a function
 ==================
 
-Our program looks quite OK, but if a user wants to calculate his/her BMI, he still has to change the 
-content of the program. It would be more convenient to enter the required values in the console after 
+Our program looks quite OK, but if a user wants to calculate his/her BMI, he still has to change the
+content of the program. It would be more convenient to enter the required values in the console after
 opening the program and get the BMI result.
 
-In order to write such a program we need to learn how to use the functions. The first function we are 
-going to learn is:func:`help`:
+In order to write such a program we need to learn how to use the functions. The first function we are
+going to learn is :func:`help`:
 
     >>> help
     Type help() for interactive help, or help(object) for help about object.
 
-:func:`help` unction is very friendly as it tells us how we should use it. It can also tell you how to 
+:func:`help` function is very friendly as it tells us how we should use it. It can also tell you how to
 use the other functions:
 
     >>> help(input)
@@ -322,23 +322,26 @@ use the other functions:
         is printed without a trailing newline before reading.
     <BLANKLINE>
 
-:func:`input` will be used to load data from the user. As we read in the description, it reads the 
+:func:`input` will be used to load data from the user. As we read in the description, it reads the
 string:
 
-    >>> input()  # doctest: +SKIP
+.. code::
+
+    >>> input()
     Ala has a cat 
-    'Ala has a cat '
-
-Now you will learn what "calling a function" means. You can call a function using ``()``, ), which is 
-an information for the interpreter to call a function. Calling a function will run a function. If you 
-will forget  to type ``()``after the function name, the function will not be called. In that situation 
-you will not get any informations about an error, becouse the function will be still correct. 
+    'Ala has a cat'
 
 
-Generally, called functions _return_ some values. :func:`input`function returns a string, that’s why 
-we can use it the same way as we used strings before. 
+Now you will learn what "calling a function" means. You can call a function using ``()``, which is
+an information for the interpreter to call a function. Calling a function will run a function. If you
+will forget  to type ``()`` after the function name, the function will not be called. In that situation
+you will not get any informations about an error, because the function will be still correct.
 
-For example we can use input() to save given string as a name: 
+
+Generally, called functions **return** some values. :func:`input` function returns a string, that’s why
+we can use it the same way as we used strings before.
+
+For example we can use ``input()`` to save given string as a name:
 
 .. testsetup::
 
@@ -370,8 +373,8 @@ Is that enough to improve our program?
       File "<stdin>", line 1, in <module>
     TypeError: Can't convert 'int' object to str implicitly
 
-As you can see, Python doesn’t know what result we expect. Both the strings (``str``),  and the 
-numbers (``int``)an be added together. Python does not know if we are referring to the number ``63.5``
+As you can see, Python doesn’t know what result we expect. Both the strings (``str``), and the
+numbers (``int``) can't be added together. Python does not know if we are referring to the number ``63.5``
 or to the string ``"60.53"``. Only we know that and we have to include this information in the program.
 
 
@@ -403,9 +406,9 @@ and
      |  ...
 
 The function :func:`help` does not hesitate to inform us that, in fact,
-:func:`int` and :func:`float` are not functions, but classes (more about this in the further part of 
-the manual) hence the information about all the other things that you can use them for. For now, we 
-are only interested in only the basic functionality of the conversion of strings into the numbers of 
+:func:`int` and :func:`float` are not functions, but classes (more about this in the further part of
+the manual) hence the information about all the other things that you can use them for. For now, we
+are only interested in only the basic functionality of the conversion of strings into the numbers of
 determined type.
 
 
@@ -439,7 +442,7 @@ Before we use the recently learnt functions in our program, let’s make a plan 
 8. Print the calculated BMI.
 
 
-It should not surprise us that these eight points can be directly translated into eight lines of our 
+It should not surprise us that these eight points can be directly translated into eight lines of our
 program (not counting spaces):
 
 .. testsetup::
@@ -457,10 +460,10 @@ program (not counting spaces):
     weight = input()
     weight = float(weight)
 
-    bmi = weight / height**2 # Obliczamy BMI
-    print("Twoje BMI to:", bmi)
+    bmi = weight / height**2 # calculate BMI
+    print("Your BMI is:", bmi)
 
-You can save above program to bmi.py and run ``python bmi.py``. The result should look like this:
+You can save above program to ``bmi.py`` and run ``python bmi.py``. The result should look like this:
 
 .. testoutput::
 
@@ -496,7 +499,7 @@ Checking conditions
 ====================
 
 Let’s go to our next problem. We want our program to print the appropriate
-classification for the calculated BMI by using the table below: 
+classification for the calculated BMI by using the table below:
 
 
 =====================   ==================
@@ -507,7 +510,7 @@ classification for the calculated BMI by using the table below:
  ≥ 25,0                     overweight
 =====================   ==================
 
-We need to use the “conditional statement” :keyword:`if`. It will execute the rest of the program 
+We need to use the “conditional statement” :keyword:`if`. It will execute the rest of the program
 based on a given condition:
 
 
@@ -526,7 +529,7 @@ based on a given condition:
     weight = input()
     weight = float(weight)
 
-    bmi = weight / height**2 #  Count BMI
+    bmi = weight / height**2  # Calculate BMI
 
     if bmi < 18.5:
         print("underweight)
@@ -546,8 +549,8 @@ based on a given condition:
 Comparisons:  true or false?
 ----------------------------
 
-The first element which we have not mentioned yet, are comparisons. For numbers they act exactly like 
-during the math lessons: 
+The first element which we have not mentioned yet, are comparisons. For numbers they act exactly like
+during the math lessons:
 
     >>> 2 > 1
     True
@@ -582,14 +585,14 @@ They can be combined into more complex conditions by using words :keyword:`and` 
 Indentations
 ------------
 
-Another thing you should pay attention to is the indentation in the code. Open the interactive mode 
+Another thing you should pay attention to is the indentation in the code. Open the interactive mode
 and enter a simple condition, such as::
 
     >>> if 2 > 1:
     ...
 
-So far nothing has happened, as evidenced by dots ``...`` nstead of incentives ``>>>``, którą dotąd 
-widzieliśmy. Python expects us to give further instructions which are supposed to be executed if the 
+So far nothing has happened, as evidenced by dots ``...`` instead of incentives ``>>>``, which we
+saw so far. Python expects us to give further instructions which are supposed to be executed if the
 condition ``2 > 1``  turns to be true. Let’s try to make Python print "OK"::
 
     >>> if 2 > 1:
@@ -599,8 +602,8 @@ condition ``2 > 1``  turns to be true. Let’s try to make Python print "OK"::
             ^
     IndentationError: expected an indented block
 
-Unfortunately, we haven’t succeeded. Python needs to know whether the instruction we have written is a 
-continuation of  :keyword:`if` or it is the next instruction not covered by the condition. To this 
+Unfortunately, we haven’t succeeded. Python needs to know whether the instruction we have written is a
+continuation of  :keyword:`if` or it is the next instruction not covered by the condition. To this
 purpose we need to indent our code:
 
     >>> if 2 > 1:
@@ -608,7 +611,7 @@ purpose we need to indent our code:
     ...
     OK
 
-All you need is one space or ``TAB``. However, all the lines that are supposed to be executed one 
+All you need is one space or ``TAB``. However, all the lines that are supposed to be executed one
 after another, should be indented the same way::
 
     >>> if -1 < 0:
@@ -635,8 +638,8 @@ after another, should be indented the same way::
     B
 
 
-To avoid chaos, most of the Python’ programmers use four spaces for each level of indentation. We will 
-do the same: 
+To avoid chaos, most of the Python’ programmers use four spaces for each level of indentation. We will
+do the same:
 
     >>> if 2 > 1:
     ...     if 3 > 2:
@@ -661,8 +664,8 @@ Actually, we could write our program just by using :keyword:`if` ::
     if bmi >= 25.0:
         print("overweight")
 
-However, we have used also :keyword:`else` and :keyword:`elif`, so that we would not have to repeat 
-similar conditions nor to increase readability. In more complex programs it may not be obvious from 
+However, we have used also :keyword:`else` and :keyword:`elif`, so that we would not have to repeat
+similar conditions nor to increase readability. In more complex programs it may not be obvious from
 the beginning that the following condition is the opposite of the previous one.
 
 
@@ -681,9 +684,9 @@ Using :keyword:`else` , we have the guarantee that the given instructions will b
             print("overweight")
 
 Pay particular attention to the indentations. Every use of  :keyword:`else`,
-will cause an increased indentation of our code. It is very annoying when you have to check a few or a 
-dozen or so conditions which exclude one another . Therefore the authors of Python added a little 
-'improvement' in the form of :keyword:`elif`, instruction, which allows you to check another condition 
+will cause an increased indentation of our code. It is very annoying when you have to check a few or a
+dozen or so conditions which exclude one another . Therefore the authors of Python added a little
+'improvement' in the form of :keyword:`elif`, instruction, which allows you to check another condition
 immediately::
 
 
@@ -697,19 +700,19 @@ immediately::
         # n >= 1 i n>= 2, ale n < 3
         print("three")
     else:
-        # trolls can count only to three  
+        # trolls can count only to three
         print("more")
 
 
 Strings formatting
 ==================
 
-The last issue which we have mentioned above was the problem with too many digits in a printed BMI. 
-Out of the three problems we have, this one is the easiest to solve. 
+The last issue which we have mentioned above was the problem with too many digits in a printed BMI.
+Out of the three problems we have, this one is the easiest to solve.
 
-That’s why we have left it for the end of our "adventure" with the BMI calculator. We already know 
-that we can add strings to each other and multiply them by integers. You will see that we can also 
-format them. But first we will need one more type of data (except the strings and the numbers we 
+That’s why we have left it for the end of our "adventure" with the BMI calculator. We already know
+that we can add strings to each other and multiply them by integers. You will see that we can also
+format them. But first we will need one more type of data (except the strings and the numbers we
 already know).
 
 
@@ -718,8 +721,8 @@ already know).
 Tuples
 ------
 
-At the beginning we mentioned that we can not use commas in numbers, because we will need them later 
-while using tuples. And here they are: 
+At the beginning we mentioned that we can not use commas in numbers, because we will need them later
+while using tuples. And here they are:
 
     >>> 1, 2, 3
     (1, 2, 3)
@@ -729,14 +732,14 @@ while using tuples. And here they are:
     >>> print(x)
     (1, 5)
 
-A tuple is nothing more than a few values grouped into one. The values we want to group should be 
-separated by commas. The whole thing can be enclosed in parentheses to make it more clear, but it is 
+A tuple is nothing more than a few values grouped into one. The values we want to group should be
+separated by commas. The whole thing can be enclosed in parentheses to make it more clear, but it is
 not required. Except when we want to group none of the elements (however strange it may sound):
 
     >>> ()
     ()
 
-Tuples can be combined: 
+Tuples can be combined:
 
     >>> names = ("Paulina", "Kowalska")
     >>> details = (27, 1.70)
@@ -746,11 +749,11 @@ Tuples can be combined:
 They may also contain other tuples e.g. information on a point on the map can be
 grouped as follows:
 
-    >>> point = ("Name of point"", (x, y))
+    >>> point = ("Name of point", (x, y))
 
 where ``x`` and ``y`` are numbers.
 
-We can refer to the grouped values by using their positions in the tuple (counting form zero) e.g.: 
+We can refer to the grouped values by using their positions in the tuple (counting form zero) e.g.:
 
     >>> p = (10, 15)
     >>> p[0]  #  first value
@@ -762,14 +765,14 @@ We can refer to the grouped values by using their positions in the tuple (counti
 Formatting
 ----------
 
-Going back to our program: currently the result is reduced to a single line. Now we want to write the 
+Going back to our program: currently the result is reduced to a single line. Now we want to write the
 BMI as a number and the interval in which it is located, that is to say::
 
-    Your BMI is equal: 21.39 (normal weight) 
+    Your BMI is equal: 21.39 (normal weight)
 
-Modify the current program so that the calculated BMI would be available under the name of ``bmi``,and 
-the name of the interval under the name of ``category``. Then we can use :func:`print`and obtain the 
-required result: 
+Modify the current program so that the calculated BMI would be available under the name of ``bmi``,and
+the name of the interval under the name of ``category``. Then we can use :func:`print`and obtain the
+required result:
 
 .. testsetup::
 
@@ -785,9 +788,9 @@ required result:
 
     Your BMI is equal: 21.387755102040817 (normal weight)
 
-Well, almost….We still have too many digits. We would also have a problem if we wanted to generate 
-such a string and save with a name, because we use :func:`print` to separate the elements. 
-Fortunately, there is a better way: 
+Well, almost….We still have too many digits. We would also have a problem if we wanted to generate
+such a string and save with a name, because we use :func:`print` to separate the elements.
+Fortunately, there is a better way:
 
     >>> bmi = 21.387755102040817
     >>> category = "normal weight"
@@ -797,17 +800,17 @@ Fortunately, there is a better way:
     >>> print(result)
     Twoje BMI: 21.387755 (normal weight)
 
-We have here a string and a tuple joined by ``%``. The string is a template which will be completed 
-with values from the tuple. The spaces to be filled are also labeled with the percentage (``%``). . 
-The letter that follows defines the type of a value we want to insert. The integers are represented 
-by  ``i`` as **integer** (we can also use ``d`` as **decimal**),  strings are represented by ``s`` as 
+We have here a string and a tuple joined by ``%``. The string is a template which will be completed
+with values from the tuple. The spaces to be filled are also labeled with the percentage (``%``). .
+The letter that follows defines the type of a value we want to insert. The integers are represented
+by  ``i`` as **integer** (we can also use ``d`` as **decimal**),  strings are represented by ``s`` as
 **string**, and floating-point numbers are respresented by ``f`` for **float**:
 
     >>> "String: %s, Numbers: %d %f" % ("Ala", 10, 3.1415)
     'String: Ala, Numbers: 10 3.141500'
 
-Now instead of nine decimal places we always get six, but the formatting has the advantage that it 
-allows us to have more control by putting between ``%`` and ``f`` additional information, e.g. if you 
+Now instead of nine decimal places we always get six, but the formatting has the advantage that it
+allows us to have more control by putting between ``%`` and ``f`` additional information, e.g. if you
 want to display only two places after the decimal point:
 
 
@@ -816,7 +819,7 @@ want to display only two places after the decimal point:
     >>> "%.2f" % 21.387755102040817
     '21.39'
 
-There are plenty options of formatting, so we will not show them all here. One of the most useful is 
+There are plenty options of formatting, so we will not show them all here. One of the most useful is
 the option of aligning to a specific number of characters:
 
 .. testcode::
@@ -861,7 +864,7 @@ We can also align the string ``-``  to the left by putting before the number of 
     | Pudzian           | 123.00  |
     -------------------------------
 
-Aligning towards the centre is an additional excercise for you :). 
+Aligning towards the centre is an additional excercise for you :).
 
 
 Summary
@@ -877,9 +880,9 @@ We also know that indentations can be important, especially when we want to use
 the instruction :keyword:`if` (also in connection with :keyword:`else` and :keyword:`elif`).
 
 We can create a file with a program and run it. Our program asks the user to answer
-a few simple questions, performs calculations and presents results in the form which is useful for the 
+a few simple questions, performs calculations and presents results in the form which is useful for the
 user.
 
-Quite a lot like as for the first program. We still have a lot of work, anyhow you can be proud of 
+Quite a lot like as for the first program. We still have a lot of work, anyhow you can be proud of
 what we have done so far!
 
