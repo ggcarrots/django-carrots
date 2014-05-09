@@ -9,7 +9,7 @@ Windows
 
 You can download versions for Windows directly from `python.org`_.
 After downloading the file  ``*.msi`` open it and follow the instructions.
-WIt is important to remember the path of installation – the directory – we will need the information during the :ref: `installation of tools <tools>`.
+It is important to remember the path of installation – the directory – we will need the information during the `installation of tools <tools>`_.
 
 
 Linux (Ubuntu, Fedora, etc.) or Mac
@@ -41,15 +41,15 @@ In the command line enter::
 OS X
 ----
 
-Download and install the package for your system version from`python.org`_ .
+Download and install the package for your system version from `python.org`_ .
 
 
 Other
 -----
 
 Use the system of packages adequate for your distribution. If there is no adequate system
-or you can not find python, you can install it using the sources on`python.org`_. Wwebsite. 
-A compiler and redline library will be required.
+or you can not find python, you can install it using the sources on `python.org`_. website. 
+A compiler and readline library will be required.
 
 Unofficially we assume that the users of less popular (but not worse!) distributions 
 for sure will manage the task without any problem :).
@@ -65,7 +65,7 @@ Windows command line
 --------------------
 
 Most of the work we will perform using the command line. To activate the command line in Windows 
-click on ``Start``, and then ``Run...``. In the open window type ``cmd`` nd click ``OK``. 
+click on ``Start``, and then ``Run...``. In the open window type ``cmd`` and click ``OK``. 
 A new window will appear with a white text on a black background:
 
 On Windows 7 there is no "Run..." option and on Windows 8 there is no "Start" ;)
@@ -88,8 +88,8 @@ at the moment and waits for a command.
 Later during the workshop ``C:\Users\Name>`` we will cut to the  ``~$``, independently of your 
 operating system (Windows, Linux, MacOS).
 
-Using the command line you can move around the content of the disc (in a similar way as by entering  ``
-Mój komputer``).  The following commands are to be used:
+Using the command line you can move around the content of the disc (in a similar way as by entering 
+``My Computer``).  The following commands are to be used:
 
 ``dir``
     Displays the contents of the current directory. For example, if the ``prompt``
@@ -98,7 +98,7 @@ Mój komputer``).  The following commands are to be used:
 ``cd directory``
     Changes the current directory. For example, if you’re in the ``C:\Users\Name``,
     by entering ``cd Documents`` you access the directory with your documents. If you execute the 
-    ``dir``command you will see something familiar.
+    ``dir`` command you will see something familiar.
     The command  ``cd..`` will move you to the directory on an upper level. 
 
 ``mkdir directory``
@@ -128,7 +128,7 @@ For example, if our home directory is ``C:\Users\lrekucki``, the command line wo
     ~$ python3.4 -m venv workshops
 
 
-In your home directory there will be created a directory ``workshops`` ontaining so called “virtual 
+In your home directory there will be created a directory ``workshops`` containing so called “virtual 
 environment”. 
 For now, it is important for us that after it is activated:
 
@@ -191,7 +191,7 @@ New virtual environment installation:
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> C:\Python34\python -m venv  workshops
+    C:\Users\lrekucki> C:\Python34\python -m venv workshops
 
 .. code-block:: sh
 
@@ -221,7 +221,7 @@ Just make sure that you use the proper Python version:
 IPython
 -------
 
-Eventually you can instal ``IPython``, hich can improve the look and comfort when using a Python 
+Eventually you can instal ``IPython``, which can improve the look and comfort when using a Python 
 from the console.
 
 ``IPython`` installation::
@@ -232,4 +232,4 @@ from the console.
 
 .. note::
 
-   If``pip`` ommand doesn't work, then please use ``pip3``.
+   If ``pip`` command doesn't work, then please use ``pip3``.
