@@ -29,9 +29,8 @@ Zainstaluj Django, uruchamiając z linii poleceń:
 
 .. code-block:: sh
 
-   (warsztaty) ~$ pip install django==1.6.2
-   Downloading/unpacking django==1.6.2
-     Downloading Django-1.6.2-py2.py3-none-any.whl (6.7MB): 6.7MB downloaded
+   (warsztaty) ~$ pip install django==1.6.4
+   Downloading/unpacking django==1.6.4
    Installing collected packages: django
    Successfully installed django
    Cleaning up...
@@ -197,7 +196,7 @@ Uruchom serwer wpisując :django:django-admin:`python manage.py runserver <djang
 
    0 errors found
    April 19, 2013 - 20:14:37
-   Django version 1.6.2, using settings 'carrots.settings'
+   Django version 1.6.4, using settings 'carrots.settings'
    Development server is running at http://127.0.0.1:8000/
    Quit the server with CTRL-BREAK.
 
@@ -270,7 +269,7 @@ Instalacja Django:
 
 .. code-block:: sh
 
-   (warsztaty) ~$ pip install django==1.6.2
+   (warsztaty) ~$ pip install django==1.6.4
 
 Tworzenie katalogu projektu:
 
