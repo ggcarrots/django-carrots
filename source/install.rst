@@ -68,6 +68,10 @@ Most of the work we will perform using the command line. To activate the command
 click on ``Start``, and then ``Run...``. In the open window type ``cmd`` nd click ``OK``. 
 A new window will appear with a white text on a black background:
 
+On Windows 7 there is no "Run..." option and on Windows 8 there is no "Start" ;)
+
+Instead one can search for "Command Prompt" or "cmd" (through Start Menu on W7 or W8 omni-search), or use "Win Key"+R shortcut.
+
 
 .. code-block:: bat
 
