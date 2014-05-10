@@ -3,11 +3,9 @@ Models
 ======
 
 The next step is to define the model of our application. The model describes what and how can be 
-stored in the database. From Python point of view that is a basic class, which inherits from ``models.
-Model.`` 
+stored in the database. From Python point of view that is a basic class, which inherits from ``models.Model``. 
 
-Our application will include questions and answers to them, so we'll create two models: ``Poll`` and ``
-Choice``. The model ``Poll`` contains the contents of questions and the date of publication. The model 
+Our application will include questions and answers to them, so we'll create two models: ``Poll`` and ``Choice``. The model ``Poll`` contains the contents of questions and the date of publication. The model 
 ``Choice`` contains a reference to the relevant questions, the content of responses and the number of 
 votes.
 
@@ -114,9 +112,9 @@ Django models are classes and classes can define methods. A method is a function
 parameter ``self``, which is the current object (e.g, the current questionnaire). Methods in classes (
 models) allow you to add additional behaviors or change the existing ones.
 
-One of the methods is the ``__ str__()``, which allows you to change the display of the model (a 
-questionnaire or a question). <Poll: Poll object> doesn’t tell us much. Let's fix that by adding the 
-method ``__ str__`` to ``Poll`` and ``Choice``::
+One of the methods is the ``__str__()``, which allows you to change the display of the model (a 
+questionnaire or a question). ``<Poll: Poll object>`` doesn’t tell us much. Let's fix that by adding the 
+method ``__str__`` to ``Poll`` and ``Choice``::
 
     class Poll(models.Model):
         # ...
