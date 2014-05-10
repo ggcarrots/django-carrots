@@ -220,7 +220,7 @@ From the command line type ``python manage.py startapp polls``:
    │   ├── settings.py
    │   ├── urls.py
    │   ├── wsgi.py
-   ├── carrots.db
+   ├── db.sqlite3
    ├── manage.py
    └── polls
        ├── __init__.py
@@ -246,6 +246,7 @@ follows::
     )
 
 Applications in ``Django`` consists of several files:
+
 * ``admin.py`` - definitions for the administration panel,
 * ``models.py`` - definitions of the models for the database,
 * ``tests.py`` - testing applications,
