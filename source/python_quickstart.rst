@@ -14,8 +14,8 @@ Let’s start with running   the interpreter which we installed in the previous 
 
 Earlier we were working in the operating system's command line and we could give commands.
 The prompt was ``~$``. After running the ``python`` command, prompt changed to
-``>>>``.  For us that means that for now we may use commands only in Python language. Recent commands (
-such as: ``cd``, ``mkdir``) will not work. That is the moment when we start to learn a new language!
+``>>>``.  For us that means that for now we may only use commands from the Python language. Recent commands (
+such as: ``cd``, ``mkdir``) will not work. This is the moment when we start to learn a new language!
 
 We will not type signs ``>>>`` (the same as with ``~$``) - the interpreter will do that for us.
 
@@ -73,9 +73,9 @@ or they can be multiplied by whole numbers:
     >>> 'Hastur' * 3
     'HasturHasturHastur'
 
-The string must always begin and end with the same character. This may be an apostrophe (``'``) or
+The string must always begin and end with the same character. This may be a single quote (``'``) or
 double quotes (``"``). It has no effect on the value of the string, i.e, typing ``"Batman"`` we create
-a string ``Batman`` - double quotes are not a part of it, they only indicate that it is a string (
+a string ``Batman`` - quotes are not a part of it, they only indicate that it is a string (
 unfortunately, Python is not so clever to guess it by itself).
 
 
@@ -121,8 +121,8 @@ Our first program may look as follows::
 
     print("Hi, my name is Lucas")
 
-Save this program in the ``visitingcard.py`` file, and then run it from the command line using the
-``python visitingcard.py``:
+Save this program in a new file called ``visitingcard.py``, and then run it from the command line using the
+command ``python visitingcard.py``:
 
 .. code-block:: sh
 
@@ -160,7 +160,7 @@ and try to write a program that calculates our BMI:
 
     print("Your BMI is:", 65.5 / (1.75 ** 2))
 
-After a command::
+Run our new program with::
 
     $ python bmi.py
 
@@ -180,7 +180,7 @@ As you can see, our program still needs some improvements:
 3. Printing so many decimal places is unnecessary. BMI is measured with an accuracy of two decimal
    places.
 
-Anyway, programming is an art of solving problems, so … lets get to work! It will give us an
+Anyway, programming is an art of solving problems, so … let's get to work! It will give us an
 opportunity to learn about some new features of Python.
 
 .. _`Body Mass Index`: http://pl.wikipedia.org/wiki/Body_Mass_Index
@@ -190,10 +190,10 @@ Names
 =====
 
 Let's try to solve the first problem. At the beginning we would like to make our program more
-readable, i.e so that for the person reading the results, it would be obvious which value is the
+readable, i.e. so that for the person reading the results, it would be obvious which value is the
 weight, and which is the height.
 
- That's why we give names to these values​​:
+That's why we give names to these values​​:
 
 .. testcode::
 
@@ -225,7 +225,7 @@ One value can have many names:
     >>> print(x, y)
     42 42
 
-We also can change the value assigned to the name. It does not need to be the same type as before:
+We also can change the value assigned to the name. The new value does not need to be of the same type as the old one:
 
     >>> x = 13
     >>> print(x)
@@ -252,8 +252,8 @@ a new value, but the value assigned to ``y`` remains unchanged:
 
     In our example we did not change the value of the number ``42``,
     but only the value assigned to  ``x`` (in particular, the values of the numbers
-    are not modified, however in 1897 the lower house of the Indiana state accepted
-    changing the value of the number π to ``3`` - the proposal was rejected only in the Senate).
+    are not modified, despite the fact that in 1897 the lower house of the Indiana state accepted
+    to change the value of the number π to ``3`` - which was rejected in the Senate).
     Therefore, the print  ``print(y)`` will give us ``42``.
 
 As we have seen in our program, we can also give names to the results of calculations and use names in
@@ -277,10 +277,10 @@ Until we give the Python the command to repeat the calculation again:
     >>> print(w, h, bmi)
     64 1.75 20.897959183673468
 
-At the end of this chapter we will add some comments to our program so that the user (and we too!)
-would remember that the weight has to be given in kilograms.
+Now is time to add some comments to our program so that the user (and us too!)
+remembers that the weight has to be given in kilograms.
 
-Comments allowe us to put any text in a file. Comments will be ignored by interpreter.
+Comments allow us to put arbitrary text in our python program. Comments will be ignored by interpreter.
 
 A comment in Python is everything after the character ``#`` till the end of the line::
 
@@ -328,14 +328,14 @@ string:
 .. code::
 
     >>> input()
-    Ala has a cat 
+    Ala has a cat
     'Ala has a cat'
 
 
 Now you will learn what "calling a function" means. You can call a function using ``()``, which is
 an information for the interpreter to call a function. Calling a function will run a function. If you
-will forget  to type ``()`` after the function name, the function will not be called. In that situation
-you will not get any informations about an error, because the function will be still correct.
+forget  to type ``()`` after the function name, the function is not called. In this situation
+you will not get any informations about an error, because the command you typed is still correct.
 
 
 Generally, called functions **return** some values. :func:`input` function returns a string, that’s why
@@ -373,9 +373,9 @@ Is that enough to improve our program?
       File "<stdin>", line 1, in <module>
     TypeError: Can't convert 'int' object to str implicitly
 
-As you can see, Python doesn’t know what result we expect. Both the strings (``str``), and the
+As you can see, Python doesn’t know what result we expect. Both strings (``str``), and 
 numbers (``int``) can't be added together. Python does not know if we are referring to the number ``63.5``
-or to the string ``"60.53"``. Only we know that and we have to include this information in the program.
+or to the string ``"60.5"``. Only we know that, so we have to include this information in the program.
 
 
 Let’s introduce two more functions:
@@ -430,7 +430,7 @@ Let’s test :func:`int` and :func:`float`:
     60.5
 
 
-Before we use the recently learnt functions in our program, let’s make a plan of how it should work:
+Before we use the newly learnt functions in our program, let’s make a plan of how it should work:
 
 1. Ask the user to enter the height.
 2. Load the string from the user and save it under the name “height”.
@@ -473,7 +473,7 @@ You can save above program to ``bmi.py`` and run ``python bmi.py``. The result s
     65.5
     Your BMI is: 21.387755102040817
 
-In conclusion, to call a function we need to know its name (up to the moment we have learnt a bunch of functions: :func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float` and :func:`quit`),
+In conclusion, to call a function we need to know its name (until now we learnt a bunch of functions: :func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float` and :func:`quit`),
 and what data it expects from us (so called, the list of arguments).
 
 Entering just the name does not activate the function. It will tell us only that it is a function:
@@ -708,9 +708,9 @@ Strings formatting
 ==================
 
 The last issue which we have mentioned above was the problem with too many digits in a printed BMI.
-Out of the three problems we have, this one is the easiest to solve.
+Out of the three problems we had, this one is the easiest to solve.
 
-That’s why we have left it for the end of our "adventure" with the BMI calculator. We already know
+That’s why we left it for the end of our "adventure" with the BMI calculator. We already know
 that we can add strings to each other and multiply them by integers. You will see that we can also
 format them. But first we will need one more type of data (except the strings and the numbers we
 already know).
@@ -873,8 +873,8 @@ Summary
 In this chapter we learned basics of Python syntax. We know how to print integers,
 floating-point numbers, strings and tuples.
 
-We have learnt the function :func:`print`, that prints information for the user and the function :func:
-`input`, which reads it.
+We have learnt the function :func:`print`, that prints information for the user and the function 
+:func:`input`, which reads it.
 
 We also know that indentations can be important, especially when we want to use
 the instruction :keyword:`if` (also in connection with :keyword:`else` and :keyword:`elif`).
@@ -883,6 +883,6 @@ We can create a file with a program and run it. Our program asks the user to ans
 a few simple questions, performs calculations and presents results in the form which is useful for the
 user.
 
-Quite a lot like as for the first program. We still have a lot of work, anyhow you can be proud of
+This is quite a lot like for a first program. We still have a lot of work, anyhow you can be proud of
 what we have done so far!
 
