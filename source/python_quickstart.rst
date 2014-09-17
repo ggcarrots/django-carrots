@@ -467,9 +467,9 @@ You can save above program to ``bmi.py`` and run ``python bmi.py``. The result s
 
 .. testoutput::
 
-    Height in meters:
+    Enter the height in meters:
     1.75
-    Weight in kilograms:
+    Enter the weight in kilograms:
     65.5
     Your BMI is: 21.387755102040817
 
@@ -532,7 +532,7 @@ based on a given condition:
     bmi = weight / height**2  # Calculate BMI
 
     if bmi < 18.5:
-        print("underweight)
+        print("underweight")
     elif bmi < 25.0:
         print("normal weight")
     else:
@@ -544,7 +544,7 @@ based on a given condition:
     1.75
     Enter your weight in kilograms:
     65.5
-    waga prawidłowa
+    normal weight
 
 Comparisons:  true or false?
 ----------------------------
@@ -781,7 +781,7 @@ required result:
 
 .. testcode::
 
-    print("Your MBI is equal:", bmi, "(" + category + ")")
+    print("Your BMI is equal:", bmi, "(" + category + ")")
 
 .. testoutput::
     :hide:
@@ -796,9 +796,9 @@ Fortunately, there is a better way:
     >>> category = "normal weight"
     >>> result = "Your BMI: %f (%s)" % (bmi, category)
     >>> result
-    'Twoje BMI: 21.387755 (normal weight\u0142owa)'
+    'Your BMI: 21.387755 (normal weight)'
     >>> print(result)
-    Twoje BMI: 21.387755 (normal weight)
+    Your BMI: 21.387755 (normal weight)
 
 We have here a string and a tuple joined by ``%``. The string is a template which will be completed
 with values from the tuple. The spaces to be filled are also labeled with the percentage (``%``). .
