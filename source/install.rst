@@ -75,7 +75,7 @@ Instead one can search for "Command Prompt" or "cmd" (through Start Menu on W7 o
 
 .. code-block:: bat
 
-    Microsoft Windows [Wersja 6.1.7601]
+    Microsoft Windows [Version 6.1.7601]
     Copyright (c) 2009 Microsoft Corporation. All rights reserved.
 
 
@@ -108,7 +108,7 @@ Using the command line you can move around the content of the disc (in a similar
 Virtual environment
 -------------------
 
-Now we have to chose the directory for our virtual enviroment. The virtual enviroment will allow to
+Now we have to chose the directory for our virtual environment. The virtual environment will allow to
 isolate our work from other system’s parts. For example you can choose the user home directory.
 
  For Windows 7 the path to the home directory for the user  ``Ala`` will look like this:
@@ -124,7 +124,7 @@ For example, if our home directory is ``C:\Users\lrekucki``, the command line wo
 
 .. code-block:: sh
 
-    # Linux i Mac
+    # Linux or Mac
     ~$ python3.4 -m venv workshops
 
 
@@ -139,20 +139,21 @@ For now, it is important for us that after it is activated:
 
 .. code-block:: sh
 
-    # Linux i Mac
+    # Linux or Mac
     ~$ source workshops/bin/activate
 
 The ``python`` command will run the correct version of Python, so we will not have to enter the full
-path at the beginning nor the version at the end..
+path at the beginning nor the version at the end.
 
 
-Activate  in the terminal:
+Ensure your terminal is well configured:
 
 .. code-block:: bat
 
     :: Windows
     (workshops) C:\Users\lrekucki>where python
     C:\Users\lrekucki\workshops\Scripts\python.exe
+    ...
 
     (workshops) C:\Users\lrekucki>where pip
     C:\Users\lrekucki\workshops\Scripts\pip.exe
@@ -163,7 +164,7 @@ Activate  in the terminal:
 
 .. code-block:: sh
 
-    # Linux i Mac
+    # Linux or Mac
     (workshops) ~$ which python
     /home/lrekucki/workshops/bin/python
     (workshops) ~$ which pip
@@ -176,7 +177,7 @@ Activate  in the terminal:
 
 .. _python.org: http://python.org/download/releases/3.4.0/
 
-If there will appear any problem after typing ``which pip`` there could be a need to reinstall pip:
+If there is any problem after typing ``which pip`` (``where pip`` on windows) there could be a need to reinstall pip:
 
 .. code-block:: sh
 
@@ -195,7 +196,7 @@ New virtual environment installation:
 
 .. code-block:: sh
 
-    # Linux i Mac
+    # Linux or Mac
     ~$ python3.4 -m venv workshops
 
 Virtual environment activation:
@@ -207,7 +208,7 @@ Virtual environment activation:
 
 .. code-block:: sh
 
-    # Linux i Mac
+    # Linux or Mac
     ~$ source workshops/bin/activate
 
 Just make sure that you use the proper Python version:
@@ -221,15 +222,16 @@ Just make sure that you use the proper Python version:
 IPython
 -------
 
-Eventually you can instal ``IPython``, which can improve the look and comfort when using a Python
+Eventually you can install ``IPython``, which improves the look and comfort when using Python
 from the console.
 
-``IPython`` installation::
+``IPython`` installation:
 
 .. code-block:: sh
 
     (workshops) ~$ pip install ipython
 
+    
 .. note::
 
    If ``pip`` command doesn't work, then please use ``pip3``.
