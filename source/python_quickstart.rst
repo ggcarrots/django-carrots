@@ -126,7 +126,7 @@ Save this program in the ``visitingcard.py`` file, and then run it from the comm
 
 .. code-block:: sh
 
-    (workshops) ~$ visitingcard.py
+    (workshops) ~$ python visitingcard.py
     Hi, my name is Lucas
     (workshops) ~$
 
