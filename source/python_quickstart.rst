@@ -804,7 +804,7 @@ We have here a string and a tuple joined by ``%``. The string is a template whic
 with values from the tuple. The spaces to be filled are also labeled with the percentage (``%``). .
 The letter that follows defines the type of a value we want to insert. The integers are represented
 by  ``i`` as **integer** (we can also use ``d`` as **decimal**),  strings are represented by ``s`` as
-**string**, and floating-point numbers are respresented by ``f`` for **float**:
+**string**, and floating-point numbers are represented by ``f`` for **float**:
 
     >>> "String: %s, Numbers: %d %f" % ("Ala", 10, 3.1415)
     'String: Ala, Numbers: 10 3.141500'
@@ -870,16 +870,16 @@ Aligning towards the centre is an additional excercise for you :).
 Summary
 =======
 
-In this chapter we learned basics of Python syntax. We know how to print integers,
+In this chapter we learned basics of Python syntax. We discovered how to print integers,
 floating-point numbers, strings and tuples.
 
-We have learnt the function :func:`print`, that prints information for the user and the function 
+We learnt the function :func:`print`, that prints information for the user and the function 
 :func:`input`, which reads it.
 
-We also know that indentations can be important, especially when we want to use
+We also know now that indentations can be important, especially when we want to use
 the instruction :keyword:`if` (also in connection with :keyword:`else` and :keyword:`elif`).
 
-We can create a file with a program and run it. Our program asks the user to answer
+We successfully created a program stored in a file and ran it. Our program asks the user to answer
 a few simple questions, performs calculations and presents results in the form which is useful for the
 user.
 
