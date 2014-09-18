@@ -25,13 +25,13 @@ Creation of the new project
 Installation
 ------------
 
-Install Django by running it on the console ``pip install django==1.6.2``:
+Install Django by running it on the console ``pip install django==1.6.4``:
 
 .. code-block:: sh
 
-   (workshops) ~$ pip install django==1.6.2
-   Downloading/unpacking django==1.6.2
-     Downloading Django-1.6.2-py2.py3-none-any.whl (6.7MB): 6.7MB downloaded
+   (workshops) ~$ pip install django==1.6.4
+   Downloading/unpacking django==1.6.4
+     Downloading Django-1.6.4-py2.py3-none-any.whl (6.7MB): 6.7MB downloaded
    Installing collected packages: django
    Successfully installed django
    Cleaning up...
@@ -43,7 +43,7 @@ where you can find many useful libraries.
 Beginning of project
 --------------------
 
-Django provides the administrative script ”django-admin.py". It allows you to create the scheme of our 
+Django provides the administrative script ``django-admin.py``. It allows you to create the scheme of our 
 site.
 
 To create a new project with the site, we launch ``django-admin.py startproject carrots``:
@@ -93,7 +93,7 @@ applications. We can edit the file by ourselves. Inside you will find the defaul
 explanatory comments.
 
 
-``manage.py``file allows us to administer the web site, create or clear the database, run a simple 
+``manage.py`` file allows us to administer the web site, create or clear the database, run a simple 
 application server, etc. Later we will see how to use it.
 
 
@@ -113,7 +113,8 @@ In the ``carrots/settings.py`` file find ``TIME_ZONE`` and set time zone as Wars
    LANGUAGE_CODE = 'pl'
 
 
-To make it simpler we also exclude the advanced support for time zones in the database - it will not be needed in our project. In the s``ettings.py`` file please find  ``USE_TZ``  and set them as False:
+To make it simpler we also exclude the advanced support for time zones in the database - it will not be needed in our project. In the ``settings.py`` file please find  ``USE_TZ``  and set them as False:
+::
 
    USE_TZ = False
 
@@ -150,7 +151,7 @@ Now it's time to use the previously described file ``manage.py`` to create the d
 
     You just installed Django's auth system, which means you don't have any superusers defined.
     Would you like to create one now? (yes/no): yes
-    Username (leave blank to use 'fasola'): fasola
+    Username (leave blank to use 'fasola'): beans
     Email address: admin@example.com
     Password:
     Password (again):
@@ -161,8 +162,7 @@ Now it's time to use the previously described file ``manage.py`` to create the d
 
 If all goes well Django asks you to provide data of the administrator account. The user name you may 
 leave as it is proposed, you can give any e-mail address.  Memorize the provided data (i.e, username 
-and password) so that you can log in the control panel. In the above example, the user will be ``beans
-``.
+and password) so that you can log in the control panel. In the above example, the user will be ``beans``.
 
  If you want to learn more about ``manage.py``, run python ``manage.py help``:
 
@@ -190,7 +190,7 @@ Now we can run our aplication. Run server by typing ``python manage.py runserver
 
    0 errors found
    April 19, 2013 - 20:14:37
-   Django version 1.6.2, using settings 'carrots.settings'
+   Django version 1.6.4, using settings 'carrots.settings'
    Development server is running at http://127.0.0.1:8000/
    Quit the server with CTRL-BREAK.
 
@@ -220,7 +220,7 @@ From the command line type ``python manage.py startapp polls``:
    │   ├── settings.py
    │   ├── urls.py
    │   ├── wsgi.py
-   ├── carrots.db
+   ├── db.sqlite3
    ├── manage.py
    └── polls
        ├── __init__.py
@@ -232,7 +232,7 @@ From the command line type ``python manage.py startapp polls``:
    2 directories, 14 files
 
 After creating the application it must be activated in our project. In the file ``carrots/settings.py``
-we have to add the application ``polls to`` ``INSTALLED_APPS``. The result should look like as 
+we have to add the application ``polls`` to ``INSTALLED_APPS``. The result should look like as 
 follows::
 
     INSTALLED_APPS = (
@@ -246,6 +246,7 @@ follows::
     )
 
 Applications in ``Django`` consists of several files:
+
 * ``admin.py`` - definitions for the administration panel,
 * ``models.py`` - definitions of the models for the database,
 * ``tests.py`` - testing applications,
@@ -258,7 +259,7 @@ Django installation:
 
 .. code-block:: sh
 
-   (workshops) ~$ pip install django==1.6.2
+   (workshops) ~$ pip install django==1.6.4
 
 Project directory creation
 
