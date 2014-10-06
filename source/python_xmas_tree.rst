@@ -693,6 +693,6 @@ following pictures (sizes 1, 2 and 3):
 
 .. rubric:: Notes
 
-.. [#speed]  Assuming you have 24 hours to deliver one gift for everyone in the world, 
+.. [#speed] Assuming you have 24 hours to deliver one gift for everyone in the world,
     for one gift you have about 10 microseconds.
 
