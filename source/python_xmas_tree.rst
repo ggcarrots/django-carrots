@@ -2,7 +2,7 @@
   Christmas Tree
 ==================
 
-Christmas are coming, Christmas presents time and, at least for Christmas trees :) in every shopping centre. As an exercise, we will try to draw a tree in the
+Christmas are coming, Christmas presents time and, at least for Christmas trees :) in every shopping center. As an exercise, we will try to draw a tree in the
 console.
 
 We are going to start from the most basic version of this exercise so that we can later extend it to a more functional version. As an incentive, let’s make a half of the Christmas tree: 
@@ -41,7 +41,7 @@ We are going to start from the most basic version of this exercise so that we ca
 
 It doesn’t look bad, but we have had to do a lot of typing. What if we would like to have a smaller 
 tree? Or a bigger one, composed of hundreds of elements to be printed on a page size A0? Definitely 
-too much typing, even if we would do it by multiplying strings  (``"*" * 100``, itd.). Obviously it is 
+too much typing, even if we would do it by multiplying strings  (``"*" * 100``, and so on.). Obviously it is 
 such a repetitive activity that the program can do it for us.
 
 
@@ -83,7 +83,7 @@ A new element is a loop itself, which consists of:
 * the value of a list or the name that refers to it.
 * the content indented of one level (the same way as in the case of :keyword:`if`).
 
-Still we haven’t said anything about lists, as they do not differ much from the intuitional concept of 
+Still we haven’t said anything about lists, as they do not differ much from the intuitive concept of 
 lists in the everyday life. We can easily think of lists in Python as we think of any other list (a 
 shopping list, a guest list, exam results etc.) written on a paper and numbered.
 
@@ -695,4 +695,3 @@ following pictures (sizes 1, 2 and 3):
 
 .. [#speed] Assuming you have 24 hours to deliver one gift for everyone in the world,
     for one gift you have about 10 microseconds.
-
