@@ -5,7 +5,7 @@
 Christmas are coming, Christmas presents time and, at least for Christmas trees :) in every shopping center. As an exercise, we will try to draw a tree in the
 console.
 
-We are going to start from the most basic version of this exercise so that we can later extend it to a more functional version. As an incentive, let’s make a half of the Christmas tree: 
+We are going to start from the most basic version of this exercise so that we can later extend it to a more functional version. As an incentive, let’s make a half of the Christmas tree:
 
 .. testcode::
 
@@ -39,9 +39,9 @@ We are going to start from the most basic version of this exercise so that we ca
     *****
     ******
 
-It doesn’t look bad, but we have had to do a lot of typing. What if we would like to have a smaller 
-tree? Or a bigger one, composed of hundreds of elements to be printed on a page size A0? Definitely 
-too much typing, even if we would do it by multiplying strings  (``"*" * 100``, and so on.). Obviously it is 
+It doesn’t look bad, but we have had to do a lot of typing. What if we would like to have a smaller
+tree? Or a bigger one, composed of hundreds of elements to be printed on a page size A0? Definitely
+too much typing, even if we would do it by multiplying strings  (``"*" * 100``, and so on.). Obviously it is
 such a repetitive activity that the program can do it for us.
 
 
@@ -49,11 +49,11 @@ such a repetitive activity that the program can do it for us.
 Lists and The ``for`` loop
 ==========================
 
-Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere, imagine for a moment that we are the Santa Claus and we have to deliver to everyone Christmas gifts. 
+Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere, imagine for a moment that we are the Santa Claus and we have to deliver to everyone Christmas gifts.
 
-As you know, Santa has a list of people who deserve gifts. The simplest approach to guarantee that no 
-one is omitted, will be to check sequentially the list and deliver their gifts to one after another. 
-Aside from the physical aspects of the task [#speed]_, the procedure of delivering the gifts could 
+As you know, Santa has a list of people who deserve gifts. The simplest approach to guarantee that no
+one is omitted, will be to check sequentially the list and deliver their gifts to one after another.
+Aside from the physical aspects of the task [#speed]_, the procedure of delivering the gifts could
 look like this::
 
     Let the People List contain people who should receive gifts.
@@ -70,12 +70,12 @@ Formatting of text above is not accidental. This is actually a disguised program
         print("Gift delivered to:", person)
     print("All gifts delivered")
 
-Most of the things should look familiar to you. We are calling here two functions: 
-:func:`people_who_deserve_gifts` i :func:`deliver_gift` - their functioning is known only by Santa 
+Most of the things should look familiar to you. We are calling here two functions:
+:func:`people_who_deserve_gifts` i :func:`deliver_gift` - their functioning is known only by Santa
 Claus. Result of the first one can be named `gift_list`, so that we could refer to this value later (
 the same as described above).
 
-A new element is a loop itself, which consists of: 
+A new element is a loop itself, which consists of:
 
 * the word :keyword:`for`,
 * names we want to give to the next elements,
@@ -83,8 +83,8 @@ A new element is a loop itself, which consists of:
 * the value of a list or the name that refers to it.
 * the content indented of one level (the same way as in the case of :keyword:`if`).
 
-Still we haven’t said anything about lists, as they do not differ much from the intuitive concept of 
-lists in the everyday life. We can easily think of lists in Python as we think of any other list (a 
+Still we haven’t said anything about lists, as they do not differ much from the intuitive concept of
+lists in the everyday life. We can easily think of lists in Python as we think of any other list (a
 shopping list, a guest list, exam results etc.) written on a paper and numbered.
 
 Let's start with a blank page (activate interactive mode):
@@ -104,7 +104,7 @@ Let's make another list (which can have the same name or a different one):
     >>> len(L)
     3
 
-As in the case of tuples, consecutive elements of the list are separated by commas. Unlike tuples, 
+As in the case of tuples, consecutive elements of the list are separated by commas. Unlike tuples,
 brackets ``[`` i ``]`` are obligatory.
 
 To preview a particular position of an element on the list (remember that we count the positions from 0 ):
@@ -139,7 +139,7 @@ In the same way, we can print the first part of our half of the Christmas tree:
     **
     ***
 
-Well, unfortunately we still have to type the entire contents of the list. This problem can be solved 
+Well, unfortunately we still have to type the entire contents of the list. This problem can be solved
 by the function :func:`range` (czyli zakres, przedział). If the description provided by ``help(range)``
 seems too complicated for you, here you have a few examples:
 
@@ -155,13 +155,13 @@ seems too complicated for you, here you have a few examples:
     >>> list(range(2))
     [0, 1]
 
-The function :func:`range` does not directly create the list, but it returns a generator. Generators 
-allow you to create sequences of values, without taking unnecessary memory. In order to obtain a  list 
+The function :func:`range` does not directly create the list, but it returns a generator. Generators
+allow you to create sequences of values, without taking unnecessary memory. In order to obtain a  list
 of the sequence, we use the function
 :func:`list`.
 
-The :func:`range` has three forms. The most basic and most used one creates a sequence from 0 to the 
-given number. The other forms allow you to specify the start of the range and a step. The created 
+The :func:`range` has three forms. The most basic and most used one creates a sequence from 0 to the
+given number. The other forms allow you to specify the start of the range and a step. The created
 sequence never includes the end of the specified range.
 
 
@@ -205,7 +205,7 @@ When you use the keyword :keyword:`for`, we do not have to use the
 
 
 
-Nothing stands in the way of placing one loop inside another loop. Just remember to use appropriate 
+Nothing stands in the way of placing one loop inside another loop. Just remember to use appropriate
 indentations and use different names e.g. ``i`` and ``j`` (or more associated with the list content):
 
     >>> for i in range(1, 3):
@@ -231,18 +231,18 @@ Using this technique, we can repeat our piece of the Christmas tree:
     **
     ***
 
-Before proceeding to the next chapter, create ``xmas.py`` file with this program and try to modify it 
-so that each of the three repetitions of the first (external) loop, the second one was executed one 
-more time. This way, we should get our half of the Christmas tree described at the beginning of the 
+Before proceeding to the next chapter, create ``xmas.py`` file with this program and try to modify it
+so that each of the three repetitions of the first (external) loop, the second one was executed one
+more time. This way, we should get our half of the Christmas tree described at the beginning of the
 chapter.
 
 
 Defining a function
 ===================
 
-We have already seen how functions solve many of our problems. However, they not solve them all – or 
+We have already seen how functions solve many of our problems. However, they not solve them all – or
 at least not exactly the way we would like functions to solve them.
-Sometimes we must solve a problem on our own. If it occurs often in our program, it would be nice to 
+Sometimes we must solve a problem on our own. If it occurs often in our program, it would be nice to
 have a function that solves it for us.
 
 Python gives us the opportunity:
@@ -268,19 +268,19 @@ Let's have a closer look at the function :func:`print_triangle`::
         for size in range(1, n+1):
             print(size*"*")
 
-The definition of a function always starts with the word :keyword:`def`. Next, we give the name to our 
-function. In brackets we indicate what names should be given to its arguments when the function is 
+The definition of a function always starts with the word :keyword:`def`. Next, we give the name to our
+function. In brackets we indicate what names should be given to its arguments when the function is
 called. In the following lines we provide instructions to be executed when we use the function.
 
 
-As shown in the example, the instructions in the function may include names that we have given as the 
-names of the arguments.The principle of operation is as follows - if you have created a function with 
+As shown in the example, the instructions in the function may include names that we have given as the
+names of the arguments.The principle of operation is as follows - if you have created a function with
 three arguments:
 
     >>> def foo(a, b, c):
     ...     print("FOO", a, b, c)
 
-When calling the function (the same way as with any function we have called before), you need to 
+When calling the function (the same way as with any function we have called before), you need to
 specify values for each one of the arguments:
 
     >>> foo(1, "Ala", 2 + 3 + 4)
@@ -289,7 +289,7 @@ specify values for each one of the arguments:
     >>> foo(x, x + 1, x + 2)
     FOO 42 43 44
 
-Note that the name is just a label. If we change a label for another one, the other labels will not 
+Note that the name is just a label. If we change a label for another one, the other labels will not
 change – the same happens with the arguments:
 
     >>> def plus_five(n):
@@ -305,9 +305,9 @@ change – the same happens with the arguments:
 Returning values
 ----------------
 
-The functions which we have previously used had one important property that is missing in the 
-functions created by ourselves - they returned the value instead of printing it immediately. To 
-achieve the same effect, you should use the instruction :keyword:`return`. This is a special 
+The functions which we have previously used had one important property that is missing in the
+functions created by ourselves - they returned the value instead of printing it immediately. To
+achieve the same effect, you should use the instruction :keyword:`return`. This is a special
 instruction that can be found only in the functions.
 
 
@@ -347,13 +347,13 @@ Finally, in a smooth way we will solve the problem from the end of the previous 
 Objects and classes
 ===================
 
-In fact, this chapter could be the subject of a series of workshops, but we will focus on the most 
+In fact, this chapter could be the subject of a series of workshops, but we will focus on the most
 basic things, which we will need while working with Django.
 
 Values are objects
 ------------------
 
-Everything that we have called a value up to the moment we can call also “an object”. We saw it in the 
+Everything that we have called a value up to the moment we can call also “an object”. We saw it in the
 example of integers, when :func:`help` printed for us dozens of additional lines of information about :
 func:`int`.
 
@@ -374,13 +374,13 @@ If you want to know what is a class of an object, just use the function :func:`t
     >>> type([])
     <class 'list'>
 
-When we use numbers in our program, we expect that it will behave like a number - we rely on our 
+When we use numbers in our program, we expect that it will behave like a number - we rely on our
 intuition.
 
-However, Python has to know exactly what it means to be an integer, e.g., what should happen when we 
+However, Python has to know exactly what it means to be an integer, e.g., what should happen when we
 sum up two numbers and what when we divide them. The class provides all this information and even more.
 
-By using :func:`help` , check what the class ``str`` gives us. Here we give just a few interesting 
+By using :func:`help` , check what the class ``str`` gives us. Here we give just a few interesting
 features:
 
     >>> help(str.lower)
@@ -418,7 +418,7 @@ features:
         done using the specified fill character (default is a space)
     <BLANKLINE>
 
-All these are operations that each string can do. We can get to them by using dots and calling the 
+All these are operations that each string can do. We can get to them by using dots and calling the
 function:
 
     >>> x = "Ala"
@@ -429,7 +429,7 @@ function:
     >>> x.center(9)
     '   Ala   '
 
-And one more important function of each class - it can create an object with its attributes (so 
+And one more important function of each class - it can create an object with its attributes (so
 called, “instance”):
 
     >>> int()
@@ -443,14 +443,14 @@ called, “instance”):
 
 In summary, we've looked at the class :func:`int`, :func:`str`, :func:`tuple`,
 :func:`list`. To find out which class is the value (object), we use the function
-:func:`type`. To create an instance of a class (a new object), we call the class, like we have called 
+:func:`type`. To create an instance of a class (a new object), we call the class, like we have called
 the function, adding parentheses ``()``, e.g.
 ``int()``.
 
 Define classes
 --------------
 
-Just as you can create your own functions, you can create your own classes. In fact, a class is 
+Just as you can create your own functions, you can create your own classes. In fact, a class is
 nothing but a group of functions:
 
 .. testsetup:: simple-class
@@ -470,8 +470,8 @@ nothing but a group of functions:
 Classes begin with the word :keyword:`class`, after which we give the name of the new class. What (
 object) is will be explained later, when we will be creating more complex classes.
 
-However, it is worth to know that every function in the class must have at least one argument. Its 
-value is an object from which we have called this function (that is to say the object placed before 
+However, it is worth to know that every function in the class must have at least one argument. Its
+value is an object from which we have called this function (that is to say the object placed before
 the dot):
 
 .. testcode:: simple-class
@@ -502,7 +502,7 @@ Besides methods (functions) the objects can also have attributes:
 
     Snoopy
 
-Sometimes we want for every object of the class to have an attribute, such as every dog should have a 
+Sometimes we want for every object of the class to have an attribute, such as every dog should have a
 name. We can add this requirement by defining a function with a special name ``__init__``:
 
 .. testcode:: init-class
@@ -529,7 +529,7 @@ name. We can add this requirement by defining a function with a special name ``_
 The Entire Christmas tree
 =========================
 
-The previous chapter was fairly theoretical, so now we'll try to use at least a part of this knowledge 
+The previous chapter was fairly theoretical, so now we'll try to use at least a part of this knowledge
 by completing our program to display a Christmas tree.
 
 For the record::
@@ -543,7 +543,7 @@ For the record::
     for i in range(2, 5):
         print_triangle(i)
 
-How can we improve the function :func:`print_triangle`, o display the entire segment of the Christmas 
+How can we improve the function :func:`print_triangle`, o display the entire segment of the Christmas
 tree, not just half of it?
 
 
@@ -553,7 +553,7 @@ First of all, let’s determine how we want our result to look like for the exac
      ***
     *****
 
-It is worth noting that each line consists of two asterix more than the previous one. So we can use 
+It is worth noting that each line consists of two asterix more than the previous one. So we can use
 the third argument :func:`range`:
 
 .. testcode::
@@ -614,7 +614,7 @@ However, a new problem appears:
     *******
 
 If we know in advance, what size the widest segment is, we can add an additional argument to  :func:`
-print_segment`,  to align to the width. Combining all of the knowledge we have acquired up to the 
+print_segment`,  to align to the width. Combining all of the knowledge we have acquired up to the
 moment:
 
 
@@ -655,7 +655,7 @@ moment:
 Task for volunteers
 -------------------
 
-Create a class ``XMASTree`` which for a given size and upon calling the method ``draw`` will print the 
+Create a class ``XMASTree`` which for a given size and upon calling the method ``draw`` will print the
 following pictures (sizes 1, 2 and 3):
 
 ::
