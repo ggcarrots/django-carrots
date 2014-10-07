@@ -46,10 +46,11 @@ such a repetitive activity that the program can do it for us.
 
 
 
-Lists and The ``for`` loop
+Lists and the ``for`` loop
 ==========================
 
-Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere, imagine for a moment that we are the Santa Claus and we have to deliver to everyone Christmas gifts.
+Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere, 
+imagine for a moment that we are the Santa Claus and we have to deliver Christmas gifts to everyone.
 
 As you know, Santa has a list of people who deserve gifts. The simplest approach to guarantee that no
 one is omitted, will be to check sequentially the list and deliver their gifts to one after another.
@@ -71,8 +72,8 @@ Formatting of text above is not accidental. This is actually a disguised program
     print("All gifts delivered")
 
 Most of the things should look familiar to you. We are calling here two functions:
-:func:`people_who_deserve_gifts` i :func:`deliver_gift` - their functioning is known only by Santa
-Claus. Result of the first one can be named `gift_list`, so that we could refer to this value later (
+:func:`people_who_deserve_gifts` and :func:`deliver_gift` - their inner workings are only known by Santa
+Claus. The result of the first one can be named `gift_list`, so that we could refer to this value later (
 the same as described above).
 
 A new element is a loop itself, which consists of:
@@ -105,7 +106,7 @@ Let's make another list (which can have the same name or a different one):
     3
 
 As in the case of tuples, consecutive elements of the list are separated by commas. Unlike tuples,
-brackets ``[`` i ``]`` are obligatory.
+brackets ``[`` and ``]`` are obligatory.
 
 To preview a particular position of an element on the list (remember that we count the positions from 0 ):
 
@@ -123,11 +124,11 @@ To preview a particular position of an element on the list (remember that we cou
 We can also use the loop :keyword:`for`,to execute instructions for every element of the list:
 
     >>> for name in L:
-    ...     print("Imie:", name)
+    ...     print("Name:", name)
     ...
-    Imie: Ala
-    Imie: Ola
-    Imie: Jacek
+    Name: Ala
+    Name: Ola
+    Name: Jacek
 
 In the same way, we can print the first part of our half of the Christmas tree:
 
@@ -140,8 +141,8 @@ In the same way, we can print the first part of our half of the Christmas tree:
     ***
 
 Well, unfortunately we still have to type the entire contents of the list. This problem can be solved
-by the function :func:`range` (czyli zakres, przedział). If the description provided by ``help(range)``
-seems too complicated for you, here you have a few examples:
+by the function :func:`range`. Check ``help(range)``
+for the full story, or here are some quick examples:
 
 
     >>> list(range(2, 5, 1))
@@ -155,10 +156,9 @@ seems too complicated for you, here you have a few examples:
     >>> list(range(2))
     [0, 1]
 
-The function :func:`range` does not directly create the list, but it returns a generator. Generators
-allow you to create sequences of values, without taking unnecessary memory. In order to obtain a  list
-of the sequence, we use the function
-:func:`list`.
+The function :func:`range` does not directly create a list, but it returns a generator. Generators
+generate the elements of a sequence one at a time, thereby avoiding to store the full sequence in memory. 
+In order to obtain a list of the sequence, we use the function :func:`list`.
 
 The :func:`range` has three forms. The most basic and most used one creates a sequence from 0 to the
 given number. The other forms allow you to specify the start of the range and a step. The created
@@ -193,7 +193,7 @@ Then let’s print a larger Christmas tree:
     ####
 
 When you use the keyword :keyword:`for`, we do not have to use the
-:func:`list`. `for` can cope with the function of `range`, so we can simplify our program even more:
+:func:`list`. :keyword:`for` can handle the generator given by `range`. Hence, we can simplify our program even more:
 
 
     >>> for i in range(1, 5):
@@ -205,7 +205,7 @@ When you use the keyword :keyword:`for`, we do not have to use the
 
 
 
-Nothing stands in the way of placing one loop inside another loop. Just remember to use appropriate
+Nothing prevents us to put one loop inside another loop, so let's do it! Just remember to use appropriate
 indentations and use different names e.g. ``i`` and ``j`` (or more associated with the list content):
 
     >>> for i in range(1, 3):
@@ -218,7 +218,7 @@ indentations and use different names e.g. ``i`` and ``j`` (or more associated wi
 
 Using this technique, we can repeat our piece of the Christmas tree:
 
-    >>> for i in range(3): # powtórz 3 razy
+    >>> for i in range(3): # repeats 3 times
     ...    for size in range(1, 4):
     ...        print(size*"*")
     *
@@ -245,7 +245,7 @@ at least not exactly the way we would like functions to solve them.
 Sometimes we must solve a problem on our own. If it occurs often in our program, it would be nice to
 have a function that solves it for us.
 
-Python gives us the opportunity:
+We can do it like this in Python:
 
     >>> def print_triangle(n):
     ...     for size in range(1, n+1):
@@ -269,7 +269,7 @@ Let's have a closer look at the function :func:`print_triangle`::
             print(size*"*")
 
 The definition of a function always starts with the word :keyword:`def`. Next, we give the name to our
-function. In brackets we indicate what names should be given to its arguments when the function is
+function. Between the parenthesizes, we indicate what names should be given to its arguments when the function is
 called. In the following lines we provide instructions to be executed when we use the function.
 
 
