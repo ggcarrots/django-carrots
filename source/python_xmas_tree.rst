@@ -88,7 +88,7 @@ Still we haven’t said anything about lists, as they do not differ much from th
 lists in the everyday life. We can easily think of lists in Python as we think of any other list (a
 shopping list, a guest list, exam results etc.) written on a paper and numbered.
 
-Let's start with a blank page (activate interactive mode):
+Let's start with a blank page by starting a new python interpreter:
 
     >>> L = []
     >>> L
@@ -142,7 +142,7 @@ In the same way, we can print the first part of our half of the Christmas tree:
 
 Well, unfortunately we still have to type the entire contents of the list. This problem can be solved
 by the function :func:`range`. Check ``help(range)``
-for the full story, or here are some quick examples:
+for the full story, or check these quick examples:
 
 
     >>> list(range(2, 5, 1))
@@ -156,11 +156,11 @@ for the full story, or here are some quick examples:
     >>> list(range(2))
     [0, 1]
 
-The function :func:`range` does not directly create a list, but it returns a generator. Generators
+The :func:`range` function does not directly create a list, but it returns a generator. Generators
 generate the elements of a sequence one at a time, thereby avoiding to store the full sequence in memory. 
 In order to obtain a list of the sequence, we use the function :func:`list`.
 
-The :func:`range` has three forms. The most basic and most used one creates a sequence from 0 to the
+The :func:`range` function has three forms. The most basic and most used one creates a sequence from 0 to the
 given number. The other forms allow you to specify the start of the range and a step. The created
 sequence never includes the end of the specified range.
 
@@ -240,8 +240,8 @@ chapter.
 Defining a function
 ===================
 
-We have already seen how functions solve many of our problems. However, they not solve them all – or
-at least not exactly the way we would like functions to solve them.
+We have already seen how functions solve many of our problems. However, they do not solve all our problems 
+– or at least not exactly the way we would like functions to solve them.
 Sometimes we must solve a problem on our own. If it occurs often in our program, it would be nice to
 have a function that solves it for us.
 
@@ -274,14 +274,14 @@ called. In the following lines we provide instructions to be executed when we us
 
 
 As shown in the example, the instructions in the function may include names that we have given as the
-names of the arguments.The principle of operation is as follows - if you have created a function with
+names of the arguments. The principle of operation is as follows - if you create a function with
 three arguments:
 
     >>> def foo(a, b, c):
     ...     print("FOO", a, b, c)
 
-When calling the function (the same way as with any function we have called before), you need to
-specify values for each one of the arguments:
+When you call this new function, you need to
+specify a value for each argument. This just like all the functions we called before:
 
     >>> foo(1, "Ala", 2 + 3 + 4)
     FOO 1 Ala 9
@@ -289,7 +289,7 @@ specify values for each one of the arguments:
     >>> foo(x, x + 1, x + 2)
     FOO 42 43 44
 
-Note that the name is just a label. If we change a label for another one, the other labels will not
+Note that the argument name is just a label. If we change the value attached to a label for another one, the other labels will not
 change – the same happens with the arguments:
 
     >>> def plus_five(n):
@@ -301,14 +301,32 @@ change – the same happens with the arguments:
     >>> x
     43
 
+It is as normal names (variables) we saw before. There are only two differences:
 
+Firstly, argument names of a function are defined at each function call, and Python attaches the corresponding
+argument value to to each of the argument names it just created.
+
+Secondly, the argument names are not available outside the function as they are created when the function is called
+and forgotten after the call. That is, if you try now to access 
+the argument name ``n`` we defined in our :func:`plus_five` function outside of the function's code, 
+Python tells you it is not defined:
+
+    >>> n
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    NameError: name 'n' is not defined
+    
+That is, our prim and proper Python cleans up his room at the end of a function call :)
+    
+    
 Returning values
 ----------------
 
 The functions which we have previously used had one important property that is missing in the
-functions created by ourselves - they returned the value instead of printing it immediately. To
-achieve the same effect, you should use the instruction :keyword:`return`. This is a special
-instruction that can be found only in the functions.
+functions created by ourselves - they gave back the value they computed
+instead of printing it immediately. To
+achieve the same effect, you need to use the instruction :keyword:`return`. This is a special
+instruction that can be found only in functions.
 
 
 We can now improve our BMI calculator by adding a function to compute BMI::
@@ -316,7 +334,7 @@ We can now improve our BMI calculator by adding a function to compute BMI::
     def calc_bmi(height, weight):
         return weight / height ** 2
 
-Finally, in a smooth way we will solve the problem from the end of the previous chapter:
+Finally, as a last example on functions, here is a solution to the problem from the end of the previous chapter:
 
 
 .. testcode::
@@ -350,23 +368,24 @@ Objects and classes
 In fact, this chapter could be the subject of a series of workshops, but we will focus on the most
 basic things, which we will need while working with Django.
 
-Values are objects
-------------------
+Every value is an object
+------------------------
 
-Everything that we have called a value up to the moment we can call also “an object”. We saw it in the
-example of integers, when :func:`help` printed for us dozens of additional lines of information about :
-func:`int`.
+Everything that we have called a value until now can be called “an object” in the world of Python. We saw it in the
+example of integers, when :func:`help` printed for us dozens of additional lines of information about 
+:func:`int`.
 
 Every object has a class
 ------------------------
 
-If you want to know what is a class of an object, just use the function :func:`type`:
+The class is the type of an object.
+To know what is the class of an object, simply use the function :func:`type`:
 
     >>> type(2)
     <class 'int'>
     >>> type(2.0)
     <class 'float'>
-    >>> type("Gżegżółka")
+    >>> type("spam eggs")
     <class 'str'>
     >>> x = 1, 2
     >>> type(x)
@@ -429,8 +448,8 @@ function:
     >>> x.center(9)
     '   Ala   '
 
-And one more important function of each class - it can create an object with its attributes (so
-called, “instance”):
+And one more important function of a class - it can create a new object of the type it describes. This is called
+called "an instance" of a class:
 
     >>> int()
     0
@@ -441,17 +460,19 @@ called, “instance”):
     >>> tuple()
     ()
 
-In summary, we've looked at the class :func:`int`, :func:`str`, :func:`tuple`,
-:func:`list`. To find out which class is the value (object), we use the function
-:func:`type`. To create an instance of a class (a new object), we call the class, like we have called
-the function, adding parentheses ``()``, e.g.
+So an instance is a new, fresh, value of the type described by the class.
+
+In summary, we've looked at the classes :func:`int`, :func:`str`, :func:`tuple` and
+:func:`list`. To find out from which class is the value (object), we use the function
+:func:`type`. To create an instance of a class (a new object), we call the class like call
+a function, by using parentheses ``()``. For instance: 
 ``int()``.
 
 Define classes
 --------------
 
 Just as you can create your own functions, you can create your own classes. In fact, a class is
-nothing but a group of functions:
+basically nothing but a group of functions:
 
 .. testsetup:: simple-class
 
@@ -467,8 +488,14 @@ nothing but a group of functions:
         def bark(self):
             print("Woof! Woof!")
 
-Classes begin with the word :keyword:`class`, after which we give the name of the new class. What (
-object) is will be explained later, when we will be creating more complex classes.
+Classes begin with the word :keyword:`class`, after which we give the name of the new class. 
+The ``(object)`` indicates that our new type ``Dog`` is a specific sub-type of ``object``.
+That is, instances of our class, i.e. values created from it, will be of the type ``Dog`` but
+also of the more general type ``object``.
+
+Actually this is what we said that every value is an object.
+Indeed, each class is a specialization of ``object`` in Python. Hence, every value value has always ``object``
+as most general type.
 
 However, it is worth to know that every function in the class must have at least one argument. Its
 value is an object from which we have called this function (that is to say the object placed before
@@ -476,14 +503,15 @@ the dot):
 
 .. testcode:: simple-class
 
-    burek = Dog()
-    burek.bark()
+    my_new_pet = Dog()
+    my_new_pet.bark()
 
 .. testoutput:: simple-class
 
     Woof! Woof!
 
-This argument can be named as you wish, but it is intuitive to call it ``self``.
+This argument can be named as you wish, but the 
+`most widespread convention <http://legacy.python.org/dev/peps/pep-0008/>`_ is to call it ``self``.
 
 
 Attributes of objects
@@ -493,10 +521,10 @@ Besides methods (functions) the objects can also have attributes:
 
 .. testcode:: simple-class
 
-    burek = Dog()
-    burek.name = "Snoopy"
+    my_new_pet = Dog()
+    my_new_pet.name = "Snoopy"
 
-    print(burek.name)
+    print(my_new_pet.name)
 
 .. testoutput:: simple-class
 
@@ -515,9 +543,9 @@ name. We can add this requirement by defining a function with a special name ``_
         def bark(self):
             return "Woof! %s! Woof!" % (self.name,)
 
-    burek = Dog("Snoopy")
+    snoopy = Dog("Snoopy")
     pluto = Dog("Pluto")
-    print(burek.bark())
+    print(snoopy.bark())
     print(pluto.bark())
 
 .. testoutput:: init-class
@@ -525,12 +553,15 @@ name. We can add this requirement by defining a function with a special name ``_
     Woof! Snoopy! Woof!
     Woof! Pluto! Woof!
 
+This :func:`__init__` function is called during the creation of an object.
+We call this special function a constructor, because it helps to build the object.
+
 
 The Entire Christmas tree
 =========================
 
-The previous chapter was fairly theoretical, so now we'll try to use at least a part of this knowledge
-by completing our program to display a Christmas tree.
+The previous chapter was fairly theoretical, so now we'll use some of this new knowledge
+to complete our program to display a Christmas tree.
 
 For the record::
 
