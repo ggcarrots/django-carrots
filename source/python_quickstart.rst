@@ -2,7 +2,7 @@
 Introduction to Python
 ======================
 
-Let’s start with running   the interpreter which we installed in the previous chapter. Please Run:
+Let’s start with running the Python interpreter we installed in the previous chapter. Please run:
 
 .. code-block:: sh
 
