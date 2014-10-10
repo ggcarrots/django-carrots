@@ -40,7 +40,7 @@ Python is excellent as a calculator:
     >>> 5 / 2
     2.5
 
-Please pay special attention to writing decimals: use a period, not a comma. Commas will be used to
+Please pay special attention when writing decimals: use a period, not a comma. Commas will be used to
 define :ref:`tuple <bmi-tuples>` but more on that later.
 
 
@@ -771,7 +771,7 @@ BMI as a number and the interval in which it is located, that is to say::
     Your BMI is equal: 21.39 (normal weight)
 
 Modify the current program so that the calculated BMI would be available under the name of ``bmi``,and
-the name of the interval under the name of ``category``. Then we can use :func:`print`and obtain the
+the name of the interval under the name of ``category``. Then we can use :func:`print` and obtain the
 required result:
 
 .. testsetup::
