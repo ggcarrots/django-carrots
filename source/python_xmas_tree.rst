@@ -578,7 +578,8 @@ How can we improve the function :func:`print_triangle`, o display the entire seg
 tree, not just half of it?
 
 
-First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``. It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect::
+First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``. 
+It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect::
 
       *
      ***
@@ -601,8 +602,8 @@ the third argument :func:`range`:
     ***
     *****
 
-It is not exactly what we have wanted, as it should be aligned in the centre. The method/function :func
-:`unicode.center` mentioned in the previous section, helps us:
+It is not exactly what we have wanted, as it should be aligned in the centre. The method/function 
+:func:`unicode.center` mentioned in the previous section, helps us:
 
 
 .. testcode::
@@ -644,9 +645,9 @@ However, a new problem appears:
      *****
     *******
 
-If we know in advance, what size the widest segment is, we can add an additional argument to  :func:`
-print_segment`,  to align to the width. Combining all of the knowledge we have acquired up to the
-moment:
+If we know in advance, what size the widest segment is, we can add an additional argument to  
+:func:`print_segment`,  to align to the width. Combining all of the knowledge we have 
+acquired up to the moment:
 
 
 .. testsetup:: tree-final
