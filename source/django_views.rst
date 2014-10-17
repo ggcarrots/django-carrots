@@ -41,7 +41,7 @@ to remember the following:
    :class: alert alert-info
 
    * Each letter and number of the regular expression applies to the same letter / number of the adjusted string. The same with the
-     slash (``/``), space (`` ``), the underscore (``_) and hyphen (``-``).
+     slash (``/``), space (``' '`` ), the underscore (``_``) and hyphen (``-``).
    * ``^`` applies only to the beginning of the string (“the beginning” is here an abstract symbol 
      before the first character)
    * ``$`` matches only the end of the string (in a similar way as “the beginning”).
@@ -154,7 +154,7 @@ In the same file expand function ``index`` to look as below::
       })
       return HttpResponse(t.render(c))
 
-The functions: ``get_template`` (it finds a template) and render (it changes the template into a text 
+The functions: ``get_template`` (it finds a template) and ``render`` (it changes the template into a text 
 will be finally delivered to the user) are responsible for our template handling.
 
 The code is a bit longer, but we will see soon that everything is much more clear. However, first 
@@ -275,7 +275,7 @@ Change ``polls/templates/polls/details.html`` file as below:
 .. note::
 
    ``{% csrf_token %}``  is a very magical way to protect websites from new forms of attack on websites users. More information in the documentation
-   `dokumentacji Cross Site Request Forgery <https://docs.djangoproject.com/en/1.4/ref/contrib/csrf/>`_.
+   `documentation Cross Site Request Forgery <https://docs.djangoproject.com/en/1.4/ref/contrib/csrf/>`_.
 
 Attentive reader will note that form is send to ``/polls/{{ poll.id }}/vote/`` adress, which does not 
 support data from forms yet. Now we will add forms' support. 
@@ -392,16 +392,16 @@ Then play with voting them and invite others to do the same.
             try:
                 selected_choice = p.choice_set.get(id=request.POST['choice'])
             except (KeyError, Choice.DoesNotExist):
-                # Wyświetl błąd użytkownikowi, gdy wybrał złą opcję
+                # if user chooses a wrong option, show error
                 return render(request, 'polls/detail.html', {
                     'poll': p,
-                    'error_message': "Musisz wybrać poprawną opcję.",
+                    'error_message': "You have to choose a correct option",
                 })
 
-            # Zapisz nową liczbę głosów
+            # Save the number of votes
             selected_choice.votes += 1
             selected_choice.save()
-            # Przekieruj użytkownika do widoku detali ankiety, na którą właśnie zagłosował
+            # Redirect user to poll detail view on which he/she just voted
             return HttpResponseRedirect(reverse('polls.views.results', args=(p.id,)))
 
 .. admonition:: ``urls.py``

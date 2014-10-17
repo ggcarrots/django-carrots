@@ -108,9 +108,9 @@ Settings of application
 In the ``carrots/settings.py`` file find ``TIME_ZONE`` and set time zone as Warsaw. You should get the following:
 ::
 
-   TIME_ZONE = 'Europe/Warsaw'
+   TIME_ZONE = 'Europe/Luxembourg'
 
-   LANGUAGE_CODE = 'pl'
+   LANGUAGE_CODE = 'en_uk'
 
 
 To make it simpler we also exclude the advanced support for time zones in the database - it will not be needed in our project. In the ``settings.py`` file please find  ``USE_TZ``  and set them as False:
