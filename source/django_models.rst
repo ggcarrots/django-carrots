@@ -96,7 +96,7 @@ Each object in the database is assigned to a unique ID::
     >>> p.question
     "What's new?"
     >>> p.pub_date
-    datetime.datetime(2012, 2, 26, 13, 0, 0, 775217)
+    datetime.datetime(2014, 10, 18, 13, 0, 0, 775217)
 
 After changing of attributes we again call ``save()`` to save changes::
 
@@ -162,7 +162,7 @@ certain conditions:
     [<Poll: What's up?>]
     >>> Poll.objects.filter(question__startswith='What')
     [<Poll: What's up?>]
-    >>> Poll.objects.get(pub_date__year=2012)
+    >>> Poll.objects.get(pub_date__year=2014)
     <Poll: What's up?>
 
     # The attempt to retrieve a nonexistent object will make Python to protest strongly.
@@ -203,7 +203,7 @@ We can also have access to the answers (``Choice``) questions:
     3
 
     # And now something more difficult. What does this question do?
-    >>> Choice.objects.filter(poll__pub_date__year=2012)
+    >>> Choice.objects.filter(poll__pub_date__year=2014)
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
 
     # Finally, let's remove one of the questions. Use method ``delete``.
