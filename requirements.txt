@@ -1,1 +1,2 @@
 sphinx>=1.1
+sphinx-intl==0.9.5

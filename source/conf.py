@@ -337,3 +337,7 @@ def __replaced_input():
 __builtins__['input'] = __replaced_input()
 
 """
+
+
+locale_dirs = ['locale/']   # path is example but recommended.
+gettext_compact = False     # optional.

@@ -1,0 +1,35 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Carrots 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-23 21:43+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/index.rst:3
+msgid "Django Carrots Manual"
+msgstr ""
+
+#: ../../source/index.rst:5
+msgid ""
+"We present you a manual to learn Python and Django. Even if you cannot "
+"program yet, by following the manual and doing all the exercises you should "
+"be able to create your own website."
+msgstr ""
+
+#: ../../source/index.rst:7
+msgid ""
+"The manual is a part of the workshop Django Carrots organized by Geek Girls "
+"Carrots. You can use it to organize your own workshops or for self-study. If"
+" you decide to use the manual, we would be grateful if you contact us "
+"(however it is optional)."
+msgstr ""
+
+#: ../../source/index.rst:12
+msgid "Table of Contents"
+msgstr ""

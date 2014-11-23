@@ -1,0 +1,205 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Carrots 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-23 21:43+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/django_models.rst:3
+msgid "Models"
+msgstr ""
+
+#: ../../source/django_models.rst:5
+msgid ""
+"The next step is to define the model of our application. The model describes"
+" what and how can be stored in the database. From Python point of view that "
+"is a basic class, which inherits from ``models.Model``."
+msgstr ""
+
+#: ../../source/django_models.rst:8
+msgid ""
+"Our application will include questions and answers to them, so we'll create "
+"two models: ``Poll`` and ``Choice``. The model ``Poll`` contains the "
+"contents of questions and the date of publication. The model ``Choice`` "
+"contains a reference to the relevant questions, the content of responses and"
+" the number of votes."
+msgstr ""
+
+#: ../../source/django_models.rst:12
+msgid "In the file ``polls/models.py`` we type::"
+msgstr ""
+
+#: ../../source/django_models.rst:25
+msgid ""
+"By adding new models we have changed the database schema. We need to make "
+"the ``syncdb`` again so that new models could appear in the database."
+msgstr ""
+
+#: ../../source/django_models.rst:29
+msgid ""
+"After executing the ``syncdb``, you can not add new fields to the model. You"
+" can only add new models. There are ways to avoid it, but … it is a totally "
+"different story"
+msgstr ""
+
+#: ../../source/django_models.rst:41
+msgid ""
+"That’s it! However, probably we would like to be able to edit objects. The "
+"easiest way is to do it in the administrative interface."
+msgstr ""
+
+#: ../../source/django_models.rst:44
+msgid "We create a file ``polls/admin.py`` and the file includes::"
+msgstr ""
+
+#: ../../source/django_models.rst:52
+msgid ""
+"By that ``Poll`` and ``Choice`` model will be available in administration "
+"panel."
+msgstr ""
+
+#: ../../source/django_models.rst:56
+msgid ""
+"Some changes require a server restart. In the console with the server "
+"activated push the buttons ``Ctrl+C`` and then ``pythonmanage.py runserver``"
+" again."
+msgstr ""
+
+#: ../../source/django_models.rst:58
+msgid ""
+"When we go back to http://localhost:8000/admin/ we will see that a new "
+"bookmark ``Polls`` appeared."
+msgstr ""
+
+#: ../../source/django_models.rst:62
+msgid "Playing in the console"
+msgstr ""
+
+#: ../../source/django_models.rst:64
+msgid ""
+"Django provides its own console. It is a simple Python console (where we can"
+" do exactly the same thing as when you activate the command ``python``), but"
+" we can also use the tools and models of Django."
+msgstr ""
+
+#: ../../source/django_models.rst:71
+msgid "When you are in the shell already::"
+msgstr ""
+
+#: ../../source/django_models.rst:75
+msgid ""
+"All the surveys in the database; and now there's nothing here, so we get an "
+"empty list::"
+msgstr ""
+
+#: ../../source/django_models.rst:80
+msgid "We create the first survey::"
+msgstr ""
+
+#: ../../source/django_models.rst:85
+msgid ""
+"Save the poll in the database. For this purpose, you always need to call "
+"``save()``::"
+msgstr ""
+
+#: ../../source/django_models.rst:89
+msgid "Each object in the database is assigned to a unique ID::"
+msgstr ""
+
+#: ../../source/django_models.rst:94
+msgid "``p`` is a simple object. We can read its attributes::"
+msgstr ""
+
+#: ../../source/django_models.rst:101
+msgid ""
+"After changing of attributes we again call ``save()`` to save changes::"
+msgstr ""
+
+#: ../../source/django_models.rst:106
+msgid "``objects.all()`` returns a list of all the objects in the database::"
+msgstr ""
+
+#: ../../source/django_models.rst:111
+msgid ""
+"Django models are classes and classes can define methods. A method is a "
+"function that gets an extra parameter ``self``, which is the current object "
+"(e.g, the current questionnaire). Methods in classes ( models) allow you to "
+"add additional behaviors or change the existing ones."
+msgstr ""
+
+#: ../../source/django_models.rst:115
+msgid ""
+"One of the methods is the ``__str__()``, which allows you to change the "
+"display of the model (a questionnaire or a question). ``<Poll: Poll "
+"object>`` doesn’t tell us much. Let's fix that by adding the method "
+"``__str__`` to ``Poll`` and ``Choice``::"
+msgstr ""
+
+#: ../../source/django_models.rst:129
+msgid ""
+"Django will use these methods for displaying objects, not just in the "
+"console, but also in the aforementioned administration interface."
+msgstr ""
+
+#: ../../source/django_models.rst:132
+msgid ""
+"We can also add other methods.  In the ``carrots/polls/models.py`` append "
+"(comments ``#…`` in here mean the code located in the file)::"
+msgstr ""
+
+#: ../../source/django_models.rst:143
+msgid ""
+"Note that we had to add an ``import datetime`` to use objects representing "
+"the time in Python."
+msgstr ""
+
+#: ../../source/django_models.rst:145
+msgid ""
+"Let’s save the changes and run intepreter with the command ``python "
+"manage.py`` shell once again::"
+msgstr ""
+
+#: ../../source/django_models.rst:153
+msgid ""
+"Up to the moment we have used the method ``all`` which allows you to get a "
+"list of all objects of a defined type (e.g. all questions). There are other "
+"methods that allow to find objects that meet certain conditions:"
+msgstr ""
+
+#: ../../source/django_models.rst:180
+msgid "We can also have access to the answers (``Choice``) questions:"
+msgstr ""
+
+#: ../../source/django_models.rst:214
+msgid "Summary"
+msgstr ""
+
+#: ../../source/django_models.rst:216
+msgid ""
+"We are creating models by defining classes inheriting from ``models.Model`` "
+"in ``polls/models.py file``."
+msgstr ""
+
+#: ../../source/django_models.rst:217
+msgid ""
+"After new model creation we have to remember to run python ``manage.py "
+"syncdb``."
+msgstr ""
+
+#: ../../source/django_models.rst:218
+msgid "To download every object in the model::"
+msgstr ""
+
+#: ../../source/django_models.rst:222
+msgid "To download the object which satisfies the condition::"
+msgstr ""
+
+#: ../../source/django_models.rst:226
+msgid "To download single object::"
+msgstr ""

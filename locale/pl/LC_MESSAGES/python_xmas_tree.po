@@ -1,0 +1,520 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Carrots 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-23 21:43+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/python_xmas_tree.rst:3
+msgid "Christmas Tree"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:5
+msgid ""
+"Christmas are coming, Christmas presents time and, at least for Christmas "
+"trees :) in every shopping center. As an exercise, we will try to draw a "
+"tree in the console."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:8
+msgid ""
+"We are going to start from the most basic version of this exercise so that "
+"we can later extend it to a more functional version. As an incentive, let’s "
+"make a half of the Christmas tree:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:42
+msgid ""
+"It doesn’t look bad, but we have had to do a lot of typing. What if we would"
+" like to have a smaller tree? Or a bigger one, composed of hundreds of "
+"elements to be printed on a page size A0? Definitely too much typing, even "
+"if we would do it by multiplying strings  (``\"*\" * 100``, and so on.). "
+"Obviously it is such a repetitive activity that the program can do it for "
+"us."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:50
+msgid "Lists and the ``for`` loop"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:52
+msgid ""
+"Loops will serve us to deal with such repetitive actions. Staying in the "
+"Christmas atmosphere, imagine for a moment that we are the Santa Claus and "
+"we have to deliver Christmas gifts to everyone."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:55
+msgid ""
+"As you know, Santa has a list of people who deserve gifts. The simplest "
+"approach to guarantee that no one is omitted, will be to check sequentially "
+"the list and deliver their gifts to one after another. Aside from the "
+"physical aspects of the task [#speed]_, the procedure of delivering the "
+"gifts could look like this::"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:65
+msgid ""
+"Formatting of text above is not accidental. This is actually a disguised "
+"program in Python::"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:74
+msgid ""
+"Most of the things should look familiar to you. We are calling here two "
+"functions: :func:`people_who_deserve_gifts` and :func:`deliver_gift` - their"
+" inner workings are only known by Santa Claus. The result of the first one "
+"can be named `gift_list`, so that we could refer to this value later ( the "
+"same as described above)."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:79
+msgid "A new element is a loop itself, which consists of:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:81
+msgid "the word :keyword:`for`,"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:82
+msgid "names we want to give to the next elements,"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:83
+msgid "the word :keyword:`in`,"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:84
+msgid "the value of a list or the name that refers to it."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:85
+msgid ""
+"the content indented of one level (the same way as in the case of "
+":keyword:`if`)."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:87
+msgid ""
+"Still we haven’t said anything about lists, as they do not differ much from "
+"the intuitive concept of lists in the everyday life. We can easily think of "
+"lists in Python as we think of any other list (a shopping list, a guest "
+"list, exam results etc.) written on a paper and numbered."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:91
+msgid "Let's start with a blank page by starting a new python interpreter:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:97
+msgid ""
+"At any time we can check how many items we have saved on our list by using "
+"the function :func:`len`."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:102
+msgid ""
+"Let's make another list (which can have the same name or a different one):"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:108
+msgid ""
+"As in the case of tuples, consecutive elements of the list are separated by "
+"commas. Unlike tuples, brackets ``[`` and ``]`` are obligatory."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:111
+msgid ""
+"To preview a particular position of an element on the list (remember that we"
+" count the positions from 0 ):"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:124
+msgid ""
+"We can also use the loop :keyword:`for`,to execute instructions for every "
+"element of the list:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:133
+msgid ""
+"In the same way, we can print the first part of our half of the Christmas "
+"tree:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:143
+msgid ""
+"Well, unfortunately we still have to type the entire contents of the list. "
+"This problem can be solved by the function :func:`range`. Check "
+"``help(range)`` for the full story, or check these quick examples:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:159
+msgid ""
+"The :func:`range` function does not directly create a list, but it returns a"
+" generator. Generators generate the elements of a sequence one at a time, "
+"thereby avoiding to store the full sequence in memory. In order to obtain a "
+"list of the sequence, we use the function :func:`list`."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:163
+msgid ""
+"The :func:`range` function has three forms. The most basic and most used one"
+" creates a sequence from 0 to the given number. The other forms allow you to"
+" specify the start of the range and a step. The created sequence never "
+"includes the end of the specified range."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:168
+msgid "Then let’s print a larger Christmas tree:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:186
+msgid ""
+":func:`range` has saved a lot of our time. We can save even more if we omit "
+"naming the list:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:195
+msgid ""
+"When you use the keyword :keyword:`for`, we do not have to use the "
+":func:`list`. :keyword:`for` can handle the generator given by `range`. "
+"Hence, we can simplify our program even more:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:208
+msgid ""
+"Nothing prevents us to put one loop inside another loop, so let's do it! "
+"Just remember to use appropriate indentations and use different names e.g. "
+"``i`` and ``j`` (or more associated with the list content):"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:219
+msgid "Using this technique, we can repeat our piece of the Christmas tree:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:234
+msgid ""
+"Before proceeding to the next chapter, create ``xmas.py`` file with this "
+"program and try to modify it so that each of the three repetitions of the "
+"first (external) loop, the second one was executed one more time. This way, "
+"we should get our half of the Christmas tree described at the beginning of "
+"the chapter."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:241
+msgid "Defining a function"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:243
+msgid ""
+"We have already seen how functions solve many of our problems. However, they"
+" do not solve all our problems – or at least not exactly the way we would "
+"like functions to solve them. Sometimes we must solve a problem on our own. "
+"If it occurs often in our program, it would be nice to have a function that "
+"solves it for us."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:248
+msgid "We can do it like this in Python:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:265
+msgid "Let's have a closer look at the function :func:`print_triangle`::"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:271
+msgid ""
+"The definition of a function always starts with the word :keyword:`def`. "
+"Next, we give the name to our function. Between the parenthesizes, we "
+"indicate what names should be given to its arguments when the function is "
+"called. In the following lines we provide instructions to be executed when "
+"we use the function."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:276
+msgid ""
+"As shown in the example, the instructions in the function may include names "
+"that we have given as the names of the arguments. The principle of operation"
+" is as follows - if you create a function with three arguments:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:283
+msgid ""
+"When you call this new function, you need to specify a value for each "
+"argument. This just like all the functions we called before:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:292
+msgid ""
+"Note that the argument name is just a label. If we change the value attached"
+" to a label for another one, the other labels will not change – the same "
+"happens with the arguments:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:304
+msgid ""
+"It is as normal names (variables) we saw before. There are only two "
+"differences:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:306
+msgid ""
+"Firstly, argument names of a function are defined at each function call, and"
+" Python attaches the corresponding argument value to to each of the argument"
+" names it just created."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:309
+msgid ""
+"Secondly, the argument names are not available outside the function as they "
+"are created when the function is called and forgotten after the call. That "
+"is, if you try now to access the argument name ``n`` we defined in our "
+":func:`plus_five` function outside of the function's code, Python tells you "
+"it is not defined:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:319
+msgid ""
+"That is, our prim and proper Python cleans up his room at the end of a "
+"function call :)"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:323
+msgid "Returning values"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:325
+msgid ""
+"The functions which we have previously used had one important property that "
+"is missing in the functions created by ourselves - they gave back the value "
+"they computed instead of printing it immediately. To achieve the same "
+"effect, you need to use the instruction :keyword:`return`. This is a special"
+" instruction that can be found only in functions."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:332
+msgid ""
+"We can now improve our BMI calculator by adding a function to compute BMI::"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:337
+msgid ""
+"Finally, as a last example on functions, here is a solution to the problem "
+"from the end of the previous chapter:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:366
+msgid "Objects and classes"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:368
+msgid ""
+"In fact, this chapter could be the subject of a series of workshops, but we "
+"will focus on the most basic things, which we will need while working with "
+"Django."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:372
+msgid "Every value is an object"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:374
+msgid ""
+"Everything that we have called a value until now can be called “an object” "
+"in the world of Python. We saw it in the example of integers, when "
+":func:`help` printed for us dozens of additional lines of information about "
+":func:`int`."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:379
+msgid "Every object has a class"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:381
+msgid ""
+"The class is the type of an object. To know what is the class of an object, "
+"simply use the function :func:`type`:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:396
+msgid ""
+"When we use numbers in our program, we expect that it will behave like a "
+"number - we rely on our intuition."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:399
+msgid ""
+"However, Python has to know exactly what it means to be an integer, e.g., "
+"what should happen when we sum up two numbers and what when we divide them. "
+"The class provides all this information and even more."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:402
+msgid ""
+"By using :func:`help` , check what the class ``str`` gives us. Here we give "
+"just a few interesting features:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:440
+msgid ""
+"All these are operations that each string can do. We can get to them by "
+"using dots and calling the function:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:451
+msgid ""
+"And one more important function of a class - it can create a new object of "
+"the type it describes. This is called called \"an instance\" of a class:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:463
+msgid ""
+"So an instance is a new, fresh, value of the type described by the class."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:465
+msgid ""
+"In summary, we've looked at the classes :func:`int`, :func:`str`, "
+":func:`tuple` and :func:`list`. To find out from which class is the value "
+"(object), we use the function :func:`type`. To create an instance of a class"
+" (a new object), we call the class like call a function, by using "
+"parentheses ``()``. For instance: ``int()``."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:472
+msgid "Define classes"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:474
+msgid ""
+"Just as you can create your own functions, you can create your own classes. "
+"In fact, a class is basically nothing but a group of functions:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:491
+msgid ""
+"Classes begin with the word :keyword:`class`, after which we give the name "
+"of the new class. The ``(object)`` indicates that our new type ``Dog`` is a "
+"specific sub-type of ``object``. That is, instances of our class, i.e. "
+"values created from it, will be of the type ``Dog`` but also of the more "
+"general type ``object``."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:496
+msgid ""
+"Actually this is what we said that every value is an object. Indeed, each "
+"class is a specialization of ``object`` in Python. Hence, every value value "
+"has always ``object`` as most general type."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:500
+msgid ""
+"However, it is worth to know that every function in the class must have at "
+"least one argument. Its value is an object from which we have called this "
+"function (that is to say the object placed before the dot):"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:513
+msgid ""
+"This argument can be named as you wish, but the `most widespread convention "
+"<http://legacy.python.org/dev/peps/pep-0008/>`_ is to call it ``self``."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:518
+msgid "Attributes of objects"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:520
+msgid "Besides methods (functions) the objects can also have attributes:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:533
+msgid ""
+"Sometimes we want for every object of the class to have an attribute, such "
+"as every dog should have a name. We can add this requirement by defining a "
+"function with a special name ``__init__``:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:556
+msgid ""
+"This :func:`__init__` function is called during the creation of an object. "
+"We call this special function a constructor, because it helps to build the "
+"object."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:561
+msgid "The Entire Christmas tree"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:563
+msgid ""
+"The previous chapter was fairly theoretical, so now we'll use some of this "
+"new knowledge to complete our program to display a Christmas tree."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:566
+msgid "For the record::"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:577
+msgid ""
+"How can we improve the function :func:`print_triangle`, o display the entire"
+" segment of the Christmas tree, not just half of it?"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:581
+msgid ""
+"First of all, let’s determine how we want our result to look like for the "
+"exact value of argument  ``n``. It seems to make sense that, ``n`` would be "
+"the width. Then for ``n = 5``, we would expect::"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:588
+msgid ""
+"It is worth noting that each line consists of two asterix more than the "
+"previous one. So we can use the third argument :func:`range`:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:605
+msgid ""
+"It is not exactly what we have wanted, as it should be aligned in the "
+"centre. The method/function :func:`unicode.center` mentioned in the previous"
+" section, helps us:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:624
+msgid "However, a new problem appears:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:648
+msgid ""
+"If we know in advance, what size the widest segment is, we can add an "
+"additional argument to :func:`print_segment`,  to align to the width. "
+"Combining all of the knowledge we have acquired up to the moment:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:688
+msgid "Task for volunteers"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:690
+msgid ""
+"Create a class ``XMASTree`` which for a given size and upon calling the "
+"method ``draw`` will print the following pictures (sizes 1, 2 and 3):"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:727
+msgid "Notes"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:728
+msgid ""
+"Assuming you have 24 hours to deliver one gift for everyone in the world, "
+"for one gift you have about 10 microseconds."
+msgstr ""
