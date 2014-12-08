@@ -20,5 +20,6 @@ Table of Contents
    django_in_action
    django_models
    django_views
+   code_of_conduct
 
 .. going_social
