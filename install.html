@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &mdash; Django Carrots</title>
+    
+    <link rel="stylesheet" href="_static/carrots.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0dev1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Django Carrots" href="index.html" />
+    <link rel="next" title="Introduction to Python" href="python_quickstart.html" />
+    <link rel="prev" title="Django Carrots Manual" href="index.html" /> 
+  </head>
+  <body>
+  
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="python_quickstart.html" title="Introduction to Python"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="Django Carrots Manual"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Django Carrots</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>During our workshops we will need an interpreter of Python language, version 3.4. Below there are some tips how to check if we already have the interpreter or how to install it together with tools.</p>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<p>You can download versions for Windows directly from <a class="reference external" href="http://python.org/download/releases/3.4.0/">python.org</a>.
+After downloading the file  <tt class="docutils literal"><span class="pre">*.msi</span></tt> open it and follow the instructions.
+It is important to remember the path of installation – the directory – we will need the information during the <a class="reference internal" href="#tools"><em>installation of tools</em></a>.</p>
+</div>
+<div class="section" id="linux-ubuntu-fedora-etc-or-mac">
+<h2>Linux (Ubuntu, Fedora, etc.) or Mac<a class="headerlink" href="#linux-ubuntu-fedora-etc-or-mac" title="Permalink to this headline">¶</a></h2>
+<p>In order to check our version of Python, enter in the command line the following:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nv">$ </span>python --version
+Python 3.4.0
+</pre></div>
+</div>
+<p>If the python command is not available or the wrong version appears:</p>
+<div class="section" id="ubuntu">
+<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
+<p>In the command line enter:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install python3.4
+</pre></div>
+</div>
+</div>
+<div class="section" id="fedora">
+<h3>Fedora<a class="headerlink" href="#fedora" title="Permalink to this headline">¶</a></h3>
+<p>In the command line enter:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo yum install python3.4
+</pre></div>
+</div>
+</div>
+<div class="section" id="os-x">
+<h3>OS X<a class="headerlink" href="#os-x" title="Permalink to this headline">¶</a></h3>
+<p>Download and install the package for your system version from <a class="reference external" href="http://python.org/download/releases/3.4.0/">python.org</a> .</p>
+</div>
+<div class="section" id="other">
+<h3>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h3>
+<p>Use the system of packages adequate for your distribution. If there is no adequate system
+or you can not find python, you can install it using the sources on <a class="reference external" href="http://python.org/download/releases/3.4.0/">python.org</a>. website.
+A compiler and readline library will be required.</p>
+<p>Unofficially we assume that the users of less popular (but not worse!) distributions
+for sure will manage the task without any problem :).</p>
+</div>
+</div>
+<div class="section" id="tools">
+<span id="id1"></span><h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="windows-command-line">
+<h3>Windows command line<a class="headerlink" href="#windows-command-line" title="Permalink to this headline">¶</a></h3>
+<p>Most of the work we will perform using the command line. To activate the command line in Windows
+click on <tt class="docutils literal"><span class="pre">Start</span></tt>, and then <tt class="docutils literal"><span class="pre">Run...</span></tt>. In the open window type <tt class="docutils literal"><span class="pre">cmd</span></tt> and click <tt class="docutils literal"><span class="pre">OK</span></tt>.
+A new window will appear with a white text on a black background:</p>
+<p>On Windows 7 there is no &#8220;Run...&#8221; option and on Windows 8 there is no &#8220;Start&#8221; ;)</p>
+<p>Instead one can search for &#8220;Command Prompt&#8221; or &#8220;cmd&#8221; (through Start Menu on W7 or W8 omni-search), or use &#8220;Win Key&#8221;+R shortcut.</p>
+<div class="highlight-bat"><div class="highlight"><pre>Microsoft Windows [Version <span class="m">6</span>.<span class="m">1</span>.<span class="m">7601</span>]
+Copyright (c) <span class="m">2009</span> Microsoft Corporation. All rights reserved.
+
+
+C:\Users\Name&gt;
+</pre></div>
+</div>
+<p>Text may be different depending on the version of Windows you use.</p>
+<p><tt class="docutils literal"><span class="pre">C:\Users\Name&gt;</span></tt>  is a prompt. It informs us of the directory in which we are
+at the moment and waits for a command.
+Later during the workshop <tt class="docutils literal"><span class="pre">C:\Users\Name&gt;</span></tt> we will cut to the  <tt class="docutils literal"><span class="pre">~$</span></tt>, independently of your
+operating system (Windows, Linux, MacOS).</p>
+<p>Using the command line you can move around the content of the disc (in a similar way as by entering
+<tt class="docutils literal"><span class="pre">My</span> <span class="pre">Computer</span></tt>).  The following commands are to be used:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">dir</span></tt></dt>
+<dd>Displays the contents of the current directory. For example, if the <tt class="docutils literal"><span class="pre">prompt</span></tt>
+shows  <tt class="docutils literal"><span class="pre">C:\Users\Name</span></tt>, the <tt class="docutils literal"><span class="pre">dir</span></tt> command displays the contents of our home directory.</dd>
+<dt><tt class="docutils literal"><span class="pre">cd</span> <span class="pre">directory</span></tt></dt>
+<dd>Changes the current directory. For example, if you’re in the <tt class="docutils literal"><span class="pre">C:\Users\Name</span></tt>,
+by entering <tt class="docutils literal"><span class="pre">cd</span> <span class="pre">Documents</span></tt> you access the directory with your documents. If you execute the
+<tt class="docutils literal"><span class="pre">dir</span></tt> command you will see something familiar.
+The command  <tt class="docutils literal"><span class="pre">cd..</span></tt> will move you to the directory on an upper level.</dd>
+<dt><tt class="docutils literal"><span class="pre">mkdir</span> <span class="pre">directory</span></tt></dt>
+<dd>Creates a new directory.</dd>
+</dl>
+</div>
+<div class="section" id="virtual-environment">
+<h3>Virtual environment<a class="headerlink" href="#virtual-environment" title="Permalink to this headline">¶</a></h3>
+<p>Now we have to chose the directory for our virtual environment. The virtual environment will allow to
+isolate our work from other system’s parts. For example you can choose the user home directory.</p>
+<p>For Windows 7 the path to the home directory for the user  <tt class="docutils literal"><span class="pre">Ala</span></tt> will look like this:
+<tt class="docutils literal"><span class="pre">C:\Users\Ala\</span></tt> . You can select a different directory but it is important to remember where the
+file is saved. It must be easily accessible, because we will use it often.</p>
+<p>For example, if our home directory is <tt class="docutils literal"><span class="pre">C:\Users\lrekucki</span></tt>, the command line would look like this:</p>
+<div class="highlight-bat"><div class="highlight"><pre><span class="c">:: Windows</span>
+C:\Users\lrekucki<span class="p">&gt;</span> <span class="n">C</span>:\Python<span class="m">34</span>\python -m venv workshops
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># Linux or Mac</span>
+~<span class="nv">$ </span>python3.4 -m venv workshops
+</pre></div>
+</div>
+<p>In your home directory there will be created a directory <tt class="docutils literal"><span class="pre">workshops</span></tt> containing so called “virtual
+environment”.
+For now, it is important for us that after it is activated:</p>
+<div class="highlight-bat"><div class="highlight"><pre><span class="c">:: Windows</span>
+C:\Users\lrekucki<span class="p">&gt;</span> <span class="n">workshops</span>\Scripts\activate
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># Linux or Mac</span>
+~<span class="nv">$ </span><span class="nb">source </span>workshops/bin/activate
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">python</span></tt> command will run the correct version of Python, so we will not have to enter the full
+path at the beginning nor the version at the end.</p>
+<p>Ensure your terminal is well configured:</p>
+<div class="highlight-bat"><div class="highlight"><pre><span class="c">:: Windows</span>
+(workshops) C:\Users\lrekucki<span class="p">&gt;</span><span class="n">where</span> python
+C:\Users\lrekucki\workshops\Scripts\python.exe
+...
+
+(workshops) C:\Users\lrekucki<span class="p">&gt;</span><span class="n">where</span> pip
+C:\Users\lrekucki\workshops\Scripts\pip.exe
+...
+
+(workshops) C:\Users\lrekucki<span class="p">&gt;</span><span class="n">python</span> --version
+<span class="m">3</span>.<span class="m">4</span>.<span class="m">0</span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># Linux or Mac</span>
+<span class="o">(</span>workshops<span class="o">)</span> ~<span class="nv">$ </span>which python
+/home/lrekucki/workshops/bin/python
+<span class="o">(</span>workshops<span class="o">)</span> ~<span class="nv">$ </span>which pip
+/home/lrekucki/workshops/bin/pip
+...
+
+<span class="o">(</span>workshops<span class="o">)</span> ~<span class="nv">$ </span>python --version
+3.4.0
+</pre></div>
+</div>
+<p>If there is any problem after typing <tt class="docutils literal"><span class="pre">which</span> <span class="pre">pip</span></tt> (<tt class="docutils literal"><span class="pre">where</span> <span class="pre">pip</span></tt> on windows) there could be a need to reinstall pip:</p>
+<div class="highlight-sh"><div class="highlight"><pre>python -m pip uninstall pip
+python -m ensurepip
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
+<p>New virtual environment installation:</p>
+<div class="highlight-bat"><div class="highlight"><pre><span class="c">:: Windows</span>
+C:\Users\lrekucki<span class="p">&gt;</span> <span class="n">C</span>:\Python<span class="m">34</span>\python -m venv workshops
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># Linux or Mac</span>
+~<span class="nv">$ </span>python3.4 -m venv workshops
+</pre></div>
+</div>
+<p>Virtual environment activation:</p>
+<div class="highlight-bat"><div class="highlight"><pre><span class="c">:: Windows</span>
+C:\Users\lrekucki<span class="p">&gt;</span> <span class="n">workshops</span>\Scripts\activate
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># Linux or Mac</span>
+~<span class="nv">$ </span><span class="nb">source </span>workshops/bin/activate
+</pre></div>
+</div>
+<p>Just make sure that you use the proper Python version:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="o">(</span>workshops<span class="o">)</span> ~<span class="nv">$ </span>python --version
+3.4.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="ipython">
+<h3>IPython<a class="headerlink" href="#ipython" title="Permalink to this headline">¶</a></h3>
+<p>Eventually you can install <tt class="docutils literal"><span class="pre">IPython</span></tt>, which improves the look and comfort when using Python
+from the console.</p>
+<p><tt class="docutils literal"><span class="pre">IPython</span></tt> installation:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="o">(</span>workshops<span class="o">)</span> ~<span class="nv">$ </span>pip install ipython
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If <tt class="docutils literal"><span class="pre">pip</span></tt> command doesn&#8217;t work, then please use <tt class="docutils literal"><span class="pre">pip3</span></tt>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <a href="index.html" class="logo"><img class="logo" src="_static/logo.png" style="width: 200px; height: 169px; margin: -10px 0 10px 0"></a>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux-ubuntu-fedora-etc-or-mac">Linux (Ubuntu, Fedora, etc.) or Mac</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fedora">Fedora</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#os-x">OS X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows-command-line">Windows command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtual-environment">Virtual environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ipython">IPython</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="django_in_action.html">Introduction to Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="django_models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="django_views.html">Rendering websites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    &copy; Copyright Geek Girls Carrots and others.
+  </div>
+  
+  </body>
+</html>

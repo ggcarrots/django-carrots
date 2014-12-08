@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; Django Carrots</title>
+    
+    <link rel="stylesheet" href="_static/carrots.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0dev1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Django Carrots" href="index.html" />
+    <link rel="next" title="Rendering websites" href="django_views.html" />
+    <link rel="prev" title="Introduction to Django" href="django_in_action.html" /> 
+  </head>
+  <body>
+  
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="django_views.html" title="Rendering websites"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="django_in_action.html" title="Introduction to Django"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Django Carrots</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="models">
+<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<p>The next step is to define the model of our application. The model describes what and how can be
+stored in the database. From Python point of view that is a basic class, which inherits from <tt class="docutils literal"><span class="pre">models.Model</span></tt>.</p>
+<p>Our application will include questions and answers to them, so we&#8217;ll create two models: <tt class="docutils literal"><span class="pre">Poll</span></tt> and <tt class="docutils literal"><span class="pre">Choice</span></tt>. The model <tt class="docutils literal"><span class="pre">Poll</span></tt> contains the contents of questions and the date of publication. The model
+<tt class="docutils literal"><span class="pre">Choice</span></tt> contains a reference to the relevant questions, the content of responses and the number of
+votes.</p>
+<p>In the file <tt class="docutils literal"><span class="pre">polls/models.py</span></tt> we type:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">Poll</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">pub_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="s">&#39;date published&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Choice</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">poll</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Poll</span><span class="p">)</span>
+    <span class="n">choice_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">votes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By adding new models we have changed the database schema. We need to make the <tt class="docutils literal"><span class="pre">syncdb</span></tt> again so that
+new models could appear in the database.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">After executing the <tt class="docutils literal"><span class="pre">syncdb</span></tt>, you can not add new fields to the model. You can only add new models. There are ways to avoid it, but … it is a totally different story</p>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span class="o">(</span>workshops<span class="o">)</span> ~/carrots<span class="nv">$ </span>python manage.py syncdb
+Creating tables ...
+Creating table polls_poll
+Creating table polls_choice
+Installing custom SQL ...
+Installing indexes ...
+Installed <span class="m">0</span> object<span class="o">(</span>s<span class="o">)</span> from <span class="m">0</span> fixture<span class="o">(</span>s<span class="o">)</span>
+</pre></div>
+</div>
+<p>That’s it! However, probably we would like to be able to edit objects. The easiest way is to do it in
+the administrative interface.</p>
+<p>We create a file <tt class="docutils literal"><span class="pre">polls/admin.py</span></tt> and the file includes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span><span class="p">,</span> <span class="n">Choice</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Poll</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Choice</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By that <tt class="docutils literal"><span class="pre">Poll</span></tt> and <tt class="docutils literal"><span class="pre">Choice</span></tt> model will be available in administration panel.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Some changes require a server restart. In the console with the server activated push the buttons <tt class="docutils literal"><span class="pre">Ctrl+C</span></tt> and then <tt class="docutils literal"><span class="pre">pythonmanage.py</span> <span class="pre">runserver</span></tt> again.</p>
+</div>
+<p>When we go back to <a class="reference external" href="http://localhost:8000/admin/">http://localhost:8000/admin/</a> we will see that a new bookmark <tt class="docutils literal"><span class="pre">Polls</span></tt> appeared.</p>
+<div class="section" id="playing-in-the-console">
+<h2>Playing in the console<a class="headerlink" href="#playing-in-the-console" title="Permalink to this headline">¶</a></h2>
+<p>Django provides its own console. It is a simple Python console (where we can do exactly the same thing
+as when you activate the command <tt class="docutils literal"><span class="pre">python</span></tt>), but we can also use the tools and models of Django.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="o">(</span>workshops<span class="o">)</span> ~/carrots<span class="nv">$ </span>python manage.py shell
+</pre></div>
+</div>
+<p>When you are in the shell already:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span><span class="p">,</span> <span class="n">Choice</span>
+</pre></div>
+</div>
+<p>All the surveys in the database; and now there&#8217;s nothing here, so we get an empty list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<p>We create the first survey:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Poll</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s">&quot;What&#39;s new?&quot;</span><span class="p">,</span> <span class="n">pub_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Save the poll in the database. For this purpose, you always need to call <tt class="docutils literal"><span class="pre">save()</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Each object in the database is assigned to a unique ID:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">id</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">p</span></tt> is a simple object. We can read its attributes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">question</span>
+<span class="go">&quot;What&#39;s new?&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">pub_date</span>
+<span class="go">datetime.datetime(2014, 10, 18, 13, 0, 0, 775217)</span>
+</pre></div>
+</div>
+<p>After changing of attributes we again call <tt class="docutils literal"><span class="pre">save()</span></tt> to save changes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">question</span> <span class="o">=</span> <span class="s">&quot;What&#39;s up?&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">objects.all()</span></tt> returns a list of all the objects in the database:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="go">[&lt;Poll: Poll object&gt;]</span>
+</pre></div>
+</div>
+<p>Django models are classes and classes can define methods. A method is a function that gets an extra
+parameter <tt class="docutils literal"><span class="pre">self</span></tt>, which is the current object (e.g, the current questionnaire). Methods in classes (
+models) allow you to add additional behaviors or change the existing ones.</p>
+<p>One of the methods is the <tt class="docutils literal"><span class="pre">__str__()</span></tt>, which allows you to change the display of the model (a
+questionnaire or a question). <tt class="docutils literal"><span class="pre">&lt;Poll:</span> <span class="pre">Poll</span> <span class="pre">object&gt;</span></tt> doesn’t tell us much. Let&#8217;s fix that by adding the
+method <tt class="docutils literal"><span class="pre">__str__</span></tt> to <tt class="docutils literal"><span class="pre">Poll</span></tt> and <tt class="docutils literal"><span class="pre">Choice</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Poll</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c"># ...</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">question</span>
+
+<span class="k">class</span> <span class="nc">Choice</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c"># ...</span>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">choice_text</span>
+</pre></div>
+</div>
+<p>Django will use these methods for displaying objects, not just in the console, but also in the
+aforementioned administration interface.</p>
+<p>We can also add other methods.  In the <tt class="docutils literal"><span class="pre">carrots/polls/models.py</span></tt> append (comments <tt class="docutils literal"><span class="pre">#…</span></tt> in here
+mean the code located in the file):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="c"># ...</span>
+<span class="k">class</span> <span class="nc">Poll</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c"># ...</span>
+    <span class="k">def</span> <span class="nf">was_published_recently</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pub_date</span> <span class="o">&gt;=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that we had to add an <tt class="docutils literal"><span class="pre">import</span> <span class="pre">datetime</span></tt> to use objects representing the time in Python.</p>
+<p>Let’s save the changes and run intepreter with the command <tt class="docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span></tt> shell once again:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span><span class="p">,</span> <span class="n">Choice</span>
+
+<span class="go"># Let’s find out if our method __str__() works</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="go">[&lt;Poll: What&#39;s up?&gt;]</span>
+</pre></div>
+</div>
+<p>Up to the moment we have used the method <tt class="docutils literal"><span class="pre">all</span></tt> which allows you to get a list of all objects of a
+defined type (e.g. all questions). There are other methods that allow to find objects that meet
+certain conditions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Django provides a very easy search of the objects in the database. Let&#39;s look at</span>
+<span class="n">some</span> <span class="n">examples</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Poll</span><span class="p">:</span> <span class="n">What</span><span class="s">&#39;s up?&gt;]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">question__startswith</span><span class="o">=</span><span class="s">&#39;What&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Poll</span><span class="p">:</span> <span class="n">What</span><span class="s">&#39;s up?&gt;]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pub_date__year</span><span class="o">=</span><span class="mi">2014</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">Poll</span><span class="p">:</span> <span class="n">What</span><span class="s">&#39;s up?&gt;</span>
+
+<span class="c"># The attempt to retrieve a nonexistent object will make Python to protest strongly.</span>
+<span class="c"># But we have already got used to this.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+    <span class="o">...</span>
+<span class="n">DoesNotExist</span><span class="p">:</span> <span class="n">Poll</span> <span class="n">matching</span> <span class="n">query</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span><span class="o">.</span> <span class="n">Lookup</span> <span class="n">parameters</span> <span class="n">were</span> <span class="p">{</span><span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+
+<span class="c"># Let’s try our own method.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">was_published_recently</span><span class="p">()</span>
+<span class="bp">True</span>
+</pre></div>
+</div>
+<p>We can also have access to the answers (<tt class="docutils literal"><span class="pre">Choice</span></tt>) questions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># For now our questionnaire does not include any questions. Let&#39;s add some!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="p">[]</span>
+
+<span class="c"># .. for example three. We will use the method &quot;create&quot;. As a result, we get anobject &quot;Choice&quot;.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">choice_text</span><span class="o">=</span><span class="s">&#39;Not much&#39;</span><span class="p">,</span> <span class="n">votes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">Choice</span><span class="p">:</span> <span class="n">Not</span> <span class="n">much</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">choice_text</span><span class="o">=</span><span class="s">&#39;The sky&#39;</span><span class="p">,</span> <span class="n">votes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">Choice</span><span class="p">:</span> <span class="n">The</span> <span class="n">sky</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">choice_text</span><span class="o">=</span><span class="s">&#39;Just hacking again&#39;</span><span class="p">,</span> <span class="n">votes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c"># With the object &quot;Choice&quot; we can find the questionnaire  to which it belongs.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">poll</span>
+<span class="o">&lt;</span><span class="n">Poll</span><span class="p">:</span> <span class="n">What</span><span class="s">&#39;s up?&gt;</span>
+
+<span class="c"># ...Vice versa, all of the answers to the questionnaire</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Choice</span><span class="p">:</span> <span class="n">Not</span> <span class="n">much</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Choice</span><span class="p">:</span> <span class="n">The</span> <span class="n">sky</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Choice</span><span class="p">:</span> <span class="n">Just</span> <span class="n">hacking</span> <span class="n">again</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="mi">3</span>
+
+<span class="c"># And now something more difficult. What does this question do?</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Choice</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">poll__pub_date__year</span><span class="o">=</span><span class="mi">2014</span><span class="p">)</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Choice</span><span class="p">:</span> <span class="n">Not</span> <span class="n">much</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Choice</span><span class="p">:</span> <span class="n">The</span> <span class="n">sky</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Choice</span><span class="p">:</span> <span class="n">Just</span> <span class="n">hacking</span> <span class="n">again</span><span class="o">&gt;</span><span class="p">]</span>
+
+<span class="c"># Finally, let&#39;s remove one of the questions. Use method ``delete``.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">choice_set</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">choice_text__startswith</span><span class="o">=</span><span class="s">&#39;Just hacking&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We are creating models by defining classes inheriting from <tt class="docutils literal"><span class="pre">models.Model</span></tt> in <tt class="docutils literal"><span class="pre">polls/models.py</span> <span class="pre">file</span></tt>.</p>
+</li>
+<li><p class="first">After new model creation we have to remember to run python <tt class="docutils literal"><span class="pre">manage.py</span> <span class="pre">syncdb</span></tt>.</p>
+</li>
+<li><p class="first">To download every object in the model:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To download the object which satisfies the condition:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">question__startswith</span><span class="o">=</span><span class="s">&#39;What&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To download single object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <a href="index.html" class="logo"><img class="logo" src="_static/logo.png" style="width: 200px; height: 169px; margin: -10px 0 10px 0"></a>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="django_in_action.html">Introduction to Django</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#playing-in-the-console">Playing in the console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="django_views.html">Rendering websites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    &copy; Copyright Geek Girls Carrots and others.
+  </div>
+  
+  </body>
+</html>

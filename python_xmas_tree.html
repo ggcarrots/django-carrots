@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Christmas Tree &mdash; Django Carrots</title>
+    
+    <link rel="stylesheet" href="_static/carrots.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0dev1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Django Carrots" href="index.html" />
+    <link rel="next" title="Introduction to Django" href="django_in_action.html" />
+    <link rel="prev" title="Introduction to Python" href="python_quickstart.html" /> 
+  </head>
+  <body>
+  
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="django_in_action.html" title="Introduction to Django"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="python_quickstart.html" title="Introduction to Python"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Django Carrots</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="christmas-tree">
+<h1>Christmas Tree<a class="headerlink" href="#christmas-tree" title="Permalink to this headline">¶</a></h1>
+<p>Christmas are coming, Christmas presents time and, at least for Christmas trees :) in every shopping center. As an exercise, we will try to draw a tree in the
+console.</p>
+<p>We are going to start from the most basic version of this exercise so that we can later extend it to a more functional version. As an incentive, let’s make a half of the Christmas tree:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;**&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;***&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;**&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;***&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;****&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;**&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;***&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;****&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;*****&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;******&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>*
+**
+***
+*
+**
+***
+****
+*
+**
+***
+****
+*****
+******
+</pre></div>
+</div>
+<p>It doesn’t look bad, but we have had to do a lot of typing. What if we would like to have a smaller
+tree? Or a bigger one, composed of hundreds of elements to be printed on a page size A0? Definitely
+too much typing, even if we would do it by multiplying strings  (<tt class="docutils literal"><span class="pre">&quot;*&quot;</span> <span class="pre">*</span> <span class="pre">100</span></tt>, and so on.). Obviously it is
+such a repetitive activity that the program can do it for us.</p>
+<div class="section" id="lists-and-the-for-loop">
+<h2>Lists and the <tt class="docutils literal"><span class="pre">for</span></tt> loop<a class="headerlink" href="#lists-and-the-for-loop" title="Permalink to this headline">¶</a></h2>
+<p>Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere,
+imagine for a moment that we are the Santa Claus and we have to deliver Christmas gifts to everyone.</p>
+<p>As you know, Santa has a list of people who deserve gifts. The simplest approach to guarantee that no
+one is omitted, will be to check sequentially the list and deliver their gifts to one after another.
+Aside from the physical aspects of the task <a class="footnote-reference" href="#speed" id="id1">[1]</a>, the procedure of delivering the gifts could
+look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>Let the People List contain people who should receive gifts.
+
+For each person (known as the Person), which is on the list of people:
+    Provide a gift to Person
+</pre></div>
+</div>
+<p>Formatting of text above is not accidental. This is actually a disguised program in Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">gift_list</span> <span class="o">=</span> <span class="n">people_who_deserve_gifts</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">gift_list</span><span class="p">:</span>
+    <span class="n">deliver_gift</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Gift delivered to:&quot;</span><span class="p">,</span> <span class="n">person</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;All gifts delivered&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Most of the things should look familiar to you. We are calling here two functions:
+<tt class="xref py py-func docutils literal"><span class="pre">people_who_deserve_gifts()</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">deliver_gift()</span></tt> - their inner workings are only known by Santa
+Claus. The result of the first one can be named <cite>gift_list</cite>, so that we could refer to this value later (
+the same as described above).</p>
+<p>A new element is a loop itself, which consists of:</p>
+<ul class="simple">
+<li>the word <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a>,</li>
+<li>names we want to give to the next elements,</li>
+<li>the word <a class="reference external" href="http://docs.python.org/3/reference/expressions.html#in" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">in</span></tt></a>,</li>
+<li>the value of a list or the name that refers to it.</li>
+<li>the content indented of one level (the same way as in the case of <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#if" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">if</span></tt></a>).</li>
+</ul>
+<p>Still we haven’t said anything about lists, as they do not differ much from the intuitive concept of
+lists in the everyday life. We can easily think of lists in Python as we think of any other list (a
+shopping list, a guest list, exam results etc.) written on a paper and numbered.</p>
+<p>Let&#8217;s start with a blank page by starting a new python interpreter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<p>At any time we can check how many items we have saved on our list by using the function <a class="reference external" href="http://docs.python.org/3/library/functions.html#len" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt></a>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>Let&#8217;s make another list (which can have the same name or a different one):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Ala&quot;</span><span class="p">,</span> <span class="s">&quot;Ola&quot;</span><span class="p">,</span> <span class="s">&quot;Jacek&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>As in the case of tuples, consecutive elements of the list are separated by commas. Unlike tuples,
+brackets <tt class="docutils literal"><span class="pre">[</span></tt> and <tt class="docutils literal"><span class="pre">]</span></tt> are obligatory.</p>
+<p>To preview a particular position of an element on the list (remember that we count the positions from 0 ):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;Ala&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;Ola&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">&#39;Jacek&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr"> File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
+<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr"> File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
+<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+</pre></div>
+</div>
+<p>We can also use the loop <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a>,to execute instructions for every element of the list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">Name: Ala</span>
+<span class="go">Name: Ola</span>
+<span class="go">Name: Jacek</span>
+</pre></div>
+</div>
+<p>In the same way, we can print the first part of our half of the Christmas tree:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">*</span>
+<span class="go">**</span>
+<span class="go">***</span>
+</pre></div>
+</div>
+<p>Well, unfortunately we still have to type the entire contents of the list. This problem can be solved
+by the function <tt class="xref py py-func docutils literal"><span class="pre">range()</span></tt>. Check <tt class="docutils literal"><span class="pre">help(range)</span></tt>
+for the full story, or check these quick examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">[2, 3, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">[1, 3, 5, 7, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="go">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">[1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="go">[0, 1]</span>
+</pre></div>
+</div>
+<p>The <tt class="xref py py-func docutils literal"><span class="pre">range()</span></tt> function does not directly create a list, but it returns a generator. Generators
+generate the elements of a sequence one at a time, thereby avoiding to store the full sequence in memory.
+In order to obtain a list of the sequence, we use the function <tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt>.</p>
+<p>The <tt class="xref py py-func docutils literal"><span class="pre">range()</span></tt> function has three forms. The most basic and most used one creates a sequence from 0 to the
+given number. The other forms allow you to specify the start of the range and a step. The created
+sequence never includes the end of the specified range.</p>
+<p>Then let’s print a larger Christmas tree:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lst</span>
+<span class="go">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+<span class="go">*</span>
+<span class="go">**</span>
+<span class="go">***</span>
+<span class="go">****</span>
+<span class="go">*****</span>
+<span class="go">******</span>
+<span class="go">*******</span>
+<span class="go">********</span>
+<span class="go">*********</span>
+<span class="go">**********</span>
+</pre></div>
+</div>
+<p><tt class="xref py py-func docutils literal"><span class="pre">range()</span></tt> has saved a lot of our time. We can save even more if we omit naming the list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="s">&quot;#&quot;</span><span class="p">)</span>
+<span class="go">#</span>
+<span class="go">##</span>
+<span class="go">###</span>
+<span class="go">####</span>
+</pre></div>
+</div>
+<p>When you use the keyword <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a>, we do not have to use the
+<tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt>. <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a> can handle the generator given by <cite>range</cite>. Hence, we can simplify our program even more:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="s">&quot;#&quot;</span><span class="p">)</span>
+<span class="go">#</span>
+<span class="go">##</span>
+<span class="go">###</span>
+<span class="go">####</span>
+</pre></div>
+</div>
+<p>Nothing prevents us to put one loop inside another loop, so let&#8217;s do it! Just remember to use appropriate
+indentations and use different names e.g. <tt class="docutils literal"><span class="pre">i</span></tt> and <tt class="docutils literal"><span class="pre">j</span></tt> (or more associated with the list content):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="gp">... </span>       <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<span class="go">1 2</span>
+<span class="go">1 3</span>
+<span class="go">2 2</span>
+<span class="go">2 3</span>
+</pre></div>
+</div>
+<p>Using this technique, we can repeat our piece of the Christmas tree:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c"># repeats 3 times</span>
+<span class="gp">... </span>   <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="gp">... </span>       <span class="k">print</span><span class="p">(</span><span class="n">size</span><span class="o">*</span><span class="s">&quot;*&quot;</span><span class="p">)</span>
+<span class="go">*</span>
+<span class="go">**</span>
+<span class="go">***</span>
+<span class="go">*</span>
+<span class="go">**</span>
+<span class="go">***</span>
+<span class="go">*</span>
+<span class="go">**</span>
+<span class="go">***</span>
+</pre></div>
+</div>
+<p>Before proceeding to the next chapter, create <tt class="docutils literal"><span class="pre">xmas.py</span></tt> file with this program and try to modify it
+so that each of the three repetitions of the first (external) loop, the second one was executed one
+more time. This way, we should get our half of the Christmas tree described at the beginning of the
+chapter.</p>
+</div>
+<div class="section" id="defining-a-function">
+<h2>Defining a function<a class="headerlink" href="#defining-a-function" title="Permalink to this headline">¶</a></h2>
+<p>We have already seen how functions solve many of our problems. However, they do not solve all our problems
+– or at least not exactly the way we would like functions to solve them.
+Sometimes we must solve a problem on our own. If it occurs often in our program, it would be nice to
+have a function that solves it for us.</p>
+<p>We can do it like this in Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">print_triangle</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="n">size</span><span class="o">*</span><span class="s">&quot;*&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">print_triangle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">*</span>
+<span class="go">**</span>
+<span class="go">***</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">print_triangle</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">*</span>
+<span class="go">**</span>
+<span class="go">***</span>
+<span class="go">****</span>
+<span class="go">*****</span>
+</pre></div>
+</div>
+<p>Let&#8217;s have a closer look at the function <tt class="xref py py-func docutils literal"><span class="pre">print_triangle()</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">print_triangle</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">size</span><span class="o">*</span><span class="s">&quot;*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The definition of a function always starts with the word <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#def" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">def</span></tt></a>. Next, we give the name to our
+function. Between the parenthesizes, we indicate what names should be given to its arguments when the function is
+called. In the following lines we provide instructions to be executed when we use the function.</p>
+<p>As shown in the example, the instructions in the function may include names that we have given as the
+names of the arguments. The principle of operation is as follows - if you create a function with
+three arguments:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;FOO&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When you call this new function, you need to
+specify a value for each argument. This just like all the functions we called before:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">foo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Ala&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">FOO 1 Ala 9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">FOO 42 43 44</span>
+</pre></div>
+</div>
+<p>Note that the argument name is just a label. If we change the value attached to a label for another one, the other labels will not
+change – the same happens with the arguments:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">plus_five</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">43</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plus_five</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">48</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">43</span>
+</pre></div>
+</div>
+<p>It is as normal names (variables) we saw before. There are only two differences:</p>
+<p>Firstly, argument names of a function are defined at each function call, and Python attaches the corresponding
+argument value to to each of the argument names it just created.</p>
+<p>Secondly, the argument names are not available outside the function as they are created when the function is called
+and forgotten after the call. That is, if you try now to access
+the argument name <tt class="docutils literal"><span class="pre">n</span></tt> we defined in our <tt class="xref py py-func docutils literal"><span class="pre">plus_five()</span></tt> function outside of the function&#8217;s code,
+Python tells you it is not defined:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;n&#39; is not defined</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;n&#39; is not defined</span>
+</pre></div>
+</div>
+<p>That is, our prim and proper Python cleans up his room at the end of a function call :)</p>
+<div class="section" id="returning-values">
+<h3>Returning values<a class="headerlink" href="#returning-values" title="Permalink to this headline">¶</a></h3>
+<p>The functions which we have previously used had one important property that is missing in the
+functions created by ourselves - they gave back the value they computed
+instead of printing it immediately. To
+achieve the same effect, you need to use the instruction <a class="reference external" href="http://docs.python.org/3/reference/simple_stmts.html#return" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">return</span></tt></a>. This is a special
+instruction that can be found only in functions.</p>
+<p>We can now improve our BMI calculator by adding a function to compute BMI:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">calc_bmi</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">weight</span> <span class="o">/</span> <span class="n">height</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Finally, as a last example on functions, here is a solution to the problem from the end of the previous chapter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># xmas.py</span>
+
+<span class="k">def</span> <span class="nf">print_triangle</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">size</span> <span class="o">*</span> <span class="s">&quot;*&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">print_triangle</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>*
+**
+*
+**
+***
+*
+**
+***
+****
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="objects-and-classes">
+<h2>Objects and classes<a class="headerlink" href="#objects-and-classes" title="Permalink to this headline">¶</a></h2>
+<p>In fact, this chapter could be the subject of a series of workshops, but we will focus on the most
+basic things, which we will need while working with Django.</p>
+<div class="section" id="every-value-is-an-object">
+<h3>Every value is an object<a class="headerlink" href="#every-value-is-an-object" title="Permalink to this headline">¶</a></h3>
+<p>Everything that we have called a value until now can be called “an object” in the world of Python. We saw it in the
+example of integers, when <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> printed for us dozens of additional lines of information about
+<tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt>.</p>
+</div>
+<div class="section" id="every-object-has-a-class">
+<h3>Every object has a class<a class="headerlink" href="#every-object-has-a-class" title="Permalink to this headline">¶</a></h3>
+<p>The class is the type of an object.
+To know what is the class of an object, simply use the function <tt class="xref py py-func docutils literal"><span class="pre">type()</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&lt;class &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="go">&lt;class &#39;float&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s">&quot;spam eggs&quot;</span><span class="p">)</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">&lt;class &#39;tuple&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">([])</span>
+<span class="go">&lt;class &#39;list&#39;&gt;</span>
+</pre></div>
+</div>
+<p>When we use numbers in our program, we expect that it will behave like a number - we rely on our
+intuition.</p>
+<p>However, Python has to know exactly what it means to be an integer, e.g., what should happen when we
+sum up two numbers and what when we divide them. The class provides all this information and even more.</p>
+<p>By using <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> , check what the class <tt class="docutils literal"><span class="pre">str</span></tt> gives us. Here we give just a few interesting
+features:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">)</span>
+<span class="go">Help on method_descriptor:</span>
+
+<span class="go">lower(...)</span>
+<span class="go">    S.lower() -&gt; str</span>
+
+<span class="go">    Return a copy of the string S converted to lowercase.</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
+<span class="go">Help on method_descriptor:</span>
+
+<span class="go">upper(...)</span>
+<span class="go">    S.upper() -&gt; str</span>
+
+<span class="go">    Return a copy of S converted to uppercase.</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">ljust</span><span class="p">)</span>
+<span class="go">Help on method_descriptor:</span>
+
+<span class="go">ljust(...)</span>
+<span class="go">    S.ljust(width[, fillchar]) -&gt; str</span>
+
+<span class="go">    Return S left-justified in a Unicode string of length width. Padding is</span>
+<span class="go">    done using the specified fill character (default is a space).</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
+<span class="go">Help on method_descriptor:</span>
+
+<span class="go">center(...)</span>
+<span class="go">    S.center(width[, fillchar]) -&gt; str</span>
+
+<span class="go">    Return S centered in a string of length width. Padding is</span>
+<span class="go">    done using the specified fill character (default is a space)</span>
+</pre></div>
+</div>
+<p>All these are operations that each string can do. We can get to them by using dots and calling the
+function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Ala&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;ALA&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="go">&#39;ala&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="go">&#39;   Ala   &#39;</span>
+</pre></div>
+</div>
+<p>And one more important function of a class - it can create a new object of the type it describes. This is called
+called &#8220;an instance&#8221; of a class:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">()</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">()</span>
+<span class="go">&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">()</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">()</span>
+<span class="go">()</span>
+</pre></div>
+</div>
+<p>So an instance is a new, fresh, value of the type described by the class.</p>
+<p>In summary, we&#8217;ve looked at the classes <tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt>, <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>, <tt class="xref py py-func docutils literal"><span class="pre">tuple()</span></tt> and
+<tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt>. To find out from which class is the value (object), we use the function
+<tt class="xref py py-func docutils literal"><span class="pre">type()</span></tt>. To create an instance of a class (a new object), we call the class like call
+a function, by using parentheses <tt class="docutils literal"><span class="pre">()</span></tt>. For instance:
+<tt class="docutils literal"><span class="pre">int()</span></tt>.</p>
+</div>
+<div class="section" id="define-classes">
+<h3>Define classes<a class="headerlink" href="#define-classes" title="Permalink to this headline">¶</a></h3>
+<p>Just as you can create your own functions, you can create your own classes. In fact, a class is
+basically nothing but a group of functions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Woof! Woof!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Classes begin with the word <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">class</span></tt></a>, after which we give the name of the new class.
+The <tt class="docutils literal"><span class="pre">(object)</span></tt> indicates that our new type <tt class="docutils literal"><span class="pre">Dog</span></tt> is a specific sub-type of <tt class="docutils literal"><span class="pre">object</span></tt>.
+That is, instances of our class, i.e. values created from it, will be of the type <tt class="docutils literal"><span class="pre">Dog</span></tt> but
+also of the more general type <tt class="docutils literal"><span class="pre">object</span></tt>.</p>
+<p>Actually this is what we said that every value is an object.
+Indeed, each class is a specialization of <tt class="docutils literal"><span class="pre">object</span></tt> in Python. Hence, every value value has always <tt class="docutils literal"><span class="pre">object</span></tt>
+as most general type.</p>
+<p>However, it is worth to know that every function in the class must have at least one argument. Its
+value is an object from which we have called this function (that is to say the object placed before
+the dot):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">my_new_pet</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">my_new_pet</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>Woof! Woof!
+</pre></div>
+</div>
+<p>This argument can be named as you wish, but the
+<a class="reference external" href="http://legacy.python.org/dev/peps/pep-0008/">most widespread convention</a> is to call it <tt class="docutils literal"><span class="pre">self</span></tt>.</p>
+</div>
+<div class="section" id="attributes-of-objects">
+<h3>Attributes of objects<a class="headerlink" href="#attributes-of-objects" title="Permalink to this headline">¶</a></h3>
+<p>Besides methods (functions) the objects can also have attributes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">my_new_pet</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
+<span class="n">my_new_pet</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Snoopy&quot;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">my_new_pet</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>Snoopy
+</pre></div>
+</div>
+<p>Sometimes we want for every object of the class to have an attribute, such as every dog should have a
+name. We can add this requirement by defining a function with a special name <tt class="docutils literal"><span class="pre">__init__</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;Woof! </span><span class="si">%s</span><span class="s">! Woof!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,)</span>
+
+<span class="n">snoopy</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Snoopy&quot;</span><span class="p">)</span>
+<span class="n">pluto</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Pluto&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">snoopy</span><span class="o">.</span><span class="n">bark</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pluto</span><span class="o">.</span><span class="n">bark</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>Woof! Snoopy! Woof!
+Woof! Pluto! Woof!
+</pre></div>
+</div>
+<p>This <tt class="xref py py-func docutils literal"><span class="pre">__init__()</span></tt> function is called during the creation of an object.
+We call this special function a constructor, because it helps to build the object.</p>
+</div>
+</div>
+<div class="section" id="the-entire-christmas-tree">
+<h2>The Entire Christmas tree<a class="headerlink" href="#the-entire-christmas-tree" title="Permalink to this headline">¶</a></h2>
+<p>The previous chapter was fairly theoretical, so now we&#8217;ll use some of this new knowledge
+to complete our program to display a Christmas tree.</p>
+<p>For the record:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># xmas.py</span>
+
+<span class="k">def</span> <span class="nf">print_triangle</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">size</span> <span class="o">*</span> <span class="s">&quot;*&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">print_triangle</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>How can we improve the function <tt class="xref py py-func docutils literal"><span class="pre">print_triangle()</span></tt>, o display the entire segment of the Christmas
+tree, not just half of it?</p>
+<p>First of all, let’s determine how we want our result to look like for the exact value of argument  <tt class="docutils literal"><span class="pre">n</span></tt>.
+It seems to make sense that, <tt class="docutils literal"><span class="pre">n</span></tt> would be the width. Then for <tt class="docutils literal"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">5</span></tt>, we would expect:</p>
+<div class="highlight-python"><div class="highlight"><pre>  *
+ ***
+*****
+</pre></div>
+</div>
+<p>It is worth noting that each line consists of two asterix more than the previous one. So we can use
+the third argument <tt class="xref py py-func docutils literal"><span class="pre">range()</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">print_segment</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">size</span> <span class="o">*</span> <span class="s">&quot;*&quot;</span><span class="p">)</span>
+
+<span class="n">print_segment</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>*
+***
+*****
+</pre></div>
+</div>
+<p>It is not exactly what we have wanted, as it should be aligned in the centre. The method/function
+<tt class="xref py py-func docutils literal"><span class="pre">unicode.center()</span></tt> mentioned in the previous section, helps us:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">print_segment</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">((</span><span class="n">size</span> <span class="o">*</span> <span class="s">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+<span class="n">print_segment</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>  *
+ ***
+*****
+</pre></div>
+</div>
+<p>However, a new problem appears:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">print_segment</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">((</span><span class="n">size</span> <span class="o">*</span> <span class="s">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">print_segment</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre> *
+***
+  *
+ ***
+*****
+   *
+  ***
+ *****
+*******
+</pre></div>
+</div>
+<p>If we know in advance, what size the widest segment is, we can add an additional argument to
+<tt class="xref py py-func docutils literal"><span class="pre">print_segment()</span></tt>,  to align to the width. Combining all of the knowledge we have
+acquired up to the moment:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">print_segment</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">total_width</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">((</span><span class="n">size</span> <span class="o">*</span> <span class="s">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">total_width</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">print_tree</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">print_segment</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Choose size of the Christmas tree:&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">print_tree</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>Choose size of the Christmas tree:
+7
+   *
+  ***
+   *
+  ***
+ *****
+   *
+  ***
+ *****
+*******
+</pre></div>
+</div>
+<div class="section" id="task-for-volunteers">
+<h3>Task for volunteers<a class="headerlink" href="#task-for-volunteers" title="Permalink to this headline">¶</a></h3>
+<p>Create a class <tt class="docutils literal"><span class="pre">XMASTree</span></tt> which for a given size and upon calling the method <tt class="docutils literal"><span class="pre">draw</span></tt> will print the
+following pictures (sizes 1, 2 and 3):</p>
+<div class="highlight-python"><div class="highlight"><pre>  *
+ /|\
+/_|_\
+  |
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>   *
+  /|\
+ /_|_\
+  /|\
+ / | \
+/__|__\
+   |
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>    *
+   /|\
+  /_|_\
+   /|\
+  / | \
+ /__|__\
+   /|\
+  / | \
+ /  |  \
+/___|___\
+    |
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<table class="docutils footnote" frame="void" id="speed" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Assuming you have 24 hours to deliver one gift for everyone in the world,
+for one gift you have about 10 microseconds.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <a href="index.html" class="logo"><img class="logo" src="_static/logo.png" style="width: 200px; height: 169px; margin: -10px 0 10px 0"></a>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Christmas Tree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lists-and-the-for-loop">Lists and the <tt class="docutils literal"><span class="pre">for</span></tt> loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-a-function">Defining a function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#returning-values">Returning values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#objects-and-classes">Objects and classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#every-value-is-an-object">Every value is an object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#every-object-has-a-class">Every object has a class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#define-classes">Define classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attributes-of-objects">Attributes of objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-entire-christmas-tree">The Entire Christmas tree</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#task-for-volunteers">Task for volunteers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="django_in_action.html">Introduction to Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="django_models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="django_views.html">Rendering websites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    &copy; Copyright Geek Girls Carrots and others.
+  </div>
+  
+  </body>
+</html>

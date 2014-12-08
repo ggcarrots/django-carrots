@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Django Carrots Manual &mdash; Django Carrots</title>
+    
+    <link rel="stylesheet" href="_static/carrots.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0dev1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Django Carrots" href="#" />
+    <link rel="next" title="Installation" href="install.html" /> 
+  </head>
+  <body>
+  
+  
+  <div class=indexwrapper>
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="install.html" title="Installation"
+             accesskey="N">next</a></li>
+        <li><a href="#">Django Carrots</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="django-carrots-manual">
+<h1>Django Carrots Manual<a class="headerlink" href="#django-carrots-manual" title="Permalink to this headline">¶</a></h1>
+<p>We present you a manual to learn Python and Django. Even if you cannot program yet, by following the manual and doing all the exercises you should be able to create your own website.</p>
+<p>The manual is a part of the workshop Django Carrots organized by Geek Girls Carrots. You can use it to organize your own workshops or for self-study.
+If you decide to use the manual, we would be grateful if you contact us (however it is optional).</p>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#linux-ubuntu-fedora-etc-or-mac">Linux (Ubuntu, Fedora, etc.) or Mac</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#fedora">Fedora</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#os-x">OS X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#windows-command-line">Windows command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#virtual-environment">Virtual environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#ipython">IPython</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python_quickstart.html#introduce-yourself">Introduce yourself</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_quickstart.html#strings">Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_quickstart.html#printing-the-strings">Printing the strings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_quickstart.html#source-files">Source files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_quickstart.html#bmi-calculator">BMI calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_quickstart.html#names">Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_quickstart.html#calling-a-function">Calling a function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_quickstart.html#checking-conditions">Checking conditions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_quickstart.html#comparisons-true-or-false">Comparisons:  true or false?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_quickstart.html#indentations">Indentations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_quickstart.html#what-if-not">What if not?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_quickstart.html#strings-formatting">Strings formatting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_quickstart.html#tuples">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_quickstart.html#formatting">Formatting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_quickstart.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python_xmas_tree.html#lists-and-the-for-loop">Lists and the <tt class="docutils literal"><span class="pre">for</span></tt> loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_xmas_tree.html#defining-a-function">Defining a function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_xmas_tree.html#returning-values">Returning values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_xmas_tree.html#objects-and-classes">Objects and classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_xmas_tree.html#every-value-is-an-object">Every value is an object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_xmas_tree.html#every-object-has-a-class">Every object has a class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_xmas_tree.html#define-classes">Define classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_xmas_tree.html#attributes-of-objects">Attributes of objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_xmas_tree.html#the-entire-christmas-tree">The Entire Christmas tree</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_xmas_tree.html#task-for-volunteers">Task for volunteers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="django_in_action.html">Introduction to Django</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="django_in_action.html#what-is-django">What is Django?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django_in_action.html#creation-of-the-new-project">Creation of the new project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="django_in_action.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="django_in_action.html#beginning-of-project">Beginning of project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="django_in_action.html#structure-of-project">Structure of project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="django_in_action.html#settings-of-application">Settings of application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="django_in_action.html#database">Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="django_in_action.html#administration-interface">Administration interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="django_in_action.html#we-create-a-new-application-for-questionnaires">We create a new application for questionnaires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="django_in_action.html#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="django_models.html">Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="django_models.html#playing-in-the-console">Playing in the console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django_models.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="django_views.html">Rendering websites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="django_views.html#first-view">First view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django_views.html#view-that-really-does-something">View that really does something</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django_views.html#returning-404-code">Returning 404 code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django_views.html#form-management">Form management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <a href="#" class="logo"><img class="logo" src="_static/logo.png" style="width: 200px; height: 169px; margin: -10px 0 10px 0"></a>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="django_in_action.html">Introduction to Django</a></li>
+<li class="toctree-l1"><a class="reference internal" href="django_models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="django_views.html">Rendering websites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    &copy; Copyright Geek Girls Carrots and others.
+  </div>
+  
+  </div>
+  
+  </body>
+</html>
