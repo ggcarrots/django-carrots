@@ -27,3 +27,7 @@ Membership in its entirety. If you are being harassed, notice that someone else 
 have any other concerns, please act to intercede or ask for help from any member of Geek Girls
 Carrots, IRC Administrators, website Administrators, or Organizers/Representatives of any physical
 events put on under the auspices of Geek Girls Carrots.
+
+* Portions of this document have been adapted from the PyLadies Code of Conduct, which was in
+turn adapted from the Plone Foundation Code of Conduct; this particular Code of Conduct has been
+expanded and edited to suit the specific needs of Geek Girls Carrots.
