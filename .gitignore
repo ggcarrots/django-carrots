@@ -15,6 +15,7 @@ Desktop.ini
 ## Python
 #############
 
+venv
 __pycache__
 *.py[co]
 
@@ -51,3 +52,6 @@ pip-log.txt
 
 # Sphinx
 build
+
+# Pycharm
+.idea
