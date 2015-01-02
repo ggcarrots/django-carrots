@@ -1,0 +1,292 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Django Carrots 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-23 21:43+0100\n"
+"PO-Revision-Date: 2015-01-02 23:32+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: pl\n"
+
+#: ../../source/install.rst:3
+msgid "Installation"
+msgstr "Instalacja"
+
+#: ../../source/install.rst:5
+msgid ""
+"During our workshops we will need an interpreter of Python language, version "
+"3.4. Below there are some tips how to check if we already have the "
+"interpreter or how to install it together with tools."
+msgstr ""
+"Na potrzeby warsztatów będzie nam potrzebny interpreter języka Python w "
+"wersji 3.4. Poniżej znajdują się wskazówki, jak sprawdzić, czy już go mamy, "
+"ewentualnie zainstalować wraz z przydatnymi narzędziami."
+
+#: ../../source/install.rst:8
+msgid "Windows"
+msgstr "Windows"
+
+#: ../../source/install.rst:10
+msgid ""
+"You can download versions for Windows directly from `python.org`_. After "
+"downloading the file  ``*.msi`` open it and follow the instructions. It is "
+"important to remember the path of installation – the directory – we will "
+"need the information during the :ref:`installation of tools <tools>`."
+msgstr ""
+"Wersje dla Windows można pobrać bezpośrednio ze strony `python.org`_. Po "
+"ściągnięciu pliku ``*.msi`` uruchom go i postępuj zgonie z instrukcjami. "
+"Ważne jest, aby zapamiętać ścieżkę, którą wybraliśmy jako katalog "
+"instalacji, bo będzie nam ona potrzebna przy :ref:`instalacji narzędzi "
+"<tools>`."
+
+#: ../../source/install.rst:16
+msgid "Linux (Ubuntu, Fedora, etc.) or Mac"
+msgstr "Linux (Ubuntu, Fedora, etc.) lub Mac"
+
+#: ../../source/install.rst:18
+msgid ""
+"In order to check our version of Python, enter in the command line the "
+"following:"
+msgstr "Aby sprawdzić czy i jaką wersję mamy, wpisz w linii poleceń:"
+
+#: ../../source/install.rst:25
+msgid "If the python command is not available or the wrong version appears:"
+msgstr ""
+"Jeśli nie ma dostępnej komendy python lub wyświetla ona nieodpowiednią "
+"wersję:"
+
+#: ../../source/install.rst:28
+msgid "Ubuntu"
+msgstr "Ubuntu"
+
+#: ../../source/install.rst:30 ../../source/install.rst:37
+msgid "In the command line enter::"
+msgstr "W linii poleceń wpisz::"
+
+#: ../../source/install.rst:35
+msgid "Fedora"
+msgstr "Fedora"
+
+#: ../../source/install.rst:42
+msgid "OS X"
+msgstr "OS X"
+
+#: ../../source/install.rst:44
+msgid ""
+"Download and install the package for your system version from `python.org`_ ."
+msgstr ""
+"Ze strony `python.org`_ ściągnij i zainstaluj paczkę dla Twojej wersji "
+"systemu."
+
+#: ../../source/install.rst:48
+msgid "Other"
+msgstr "Inne"
+
+#: ../../source/install.rst:50
+msgid ""
+"Use the system of packages adequate for your distribution. If there is no "
+"adequate system or you can not find python, you can install it using the "
+"sources on `python.org`_. website. A compiler and readline library will be "
+"required."
+msgstr ""
+"Użyj systemu paczek odpowiedniego dla Twojej dystrybucji. Jeśli takiego nie "
+"ma lub nie możesz znaleźć Pythona, to możesz go zainstalować, używając "
+"źródeł za strony `python.org`_. Wymagany będzie kompilator i biblioteka "
+"readline."
+
+#: ../../source/install.rst:54
+msgid ""
+"Unofficially we assume that the users of less popular (but not worse!) "
+"distributions for sure will manage the task without any problem :)."
+msgstr ""
+"Po cichu zakładamy, że użytkownicy mniej popularnych (nie znaczy, że "
+"gorszych) dystrybucji Linuksa na pewno sobie poradzą z tym zadaniem :)."
+
+#: ../../source/install.rst:62
+msgid "Tools"
+msgstr "Narzędzia"
+
+#: ../../source/install.rst:65
+msgid "Windows command line"
+msgstr "Linia poleceń Windows"
+
+#: ../../source/install.rst:79
+msgid "Text may be different depending on the version of Windows you use."
+msgstr "Tekst może trochę się różnić w zależności od używanej wersji Windowsa."
+
+#: ../../source/install.rst:81
+msgid ""
+"``C:\\Users\\Name>``  is a prompt. It informs us of the directory in which "
+"we are at the moment and waits for a command. Later during the workshop ``C:"
+"\\Users\\Name>`` we will cut to the  ``~$``, independently of your operating "
+"system (Windows, Linux, MacOS)."
+msgstr ""
+"``C:\\Users\\Name>`` to tak zwany ``prompt``. Informuje nas o katalogu, w "
+"którym aktualnie się znajdujemy oraz czeka na podanie polecenia. W dalszej "
+"części warsztatów ``C:\\Users\\Name>`` będziemy skracać do  ``~$``, "
+"niezależnie od używanego systemu (Windows, Linux, MacOS)."
+
+#: ../../source/install.rst:92
+msgid "``dir``"
+msgstr "``dir``"
+
+#: ../../source/install.rst:91
+msgid ""
+"Displays the contents of the current directory. For example, if the "
+"``prompt`` shows  ``C:\\Users\\Name``, the ``dir`` command displays the "
+"contents of our home directory."
+msgstr ""
+"Wyświetla zawartość aktualnego katalogu. Przykładowo, jeżeli ``prompt`` "
+"pokazuje katalog ``C:\\Users\\Imie``,  to polecenie ``dir`` wyświetli "
+"zawartość naszego katalogu domowego."
+
+#: ../../source/install.rst:98
+msgid "``cd directory``"
+msgstr "``cd katalog``"
+
+#: ../../source/install.rst:95
+msgid ""
+"Changes the current directory. For example, if you’re in the ``C:\\Users"
+"\\Name``, by entering ``cd Documents`` you access the directory with your "
+"documents. If you execute the ``dir`` command you will see something "
+"familiar. The command  ``cd..`` will move you to the directory on an upper "
+"level."
+msgstr ""
+"Służy do zmiany aktualnego katalogu. Przykładowo, jeśli jesteśmy w katalogu "
+"``C:\\Users\\Name``, wykonanie ``cd Documents`` przeniesie nas do katalogu z "
+"naszymi dokumentami. Jeśli teraz wykonasz polecenie ``dir``, zobaczysz coś "
+"znajomego."
+
+#: ../../source/install.rst:102
+msgid "``mkdir directory``"
+msgstr "``mkdir katalog``"
+
+#: ../../source/install.rst:101
+msgid "Creates a new directory."
+msgstr " Tworzy nowy katalog."
+
+#: ../../source/install.rst:105
+msgid "Virtual environment"
+msgstr "Środowisko wirtualne"
+
+#: ../../source/install.rst:107
+msgid ""
+"Now we have to chose the directory for our virtual environment. The virtual "
+"environment will allow to isolate our work from other system’s parts. For "
+"example you can choose the user home directory."
+msgstr ""
+"Musimy wybrać teraz katalog dla naszego środowiska wirtualnego. Środowisko "
+"wirtualne pozwala odizolować naszą pracę od innych części systemu. Może być "
+"to przykładowo katalog domowy użytkownika."
+
+#: ../../source/install.rst:111
+msgid ""
+"For Windows 7 the path to the home directory for the user  ``Ala`` will look "
+"like this: ``C:\\Users\\Ala\\`` . You can select a different directory but "
+"it is important to remember where the file is saved. It must be easily "
+"accessible, because we will use it often."
+msgstr ""
+"W przypadku Windowsa 7 ścieżka do katalogu domowego dla użytkownika ``Ala`` "
+"będzie wyglądała tak: ``C:\\Users\\Ala\\``. Możesz wybrać też inny katalog, "
+"ale ważne jest, żeby zapamiętać, gdzie znajduje się nasze środowisko."
+
+#: ../../source/install.rst:116
+msgid ""
+"For example, if our home directory is ``C:\\Users\\lrekucki``, the command "
+"line would look like this:"
+msgstr ""
+"Na przykład, jeżeli naszym katalogiem domowym jest ``C:\\Users\\lrekucki``, "
+"linia poleceń będzie wyglądała tak:"
+
+#: ../../source/install.rst:129
+msgid ""
+"In your home directory there will be created a directory ``workshops`` "
+"containing so called “virtual environment”. For now, it is important for us "
+"that after it is activated:"
+msgstr ""
+"W Twoim katalogu domowym powstanie katalog ``warsztaty`` zawierający tzw. "
+"wirtualne środowisko. Na razie istotne jest dla nas tylko to, że po jego "
+"aktywacji:"
+
+#: ../../source/install.rst:143
+msgid ""
+"The ``python`` command will run the correct version of Python, so we will "
+"not have to enter the full path at the beginning nor the version at the end."
+msgstr ""
+"Komenda ``python`` będzie uruchamiała dobrą wersję Pythona, więc nie "
+"będziemy musieli ani dopisywać pełnej ścieżki na początku, ani wersji na "
+"końcu."
+
+#: ../../source/install.rst:147
+msgid "Ensure your terminal is well configured:"
+msgstr ""
+
+#: ../../source/install.rst:178
+msgid ""
+"If there is any problem after typing ``which pip`` (``where pip`` on "
+"windows) there could be a need to reinstall pip:"
+msgstr ""
+"W razie problemów po wpisaniu ``which pip`` może być potrzeba "
+"przeinstalowania pip:"
+
+#: ../../source/install.rst:186
+msgid "Summary"
+msgstr "Podsumowanie"
+
+#: ../../source/install.rst:188
+msgid "New virtual environment installation:"
+msgstr "Instalacja nowego środowiska wirtualnego:"
+
+#: ../../source/install.rst:200
+msgid "Virtual environment activation:"
+msgstr "Aktywacja środowiska wirtualnego:"
+
+#: ../../source/install.rst:212
+msgid "Just make sure that you use the proper Python version:"
+msgstr "Upewnij się, że używasz właściwej wersji pythona:"
+
+#: ../../source/install.rst:221
+msgid "IPython"
+msgstr "IPython"
+
+#: ../../source/install.rst:226
+msgid "``IPython`` installation:"
+msgstr "Zainstaluj ``IPython``:"
+
+#: ../../source/install.rst:235
+msgid "If ``pip`` command doesn't work, then please use ``pip3``."
+msgstr " Jeżeli polecenie ``pip`` nie działa, spróbuj ``pip3``."
+
+#: ../../source/install.rst:67
+msgid ""
+"Most of the work we will perform using the command line. To activate the "
+"command line in Windows press ``Win+R``. In the open window type ``cmd`` and "
+"click ``OK``. A new window will appear with a white text on a black "
+"background:"
+msgstr ""
+"Większość pracy będziemy wykonywać z linii poleceń. Aby uruchomić linię "
+"poleceń pod Windowsem wciśnij ``Win+R``. W otwartym oknie wpisz ``cmd`` i "
+"wciśnij ``OK``. Pojawi się nowe okno z białym tekstem na czarnym tle."
+
+#: ../../source/install.rst:86
+msgid ""
+"Using the command line you can move around the content of the disc (in a "
+"similar way as by entering ``My Computer``).  You can do that by entering "
+"commands and pressing ``Enter``. The following commands are to be used:"
+msgstr ""
+"Używając linii poleceń możesz poruszać się po zawartości dysku (podobnie jak "
+"przez ``Mój komputer``). Możesz to zrobić przez wpisanie polecenia i "
+"wciśnięcie ``Enter``. Oto kilka przydatnych poleceń:"
+
+#: ../../source/install.rst:223
+msgid ""
+"Optionally you can install ``IPython``, which improves the look and comfort "
+"when using Python from the console."
+msgstr ""
+"Opcjonalnie możesz zainstalować ``IPython``, który poprawi wygląd i komfort "
+"używania konsoli Pythona."

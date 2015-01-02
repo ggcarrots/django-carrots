@@ -154,15 +154,7 @@ msgid ""
 "``help(range)`` for the full story, or check these quick examples:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:159
-msgid ""
-"The :func:`range` function does not directly create a list, but it returns a"
-" generator. Generators generate the elements of a sequence one at a time, "
-"thereby avoiding to store the full sequence in memory. In order to obtain a "
-"list of the sequence, we use the function :func:`list`."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:163
+#: ../../source/python_xmas_tree.rst:169
 msgid ""
 "The :func:`range` function has three forms. The most basic and most used one"
 " creates a sequence from 0 to the given number. The other forms allow you to"
@@ -170,35 +162,35 @@ msgid ""
 "includes the end of the specified range."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:168
+#: ../../source/python_xmas_tree.rst:174
 msgid "Then let’s print a larger Christmas tree:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:186
+#: ../../source/python_xmas_tree.rst:192
 msgid ""
 ":func:`range` has saved a lot of our time. We can save even more if we omit "
 "naming the list:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:195
+#: ../../source/python_xmas_tree.rst:201
 msgid ""
 "When you use the keyword :keyword:`for`, we do not have to use the "
 ":func:`list`. :keyword:`for` can handle the generator given by `range`. "
 "Hence, we can simplify our program even more:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:208
+#: ../../source/python_xmas_tree.rst:214
 msgid ""
 "Nothing prevents us to put one loop inside another loop, so let's do it! "
 "Just remember to use appropriate indentations and use different names e.g. "
 "``i`` and ``j`` (or more associated with the list content):"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:219
+#: ../../source/python_xmas_tree.rst:231
 msgid "Using this technique, we can repeat our piece of the Christmas tree:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:234
+#: ../../source/python_xmas_tree.rst:246
 msgid ""
 "Before proceeding to the next chapter, create ``xmas.py`` file with this "
 "program and try to modify it so that each of the three repetitions of the "
@@ -207,11 +199,11 @@ msgid ""
 "the chapter."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:241
+#: ../../source/python_xmas_tree.rst:253
 msgid "Defining a function"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:243
+#: ../../source/python_xmas_tree.rst:255
 msgid ""
 "We have already seen how functions solve many of our problems. However, they"
 " do not solve all our problems – or at least not exactly the way we would "
@@ -220,15 +212,15 @@ msgid ""
 "solves it for us."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:248
+#: ../../source/python_xmas_tree.rst:260
 msgid "We can do it like this in Python:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:265
+#: ../../source/python_xmas_tree.rst:277
 msgid "Let's have a closer look at the function :func:`print_triangle`::"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:271
+#: ../../source/python_xmas_tree.rst:283
 msgid ""
 "The definition of a function always starts with the word :keyword:`def`. "
 "Next, we give the name to our function. Between the parenthesizes, we "
@@ -237,40 +229,40 @@ msgid ""
 "we use the function."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:276
+#: ../../source/python_xmas_tree.rst:288
 msgid ""
 "As shown in the example, the instructions in the function may include names "
 "that we have given as the names of the arguments. The principle of operation"
 " is as follows - if you create a function with three arguments:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:283
+#: ../../source/python_xmas_tree.rst:295
 msgid ""
 "When you call this new function, you need to specify a value for each "
 "argument. This just like all the functions we called before:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:292
+#: ../../source/python_xmas_tree.rst:304
 msgid ""
 "Note that the argument name is just a label. If we change the value attached"
 " to a label for another one, the other labels will not change – the same "
 "happens with the arguments:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:304
+#: ../../source/python_xmas_tree.rst:316
 msgid ""
 "It is as normal names (variables) we saw before. There are only two "
 "differences:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:306
+#: ../../source/python_xmas_tree.rst:318
 msgid ""
 "Firstly, argument names of a function are defined at each function call, and"
 " Python attaches the corresponding argument value to to each of the argument"
 " names it just created."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:309
+#: ../../source/python_xmas_tree.rst:321
 msgid ""
 "Secondly, the argument names are not available outside the function as they "
 "are created when the function is called and forgotten after the call. That "
@@ -279,17 +271,17 @@ msgid ""
 "it is not defined:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:319
+#: ../../source/python_xmas_tree.rst:331
 msgid ""
 "That is, our prim and proper Python cleans up his room at the end of a "
 "function call :)"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:323
+#: ../../source/python_xmas_tree.rst:335
 msgid "Returning values"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:325
+#: ../../source/python_xmas_tree.rst:337
 msgid ""
 "The functions which we have previously used had one important property that "
 "is missing in the functions created by ourselves - they gave back the value "
@@ -298,223 +290,257 @@ msgid ""
 " instruction that can be found only in functions."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:332
+#: ../../source/python_xmas_tree.rst:344
 msgid ""
 "We can now improve our BMI calculator by adding a function to compute BMI::"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:337
+#: ../../source/python_xmas_tree.rst:349
 msgid ""
 "Finally, as a last example on functions, here is a solution to the problem "
 "from the end of the previous chapter:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:366
-msgid "Objects and classes"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:368
-msgid ""
-"In fact, this chapter could be the subject of a series of workshops, but we "
-"will focus on the most basic things, which we will need while working with "
-"Django."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:372
-msgid "Every value is an object"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:374
-msgid ""
-"Everything that we have called a value until now can be called “an object” "
-"in the world of Python. We saw it in the example of integers, when "
-":func:`help` printed for us dozens of additional lines of information about "
-":func:`int`."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:379
-msgid "Every object has a class"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:381
-msgid ""
-"The class is the type of an object. To know what is the class of an object, "
-"simply use the function :func:`type`:"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:396
-msgid ""
-"When we use numbers in our program, we expect that it will behave like a "
-"number - we rely on our intuition."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:399
-msgid ""
-"However, Python has to know exactly what it means to be an integer, e.g., "
-"what should happen when we sum up two numbers and what when we divide them. "
-"The class provides all this information and even more."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:402
-msgid ""
-"By using :func:`help` , check what the class ``str`` gives us. Here we give "
-"just a few interesting features:"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:440
-msgid ""
-"All these are operations that each string can do. We can get to them by "
-"using dots and calling the function:"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:451
-msgid ""
-"And one more important function of a class - it can create a new object of "
-"the type it describes. This is called called \"an instance\" of a class:"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:463
-msgid ""
-"So an instance is a new, fresh, value of the type described by the class."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:465
-msgid ""
-"In summary, we've looked at the classes :func:`int`, :func:`str`, "
-":func:`tuple` and :func:`list`. To find out from which class is the value "
-"(object), we use the function :func:`type`. To create an instance of a class"
-" (a new object), we call the class like call a function, by using "
-"parentheses ``()``. For instance: ``int()``."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:472
-msgid "Define classes"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:474
-msgid ""
-"Just as you can create your own functions, you can create your own classes. "
-"In fact, a class is basically nothing but a group of functions:"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:491
-msgid ""
-"Classes begin with the word :keyword:`class`, after which we give the name "
-"of the new class. The ``(object)`` indicates that our new type ``Dog`` is a "
-"specific sub-type of ``object``. That is, instances of our class, i.e. "
-"values created from it, will be of the type ``Dog`` but also of the more "
-"general type ``object``."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:496
-msgid ""
-"Actually this is what we said that every value is an object. Indeed, each "
-"class is a specialization of ``object`` in Python. Hence, every value value "
-"has always ``object`` as most general type."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:500
-msgid ""
-"However, it is worth to know that every function in the class must have at "
-"least one argument. Its value is an object from which we have called this "
-"function (that is to say the object placed before the dot):"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:513
-msgid ""
-"This argument can be named as you wish, but the `most widespread convention "
-"<http://legacy.python.org/dev/peps/pep-0008/>`_ is to call it ``self``."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:518
-msgid "Attributes of objects"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:520
-msgid "Besides methods (functions) the objects can also have attributes:"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:533
-msgid ""
-"Sometimes we want for every object of the class to have an attribute, such "
-"as every dog should have a name. We can add this requirement by defining a "
-"function with a special name ``__init__``:"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:556
-msgid ""
-"This :func:`__init__` function is called during the creation of an object. "
-"We call this special function a constructor, because it helps to build the "
-"object."
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:561
+#: ../../source/python_xmas_tree.rst:378
 msgid "The Entire Christmas tree"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:563
+#: ../../source/python_xmas_tree.rst:380
 msgid ""
 "The previous chapter was fairly theoretical, so now we'll use some of this "
 "new knowledge to complete our program to display a Christmas tree."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:566
+#: ../../source/python_xmas_tree.rst:383
 msgid "For the record::"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:577
+#: ../../source/python_xmas_tree.rst:394
 msgid ""
 "How can we improve the function :func:`print_triangle`, o display the entire"
 " segment of the Christmas tree, not just half of it?"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:581
+#: ../../source/python_xmas_tree.rst:398
 msgid ""
 "First of all, let’s determine how we want our result to look like for the "
 "exact value of argument  ``n``. It seems to make sense that, ``n`` would be "
 "the width. Then for ``n = 5``, we would expect::"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:588
+#: ../../source/python_xmas_tree.rst:405
 msgid ""
 "It is worth noting that each line consists of two asterix more than the "
 "previous one. So we can use the third argument :func:`range`:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:605
+#: ../../source/python_xmas_tree.rst:422
 msgid ""
 "It is not exactly what we have wanted, as it should be aligned in the "
 "centre. The method/function :func:`unicode.center` mentioned in the previous"
 " section, helps us:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:624
+#: ../../source/python_xmas_tree.rst:441
 msgid "However, a new problem appears:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:648
+#: ../../source/python_xmas_tree.rst:465
 msgid ""
 "If we know in advance, what size the widest segment is, we can add an "
 "additional argument to :func:`print_segment`,  to align to the width. "
 "Combining all of the knowledge we have acquired up to the moment:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:688
+#: ../../source/python_xmas_tree.rst:505
 msgid "Task for volunteers"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:690
+#: ../../source/python_xmas_tree.rst:507
 msgid ""
 "Create a class ``XMASTree`` which for a given size and upon calling the "
 "method ``draw`` will print the following pictures (sizes 1, 2 and 3):"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:727
+#: ../../source/python_xmas_tree.rst:541
 msgid "Notes"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:728
+#: ../../source/python_xmas_tree.rst:542
 msgid ""
 "Assuming you have 24 hours to deliver one gift for everyone in the world, "
 "for one gift you have about 10 microseconds."
 msgstr ""
+
+#: ../../source/python_xmas_tree.rst:159
+msgid ""
+"The :func:`range` function does not directly create a list, but it returns a"
+" generator. Generators generate the elements of a sequence one at a time, "
+"thereby avoiding to store the full sequence in memory. In order to obtain a "
+"list of the sequence, we use the function :func:`list`. If we skip "
+":func:`list` call, the result will look like this:"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:227
+msgid ""
+"Here we have inner loop that iterates from 11 to 13 (remember, 14 is not "
+"included when using ``range``) and outer loop that iterates from 1 to 2. As "
+"you can see, items from inner loop are printed twice, for each iteration of "
+"outer loop."
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:514 ../../source/python_xmas_tree.rst:523
+#: ../../source/python_xmas_tree.rst:538
+msgid "::"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:512 ../../source/python_xmas_tree.rst:518
+#: ../../source/python_xmas_tree.rst:520 ../../source/python_xmas_tree.rst:527
+#: ../../source/python_xmas_tree.rst:529 ../../source/python_xmas_tree.rst:532
+msgid "/|\\"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:514 ../../source/python_xmas_tree.rst:519
+#: ../../source/python_xmas_tree.rst:528
+msgid "/_|_\\"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:521 ../../source/python_xmas_tree.rst:530
+#: ../../source/python_xmas_tree.rst:533
+msgid "/ | \\"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:523 ../../source/python_xmas_tree.rst:532
+msgid "/__|__\\"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:534
+msgid "/  |  \\"
+msgstr ""
+
+#: ../../source/python_xmas_tree.rst:538
+msgid "/___|___\\"
+msgstr ""
+
+#~ msgid ""
+#~ "The :func:`range` function does not directly create a list, but it returns a"
+#~ " generator. Generators generate the elements of a sequence one at a time, "
+#~ "thereby avoiding to store the full sequence in memory. In order to obtain a "
+#~ "list of the sequence, we use the function :func:`list`."
+#~ msgstr ""
+
+#~ msgid "Objects and classes"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In fact, this chapter could be the subject of a series of workshops, but we "
+#~ "will focus on the most basic things, which we will need while working with "
+#~ "Django."
+#~ msgstr ""
+
+#~ msgid "Every value is an object"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Everything that we have called a value until now can be called “an object” "
+#~ "in the world of Python. We saw it in the example of integers, when "
+#~ ":func:`help` printed for us dozens of additional lines of information about "
+#~ ":func:`int`."
+#~ msgstr ""
+
+#~ msgid "Every object has a class"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The class is the type of an object. To know what is the class of an object, "
+#~ "simply use the function :func:`type`:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When we use numbers in our program, we expect that it will behave like a "
+#~ "number - we rely on our intuition."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "However, Python has to know exactly what it means to be an integer, e.g., "
+#~ "what should happen when we sum up two numbers and what when we divide them. "
+#~ "The class provides all this information and even more."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "By using :func:`help` , check what the class ``str`` gives us. Here we give "
+#~ "just a few interesting features:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "All these are operations that each string can do. We can get to them by "
+#~ "using dots and calling the function:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "And one more important function of a class - it can create a new object of "
+#~ "the type it describes. This is called called \"an instance\" of a class:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "So an instance is a new, fresh, value of the type described by the class."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In summary, we've looked at the classes :func:`int`, :func:`str`, "
+#~ ":func:`tuple` and :func:`list`. To find out from which class is the value "
+#~ "(object), we use the function :func:`type`. To create an instance of a class"
+#~ " (a new object), we call the class like call a function, by using "
+#~ "parentheses ``()``. For instance: ``int()``."
+#~ msgstr ""
+
+#~ msgid "Define classes"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Just as you can create your own functions, you can create your own classes. "
+#~ "In fact, a class is basically nothing but a group of functions:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Classes begin with the word :keyword:`class`, after which we give the name "
+#~ "of the new class. The ``(object)`` indicates that our new type ``Dog`` is a "
+#~ "specific sub-type of ``object``. That is, instances of our class, i.e. "
+#~ "values created from it, will be of the type ``Dog`` but also of the more "
+#~ "general type ``object``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Actually this is what we said that every value is an object. Indeed, each "
+#~ "class is a specialization of ``object`` in Python. Hence, every value value "
+#~ "has always ``object`` as most general type."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "However, it is worth to know that every function in the class must have at "
+#~ "least one argument. Its value is an object from which we have called this "
+#~ "function (that is to say the object placed before the dot):"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This argument can be named as you wish, but the `most widespread convention "
+#~ "<http://legacy.python.org/dev/peps/pep-0008/>`_ is to call it ``self``."
+#~ msgstr ""
+
+#~ msgid "Attributes of objects"
+#~ msgstr ""
+
+#~ msgid "Besides methods (functions) the objects can also have attributes:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Sometimes we want for every object of the class to have an attribute, such "
+#~ "as every dog should have a name. We can add this requirement by defining a "
+#~ "function with a special name ``__init__``:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This :func:`__init__` function is called during the creation of an object. "
+#~ "We call this special function a constructor, because it helps to build the "
+#~ "object."
+#~ msgstr ""
