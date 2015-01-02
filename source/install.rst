@@ -65,13 +65,8 @@ Windows command line
 --------------------
 
 Most of the work we will perform using the command line. To activate the command line in Windows
-click on ``Start``, and then ``Run...``. In the open window type ``cmd`` and click ``OK``.
+press ``Win+R``. In the open window type ``cmd`` and click ``OK``.
 A new window will appear with a white text on a black background:
-
-On Windows 7 there is no "Run..." option and on Windows 8 there is no "Start" ;)
-
-Instead one can search for "Command Prompt" or "cmd" (through Start Menu on W7 or W8 omni-search), or use "Win Key"+R shortcut.
-
 
 .. code-block:: bat
 
@@ -89,7 +84,8 @@ Later during the workshop ``C:\Users\Name>`` we will cut to the  ``~$``, indepen
 operating system (Windows, Linux, MacOS).
 
 Using the command line you can move around the content of the disc (in a similar way as by entering
-``My Computer``).  The following commands are to be used:
+``My Computer``).  You can do that by entering commands and pressing ``Enter``.
+The following commands are to be used:
 
 ``dir``
     Displays the contents of the current directory. For example, if the ``prompt``
@@ -222,7 +218,7 @@ Just make sure that you use the proper Python version:
 IPython
 -------
 
-Eventually you can install ``IPython``, which improves the look and comfort when using Python
+Optionally you can install ``IPython``, which improves the look and comfort when using Python
 from the console.
 
 ``IPython`` installation:

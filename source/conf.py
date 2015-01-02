@@ -339,5 +339,5 @@ __builtins__['input'] = __replaced_input()
 """
 
 
-locale_dirs = ['locale/']   # path is example but recommended.
-gettext_compact = False     # optional.
+locale_dirs = ['locale/']
+gettext_compact = True

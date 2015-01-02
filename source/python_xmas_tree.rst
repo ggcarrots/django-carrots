@@ -60,7 +60,7 @@ look like this::
     Let the People List contain people who should receive gifts.
 
     For each person (known as the Person), which is on the list of people:
-        Provide a gift to Person
+        Provide a gift to the Person
 
 Formatting of text above is not accidental. This is actually a disguised program in Python::
 
@@ -158,7 +158,13 @@ for the full story, or check these quick examples:
 
 The :func:`range` function does not directly create a list, but it returns a generator. Generators
 generate the elements of a sequence one at a time, thereby avoiding to store the full sequence in memory. 
-In order to obtain a list of the sequence, we use the function :func:`list`.
+In order to obtain a list of the sequence, we use the function :func:`list`. If we skip :func:`list` call,
+the result will look like this:
+
+
+    >>> range(1, 4)
+    range(1, 4)
+
 
 The :func:`range` function has three forms. The most basic and most used one creates a sequence from 0 to the
 given number. The other forms allow you to specify the start of the range and a step. The created
@@ -209,12 +215,18 @@ Nothing prevents us to put one loop inside another loop, so let's do it! Just re
 indentations and use different names e.g. ``i`` and ``j`` (or more associated with the list content):
 
     >>> for i in range(1, 3):
-    ...    for j in range(2, 4):
+    ...    for j in range(11, 14):
     ...        print(i, j)
-    1 2
-    1 3
-    2 2
-    2 3
+    1 11
+    1 12
+    1 13
+    2 11
+    2 12
+    2 13
+
+Here we have inner loop that iterates from 11 to 13 (remember, 14 is not included when using ``range``) and
+outer loop that iterates from 1 to 2. As you can see, items from inner loop are printed twice, for each iteration
+of outer loop.
 
 Using this technique, we can repeat our piece of the Christmas tree:
 
@@ -362,201 +374,6 @@ Finally, as a last example on functions, here is a solution to the problem from 
     ****
 
 
-Objects and classes
-===================
-
-In fact, this chapter could be the subject of a series of workshops, but we will focus on the most
-basic things, which we will need while working with Django.
-
-Every value is an object
-------------------------
-
-Everything that we have called a value until now can be called “an object” in the world of Python. We saw it in the
-example of integers, when :func:`help` printed for us dozens of additional lines of information about 
-:func:`int`.
-
-Every object has a class
-------------------------
-
-The class is the type of an object.
-To know what is the class of an object, simply use the function :func:`type`:
-
-    >>> type(2)
-    <class 'int'>
-    >>> type(2.0)
-    <class 'float'>
-    >>> type("spam eggs")
-    <class 'str'>
-    >>> x = 1, 2
-    >>> type(x)
-    <class 'tuple'>
-    >>> type([])
-    <class 'list'>
-
-When we use numbers in our program, we expect that it will behave like a number - we rely on our
-intuition.
-
-However, Python has to know exactly what it means to be an integer, e.g., what should happen when we
-sum up two numbers and what when we divide them. The class provides all this information and even more.
-
-By using :func:`help` , check what the class ``str`` gives us. Here we give just a few interesting
-features:
-
-    >>> help(str.lower)
-    Help on method_descriptor:
-    <BLANKLINE>
-    lower(...)
-        S.lower() -> str
-    <BLANKLINE>
-        Return a copy of the string S converted to lowercase.
-    <BLANKLINE>
-    >>> help(str.upper)
-    Help on method_descriptor:
-    <BLANKLINE>
-    upper(...)
-        S.upper() -> str
-    <BLANKLINE>
-        Return a copy of S converted to uppercase.
-    <BLANKLINE>
-    >>> help(str.ljust)
-    Help on method_descriptor:
-    <BLANKLINE>
-    ljust(...)
-        S.ljust(width[, fillchar]) -> str
-    <BLANKLINE>
-        Return S left-justified in a Unicode string of length width. Padding is
-        done using the specified fill character (default is a space).
-    <BLANKLINE>
-    >>> help(str.center)
-    Help on method_descriptor:
-    <BLANKLINE>
-    center(...)
-        S.center(width[, fillchar]) -> str
-    <BLANKLINE>
-        Return S centered in a string of length width. Padding is
-        done using the specified fill character (default is a space)
-    <BLANKLINE>
-
-All these are operations that each string can do. We can get to them by using dots and calling the
-function:
-
-    >>> x = "Ala"
-    >>> x.upper()
-    'ALA'
-    >>> x.lower()
-    'ala'
-    >>> x.center(9)
-    '   Ala   '
-
-And one more important function of a class - it can create a new object of the type it describes. This is called
-called "an instance" of a class:
-
-    >>> int()
-    0
-    >>> str()
-    ''
-    >>> list()
-    []
-    >>> tuple()
-    ()
-
-So an instance is a new, fresh, value of the type described by the class.
-
-In summary, we've looked at the classes :func:`int`, :func:`str`, :func:`tuple` and
-:func:`list`. To find out from which class is the value (object), we use the function
-:func:`type`. To create an instance of a class (a new object), we call the class like call
-a function, by using parentheses ``()``. For instance: 
-``int()``.
-
-Define classes
---------------
-
-Just as you can create your own functions, you can create your own classes. In fact, a class is
-basically nothing but a group of functions:
-
-.. testsetup:: simple-class
-
-    class Dog(object):
-
-        def bark(self):
-            print("Woof! Woof!")
-
-::
-
-    class Dog(object):
-
-        def bark(self):
-            print("Woof! Woof!")
-
-Classes begin with the word :keyword:`class`, after which we give the name of the new class. 
-The ``(object)`` indicates that our new type ``Dog`` is a specific sub-type of ``object``.
-That is, instances of our class, i.e. values created from it, will be of the type ``Dog`` but
-also of the more general type ``object``.
-
-Actually this is what we said that every value is an object.
-Indeed, each class is a specialization of ``object`` in Python. Hence, every value value has always ``object``
-as most general type.
-
-However, it is worth to know that every function in the class must have at least one argument. Its
-value is an object from which we have called this function (that is to say the object placed before
-the dot):
-
-.. testcode:: simple-class
-
-    my_new_pet = Dog()
-    my_new_pet.bark()
-
-.. testoutput:: simple-class
-
-    Woof! Woof!
-
-This argument can be named as you wish, but the 
-`most widespread convention <http://legacy.python.org/dev/peps/pep-0008/>`_ is to call it ``self``.
-
-
-Attributes of objects
----------------------
-
-Besides methods (functions) the objects can also have attributes:
-
-.. testcode:: simple-class
-
-    my_new_pet = Dog()
-    my_new_pet.name = "Snoopy"
-
-    print(my_new_pet.name)
-
-.. testoutput:: simple-class
-
-    Snoopy
-
-Sometimes we want for every object of the class to have an attribute, such as every dog should have a
-name. We can add this requirement by defining a function with a special name ``__init__``:
-
-.. testcode:: init-class
-
-    class Dog(object):
-
-        def __init__(self, name):
-            self.name = name
-
-        def bark(self):
-            return "Woof! %s! Woof!" % (self.name,)
-
-    snoopy = Dog("Snoopy")
-    pluto = Dog("Pluto")
-    print(snoopy.bark())
-    print(pluto.bark())
-
-.. testoutput:: init-class
-
-    Woof! Snoopy! Woof!
-    Woof! Pluto! Woof!
-
-This :func:`__init__` function is called during the creation of an object.
-We call this special function a constructor, because it helps to build the object.
-
-
 The Entire Christmas tree
 =========================
 
@@ -691,14 +508,12 @@ Create a class ``XMASTree`` which for a given size and upon calling the method `
 following pictures (sizes 1, 2 and 3):
 
 ::
-
           *
          /|\
         /_|_\
           |
 
 ::
-
            *
           /|\
          /_|_\
@@ -708,7 +523,6 @@ following pictures (sizes 1, 2 and 3):
            |
 
 ::
-
             *
            /|\
           /_|_\
