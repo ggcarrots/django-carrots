@@ -152,7 +152,7 @@ The formula for its calculation is as follows::
 
     BMI = (mass (kg)) / (height (m)) squared
 
-We can divide, exponentate, and print out numbers. So let's create a new file called ``bmi.py``
+We already know how to divide, exponentate, and print out numbers. So let's create a new file called ``bmi.py``
 and try to write a program that calculates our BMI:
 
 
@@ -247,7 +247,7 @@ a new value, but the value assigned to ``y`` remains unchanged:
     In most languages, the operation  ``y = x`` would create a copy of the ``x``
     and would introduce it in the variable ``y``.
 
-    In Python nothing is duplicated. ``y`` becomes only an alternative name for the same value.
+    In Python nothing is silently copied. ``y`` becomes only an alternative name for the same value.
     If you change this value, both the ``x``, and ``y`` will show the same thing.
 
     In our example we did not change the value of the number ``42``,
@@ -433,12 +433,12 @@ Let’s test :func:`int` and :func:`float`:
 Before we use the newly learnt functions in our program, let’s make a plan of how it should work:
 
 1. Ask the user to enter the height.
-2. Load the string from the user and save it under the name “height”.
-3. Replace the string with the number with a fraction.
+2. Load the string from the user and save it under the name ``height``.
+3. Change the string with the number to a number with a fraction.
 4. Ask the user to enter the weight.
-5. Load the string from the user and save it under the name of “weight”.
-6. Replace the string with the number with a fraction.
-7. Using the remembered values calculate BMI and save as bmi.
+5. Load the string from the user and save it under the name of ``weight``.
+6. Change the string with the number to a number with a fraction.
+7. Using the remembered values calculate BMI and save as ``bmi``.
 8. Print the calculated BMI.
 
 
