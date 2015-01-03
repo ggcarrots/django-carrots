@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: Django Carrots 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-23 21:43+0100\n"
-"PO-Revision-Date: 2015-01-03 18:42+0100\n"
+"PO-Revision-Date: 2015-01-03 18:57+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
 "Language: pl\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: ../../source/python_quickstart.rst:3
 msgid "Introduction to Python"
@@ -46,6 +46,8 @@ msgid ""
 "We will not type signs ``>>>`` (the same as with ``~$``) - the interpreter "
 "will do that for us."
 msgstr ""
+"Znaków ``>>>`` (podobnie jak ``~$``) nie wpisujemy. Interpreter wpisze je za "
+"nas."
 
 #: ../../source/python_quickstart.rst:23
 msgid "Now we can count something, for example: ``2 + 2``:"
@@ -130,6 +132,9 @@ msgid ""
 ":func:`print` command has many more applications as it can write almost "
 "everything. For now, the only other kind of values we know are numbers:"
 msgstr ""
+"Funkcja :func:`print` ma też dużo więcej zastosowań, bo potrafi wypisać "
+"niemalże wszystko. Na razie jedynym innym znanym nam rodzajem wartości są "
+"liczby:"
 
 #: ../../source/python_quickstart.rst:107
 msgid ""
@@ -201,12 +206,6 @@ msgid ""
 msgstr ""
 "Teraz napiszemy prosty program do kalkulacji `BMI` (`Body Mass Index`_). "
 "Formuła do jego obliczenia jest następująca:"
-
-#: ../../source/python_quickstart.rst:155
-msgid ""
-"We can divide, exponentate, and print out numbers. So let's create a new "
-"file called ``bmi.py`` and try to write a program that calculates our BMI:"
-msgstr ""
 
 #: ../../source/python_quickstart.rst:163
 msgid "Run our new program with::"
@@ -317,13 +316,6 @@ msgstr ""
 "nazwy w Pythonie nie działają tak samo jak zmienne. W większości języków "
 "operacja ``y = x`` stworzyłaby kopię wartości ``x`` i wstawiła ją do "
 "zmiennej ``y``."
-
-#: ../../source/python_quickstart.rst:250
-msgid ""
-"In Python nothing is duplicated. ``y`` becomes only an alternative name for "
-"the same value. If you change this value, both the ``x``, and ``y`` will "
-"show the same thing."
-msgstr ""
 
 #: ../../source/python_quickstart.rst:253
 msgid ""
@@ -505,27 +497,9 @@ msgstr ""
 msgid "Ask the user to enter the height."
 msgstr "Poproś użytkownika o podanie wzrostu"
 
-#: ../../source/python_quickstart.rst:436
-msgid "Load the string from the user and save it under the name “height”."
-msgstr "Wczytaj od użytkownika napis i zapamiętaj go pod nazwą ``height``"
-
-#: ../../source/python_quickstart.rst:437
-#: ../../source/python_quickstart.rst:440
-msgid "Replace the string with the number with a fraction."
-msgstr "Zamień napis na liczbę z ułamkiem"
-
 #: ../../source/python_quickstart.rst:438
 msgid "Ask the user to enter the weight."
 msgstr "Poproś użytkownika o podanie wagi"
-
-#: ../../source/python_quickstart.rst:439
-msgid "Load the string from the user and save it under the name of “weight”."
-msgstr "Wczytaj od użytkownika napis i zapamiętaj pod nazwą ``weight``"
-
-#: ../../source/python_quickstart.rst:441
-msgid "Using the remembered values calculate BMI and save as bmi."
-msgstr ""
-"Korzystając z zapamiętanych wartości, oblicz BMI i zapamiętaj jako ``bmi``"
 
 #: ../../source/python_quickstart.rst:442
 msgid "Print the calculated BMI."
@@ -943,6 +917,9 @@ msgid ""
 "to use the instruction :keyword:`if` (also in connection with :keyword:"
 "`else` and :keyword:`elif`)."
 msgstr ""
+"Wiemy też, że wcięcia mogą mieć znaczenie, szczególnie gdy chcemy użyć "
+"instrukcji :keyword:`if` (również w połączeniu z :keyword:`else` i :keyword:"
+"`elif`)."
 
 #: ../../source/python_quickstart.rst:882
 msgid ""
@@ -950,9 +927,73 @@ msgid ""
 "asks the user to answer a few simple questions, performs calculations and "
 "presents results in the form which is useful for the user."
 msgstr ""
+"Umiemy stworzyć plik z programem i go uruchomić. Nasz program prosi "
+"użytkownika, aby odpowiedział na kilka prostych pytań, wykonuje obliczenia i "
+"prezentuje wynik w użytecznej dla niego formie."
 
 #: ../../source/python_quickstart.rst:886
 msgid ""
 "This is quite a lot like for a first program. We still have a lot of work, "
 "anyhow you can be proud of what we have done so far!"
 msgstr ""
+"Całkiem sporo jak na nasz pierwszy program. Przed nami jeszcze dużo pracy, "
+"ale jak najbardziej możemy być dumni z tego co udało nam się zrobić do tej "
+"pory."
+
+#: ../../source/python_quickstart.rst:155
+msgid ""
+"We already know how to divide, exponentate, and print out numbers. So let's "
+"create a new file called ``bmi.py`` and try to write a program that "
+"calculates our BMI:"
+msgstr ""
+"Umiemy dzielić, potęgować i wypisywać liczby. Stwórzmy więc nowy plik o "
+"nazwie ``bmi.py`` i spróbujmy napisać program obliczający nasze BMI:"
+
+#: ../../source/python_quickstart.rst:250
+msgid ""
+"In Python nothing is silently copied. ``y`` becomes only an alternative name "
+"for the same value. If you change this value, both the ``x``, and ``y`` will "
+"show the same thing."
+msgstr ""
+"W Pythonie nic nie jest po kryjomu kopiowane. ``y`` staje się jedynie "
+"alternatywną nazwą dla tej samej wartości. Jeśli zmienimy tę wartość, tak "
+"``x``, jak i ``y`` pokażą to samo."
+
+#: ../../source/python_quickstart.rst:436
+msgid "Load the string from the user and save it under the name ``height``."
+msgstr "Wczytaj od użytkownika napis i zapamiętaj go pod nazwą ``height``"
+
+#: ../../source/python_quickstart.rst:437
+#: ../../source/python_quickstart.rst:440
+msgid "Change the string with the number to a number with a fraction."
+msgstr "Zamień napis na liczbę z ułamkiem"
+
+#: ../../source/python_quickstart.rst:439
+msgid "Load the string from the user and save it under the name of ``weight``."
+msgstr "Wczytaj od użytkownika napis i zapamiętaj pod nazwą ``weight``"
+
+#: ../../source/python_quickstart.rst:441
+msgid "Using the remembered values calculate BMI and save as ``bmi``."
+msgstr ""
+"Korzystając z zapamiętanych wartości, oblicz BMI i zapamiętaj jako ``bmi``"
+
+#~ msgid ""
+#~ "We can divide, exponentate, and print out numbers. So let's create a new "
+#~ "file called ``bmi.py`` and try to write a program that calculates our BMI:"
+#~ msgstr ""
+#~ "Umiemy dzielić, potęgować i wypisywać liczby. Stwórzmy więc nowy plik o "
+#~ "nazwie ``bmi.py`` i spróbujmy napisać program obliczający nasze BMI:"
+
+#~ msgid "Load the string from the user and save it under the name “height”."
+#~ msgstr "Wczytaj od użytkownika napis i zapamiętaj go pod nazwą ``height``"
+
+#~ msgid "Replace the string with the number with a fraction."
+#~ msgstr "Zamień napis na liczbę z ułamkiem"
+
+#~ msgid ""
+#~ "Load the string from the user and save it under the name of “weight”."
+#~ msgstr "Wczytaj od użytkownika napis i zapamiętaj pod nazwą ``weight``"
+
+#~ msgid "Using the remembered values calculate BMI and save as bmi."
+#~ msgstr ""
+#~ "Korzystając z zapamiętanych wartości, oblicz BMI i zapamiętaj jako ``bmi``"
