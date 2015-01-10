@@ -1,17 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Django Carrots 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-23 21:43+0100\n"
-"PO-Revision-Date: 2015-01-02 23:32+0100\n"
+"PO-Revision-Date: 2015-01-10 22:34+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
 "Language: pl\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: ../../source/install.rst:3
 msgid "Installation"
@@ -19,8 +19,8 @@ msgstr "Instalacja"
 
 #: ../../source/install.rst:5
 msgid ""
-"During our workshops we will need an interpreter of Python language, version "
-"3.4. Below there are some tips how to check if we already have the "
+"During our workshops we will need an interpreter of Python language, version"
+" 3.4. Below there are some tips how to check if we already have the "
 "interpreter or how to install it together with tools."
 msgstr ""
 "Na potrzeby warsztatów będzie nam potrzebny interpreter języka Python w "
@@ -78,7 +78,8 @@ msgstr "OS X"
 
 #: ../../source/install.rst:44
 msgid ""
-"Download and install the package for your system version from `python.org`_ ."
+"Download and install the package for your system version from `python.org`_ "
+"."
 msgstr ""
 "Ze strony `python.org`_ ściągnij i zainstaluj paczkę dla Twojej wersji "
 "systemu."
@@ -117,14 +118,15 @@ msgstr "Linia poleceń Windows"
 
 #: ../../source/install.rst:79
 msgid "Text may be different depending on the version of Windows you use."
-msgstr "Tekst może trochę się różnić w zależności od używanej wersji Windowsa."
+msgstr ""
+"Tekst może trochę się różnić w zależności od używanej wersji Windowsa."
 
 #: ../../source/install.rst:81
 msgid ""
 "``C:\\Users\\Name>``  is a prompt. It informs us of the directory in which "
-"we are at the moment and waits for a command. Later during the workshop ``C:"
-"\\Users\\Name>`` we will cut to the  ``~$``, independently of your operating "
-"system (Windows, Linux, MacOS)."
+"we are at the moment and waits for a command. Later during the workshop "
+"``C:\\Users\\Name>`` we will cut to the  ``~$``, independently of your "
+"operating system (Windows, Linux, MacOS)."
 msgstr ""
 "``C:\\Users\\Name>`` to tak zwany ``prompt``. Informuje nas o katalogu, w "
 "którym aktualnie się znajdujemy oraz czeka na podanie polecenia. W dalszej "
@@ -151,15 +153,15 @@ msgstr "``cd katalog``"
 
 #: ../../source/install.rst:95
 msgid ""
-"Changes the current directory. For example, if you’re in the ``C:\\Users"
-"\\Name``, by entering ``cd Documents`` you access the directory with your "
-"documents. If you execute the ``dir`` command you will see something "
-"familiar. The command  ``cd..`` will move you to the directory on an upper "
-"level."
+"Changes the current directory. For example, if you’re in the "
+"``C:\\Users\\Name``, by entering ``cd Documents`` you access the directory "
+"with your documents. If you execute the ``dir`` command you will see "
+"something familiar. The command  ``cd..`` will move you to the directory on "
+"an upper level."
 msgstr ""
 "Służy do zmiany aktualnego katalogu. Przykładowo, jeśli jesteśmy w katalogu "
-"``C:\\Users\\Name``, wykonanie ``cd Documents`` przeniesie nas do katalogu z "
-"naszymi dokumentami. Jeśli teraz wykonasz polecenie ``dir``, zobaczysz coś "
+"``C:\\Users\\Name``, wykonanie ``cd Documents`` przeniesie nas do katalogu z"
+" naszymi dokumentami. Jeśli teraz wykonasz polecenie ``dir``, zobaczysz coś "
 "znajomego."
 
 #: ../../source/install.rst:102
@@ -186,8 +188,8 @@ msgstr ""
 
 #: ../../source/install.rst:111
 msgid ""
-"For Windows 7 the path to the home directory for the user  ``Ala`` will look "
-"like this: ``C:\\Users\\Ala\\`` . You can select a different directory but "
+"For Windows 7 the path to the home directory for the user  ``Ala`` will look"
+" like this: ``C:\\Users\\Ala\\`` . You can select a different directory but "
 "it is important to remember where the file is saved. It must be easily "
 "accessible, because we will use it often."
 msgstr ""
@@ -203,7 +205,7 @@ msgstr ""
 "Na przykład, jeżeli naszym katalogiem domowym jest ``C:\\Users\\lrekucki``, "
 "linia poleceń będzie wyglądała tak:"
 
-#: ../../source/install.rst:129
+#: ../../source/install.rst:140
 msgid ""
 "In your home directory there will be created a directory ``workshops`` "
 "containing so called “virtual environment”. For now, it is important for us "
@@ -213,7 +215,7 @@ msgstr ""
 "wirtualne środowisko. Na razie istotne jest dla nas tylko to, że po jego "
 "aktywacji:"
 
-#: ../../source/install.rst:143
+#: ../../source/install.rst:154
 msgid ""
 "The ``python`` command will run the correct version of Python, so we will "
 "not have to enter the full path at the beginning nor the version at the end."
@@ -222,51 +224,39 @@ msgstr ""
 "będziemy musieli ani dopisywać pełnej ścieżki na początku, ani wersji na "
 "końcu."
 
-#: ../../source/install.rst:147
+#: ../../source/install.rst:158
 msgid "Ensure your terminal is well configured:"
-msgstr ""
+msgstr "Upewnij się, że wszystko działa jak należy:"
 
-#: ../../source/install.rst:178
-msgid ""
-"If there is any problem after typing ``which pip`` (``where pip`` on "
-"windows) there could be a need to reinstall pip:"
-msgstr ""
-"W razie problemów po wpisaniu ``which pip`` może być potrzeba "
-"przeinstalowania pip:"
-
-#: ../../source/install.rst:186
+#: ../../source/install.rst:210
 msgid "Summary"
 msgstr "Podsumowanie"
 
-#: ../../source/install.rst:188
+#: ../../source/install.rst:212
 msgid "New virtual environment installation:"
 msgstr "Instalacja nowego środowiska wirtualnego:"
 
-#: ../../source/install.rst:200
+#: ../../source/install.rst:224
 msgid "Virtual environment activation:"
 msgstr "Aktywacja środowiska wirtualnego:"
 
-#: ../../source/install.rst:212
+#: ../../source/install.rst:236
 msgid "Just make sure that you use the proper Python version:"
 msgstr "Upewnij się, że używasz właściwej wersji pythona:"
 
-#: ../../source/install.rst:221
+#: ../../source/install.rst:245
 msgid "IPython"
 msgstr "IPython"
 
-#: ../../source/install.rst:226
+#: ../../source/install.rst:250
 msgid "``IPython`` installation:"
 msgstr "Zainstaluj ``IPython``:"
-
-#: ../../source/install.rst:235
-msgid "If ``pip`` command doesn't work, then please use ``pip3``."
-msgstr " Jeżeli polecenie ``pip`` nie działa, spróbuj ``pip3``."
 
 #: ../../source/install.rst:67
 msgid ""
 "Most of the work we will perform using the command line. To activate the "
-"command line in Windows press ``Win+R``. In the open window type ``cmd`` and "
-"click ``OK``. A new window will appear with a white text on a black "
+"command line in Windows press ``Win+R``. In the open window type ``cmd`` and"
+" click ``OK``. A new window will appear with a white text on a black "
 "background:"
 msgstr ""
 "Większość pracy będziemy wykonywać z linii poleceń. Aby uruchomić linię "
@@ -279,14 +269,74 @@ msgid ""
 "similar way as by entering ``My Computer``).  You can do that by entering "
 "commands and pressing ``Enter``. The following commands are to be used:"
 msgstr ""
-"Używając linii poleceń możesz poruszać się po zawartości dysku (podobnie jak "
-"przez ``Mój komputer``). Możesz to zrobić przez wpisanie polecenia i "
+"Używając linii poleceń możesz poruszać się po zawartości dysku (podobnie jak"
+" przez ``Mój komputer``). Możesz to zrobić przez wpisanie polecenia i "
 "wciśnięcie ``Enter``. Oto kilka przydatnych poleceń:"
 
-#: ../../source/install.rst:223
+#: ../../source/install.rst:247
 msgid ""
 "Optionally you can install ``IPython``, which improves the look and comfort "
 "when using Python from the console."
 msgstr ""
 "Opcjonalnie możesz zainstalować ``IPython``, który poprawi wygląd i komfort "
 "używania konsoli Pythona."
+
+#: ../../source/install.rst:138
+msgid ""
+"Checkout _`https://pip.pypa.io/en/latest/installing.html` for more "
+"information about installing pip."
+msgstr ""
+
+#: ../../source/install.rst:201
+msgid ""
+"If you can't find your ``pip`` or there is any problem after typing ``which "
+"pip`` (``where pip`` on windows) there could be a need to reinstall pip:"
+msgstr ""
+
+#: ../../source/install.rst:129
+msgid ""
+"Ubuntu 14.04 has a bug "
+"(https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) that "
+"causes Python3.4 `venv` module to fail when installing with `pip`. To work "
+"around this please use this command to create virtual environment::"
+msgstr ""
+
+#: ../../source/install.rst:190
+msgid ""
+"You may already have ``pip`` command available on your system. Always check "
+"which pip you are using with command: ``pip --version``. You can do this by "
+"running one of these commands:"
+msgstr ""
+
+#: ../../source/install.rst:199
+msgid ""
+"It will give you pip version and a path to your virtual environment "
+"directory."
+msgstr ""
+
+#~ msgid ""
+#~ "Ubuntu 14.04 has a bug "
+#~ "(https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) that "
+#~ "causes Python3.4 `venv` module fail when installing with `pip`. To work "
+#~ "around this please use this command to create virtual environment::"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You may already have ``pip`` command available on your system. Always check "
+#~ "which pip you are using with command: ``pip --version``. You can check:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "to find pip installed in your virtual environment. It will give you a path "
+#~ "to your virtual environment directory."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If there is any problem after typing ``which pip`` (``where pip`` on "
+#~ "windows) there could be a need to reinstall pip:"
+#~ msgstr ""
+#~ "W razie problemów po wpisaniu ``which pip`` może być potrzeba "
+#~ "przeinstalowania pip:"
+
+#~ msgid "If ``pip`` command doesn't work, then please use ``pip3``."
+#~ msgstr " Jeżeli polecenie ``pip`` nie działa, spróbuj ``pip3``."

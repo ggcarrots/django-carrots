@@ -124,17 +124,16 @@ For example, if our home directory is ``C:\Users\lrekucki``, the command line wo
     ~$ python3.4 -m venv workshops
 
 .. note::
-    Ubuntu 14.04 has a bug (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) that causes Python3.4 `venv` module fail when installing with `pip`.
+    Ubuntu 14.04 has a bug (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) that causes Python3.4 `venv` module to fail when installing with `pip`.
     To work around this please use this command to create virtual environment::
 
-    ~$ python -m venv --without-pip workshops
-    ~$ source workshops/bin/activate
-    ~$ wget https://bootstrap.pypa.io/get-pip.py
-    ~$ python get-pip.py
-    ~$ pip --version
+        ~$ python -m venv --without-pip workshops
+        ~$ source workshops/bin/activate
+        ~$ wget https://bootstrap.pypa.io/get-pip.py
+        ~$ python get-pip.py
+        ~$ pip --version
 
     Checkout _`https://pip.pypa.io/en/latest/installing.html` for more information about installing pip.
-
 
 In your home directory there will be created a directory ``workshops`` containing so called “virtual
 environment”.
@@ -187,7 +186,7 @@ Ensure your terminal is well configured:
 
 .. note::
     You may already have ``pip`` command available on your system. Always check which pip you are using with command: ``pip --version``.
-    You can check:
+    You can do this by running one of these commands:
 
     .. code-block:: sh
 
@@ -195,7 +194,7 @@ Ensure your terminal is well configured:
         ~$ pip3 --version
         ~$ pip3.4 --version
 
-    to find pip installed in your virtual environment. It will give you a path to your virtual environment directory.
+    It will give you pip version and a path to your virtual environment directory.
 
     If you can't find your ``pip`` or there is any problem after typing ``which pip`` (``where pip`` on windows) there could be a need to reinstall pip:
 
