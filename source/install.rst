@@ -123,6 +123,18 @@ For example, if our home directory is ``C:\Users\lrekucki``, the command line wo
     # Linux or Mac
     ~$ python3.4 -m venv workshops
 
+.. note::
+    Ubuntu 14.04 has a bug (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) that causes Python3.4 `venv` module fail when installing with `pip`.
+    To work around this please use this command to create virtual environment::
+
+    ~$ python -m venv --without-pip workshops
+    ~$ source workshops/bin/activate
+    ~$ wget https://bootstrap.pypa.io/get-pip.py
+    ~$ python get-pip.py
+    ~$ pip --version
+
+    Checkout _`https://pip.pypa.io/en/latest/installing.html` for more information about installing pip.
+
 
 In your home directory there will be created a directory ``workshops`` containing so called “virtual
 environment”.
@@ -173,12 +185,25 @@ Ensure your terminal is well configured:
 
 .. _python.org: http://python.org/download/releases/3.4.0/
 
-If there is any problem after typing ``which pip`` (``where pip`` on windows) there could be a need to reinstall pip:
+.. note::
+    You may already have ``pip`` command available on your system. Always check which pip you are using with command: ``pip --version``.
+    You can check:
 
-.. code-block:: sh
+    .. code-block:: sh
 
-    python -m pip uninstall pip
-    python -m ensurepip
+        ~$ pip --version
+        ~$ pip3 --version
+        ~$ pip3.4 --version
+
+    to find pip installed in your virtual environment. It will give you a path to your virtual environment directory.
+
+    If you can't find your ``pip`` or there is any problem after typing ``which pip`` (``where pip`` on windows) there could be a need to reinstall pip:
+
+    .. code-block:: sh
+
+        ~$ python -m pip uninstall pip
+        ~$ python -m ensurepip
+
 
 Summary
 -------
@@ -226,8 +251,3 @@ from the console.
 .. code-block:: sh
 
     (workshops) ~$ pip install ipython
-
-    
-.. note::
-
-   If ``pip`` command doesn't work, then please use ``pip3``.
