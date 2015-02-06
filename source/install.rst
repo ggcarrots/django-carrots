@@ -2,39 +2,39 @@
 Installation
 ============
 
-During our workshops we will need an interpreter of Python language, version 3.4. Below there are some tips how to check if we already have the interpreter or how to install it together with tools.
+For our workshop, we will need a Python 3.4 interpreter. Below are some directions on how to check if you already have the interpreter and how to install it along with some other tools.
 
 Windows
 =======
 
-You can download versions for Windows directly from `python.org`_.
-After downloading the file  ``*.msi`` open it and follow the instructions.
-It is important to remember the path of installation – the directory – we will need the information during the :ref:`installation of tools <tools>`.
+You can download Python for Windows directly from `python.org`_.
+After downloading the file  ``*.msi``, open it and follow the instructions.
+It is important to remember the path of installation – the directory – as we will need this information during the :ref:`installation of tools <tools>`.
 
 
 Linux (Ubuntu, Fedora, etc.) or Mac
 ===================================
 
-In order to check our version of Python, enter in the command line the following:
+In order to check our version of Python, enter the following in the command line:
 
 .. code-block:: sh
 
     $ python --version
     Python 3.4.0
 
-If the python command is not available or the wrong version appears:
+If the ``python`` command is not available or the wrong version appears:
 
 Ubuntu
 ------
 
-In the command line enter::
+Enter in the command line::
 
     sudo apt-get install python3.4
 
 Fedora
 ------
 
-In the command line enter::
+Enter in the command line::
 
     sudo yum install python3.4
 
@@ -48,11 +48,11 @@ Other
 -----
 
 Use the system of packages adequate for your distribution. If there is no adequate system
-or you can not find python, you can install it using the sources on `python.org`_. website.
+or you cannot find python, you can install it using the sources on the `python.org`_. website.
 A compiler and readline library will be required.
 
-Unofficially we assume that the users of less popular (but not worse!) distributions
-for sure will manage the task without any problem :).
+Unofficially, we assume that the users of less popular (but not worse!) distributions
+will manage the task without any problem :).
 
 
 
@@ -64,9 +64,9 @@ Tools
 Windows command line
 --------------------
 
-Most of the work we will perform using the command line. To activate the command line in Windows
-press ``Win+R``. In the open window type ``cmd`` and click ``OK``.
-A new window will appear with a white text on a black background:
+We will do most of our work on the command line. To activate the command line in Windows,
+press ``Win+R``. In the open window, type ``cmd`` and click ``OK``.
+A new window will appear with white text on a black background:
 
 .. code-block:: bat
 
@@ -78,24 +78,24 @@ A new window will appear with a white text on a black background:
 
 Text may be different depending on the version of Windows you use.
 
-``C:\Users\Name>``  is a prompt. It informs us of the directory in which we are
-at the moment and waits for a command.
-Later during the workshop ``C:\Users\Name>`` we will cut to the  ``~$``, independently of your
+``C:\Users\Name>``  is a prompt. It informs us of the directory (or folder) in which we currently are and waits for a command.
+Later during the workshop ``C:\Users\Name>`` we will refer to it with ``~$``, independently of your
 operating system (Windows, Linux, MacOS).
 
-Using the command line you can move around the content of the disc (in a similar way as by entering
+Using the command line, you can move around the contents of the disc (in the same way as in 
 ``My Computer``).  You can do that by entering commands and pressing ``Enter``.
-The following commands are to be used:
+Use the following commands:
 
 ``dir``
     Displays the contents of the current directory. For example, if the ``prompt``
     shows  ``C:\Users\Name``, the ``dir`` command displays the contents of our home directory.
 
 ``cd directory``
-    Changes the current directory. For example, if you’re in the ``C:\Users\Name``,
-    by entering ``cd Documents`` you access the directory with your documents. If you execute the
-    ``dir`` command you will see something familiar.
-    The command  ``cd..`` will move you to the directory on an upper level.
+    Changes the current directory. For example, if you are in ``C:\Users\Name``,
+    you can access the directory with your documents by entering ``cd Documents``. If you execute the
+    ``dir`` command, you will see something familiar.
+    The command  ``cd..`` will move you one level up in the directory tree, that is, 
+    to the directory that contains your current directory.
 
 ``mkdir directory``
     Creates a new directory.
@@ -104,11 +104,11 @@ The following commands are to be used:
 Virtual environment
 -------------------
 
-Now we have to chose the directory for our virtual environment. The virtual environment will allow to
-isolate our work from other system’s parts. For example you can choose the user home directory.
+Now we have to chose the directory for our virtual environment. The virtual environment will allow us to
+isolate our work from other parts of the system. For example, you can choose the user home directory.
 
  For Windows 7 the path to the home directory for the user  ``Ala`` will look like this:
-``C:\Users\Ala\`` . You can select a different directory but it is important to remember where the
+``C:\Users\Ala\`` . You can select a different directory, but it is important to remember where the
 file is saved. It must be easily accessible, because we will use it often. 
 
 For example, if our home directory is ``C:\Users\lrekucki``, the command line would look like this:
@@ -133,11 +133,11 @@ For example, if our home directory is ``C:\Users\lrekucki``, the command line wo
         ~$ python get-pip.py
         ~$ pip --version
 
-    Checkout _`https://pip.pypa.io/en/latest/installing.html` for more information about installing pip.
+    Check out _`https://pip.pypa.io/en/latest/installing.html` for more information about installing pip.
 
-In your home directory there will be created a directory ``workshops`` containing so called “virtual
+In your home directory we will create a ``workshops`` directory containing the so called “virtual
 environment”.
-For now, it is important for us that after it is activated:
+For now, it is important to activate it:
 
 .. code-block:: bat
 
@@ -185,7 +185,7 @@ Ensure your terminal is well configured:
 .. _python.org: http://python.org/download/releases/3.4.0/
 
 .. note::
-    You may already have ``pip`` command available on your system. Always check which pip you are using with command: ``pip --version``.
+    You may already have the ``pip`` command available on your system. Always check which pip you are using with command: ``pip --version``.
     You can do this by running one of these commands:
 
     .. code-block:: sh
@@ -194,9 +194,9 @@ Ensure your terminal is well configured:
         ~$ pip3 --version
         ~$ pip3.4 --version
 
-    It will give you pip version and a path to your virtual environment directory.
+    It will give you the version of pip and a path to your virtual environment directory.
 
-    If you can't find your ``pip`` or there is any problem after typing ``which pip`` (``where pip`` on windows) there could be a need to reinstall pip:
+    If you can't find your ``pip`` or there is a problem after typing ``which pip`` (``where pip`` on windows), you may need to reinstall pip:
 
     .. code-block:: sh
 
@@ -242,7 +242,7 @@ Just make sure that you use the proper Python version:
 IPython
 -------
 
-Optionally you can install ``IPython``, which improves the look and comfort when using Python
+Optionally, you can install ``IPython``, which improves the look and comfort when using Python
 from the console.
 
 ``IPython`` installation:
