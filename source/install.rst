@@ -2,71 +2,66 @@
 Installation
 ============
 
-During our workshops we will need an interpreter of Python language, version 3.4. Below there are some tips how to check if we already have the interpreter or how to install it together with tools.
+Pendant nos ateliers, nous allons utiliser un interpréteur de langage Python, en version 3.4. Vous trouverez ci-dessous quelques conseils pour vérifier si vous avez déjà l'interpréteur ou, dans le cas contraire, pour l'installer ainsi que quelques outils complémentaires.
 
 Windows
 =======
 
-You can download versions for Windows directly from `python.org`_.
-After downloading the file  ``*.msi`` open it and follow the instructions.
-It is important to remember the path of installation – the directory – we will need the information during the :ref:`installation of tools <tools>`.
+Vous pouvez télécharger une version Windows de l'interpéteur Python directement depuis `python.org`_.
+Une fois que vous avez récupéré le fichier d'installation, portant l'extension ``.msi``, il vous suffit de l'ouvrir et de suivre les instructions.
+Prenez soin de garder en mémoire le chemin d'installation - c'est-à-dire le dossier dans lequel vous avez installé Python. Vous aurez besoin de cette information par la suite, au moment de l':ref:`installation des outils <tools>`.
 
 
-Linux (Ubuntu, Fedora, etc.) or Mac
-===================================
+Linux (Ubuntu, Fedora, etc.) ou Mac OS X
+========================================
 
-In order to check our version of Python, enter in the command line the following:
+Pour vérifier la version de Python installée sur votre système, entrez la commande suivante dans votre terminal :
 
 .. code-block:: sh
 
     $ python --version
     Python 3.4.0
 
-If the python command is not available or the wrong version appears:
+Si la commande ``python`` n'est pas disponible, ou si une version inférieure est détectée :
 
 Ubuntu
 ------
 
-In the command line enter::
+Entrez la commande suivante::
 
     sudo apt-get install python3.4
 
 Fedora
 ------
 
-In the command line enter::
+Entrez la commande suivante::
 
     sudo yum install python3.4
 
-OS X
-----
+Mac OS X
+--------
 
-Download and install the package for your system version from `python.org`_ .
+Téléchargez et installez la version de Python correspondant à votre version d'OS X depuis `python.org`_ .
 
 
-Other
------
+Autres
+------
 
-Use the system of packages adequate for your distribution. If there is no adequate system
-or you can not find python, you can install it using the sources on `python.org`_. website.
-A compiler and readline library will be required.
+Utilisez le gestionnaire de paquets adapté à votre distribution. S'il n'existe pas de système adéquat, ou si vous n'y trouvez pas Python, vous pouvez l'installer en le compilant depuis les fichiers sources disponibles sur le site `python.org`_. Un compilateur sera alors requis, ainsi que la librairie ``readline``.
 
-Unofficially we assume that the users of less popular (but not worse!) distributions
-for sure will manage the task without any problem :).
-
+Officieusement, nous partons du principe que des utilisateurs de distributions moins populaires (mais tout aussi valables !) réussiront sans problème à accomplir cette tâche :)
 
 
 .. _tools:
 
-Tools
-=====
+Outils complémentaires
+======================
 
-Windows command line
---------------------
+Console Windows
+---------------
 
-Most of the work we will perform using the command line. To activate the command line in Windows
-press ``Win+R``. In the open window type ``cmd`` and click ``OK``.
-A new window will appear with a white text on a black background:
+Nous allons effectuer la majeure partie de notre travail en saisissant des lignes de commande dans la console Windows.
+Pour la démarrer, appuyez sur les touches ``Win+R``. Dans la fenêtre qui apparaît alors, tapez ``cmd`` puis cliquez sur ``OK``. Une nouvelle fenêtre fait alors son apparition, avec du texte blanc sur fond noir :
 
 .. code-block:: bat
 
@@ -76,33 +71,33 @@ A new window will appear with a white text on a black background:
 
     C:\Users\Name>
 
-Text may be different depending on the version of Windows you use.
+Le texte peut être légèrement différent selon la version de Windows que vous utilisez.
 
-``C:\Users\Name>``  is a prompt. It informs us of the directory in which we are
-at the moment and waits for a command.
-Later during the workshop ``C:\Users\Name>`` we will cut to the  ``~$``, independently of your
-operating system (Windows, Linux, MacOS).
+``C:\Users\Name>`` est une invite de commande, que l'on désigne aussi parfois par le terme anglophone "prompt". Cette invite nous informe du répertoire dans lequel nous nous trouvons actuellement et attend la saisie d'une commande.
 
-Using the command line you can move around the content of the disc (in a similar way as by entering
-``My Computer``).  You can do that by entering commands and pressing ``Enter``.
-The following commands are to be used:
+.. note::
+
+    Petite précision de vocabulaire : dans le cadre de notre atelier, nous emploierons de manière interchangeable les termes "dossier" et "répertoire".
+
+Plus loin dans cette documentation, nous abrègerons ``C:\Users\Name>`` en ``~$``, qui est une forme canonique d'invite de commande dans les mondes Linux et Mac OS X.
+
+
+À l'aide de ligne de commande, vous pouvez vous déplacer dans les contenus de votre disque dur, comme vous le feriez via l'icône ``Mon ordinateur``. Il suffit pour cela de saisir des commandes et d'appuyer sur ``Entrée``.
+Les commandes suivantes seront utilisées au cours de l'atelier :
 
 ``dir``
-    Displays the contents of the current directory. For example, if the ``prompt``
-    shows  ``C:\Users\Name``, the ``dir`` command displays the contents of our home directory.
+    Affiche le contenu du répertoire courant. Par exemple, si l'invite de commande indique ``C:\Users\Name``, la commande ``dir`` affiche le contenu de votre répertoire personnel.
 
 ``cd directory``
-    Changes the current directory. For example, if you’re in the ``C:\Users\Name``,
-    by entering ``cd Documents`` you access the directory with your documents. If you execute the
-    ``dir`` command you will see something familiar.
-    The command  ``cd..`` will move you to the directory on an upper level.
+    Change le répertoire courant. Par exemple, si vous êtes dans le répertoire ``C:\Users\Name``, le fait de saisir la commande ``cd Documents`` vous permettra d'accéder au répertoire contenant vos documents. Pour vous en convaincre, tapez alors la commande ``dir``, vous verrez alors des fichiers familiers.
+    La commande ``cd..`` vous permet de remonter au répertoire supérieur dans l'arborescence.
 
 ``mkdir directory``
-    Creates a new directory.
+    Crée un nouveau répertoire.
 
 
-Virtual environment
--------------------
+Environnement virtuel
+---------------------
 
 Now we have to chose the directory for our virtual environment. The virtual environment will allow to
 isolate our work from other system’s parts. For example you can choose the user home directory.
