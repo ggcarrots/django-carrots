@@ -2,32 +2,53 @@
 Geek Girls Carrots Code of Conduct
 ==================================
 
+Geek Girls Carrots (aussi désigné par l'acronyme GGC) recherche à
+favoriser un environnement d'apprentissage encourageant et engageant
+dans lequel les individus de tous horizons peuvent participer
+confortablement, sans distinction de race, couleur, origine, age,
+religion, opinion politique, capacité physique, orientation sexuelle,
+sexe ou status socio-economique.
 
-Geek Girls Carrots (otherwise known as GGC) seeks to foster an encouraging and supportive
-learning environment in which individuals from all walks of life can comfortably participate,
-regardless of race, color, ethnicity, age, religion, political affiliation, physical ability, sexual
-orientation or socioeconomic staus.
+Geek Girls Carrots s'engage à mettre en place une communauté
+respectueuse pour chacune et chacun. Nous ne tolérons ni le
+harcélement, ni l'intimidation ou la brutalisation de quelque sorte
+qu'elle soit sur l'un des membres de la communauté.
 
-Geek Girls Carrots is dedicated to providing a respectful, harassment-free community for everyone.
-We do not tolerate harassment or bullying of any community member in any form. This not only
-extends to members of Geek Girls Carrots, but to anyone who chooses to become involved in the
-larger Geek Girls Carrots community of users, developers and integrators through events or
-interactions. Harassment includes offensive verbal/electronic comments related to personal
-characteristics or choices; sexual images or comments in public or online spaces; deliberate
-intimidation, bullying, stalking, following, harassing photography or recording; sustained disruption
-of talks, IRC (Internet Relay Chat), electronic meetings, physical meetings or other events;
-inappropriate physical contact, or unwelcome sexual attention. Participants asked to stop any
-harassing or bullying behavior are expected to comply immediately.
+Cela ne concerne pas uniquement les membres de GGC mais s'applique à
+toute personne en relation avec les membres, développeurs, intégrateurs
+de communauté Geek Girls Carrots au sens large, au cours des événements
+ou au cours de toute autre interraction.
 
-If a participant engages in harassing behavior, representatives of the community may take
-reasonable action they deem appropriate, including warning the offender, expulsion from any Geek
-Girls Carrots event, or expulsion from mailing lists, IRC, discussion boards and other electronic
-communications channels to resolve the issue. This may include rescinding Geek Girls Carrots
-Membership in its entirety. If you are being harassed, notice that someone else is being harassed, or
-have any other concerns, please act to intercede or ask for help from any member of Geek Girls
-Carrots, IRC Administrators, website Administrators, or Organizers/Representatives of any physical
-events put on under the auspices of Geek Girls Carrots.
+Le harcélement inclu des propos blessants, par voie verbale ou
+éléctronique, à propos des choix ou des caractéristiques d'une
+personne; des images ou des commentaires sexuels en public ou sur des
+espaces en ligne; l'intimidation délibérée, la brutalisation, la
+traque, le suivi d'une personne, la prise de vue photographique ou
+vidéo sans l'accord de la personne, des propos perturbateurs de
+manière verbale, sur IRC (Internet Relay Chat), lors de rendez-vous
+téléphonique, lors de réunions ou lors de tout autre événement; des
+contacts physiques innapropriés ou des attouchements sexuels non
+sollicitées.
 
-Portions of this document have been adapted from the PyLadies Code of Conduct, which was in
-turn adapted from the Plone Foundation Code of Conduct; this particular Code of Conduct has been
-expanded and edited to suit the specific needs of Geek Girls Carrots.
+Les participants auxquels est demandé l'arrêt de ce type de
+comportement sont priés de s'exécuter immédiatement.
+
+Si un participant commence à pratiquer ce genre de comportement, les
+représentants de la communauté pourrons mettre en place les actions
+qu'elle juge nécessaire, incluant un avertissement du contrevenant,
+l'expulsion des événements de Girls Carrots ou l'expulsion des
+mailings lists, conversations IRC, groupes de travail ou de tout autre
+moyen de communication éléctronique afin de résoudre le problème. Cela
+peut même aller jusqu'à la radiation de la communauté si cela s'avère
+nécessaire.
+
+Si vous êtes harcelé(e), observez que quelqu'un est harcelé(e) ou avez
+n'importe quel autre soucis, merci d'intervenir et de prendre contact
+avec un membre de GGC, un administrateur IRC, un administrateur du
+site internet, un des organisateurs/représentants lors d'un événement
+sous la responsabilité de GGC.
+
+Une partie de ce document a été adapté du Code of Conduct des PyLadies
+qui a été lui même adapté du Code of Conduct de la Plone Foundation.
+Ce Code of Conduct a été annoté et complété pour refléter les
+spécificités de la communauté Geek Girls Carrots.
