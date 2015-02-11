@@ -2,33 +2,33 @@
 Django Carrots tutorials
 ========================
 
-Tutorials walking new programmers through the process of building
-their first website in Python and Django.
+Le tutoriel Django Carrots présente pas-à-pas aux débutants la manière
+de créer son premier site internet avec Python et Django
 
-Loose outline
+En quelques mots:
 
-#. Installing Python and setting up development environment
-#. Python basics
-#. "Snakes!" online competition
-#. Creating a polling application in Django
-#. Deploying the application
+#. Installer Python et mettre en place son environnement de développement
+#. Les bases de Python
+#. "Snakes!" competition en ligne
+#. Mettre en place une appli de sondage en Django
+#. Déployer son application
 
 
-Build instructions
-==================
+Générer la documentation
+========================
 
-Just run::
+Lancer simplement::
 
     $ pip install -r requirements.txt
     $ make html
 
-Documentation should be created in ``build/html`` directory.
+La document sera créée dans le répertoire ``build/html``.
 
-Print version
+Version imprimable
 -------------
 
-For print version you will need XeTeX engine (because PDFLatex doesn't support
-Unicode, go figure)::
+Pour générer une version imprimable, vous aurez besoin de XeTeX (car
+PDFLatex ne supporte malheureusement pas l'unicode)::
 
     $ make latex
     $ cd build\latex
@@ -37,22 +37,21 @@ Unicode, go figure)::
     $ xelatex workshops.tex
 
 
-Why Python 3?
-=============
+Pourquoi avoir choisi Python 3 ?
+================================
 
-Because it's the future. Also, Python 3 makes it possible to skip the
-whole section of the tutorial describing Unicode and character
-encodings in general. There is no use in scaring newbies from the
-start.
+Parce que Python 3, c'est le futur. Et aussi pour la gestion native de
+l'Unicode ce qui permet de sauter toute la formation à l'Unicode qui
+serait nécessaire avec Python 2. Ça évite de faire peur aux
+débutants dès le début.
 
 
-Contributing
-============
+Contribuer
+==========
 
-Please do!
+N'hésitez pas ! Vous y êtes même fortement encouragés.
 
-Django Carrots guides and related software are free works: you can
-redistribute them and/or modify them under the terms of the GNU
-General Public License as published by the Free Software Foundation
-version 3 with the additional attribution requirements. See
-``LICENSE`` file at the root of the source directory for details.
+Les guides et outils logiciels de Django Carrots sont libres:
+
+Vous pouvez les redistribuer et/ou les modifier sous les termes de la licence GPL v3 de la FSF.
+Voir le fichier ``LICENSE`` à la racine du dépôt pour plus d'informations.
