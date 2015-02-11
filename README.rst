@@ -3,26 +3,26 @@ Django Carrots tutorials
 ========================
 
 Le tutoriel Django Carrots présente pas-à-pas aux débutants la manière
-de créer son premier site internet avec Python et Django
+de créer leur premier site internet avec Python et Django
 
 En quelques mots:
 
 #. Installer Python et mettre en place son environnement de développement
 #. Les bases de Python
-#. "Snakes!" competition en ligne
-#. Mettre en place une appli de sondage en Django
+#. "Snakes!" compétition en ligne
+#. Développer une application de sondage en Django
 #. Déployer son application
 
 
 Générer la documentation
 ========================
 
-Lancer simplement::
+En deux lignes::
 
     $ pip install -r requirements.txt
     $ make html
 
-La document sera créée dans le répertoire ``build/html``.
+La documentation sera créée dans le répertoire ``build/html``.
 
 Version imprimable
 -------------
@@ -37,8 +37,8 @@ PDFLatex ne supporte malheureusement pas l'unicode)::
     $ xelatex workshops.tex
 
 
-Pourquoi avoir choisi Python 3 ?
-================================
+Pourquoi Python 3 ?
+===================
 
 Parce que Python 3, c'est le futur. Et aussi pour la gestion native de
 l'Unicode ce qui permet de sauter toute la formation à l'Unicode qui
