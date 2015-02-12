@@ -1,8 +1,9 @@
 ======================
-Introduction to Python
+Introduction à Python
 ======================
 
-Let’s start with running the Python interpreter we installed in the previous chapter. Please run:
+Commençons par lancer l'interpréteur Python que nous avons installé lors du chapitre précédant:
+
 
 .. code-block:: sh
 
@@ -12,20 +13,27 @@ Let’s start with running the Python interpreter we installed in the previous c
 
     >>>
 
-Earlier we were working in the operating system's command line and we could give commands.
-The prompt was ``~$``. After running the ``python`` command, prompt changed to
-``>>>``.  For us that means that for now we may only use commands from the Python language. Recent commands (
-such as: ``cd``, ``mkdir``) will not work. This is the moment when we start to learn a new language!
 
-We will not type signs ``>>>`` (the same as with ``~$``) - the interpreter will do that for us.
+Avant d'entrer ``python``, nous entrions nos commandes sur la ligne de commande
+du système d'exploitation.
 
+L'invite de ligne de commande (aussi appelée "prompt") était ``~$``. Une fois
+la commande ``python`` entrée, l'invite de commande a changée et est désormais
+``>>>``. Cela signifie qu'à partir de maintenant, nous devons uniquement utiliser
+des commandes venant du langage Python.
 
-Now we can count something, for example: ``2 + 2``:
+Les commandes telles que ``cd`` ou ``mkdir`` ne fonctionneront pas. Il est
+temps d'apprendre un nouveau langage !
+
+Nous ne taperons pas les signes ``>>>`` (de la même manière que pour ``~$``),
+l'interpréteur python le fera pour nous.
+
+Commençons par additionner deux nombres: 
 
     >>> 2 + 2
     4
 
-Python is excellent as a calculator:
+Python est une super calculatrice:
 
     >>> 6 * 7
     42
@@ -40,62 +48,74 @@ Python is excellent as a calculator:
     >>> 5 / 2
     2.5
 
-Please pay special attention when writing decimals: use a period, not a comma. Commas will be used to
-define :ref:`tuple <bmi-tuples>` but more on that later.
+Faites bien attention lorsque vous entrez des nombres à virgules, utilisez des
+points comme séparateurs, et non pas des virgules. Les virgules nous seront
+utiles plus tard, pour définir des :ref:`tuple <bmi-tuples>`, mais nous
+y reviendrons.
 
 
-Introduce yourself
-==================
+Le temps des présentations
+==========================
 
-Strings
--------
+Chaînes de caractères (Strings)
+-------------------------------
 
-Numbers, however, are not enough to communicate effectively. So we need to learn how to use ``strings``
-.
-Here are some examples:
+Les nombres ne sont pas suffisants pour communiquer de manière efficace, nous
+avons donc besoin d'utiliser des chaînes de caractères (aussi appelées
+``strings``).
 
-    >>> "Hello World"
-    'Hello World'
+Voici quelques exemples: 
+
+    >>> "Bonjour tout le monde"
+    'Bonjour tout le monde'
     >>> 'Foo Bar'
     'Foo Bar'
     >>> "Rock 'n' Roll"
     "Rock 'n' Roll"
-    >>> 'My name is "James"'
-    'My name is "James"'
+    >>> 'Mon nom est "Pierre"'
+    'Mon nom est "Pierre"'
 
-You can also add strings as follows:
+Vous pouvez également ajouter (on dit également concaténer) deux chaînes l'une
+à l'autre:
 
-    >>> 'My name is ' + '"James"'
-    'My name is "James"'
+    >>> 'Mon nom est ' + '"Pierre"'
+    'Mon nom est "Pierre"'
 
-or they can be multiplied by whole numbers:
+Ou elles peuvent être aussi multipliés par des nombres:
 
-    >>> 'Hastur' * 3
-    'HasturHasturHastur'
+    >>> 'oui ' * 3
+    'oui oui oui'
 
-The string must always begin and end with the same character. This may be a single quote (``'``) or
-double quotes (``"``). It has no effect on the value of the string, i.e, typing ``"Batman"`` we create
-a string ``Batman`` - quotes are not a part of it, they only indicate that it is a string (
-unfortunately, Python is not so clever to guess it by itself).
+Une chaine de caractères doit toujours se commencer et se terminer par le même
+caractère. Il peut s'agir d'un guillemet simple (``'``), ou d'un guillemet
+double (``"``). Cela n'a aucun effet sur la valeur de la chaine de caractères.
+Par exemple, si nous entrons ``"Batman"``, nous créons une chaine de caractères
+``Batman``, les guillemets ne font pas partie de la chaine de caractères, ils
+sont là uniquement pour indiquer qu'il s'agit d'une chaîne de caractères
+(string) (malheureusement, Python n'est pas suffisamment brillant pour se
+rendre compte de ça lui même).
 
 
-Printing the strings
---------------------
+Afficher les chaînes de caractères
+----------------------------------
 
-But how to present value in a readable form? We can do it by using the command  :func:`print`:
+Mais, comment afficher ces chaînes de caractères d'une manière lisible? Il est
+possible de le faire en utilisant la fonction :func:`print`.
 
-    >>> print("Hello World")
-    Hello World
 
-In a similar way we can write several strings in a single line, without adding them to each other.
-They will be separated by spaces:
+    >>> print("Bonjour tout le monde !")
+    Bonjour tout le monde !
 
-    >>> print("Hi, my name is", "Łukasz")
-    Hi, my name is Łukasz
+Il est aussi possible d'afficher différentes chaînes de caractères sur une même
+ligne, sans avoir à les ajouter l'une à l'autre. Elles seront séparées par des
+espaces:
 
-:func:`print` command has many more applications as it can write almost everything.
-For now, the only other kind of values we know are numbers:
+    >>> print("Bonjour, mon nom est", "Pierre")
+    Bonjour, mon nom est Pierre
 
+La fonction :func:`print` peut être utilisée de différentes manières,
+puisqu'elle peut écrire à peu près n'importe quoi.  Pour l'instant, le seul
+type de valeurs que nous connaissons sont les nombres:
 
     >>> print(1)
     1
@@ -104,11 +124,13 @@ For now, the only other kind of values we know are numbers:
     >>> print("2 + 2 =", 2 + 2)
     2 + 2 = 4
 
-For now we finish our work with the interactive console. To exit it enter `quit()`::
+Et voilà, nous avons terminé d'utiliser la console interactive de Python pour
+l'instant. Pour sortir, entrez `quit()`::
 
     >>> quit()
 
-Or faster by typing ``Ctrl+D`` (for Linux) or ``Ctrl+Z`` (for Windows).
+Ou tapez ``Ctrl+D`` pour Linux ou ``Ctrl+Z`` pour Windows.
+
 
 Source files
 ============
