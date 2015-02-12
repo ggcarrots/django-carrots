@@ -2,7 +2,7 @@
 Installation
 ============
 
-Pendant nos ateliers, nous allons utiliser un interpréteur de langage Python, en version 3.4. Vous trouverez ci-dessous quelques conseils pour vérifier si vous avez déjà l'interpréteur ou, dans le cas contraire, pour l'installer ainsi que quelques outils complémentaires.
+Pendant nos ateliers, nous allons utiliser un interpréteur de langage Python, en version 3.4. Vous trouverez ci-dessous quelques conseils pour vérifier si vous avez déjà l'interpréteur ou bien, dans le cas contraire, pour l'installer ainsi que quelques outils complémentaires.
 
 Windows
 =======
@@ -43,7 +43,6 @@ Mac OS X
 
 Téléchargez et installez la version de Python correspondant à votre version d'OS X depuis `python.org`_ .
 
-
 Autres
 ------
 
@@ -77,12 +76,11 @@ Le texte peut être légèrement différent selon la version de Windows que vous
 
 .. note::
 
-    Petite précision de vocabulaire : dans le cadre de notre atelier, nous emploierons de manière interchangeable les termes "dossier" et "répertoire".
+    Petite précision de vocabulaire : dans le cadre de notre atelier, nous emploierons souvent le terme "répertoire". C'est un synonyme de ce que les versions récentes de Windows appellent "dossier", mais il est davantage utilisé dans le contexte du développement informatique.
 
-Plus loin dans cette documentation, nous abrègerons ``C:\Users\Name>`` en ``~$``, qui est une forme canonique d'invite de commande dans les mondes Linux et Mac OS X.
+Plus loin dans cette documentation, nous abrègerons souvent ``C:\Users\Name>`` en ``~$``, qui est une forme canonique d'invite de commande dans les environnements Linux et Mac OS X.
 
-
-À l'aide de ligne de commande, vous pouvez vous déplacer dans les contenus de votre disque dur, comme vous le feriez via l'icône ``Mon ordinateur``. Il suffit pour cela de saisir des commandes et d'appuyer sur ``Entrée``.
+À l'aide de ligne de commande, vous pouvez vous déplacer dans le contenu de votre disque dur, comme vous le feriez via l'icône ``Mon ordinateur``. Il suffit pour cela de saisir des commandes et d'appuyer sur ``Entrée``.
 Les commandes suivantes seront utilisées au cours de l'atelier :
 
 ``dir``
@@ -99,19 +97,17 @@ Les commandes suivantes seront utilisées au cours de l'atelier :
 Environnement virtuel
 ---------------------
 
-Now we have to chose the directory for our virtual environment. The virtual environment will allow to
-isolate our work from other system’s parts. For example you can choose the user home directory.
+Vous devez maintenant choisir le répertoire dans lequel installer votre environnement virtuel. Celui-ci va vous permettre d'isoler votre travail des autres parties du système. Par exemple, vous pouvez choisir votre répertoire personnel.
 
- For Windows 7 the path to the home directory for the user  ``Ala`` will look like this:
-``C:\Users\Ala\`` . You can select a different directory but it is important to remember where the
-file is saved. It must be easily accessible, because we will use it often. 
+Sous Windows 7, le chemin du répertoire personnel de l'utilisatrice ``Yara`` est le suivant :
+``C:\Users\Yara\``. Vous êtes libre de choisir un répertoire différent, mais il est important de garder celui-ci en mémoire. En outre, il doit être facilement accessible car nous allons l'utiliser très souvent. 
 
-For example, if our home directory is ``C:\Users\lrekucki``, the command line would look like this:
+Par exemple, si votre répertoire personnel est ``C:\Users\Yara``, la ligne de commande à saisir sera la suivante :
 
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> C:\Python34\python -m venv workshops
+    C:\Users\Yara> C:\Python34\python -m venv workshops
 
 .. code-block:: sh
 
@@ -122,55 +118,53 @@ For example, if our home directory is ``C:\Users\lrekucki``, the command line wo
     Ubuntu 14.04 has a bug (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) that causes Python3.4 `venv` module to fail when installing with `pip`.
     To work around this please use this command to create virtual environment::
 
+    Ubuntu 14.04 a un bogue (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) qui provoque l'échec de l'installation par `pip` du module `venv` de Python3.4. Pour contourner ce problème, il faut utiliser les commandes suivantes ::
+
         ~$ python -m venv --without-pip workshops
         ~$ source workshops/bin/activate
         ~$ wget https://bootstrap.pypa.io/get-pip.py
         ~$ python get-pip.py
         ~$ pip --version
 
-    Checkout _`https://pip.pypa.io/en/latest/installing.html` for more information about installing pip.
+    N'hésitez pas à consulter _`https://pip.pypa.io/en/latest/installing.html` si vous souhaitez des informations supplémentaires au sujet de l'installation de `pip`.
 
-In your home directory there will be created a directory ``workshops`` containing so called “virtual
-environment”.
-For now, it is important for us that after it is activated:
+Après ces manipulations, un nouveau répertoire nommé ``workshops`` est présent dans votre répertoire personnel, contenant ce que l'on appelle un "environnement virtuel". Il convient maintenant d'activer celui-ci.
 
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> workshops\Scripts\activate
+    C:\Users\Yara> workshops\Scripts\activate
 
 .. code-block:: sh
 
     # Linux or Mac
     ~$ source workshops/bin/activate
 
-The ``python`` command will run the correct version of Python, so we will not have to enter the full
-path at the beginning nor the version at the end.
+La commande ``python``, dès lors, permet de lancer la version adéquate de l'interpréteur Python, il n'est donc pas nécessaire de saisir le chemin complet vers celui-ci.
 
-
-Ensure your terminal is well configured:
+Assurez-vous maintenant que votre terminal est bien configuré :
 
 .. code-block:: bat
 
     :: Windows
-    (workshops) C:\Users\lrekucki>where python
-    C:\Users\lrekucki\workshops\Scripts\python.exe
+    (workshops) C:\Users\Yara>where python
+    C:\Users\Yara\workshops\Scripts\python.exe
     ...
 
-    (workshops) C:\Users\lrekucki>where pip
-    C:\Users\lrekucki\workshops\Scripts\pip.exe
+    (workshops) C:\Users\Yara>where pip
+    C:\Users\Yara\workshops\Scripts\pip.exe
     ...
 
-    (workshops) C:\Users\lrekucki>python --version
+    (workshops) C:\Users\Yara>python --version
     3.4.0
 
 .. code-block:: sh
 
     # Linux or Mac
     (workshops) ~$ which python
-    /home/lrekucki/workshops/bin/python
+    /home/yara/workshops/bin/python
     (workshops) ~$ which pip
-    /home/lrekucki/workshops/bin/pip
+    /home/yara/workshops/bin/pip
     ...
 
     (workshops) ~$ python --version
@@ -180,8 +174,7 @@ Ensure your terminal is well configured:
 .. _python.org: http://python.org/download/releases/3.4.0/
 
 .. note::
-    You may already have ``pip`` command available on your system. Always check which pip you are using with command: ``pip --version``.
-    You can do this by running one of these commands:
+    Il est possible que la commande ``pip`` soit déjà disponible sur votre système. Dans ce cas, il convient de vérifier que la version de ``pip`` est la bonne, avec la commande ``pip --version``. Elle peut être exécutée des façons suivantes :
 
     .. code-block:: sh
 
@@ -189,9 +182,9 @@ Ensure your terminal is well configured:
         ~$ pip3 --version
         ~$ pip3.4 --version
 
-    It will give you pip version and a path to your virtual environment directory.
+    Ceci vous indique votre version de ``pip`` ainsi que le chemin vers le répertoire contenant votre environnement virtuel.
 
-    If you can't find your ``pip`` or there is any problem after typing ``which pip`` (``where pip`` on windows) there could be a need to reinstall pip:
+    Si vous ne trouvez pas ``pip`` ou si la commande ``which pip`` (ou bien ``where pip`` sous Windows) vous signale un problème, vous devez peut-être réinstaller ``pip`` :
 
     .. code-block:: sh
 
@@ -199,34 +192,34 @@ Ensure your terminal is well configured:
         ~$ python -m ensurepip
 
 
-Summary
--------
+En résumé
+---------
 
-New virtual environment installation:
+Pour **installer un nouvel environnement virtuel** :
 
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> C:\Python34\python -m venv workshops
+    C:\Users\Yara> C:\Python34\python -m venv workshops
 
 .. code-block:: sh
 
     # Linux or Mac
     ~$ python3.4 -m venv workshops
 
-Virtual environment activation:
+Pour **activer un environnement virtuel** :
 
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> workshops\Scripts\activate
+    C:\Users\Yara> workshops\Scripts\activate
 
 .. code-block:: sh
 
     # Linux or Mac
     ~$ source workshops/bin/activate
 
-Just make sure that you use the proper Python version:
+Pour **vérifier la version de Python** :
 
 .. code-block:: sh
 
@@ -237,10 +230,7 @@ Just make sure that you use the proper Python version:
 IPython
 -------
 
-Optionally you can install ``IPython``, which improves the look and comfort when using Python
-from the console.
-
-``IPython`` installation:
+Si vous le souhaitez, vous pouvez installer le logiciel ``IPython``, qui améliore l'aspect et le confort d'utilisation de l'interpréteur Python. Pour cela, saisissez la commande suivante une fois votre environnement virtuel activé :
 
 .. code-block:: sh
 
