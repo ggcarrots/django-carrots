@@ -286,19 +286,23 @@ plus. (Que pour chaque étage on ait une branche de plus).
 Vous devriez obtenir le résultat de notre demi Arbre de Noël décrit en début de chapitre.
 
 
-Defining a function
-===================
+Les fonctions
+=============
 
-We have already seen how functions solve many of our problems. However, they do not solve all our problems 
-– or at least not exactly the way we would like functions to solve them.
-Sometimes we must solve a problem on our own. If it occurs often in our program, it would be nice to
-have a function that solves it for us.
+Nous avons déjà pu voir comment les fonctions résolve nombre de nos
+problèmes. Par contre elle ne solutionne pas tous nos problèmes - ou
+du moins pas exactement de la manière dont nous aimerions les
+résoudre.
 
-We can do it like this in Python:
+Parfois, nous devons résoudre nous même un problème. Et cela est même
+assez fréquent, ce serait assez cool de pouvoir créer des fonctions
+qui les solutionnent pour nous.
+
+Voici comment nous pouvons faire en Python:
 
     >>> def print_triangle(n):
-    ...     for size in range(1, n+1):
-    ...         print(size*"*")
+    ...     for size in range(1, n + 1):
+    ...         print(size * "*")
     ...
     >>> print_triangle(3)
     *
@@ -311,26 +315,25 @@ We can do it like this in Python:
     ****
     *****
 
-Let's have a closer look at the function :func:`print_triangle`::
+Regardons de plus près la fonction :func:`print_triangle`::
 
     def print_triangle(n):
-        for size in range(1, n+1):
-            print(size*"*")
+        for size in range(1, n + 1):
+            print(size * "*")
 
-The definition of a function always starts with the word :keyword:`def`. Next, we give the name to our
-function. Between the parenthesizes, we indicate what names should be given to its arguments when the function is
-called. In the following lines we provide instructions to be executed when we use the function.
+La définition d'une fonction commence toujours avec le mot clé :keyword:`def`. Ensuite on donne un nom à la fonction.
+Entre les parenthèses, on indique quels sont les noms des arguments passés à la fonction lorsqu'elle est appelée.
+Les lignes suivantes définissent les instructions à exécuter lors de l'utilisation de la fonction.
 
-
-As shown in the example, the instructions in the function may include names that we have given as the
-names of the arguments. The principle of operation is as follows - if you create a function with
-three arguments:
+Comme vu dans l'exemple, les instructions peuvent utiliser les alias
+des noms des arguments. Le principe opératoire est le suivant - si on
+créé une fonction avec trois arguments :
 
     >>> def foo(a, b, c):
     ...     print("FOO", a, b, c)
 
-When you call this new function, you need to
-specify a value for each argument. This just like all the functions we called before:
+Lorsque vous appelez cette nouvelle fonction, vous devez spécifier une valeur pour chacun des arguments.
+De la même manière que ce que nous faisions pour appeler les fonctions précédentes :
 
     >>> foo(1, "Ala", 2 + 3 + 4)
     FOO 1 Ala 9
@@ -338,8 +341,9 @@ specify a value for each argument. This just like all the functions we called be
     >>> foo(x, x + 1, x + 2)
     FOO 42 43 44
 
-Note that the argument name is just a label. If we change the value attached to a label for another one, the other labels will not
-change – the same happens with the arguments:
+On notera qu'un argument est simplement un alias, si on modifie la
+valeur liée à cet alias pour une autre valeur, les autres alias ne
+sont pas modifiés - c'est la même chose pour les arguments:
 
     >>> def plus_five(n):
     ...     n = n + 5
@@ -350,48 +354,54 @@ change – the same happens with the arguments:
     >>> x
     43
 
-It is as normal names (variables) we saw before. There are only two differences:
+ça fonctionne comme pour les alias (variables) que nous avons vu
+précédement. Il y a seulement deux différences :
 
-Firstly, argument names of a function are defined at each function call, and Python attaches the corresponding
-argument value to to each of the argument names it just created.
 
-Secondly, the argument names are not available outside the function as they are created when the function is called
-and forgotten after the call. That is, if you try now to access 
-the argument name ``n`` we defined in our :func:`plus_five` function outside of the function's code, 
-Python tells you it is not defined:
+Premièrement, les alias des arguments d'une fonction sont définis à
+chaque appel de la fonction, et Python attache la valeur
+correspondante à la valeur de l'argument à l'alias de l'argument qu'il
+vient de créér.
+
+
+Deuxièmement, les alias des arguments ne sont pas utilisable à
+l'extérieur de la fonction car ils sont créé lors de l'appel de la
+fonction et oublié à la fin de celle-ci. C'est pourquoi, si vous essayez d'accéder à la valeur ``n`` que nous avons définie dans notre fonction :func:`plus_five` à l'extérieur du code de la fonction Python vous dit qu'elle n'est pas définie :
 
     >>> n
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     NameError: name 'n' is not defined
+
+C'est comme ça notre cher Python fait le ménage à la fin d'un appel de fonction :)    
     
-That is, our prim and proper Python cleans up his room at the end of a function call :)
     
-    
-Returning values
-----------------
+Retourner un résultat
+---------------------
 
-The functions which we have previously used had one important property that is missing in the
-functions created by ourselves - they gave back the value they computed
-instead of printing it immediately. To
-achieve the same effect, you need to use the instruction :keyword:`return`. This is a special
-instruction that can be found only in functions.
+Une des propriétés principales des fonctions que nous avons utilisé
+précédement manque cruellement à nos fonctions — elles retournaient le
+résultat qu'elle avait calculé au lieu de l'écrire directement. Pour
+obtenir un comportement similaire, il faut utiliser l'instruction
+:keyword:`return`. C'est une instruction spécifique qui ne fonctionne
+qu'au sein d'une fonction.
 
+On peut améliorer notre calculateur d'IMC en ajoutant une fonction
+permettant le calcul de l'IMC::
 
-We can now improve our BMI calculator by adding a function to compute BMI::
-
-    def calc_bmi(height, weight):
+    def calculate_imc(height, weight):
         return weight / height ** 2
 
-Finally, as a last example on functions, here is a solution to the problem from the end of the previous chapter:
+Pour finir, comme dernier exemple de fonction, voici la solution au
+problème posé à la fin du chapitre précédent :
 
 
 .. testcode::
 
-    # xmas.py
+    # noel.py
 
     def print_triangle(n):
-        for size in range(1, n+1):
+        for size in range(1, n + 1):
             print(size * "*")
 
     for i in range(2, 5):
@@ -411,15 +421,17 @@ Finally, as a last example on functions, here is a solution to the problem from 
     ****
 
 
-The Entire Christmas tree
-=========================
+Un Arbre de Noël entier
+=======================
 
-The previous chapter was fairly theoretical, so now we'll use some of this new knowledge
-to complete our program to display a Christmas tree.
+Le chapitre précédent était principalement de la théorie. Utilisons
+nos nouvelles connaissances pour terminer notre programme et afficher
+notre Arbre de Noël.
 
-For the record::
 
-    # xmas.py
+Voici à quoi ressemble notre fichier actuel::
+
+    # noel.py
 
     def print_triangle(n):
         for size in range(1, n+1):
@@ -428,24 +440,25 @@ For the record::
     for i in range(2, 5):
         print_triangle(i)
 
-How can we improve the function :func:`print_triangle`, o display the entire segment of the Christmas
-tree, not just half of it?
+Comment pouvons-nous améliorer la fonction :func:`print_triangle`,
+pour afficher un Arbre de Noël entier et non juste la moitié ?
 
 
-First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``. 
-It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect::
+Tout d'abord, essayons de déterminer le résultat attendu en fonction de la valeur de l'argument ``n``. 
+Il parait naturel que ``n`` soit la largeur. Ainsi pour ``n = 5`` on s'attendrait à::
 
       *
      ***
     *****
 
-It is worth noting that each line consists of two asterix more than the previous one. So we can use
-the third argument :func:`range`:
+Il est intéressant de noter que chaque ligne possède deux étoiles de
+plus que la ligne précédente. Nous pouvons donc utiliser le troisième
+argument de :func:`range`:
 
 .. testcode::
 
     def print_segment(n):
-        for size in range(1, n+1, 2):
+        for size in range(1, n + 1, 2):
             print(size * "*")
 
     print_segment(5)
@@ -456,14 +469,18 @@ the third argument :func:`range`:
     ***
     *****
 
-It is not exactly what we have wanted, as it should be aligned in the centre. The method/function 
-:func:`unicode.center` mentioned in the previous section, helps us:
+Ce n'est pas exactement ce à quoi on s'attendait, il y a effectivement
+le bon nombre d'étoiles mais on souhaiterait qu'elle soit aligné au
+centre.
+
+La fonction :func:`unicode.center` que vous avez peut-être trouvé en
+répondant à la question de fin du chapitre précédent, peut nous aider:
 
 
 .. testcode::
 
     def print_segment(n):
-        for size in range(1, n+1, 2):
+        for size in range(1, n + 1, 2):
             print((size * "*").center(n))
 
     print_segment(5)
@@ -475,12 +492,12 @@ It is not exactly what we have wanted, as it should be aligned in the centre. Th
      ***
     *****
 
-However, a new problem appears:
+Cependant, un nouveau problème apparait :
 
 .. testcode::
 
     def print_segment(n):
-        for size in range(1, n+1, 2):
+        for size in range(1, n + 1, 2):
             print((size * "*").center(n))
 
     for i in range(3, 8, 2):
@@ -499,9 +516,10 @@ However, a new problem appears:
      *****
     *******
 
-If we know in advance, what size the widest segment is, we can add an additional argument to  
-:func:`print_segment`,  to align to the width. Combining all of the knowledge we have 
-acquired up to the moment:
+Si nous avions un moyen de connaitre à l'avance la taille du segment
+le plus grand, nous pourrions ajouter un argument supplémentaire à
+:func:`print_segment`, pour faire le centrage sur cette largeur. En
+combinant toute la connaissance acquise :
 
 
 .. testsetup:: tree-final
@@ -511,21 +529,21 @@ acquired up to the moment:
 .. testcode:: tree-final
 
     def print_segment(n, total_width):
-        for size in range(1, n+1, 2):
+        for size in range(1, n + 1, 2):
             print((size * "*").center(total_width))
 
     def print_tree(size):
-        for i in range(3, size+1, 2):
+        for i in range(3, size + 1, 2):
             print_segment(i, size)
 
-    print("Choose size of the Christmas tree:")
+    print("Choisissez la taille de votre Arbre de Noël :")
     n = int(input())
     print_tree(n)
 
 .. testoutput:: tree-final
     :options: +NORMALIZE_WHITESPACE
 
-    Choose size of the Christmas tree:
+    Choisissez la taille de votre Arbre de Noël :
     7
        *
       ***
@@ -538,11 +556,12 @@ acquired up to the moment:
     *******
 
 
-Task for volunteers
--------------------
+Pour aller plus loin
+--------------------
 
-Create a class ``XMASTree`` which for a given size and upon calling the method ``draw`` will print the
-following pictures (sizes 1, 2 and 3):
+Réaliser une classe ``XMASTree`` qui pour une taille donnée et lors de
+l'appel de la méthode ``draw`` va afficher les résultats suivants
+(pour les tailles 1, 2 et 3) :
 
 ::
           *
