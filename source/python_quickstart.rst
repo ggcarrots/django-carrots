@@ -50,7 +50,7 @@ Python est une super calculatrice:
 
 Faites bien attention lorsque vous entrez des nombres à virgules, utilisez des
 points comme séparateurs, et non pas des virgules. Les virgules nous seront
-utiles plus tard, pour définir des :ref:`tuple <bmi-tuples>`, mais nous
+utiles plus tard, pour définir des :ref:`tuple <imc-tuples>`, mais nous
 y reviendrons.
 
 
@@ -230,8 +230,8 @@ C'est pourquoi nous donnons des noms à ces valeurs:
     weight = 65.5
     height = 1.75
 
-    bmi = weight / height ** 2
-    print("Votre IMC est :", bmi)
+    imc = weight / height ** 2
+    print("Votre IMC est :", imc)
 
 Le résultat n'a pas changé:
 
@@ -299,20 +299,20 @@ comme alias de la valeur dans d'autres calculs.
 
     >>> w = 65.5
     >>> h = 175.0 / 100.0
-    >>> bmi = w / h ** 2
-    >>> print(w, h, bmi)
+    >>> imc = w / h ** 2
+    >>> print(w, h, imc)
     65.5 1.75 21.387755102040817
 
 À noter qu'une fois que la valeur est calculée, elle n'est pas modifiée:
 
     >>> w = 64
-    >>> print(w, h, bmi)
+    >>> print(w, h, imc)
     64 1.75 21.387755102040817
 
 Sauf si on demande à Python de la recalculée à nouveau:
 
-    >>> bmi = w / h**2
-    >>> print(w, h, bmi)
+    >>> imc = w / h**2
+    >>> print(w, h, imc)
     64 1.75 20.897959183673468
 
 Il est grand temps d'ajouter quelques commentaires à notre programme
@@ -332,8 +332,8 @@ En Python, un commentaire est tous ce qui se trouve après un caractère
     # Height in meters
     height = 1.75
 
-    bmi = weight / height ** 2  # Calcule l'IMC en kg/m2
-    print("Votre IMC est :", bmi)
+    imc = weight / height ** 2  # Calculer l'IMC
+    print("Votre IMC est :", imc)
 
 
 Les fonctions
@@ -375,8 +375,8 @@ fonction nous retourne une chaîne de caractères (string).
 .. code::
 
     >>> input()
-    Julie a un chat
-    'Julie a un chat'
+    Yara a un chat
+    'Yara a un chat'
 
 Apprenons maintenant ce qu'"appeler une fonction" veut dire.
 
@@ -521,7 +521,7 @@ Sans surprise, ces 8 points peuvent être transcrit en 8 lignes de code
     weight = input()
     weight = float(weight)
 
-    imc = weight / height ** 2  # calculate IMC
+    imc = weight / height ** 2  # Calculer IMC
     print("Votre IMC est :", imc)
 
 Vous pouvez sauvegarder votre programme dans le fichier ``imc.py`` et lancer ``python imc.py``.
@@ -562,23 +562,24 @@ y en a plus d'un on les sépare par virgules:
     255
 
 
-Checking conditions
-====================
+Les conditions
+==============
 
-Let’s go to our next problem. We want our program to print the appropriate
-classification for the calculated BMI by using the table below:
+En avant vers notre prochaine problématique. Nous voulons que notre programme affiche les informations relatives à notre IMC une fois ce dernier calculé.
 
+Pour ce faire nous allons utiliser la table de classification ci-dessous:
 
 =====================   ==================
-   BMI                    Classification
+   IMC                    Classification
 =====================   ==================
- < 18,5                    underweight
- 18,5 – 24,99            normal weight
- ≥ 25,0                     overweight
+ < 18,5                      Maigreur
+ 18,5 – 25              Corpulence normale
+ ≥ 25,0                      Surpoids
 =====================   ==================
 
-We need to use the “conditional statement” :keyword:`if`. It will execute the rest of the program
-based on a given condition:
+Nous allons utiliser le mot clé de condition :keyword:`if`. Il va nous
+permettre de choisir les lignes du programme à exécuter en fonction
+d'une condition donnée:
 
 
 .. testsetup::
@@ -588,36 +589,36 @@ based on a given condition:
 
 .. testcode::
 
-    print("Enter your height in meters:")
+    print("Entrez votre taille en mètres ::")
     height = input()
     height = float(height)
 
-    print("Enter your weight in kilograms:")
+    print("Entrez votre poids en kilogrammes :")
     weight = input()
     weight = float(weight)
 
-    bmi = weight / height**2  # Calculate BMI
+    imc = weight / height ** 2  # Calculer l'IMC
 
-    if bmi < 18.5:
-        print("underweight")
-    elif bmi < 25.0:
-        print("normal weight")
+    if imc < 18.5:
+        print("Maigreur")
+    elif imc < 25.0:
+        print("Corpulence normale")
     else:
-        print("overweight")
+        print("Surpoids")
 
 .. testoutput::
 
-    Enter your height in meters:
+    Entrez votre taille en mètres ::
     1.75
-    Enter your weight in kilograms:
+    Entrez votre poids en kilogrammes :
     65.5
-    normal weight
+    Corpulence normale
 
-Comparisons:  true or false?
-----------------------------
+Conditions : vrai ou faux
+-------------------------
 
-The first element which we have not mentioned yet, are comparisons. For numbers they act exactly like
-during the math lessons:
+La première chose dont nous n'avons pas encore parlé sont les conditions.
+Pour les nombres, cela fonctionne exactement comme en mathématique:
 
     >>> 2 > 1
     True
@@ -632,16 +633,16 @@ during the math lessons:
     >>> -1 != 0
     True
 
-The result of comparison is always ``True`` or ``False``.
-They can be combined into more complex conditions by using words :keyword:`and` and
-:keyword:`or`:
+Le résultat d'une condition est toujours ``True`` ou ``False``.
+On peut utiliser les opérateurs :keyword:`and` et :keyword:`or` pour
+construire des conditions plus complexes:
 
     >>> x = 5
     >>> x < 10
     True
-    >>> 2*x > x
+    >>> 2 * x > x
     True
-    >>> (x < 10) and (2*x > x)
+    >>> (x < 10) and (2 * x > x)
     True
     >>> (x != 5) and (x != 4)
     False
@@ -649,18 +650,23 @@ They can be combined into more complex conditions by using words :keyword:`and` 
     True
 
 
-Indentations
-------------
+Indentation
+-----------
 
-Another thing you should pay attention to is the indentation in the code. Open the interactive mode
-and enter a simple condition, such as::
+Une deuxième chose à laquelle il faut faire attention en Python, c'est
+l'indentation du code.
+
+Ouvrez l'interpreteur Python et entrez une combinaison simple, par
+exemple:
 
     >>> if 2 > 1:
     ...
 
-So far nothing has happened, as evidenced by dots ``...`` instead of incentives ``>>>``, which we
-saw so far. Python expects us to give further instructions which are supposed to be executed if the
-condition ``2 > 1``  turns to be true. Let’s try to make Python print "OK"::
+Pour l'instant rien ne se passe, comme le montre les points ``...`` à
+la place des habituels chevrons ``>>>``. Python s'attends à ce que
+nous donnions des instructions complémentaires qui devront être
+exéctuées si la condition ``2 > 1`` s'avère vraie. Essayons d'afficher
+"OK"::
 
     >>> if 2 > 1:
     ... print("OK")
@@ -669,17 +675,22 @@ condition ``2 > 1``  turns to be true. Let’s try to make Python print "OK"::
             ^
     IndentationError: expected an indented block
 
-Unfortunately, we haven’t succeeded. Python needs to know whether the instruction we have written is a
-continuation of  :keyword:`if` or it is the next instruction not covered by the condition. To this
-purpose we need to indent our code:
+Apparemment, ça n'a pas très bien fonctionné. En fait Python doit
+savoir si l'instruction que nous avons entré est une instruction à
+exécuter uniquement si la condition est vraie ou si c'est une
+instruction à executer sans qu'elle ne soit affectée par la condition.
+
+C'est pourquoi nous devons indenter notre code::
 
     >>> if 2 > 1:
     ...  print("OK")
     ...
     OK
 
-All you need is one space or ``TAB``. However, all the lines that are supposed to be executed one
-after another, should be indented the same way::
+Tout ce que vous devez faire c'est ajouter un espace ou une tabulation
+avant votre instruction pour dire qu'elle fait partie des instructions
+dépendantes du :keyword:`if`. Attention, toute les lignes a exécuter
+dans le if doivent être indentée de la même manière::
 
     >>> if -1 < 0:
     ...  print("A")
@@ -705,91 +716,104 @@ after another, should be indented the same way::
     B
 
 
-To avoid chaos, most of the Python’ programmers use four spaces for each level of indentation. We will
-do the same:
+Pour éviter la confusion, la plupart des développeurs Python se sont
+mis d'accord pour toujours utiliser quatre espaces pour chaque niveau
+d'identation. Nous allons nous aussi adopter cette convention::
 
     >>> if 2 > 1:
     ...     if 3 > 2:
     ...         print("OK")
     ...     else:
-    ...         print("FAIL")
-    ...     print("DONE")
+    ...         print("ECHEC")
+    ...     print("FAIT")
     OK
-    DONE
+    FAIT
 
 
-What if not?
-------------
+Et si ce n'est pas le cas ?
+---------------------------
 
-Actually, we could write our program just by using :keyword:`if` ::
+On pourrait se débrouiller pour écrire un programme en utilisant
+uniquement des :keyword:`if` ::
 
-    if bmi < 18.5:
-        print("underweight")
-    if bmi >= 18.5:
-        if bmi < 25.0:
-            print("normal weight")
-    if bmi >= 25.0:
-        print("overweight")
+    if imc < 18.5:
+        print("Maigreur")
+    if imc >= 18.5:
+        if imc < 25.0:
+            print("Corpulence normale")
+    if imc >= 25.0:
+        print("Surpoids")
 
-However, we have used also :keyword:`else` and :keyword:`elif`, so that we would not have to repeat
-similar conditions nor to increase readability. In more complex programs it may not be obvious from
-the beginning that the following condition is the opposite of the previous one.
+Mais en fait, on peut aussi utiliser :keyword:`else` et
+:keyword:`elif`, afin de ne pas avoir à répèter les conditions
+similaire et améliorer la lisibilité du code. Dans des programmes plus
+compliqués, il n'est parfois de reconnaître que la condition lue est
+la condition inverse de la précédente.
 
+En utilisant :keyword:`else` , nous avons la garantie que les
+instructions données seront exécutées seulement si les instructions
+données après le :keyword:`if` n'ont pas été exécutées::
 
-Using :keyword:`else` , we have the guarantee that the given instructions will be executed only if the instructions printed under :keyword:`if` haven’t been executed::
-
-    if bmi < 18.5:
-        print("underweight")
+    if imc < 18.5:
+        print("Maigreur")
     else:
-        # If your program executes this instruction,
-        # for sure bmi >= 18.5 !
-        if bmi < 25.0:
-            print("normal weight")
+        # Si votre programme exécute ces instructions alors vous êtes
+        # certains que imc >= 18.5 !
+        if imc < 25.0:
+            print("Corpulence normale")
         else:
-            # now for sure bmi >= 25.0, we don’t have to
-            # check it
-            print("overweight")
+            # Ici vous pouvez être certains que imc >= 25.0
+            # nous n'avons donc pas à le vérifier.
+            print("Surpoids")
 
-Pay particular attention to the indentations. Every use of  :keyword:`else`,
-will cause an increased indentation of our code. It is very annoying when you have to check a few or a
-dozen or so conditions which exclude one another . Therefore the authors of Python added a little
-'improvement' in the form of :keyword:`elif`, instruction, which allows you to check another condition
-immediately::
+Regardez bien attentivement la manière dont le code est indenté. À
+chaque utilisation de :keyword:`else`, un niveau d'indentation a été
+ajouté à chaque niveau du code. C'est très ennuyeux d'avoir lire du
+code avec de nombreux niveaux d'indentation.
 
+C'est pourquoi les développeurs Python on ajouté un troisième mot clé,
+:keyword:`elif`, qui permet de vérifier directement une autre
+condition::
 
     if n < 1:
-        print("one")
+        print("un")
     elif n < 2:
-        # if it wasn’t n < 1, and now it is n < 2
-        print("two")
+        # Si ce n'était pas un, alors c'est deux
+        print("deux")
     elif n < 3:
-        # ,if none of the previous condition was true.
-        # n >= 1 i n>= 2, ale n < 3
-        print("three")
+
+        # Si aucune des conditions précédentes n'a été validée alors
+        # c'est trois
+        # n >= 1 et n>= 2 et n < 3
+        print("trois")
     else:
-        # trolls can count only to three
+        # Les trolls ne savent compter que jusqu'à trois
         print("more")
 
 
-Strings formatting
-==================
+Le formattage des chaînes de caractères
+=======================================
 
-The last issue which we have mentioned above was the problem with too many digits in a printed BMI.
-Out of the three problems we had, this one is the easiest to solve.
+La dernière ammélioration, que nous avions mentionnée ci-dessus, était
+le trop grand nombres de chiffre après la virgule de notre IMC.
 
-That’s why we left it for the end of our "adventure" with the BMI calculator. We already know
-that we can add strings to each other and multiply them by integers. You will see that we can also
-format them. But first we will need one more type of data (except the strings and the numbers we
-already know).
+Des trois problèmes que nous avions identifié, celui-ci est le plus
+simple à résoudre.
+
+C'est d'ailleurs pour ça que nous l'avions gardé pour la fin de notre
+aventure d'IMC calculator.
+
+Nous savons déjà que nous pouvons concaténer des chaînes de
+caractères, les multiplier par des nombres, vous allez voir qu'on peut
+aussi les formatter. Tout d'abord, nous avons besoin de découvrir un nouveau type de données (en plus des ``strings`` et des nombres, ``int`` et ``float``, que nous connaissons déjà).
 
 
-.. _bmi-tuples:
+.. _imc-tuples:
 
 Tuples
 ------
 
-At the beginning we mentioned that we can not use commas in numbers, because we will need them later
-while using tuples. And here they are:
+Rappelez-vous, je vous disais que nous ne pouvions pas utiliser les virgules dans les nombres car nous en aurions besoin par la suite pour définir les tuples. Nous y voici :
 
     >>> 1, 2, 3
     (1, 2, 3)
@@ -799,86 +823,102 @@ while using tuples. And here they are:
     >>> print(x)
     (1, 5)
 
-A tuple is nothing more than a few values grouped into one. The values we want to group should be
-separated by commas. The whole thing can be enclosed in parentheses to make it more clear, but it is
-not required. Except when we want to group none of the elements (however strange it may sound):
+Un tuple n'est ni plus ni moins qu'une valeur contenant un groupe de
+valeur. Les valeurs que nous souhaitons grouper ensemble doivent être
+séparées par des virgules. L'ensemble peut-être entouré de parenthèses
+pour rendre plus explicite le fait qu'il s'agisse bien d'un groupe,
+mais ce n'est pas obligatoire. Sauf pour le cas d'un groupe vide
+(aussi bizarre que cela puisse parraître).
 
     >>> ()
     ()
 
-Tuples can be combined:
+Il est possible de combiner des tuples:
 
-    >>> names = ("Paulina", "Kowalska")
+    >>> names = ("Pauline", "Dupontel")
     >>> details = (27, 1.70)
     >>> names + details
-    ('Paulina', 'Kowalska', 27, 1.7)
+    ('Pauline', 'Dupontel', 27, 1.7)
 
-They may also contain other tuples e.g. information on a point on the map can be
-grouped as follows:
+Un tuple peut aussi contenir un autre tuple, par exemple un point sur
+une carte peut-être groupé comme ceci:
 
-    >>> point = ("Name of point", (x, y))
+    >>> point = ("Pizzeria", (long, lat))
 
-where ``x`` and ``y`` are numbers.
+Avec ``long`` et ``lat`` des coordonnées géographiques.
 
-We can refer to the grouped values by using their positions in the tuple (counting form zero) e.g.:
+On peut ensuite se référer aux valeurs d'un groupe en utilisant leurs
+positions (en commençant à zéro):
 
     >>> p = (10, 15)
-    >>> p[0]  #  first value
+    >>> p[0]  # première valeur
     10
-    >>> p[1]  # second value
+    >>> p[1]  # deuxième valeur
     15
 
 
-Formatting
-----------
+Formatter
+---------
 
-Going back to our program: currently the result is reduced to a single line. Now we want to write the
-BMI as a number and the interval in which it is located, that is to say::
+Pour en revenir à notre programme, actuellement le résultat est affiché sur une seule ligne.
 
-    Your BMI is equal: 21.39 (normal weight)
+À présent, nous souhaitons afficher notre IMC comme un nombre ainsi
+que l'information de la table de classification correspondant à la
+tranche en question, comme celà::
 
-Modify the current program so that the calculated BMI would be available under the name of ``bmi``,and
-the name of the interval under the name of ``category``. Then we can use :func:`print` and obtain the
-required result:
+    Votre IMC est de 21.39 (Corpulence normale)
+
+Modifier votre programme actuel pour que la valeur de l'IMC soit disponible dans l'alias ``imc`` et l'information de la table de classification correspondante dans l'alias ``category``. Ensuite utilisez la fonction :func:`print` pour obtenir le résultat souhaité:
 
 .. testsetup::
 
-    bmi = 21.387755102040817
+    imc = 21.387755102040817
     category = "normal weight"
 
 .. testcode::
 
-    print("Your BMI is equal:", bmi, "(" + category + ")")
+    print("Votre IMC est de", imc, "(" + category + ")")
 
 .. testoutput::
     :hide:
 
-    Your BMI is equal: 21.387755102040817 (normal weight)
+    Votre IMC est de 21.387755102040817 (Corpulence Normale)
 
-Well, almost….We still have too many digits. We would also have a problem if we wanted to generate
-such a string and save with a name, because we use :func:`print` to separate the elements.
-Fortunately, there is a better way:
+Vous y êtes presque…. Nous avons encore un peu trop de chiffres après
+la virgule. Nous aurions également un problème si nous souhaitions
+stocker la chaîne de caractères contenant le résultat dans un alias et
+ceux parce que nous utilisons la fonction :func:`print` pour
+concaténer les éléments.
 
-    >>> bmi = 21.387755102040817
-    >>> category = "normal weight"
-    >>> result = "Your BMI: %f (%s)" % (bmi, category)
+Heureusement pour nous, il y a une meilleure solution :
+
+    >>> imc = 21.387755102040817
+    >>> category = "Corpulence normale"
+    >>> result = "Votre IMC est de %f (%s)" % (imc, category)
     >>> result
-    'Your BMI: 21.387755 (normal weight)'
+    'Votre IMC est de 21.387755 (Corpulence normale)'
     >>> print(result)
-    Your BMI: 21.387755 (normal weight)
+    Votre IMC est de 21.387755 (Corpulence normale)
 
-We have here a string and a tuple joined by ``%``. The string is a template which will be completed
-with values from the tuple. The spaces to be filled are also labeled with the percentage (``%``). .
-The letter that follows defines the type of a value we want to insert. The integers are represented
-by  ``i`` as **integer** (we can also use ``d`` as **decimal**),  strings are represented by ``s`` as
-**string**, and floating-point numbers are represented by ``f`` for **float**:
+Ce que nous voyons, c'est que nous avons une chaîne de caractères liée à un tuple par un ``%``.
+Cette chaîne de caractères est un patron qui est complété avec les valeurs contenues dans le tuple.
+
+Les espaces blancs à remplir, sont eux aussi annoté avec un pourcent (``%``).
+
+La lettre qui suite définie le type de la valeur qui doit être
+insérée. Les entiers sont représentés par la lettre ``i`` pour
+**integer** (il est également possible d'utiliser la lettre ``d``
+comme **decimal**), les chaînes de caractères sont représentées par la
+lettre ``s`` comme **string** et les valeurs décimale flottante sont
+représentées par la lettre ``f`` comme **float**:
 
     >>> "String: %s, Numbers: %d %f" % ("Ala", 10, 3.1415)
     'String: Ala, Numbers: 10 3.141500'
 
-Now instead of nine decimal places we always get six, but the formatting has the advantage that it
-allows us to have more control by putting between ``%`` and ``f`` additional information, e.g. if you
-want to display only two places after the decimal point:
+Ici au lieu de neuf décimale nous n'en avons plus que six, mais le
+formatting à l'avantage de nous permettre d'avoir encore plus de
+contrôle en ajoutant des informations complémentaires entre le ``%``
+et le ``f`` ; par exemple pour ne faire apparaître que deux chiffres :
 
 
     >>> "%.2f" % 3.1415
@@ -886,8 +926,9 @@ want to display only two places after the decimal point:
     >>> "%.2f" % 21.387755102040817
     '21.39'
 
-There are plenty options of formatting, so we will not show them all here. One of the most useful is
-the option of aligning to a specific number of characters:
+Il y a pleins d'options de formattage, nous n'allons donc pas toutes
+les lister ici. L'une des plus utile est celle permettant d'aligner
+l'affichage sur un nombre de caractères donnés :
 
 .. testcode::
 
@@ -896,8 +937,8 @@ the option of aligning to a specific number of characters:
     print("-" * WIDTH)
     print("| Name and last name |  Weight  |")
     print("-" * WIDTH)
-    print("| %15s | %6.2f |" % ("Łukasz", 67.5))
-    print("| %15s | %6.2f |" % ("Pudzian", 123))
+    print("| %15s | %6.2f |" % ("Lucas", 67.5))
+    print("| %15s | %6.2f |" % ("Pierre", 123))
     print("-" * WIDTH)
 
 .. testoutput::
@@ -905,11 +946,12 @@ the option of aligning to a specific number of characters:
     --------------------------------
     | Name and last name  |  Weight|
     --------------------------------
-    |              Łukasz |  67.50 |
-    |             Pudzian | 123.00 |
+    |               Lucas |  67.50 |
+    |              Pierre | 123.00 |
     --------------------------------
 
-We can also align the string ``-``  to the left by putting before the number of characters:
+Nous pouvons aussi aligner les chaînes de caractères à gauche en
+prefixant le nombre de caractères par un ``-`` :
 
 .. testcode::
 
@@ -918,8 +960,8 @@ We can also align the string ``-``  to the left by putting before the number of 
     print("-" * WIDTH)
     print("| Name and last name |  Weight |")
     print("-" * WIDTH)
-    print("| %-15s | %6.2f |" % ("Łukasz", 67.5))
-    print("| %-15s | %6.2f |" % ("Pudzian", 123))
+    print("| %-15s | %6.2f |" % ("Lucas", 67.5))
+    print("| %-15s | %6.2f |" % ("Pierre", 123))
     print("-" * WIDTH)
 
 .. testoutput::
@@ -927,29 +969,36 @@ We can also align the string ``-``  to the left by putting before the number of 
     -------------------------------
     | Name and last name|  Weight |
     -------------------------------
-    | Łukasz            |  67.50  |
-    | Pudzian           | 123.00  |
+    | Lucas             |  67.50  |
+    | Pierre            | 123.00  |
     -------------------------------
 
-Aligning towards the centre is an additional excercise for you :).
+Je vous laisse chercher comment faire pour aligner au centre :).
 
 
-Summary
-=======
+En résumé
+=========
 
-In this chapter we learned basics of Python syntax. We discovered how to print integers,
-floating-point numbers, strings and tuples.
+Dans ce chapitre nous avons appris les bases de la syntaxe
+Python. Nous avons découvert comment afficher des nombres entiers et
+décimaux, des chaînes de caractères et nous avons découverts les
+tuples.
 
-We learnt the function :func:`print`, that prints information for the user and the function 
-:func:`input`, which reads it.
+Nous avons appris à utiliser la fonction :func:`print`, qui affiche
+des informations à l'utilisateur et la fonction :func:`input`, qui
+permet de lire les entrées de ce dernier.
 
-We also know now that indentations can be important, especially when we want to use
-the instruction :keyword:`if` (also in connection with :keyword:`else` and :keyword:`elif`).
+Nous avons vu comment l'identation pouvait être importante, notamment
+lors de l'utilisation des instructions :keyword:`if`, :keyword:`else`
+et :keyword:`elif`.
 
-We successfully created a program stored in a file and ran it. Our program asks the user to answer
-a few simple questions, performs calculations and presents results in the form which is useful for the
-user.
+Nous avons réalisé notre premier programme dans un fichier que nous pouvons lancer.
 
-This is quite a lot like for a first program. We still have a lot of work, anyhow you can be proud of
-what we have done so far!
+Notre programme pose quelques questions à l'utilisateur, calcule des
+informations et présente les résultats dans une forme utile à
+l'utilisateur.
+
+Ça fait finalement beaucoup de chose pour un premier programme. Nous
+avons encore pas mal de travail mais vous pouvez être fier de ce que
+vous avez fait jusqu'à présent !
 
