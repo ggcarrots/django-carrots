@@ -132,19 +132,21 @@ l'instant. Pour sortir, entrez `quit()`::
 Ou tapez ``Ctrl+D`` pour Linux ou ``Ctrl+Z`` pour Windows.
 
 
-Source files
-============
+Fichiers de code source Python
+==============================
 
-So far our code was executed in an interactive mode where we give commands
-separately and immediately get an answer. It’s a great way to experiment and learn
-new language elements, that is why we will get back to it.
+Jusqu'à présent nous avons exécuté du code dans l'invite de commande
+interractive dans laquelle nous récupèrons une réponse immédiate à nos
+commandes. C'est un bon moyen d'apprendre et d'expérimenter les
+éléments du langage. C'est pourquoi on y retourne.
 
-Our first program may look as follows::
+Notre premier programme pourrait ressembler à ça::
 
     print("Hi, my name is Lucas")
 
-Save this program in a new file called ``visitingcard.py``, and then run it from the command line using the
-command ``python visitingcard.py``:
+
+Enregistrez ce programme dans un fichier appelé ``visitingcard.py``,
+et lancé le depuis l'invite de commande ``python visitingcard.py``:
 
 .. code-block:: sh
 
@@ -152,7 +154,7 @@ command ``python visitingcard.py``:
     Hi, my name is Lucas
     (workshops) ~$
 
-A single program can contain more than one command. Each should be in a separate line, for example::
+Un même programme peut contenir plusieurs commandes. Chacune devant être sur une ligne séparée, par exemple::
 
     print("Hi,")
     print()
@@ -162,78 +164,84 @@ A single program can contain more than one command. Each should be in a separate
     print()
     print("Bye.")
 
-We can insert blank lines wherever we want in ``visitingcard.py`` file to increase its readability.
-Here we split the message header from its content and its end.
+Nous pouvons ajouter des lignes vides où nous le souhaitons dans le
+fichier ``visitingcard.py`` pour améliorer la lisibilité. Ici, nous
+avons séparé l'entête du message d'avec son contenu et d'avec sa fin.
 
 
-BMI calculator
+IMC calculator
 ==============
 
-Now we are going to write a simple program to calculate `BMI` (`Body Mass Index`_).
-The formula for its calculation is as follows::
+Essayons de créer un programme simple permettant de calculer son `IMC`
+(`Indice de Masse Corporelle`_).
 
-    BMI = (mass (kg)) / (height (m)) squared
+La formule de ce calcul est la suivante::
 
-We already know how to divide, exponentate, and print out numbers. So let's create a new file called ``bmi.py``
-and try to write a program that calculates our BMI:
+    IMC = (masse (kg)) / (taille (m)) au carré
+
+Nous savons déjà faire une division, une puissance et afficher des
+nombres. Il ne nous reste plus qu`à créer un fichier ``imc.py`` et à
+essayer d'écrire le programme qui calcule l'IMC:
 
 
 .. testcode::
 
-    print("Your BMI is:", 65.5 / (1.75 ** 2))
+    print("Votre IMC est :", 65.5 / (1.75 ** 2))
 
-Run our new program with::
+Lancer votre programme comme ceci::
 
-    $ python bmi.py
+    $ python imc.py
 
-We get the following result:
+Vous obtenez::
 
 .. testoutput::
 
-    Your BMI is: 21.387755102040817
+    Votre IMC est : 21.387755102040817
 
-As you can see, our program still needs some improvements:
+Comme vous le voyez notre programme à besoin de quelques améliorations::
 
-1. If someone else would like to use this program, we must change the contents of ``bmi.py`` file.
+1. Si quelqu'un d'autre souhaite utiliser le programme nous devons
+   modifier le fichier ``imc.py``.
 
-2. For a person who does not know the value of BMI table by heart, the value 21.387755102 won’t say
-   anything.
+2. Pour une personne qui ne connait pas les tables d'IMC par cœur,
+   21.387755102 ne veut pas dire grand chose.
 
-3. Printing so many decimal places is unnecessary. BMI is measured with an accuracy of two decimal
-   places.
+3. Afficher autant de décimales n'est pas nécessaire. Les nombres en
+   entrée n'ayant que 3 chiffres significatifs.
 
-Anyway, programming is an art of solving problems, so … let's get to work! It will give us an
-opportunity to learn about some new features of Python.
+Programmer c'est l'art de résoudre les problèmes, alors mettons nous au travail !
+Cela va nous donner l'opportunité d'apprendre de nouvelles fonctionnalitées de Python.
 
-.. _`Body Mass Index`: http://pl.wikipedia.org/wiki/Body_Mass_Index
+.. _`Indice de Masse Corporelle`: http://fr.wikipedia.org/wiki/Indice_de_masse_corporelle
 
 
-Names
+Alias
 =====
 
-Let's try to solve the first problem. At the beginning we would like to make our program more
-readable, i.e. so that for the person reading the results, it would be obvious which value is the
-weight, and which is the height.
+Commençons par résoudre notre premier problème. Pour commencer nous
+aimerions bien rendre notre programme plus lisible, pour permettre au
+lecteur de savoir immédiatement quelle valeur correspond à la taille et quelle
+valeur correspond au poids.
 
-That's why we give names to these values​​:
+C'est pourquoi nous donnons des noms à ces valeurs:
 
 .. testcode::
 
     weight = 65.5
     height = 1.75
 
-    bmi = weight / height**2
-    print("Your BMI is:", bmi)
+    bmi = weight / height ** 2
+    print("Votre IMC est :", bmi)
 
-The result has not changed:
+Le résultat n'a pas changé:
 
 .. testoutput::
 
-    Your BMI is: 21.387755102040817
+    Votre IMC est : 21.387755102040817
 
 
-In order to understand better how names work, let’s go back for a while
-to the interactive mode and give a few names to some values:
+Pour mieux comprendre le fonctionnement des alias, revenons à l'invite
+de commande Python et essayons d'en créer quelques-un
 
     >>> x = 42
     >>> PI = 3.1415
@@ -241,13 +249,15 @@ to the interactive mode and give a few names to some values:
     >>> print("Things:", x, PI, name)
     Things: 42 3.1415 Amelia
 
-One value can have many names:
+Une valeur peut être liée à plusieurs alias, elle peut donc avoir
+plusieurs noms:
 
     >>> y = x
     >>> print(x, y)
     42 42
 
-We also can change the value assigned to the name. The new value does not need to be of the same type as the old one:
+On peut également modifier la valeur d'un alias. La nouvelle valeur
+n'a pas besoin d'être du même type que la précédente:
 
     >>> x = 13
     >>> print(x)
@@ -256,56 +266,65 @@ We also can change the value assigned to the name. The new value does not need t
     >>> print(x)
     Scarab
 
-The names are independent of each other. We have just assigned to ``x``
-a new value, but the value assigned to ``y`` remains unchanged:
+Les alias sont indépendants les uns des autres. Si on modifie la
+valeur de X, la valeur de y reste la même:
 
     >>> print(y)
     42
 
-.. note:: For the ones who already know other programming languages.
+.. note:: Pour ceux qui connaissent d'autres langages de programmation
 
-    You probably wonder why we do not use the term "variable".
-    This is because the names in Python do not work the same way as variables.
-    In most languages, the operation  ``y = x`` would create a copy of the ``x``
-    and would introduce it in the variable ``y``.
+    Vous vous demandez surement pourquoi nous n'utilisons pas ici le
+    terme "variable". C'est simplement car en Python, les alias ne
+    fonctionnent pas de la même manière que les variables.
+	Dans la plupart des langages, l'opération ``y = x`` crée une copie de
+    ``x`` et la stocke dans la variable ``y``
 
-    In Python nothing is silently copied. ``y`` becomes only an alternative name for the same value.
-    If you change this value, both the ``x``, and ``y`` will show the same thing.
+	En Python, rien n'est copié silencieusement. ``y`` devient
+	seulement un autre moyen de nommer la même valeur. Si on modifie
+	cette valeur, ``x`` et ``y`` seront tous les deux modifiés et
+	afficheront la même chose.
 
-    In our example we did not change the value of the number ``42``,
-    but only the value assigned to  ``x`` (in particular, the values of the numbers
-    are not modified, despite the fact that in 1897 the lower house of the Indiana state accepted
-    to change the value of the number π to ``3`` - which was rejected in the Senate).
-    Therefore, the print  ``print(y)`` will give us ``42``.
+	Dans notre exemple, nous n'avons pas modifier la valeur du nombre
+	``42``, mais nous avons modifié la valeur associée à ``x`` (en
+	particulier, les valeurs des nombres ne sont jamais modifié, bien
+	qu'en 1897, la Chambre basse de l'état d'Indiana ait accepté de
+	modifier la valeur de π à ``3``, décision rejetée par le Sénat).
+	C'est pourquoi, afficher la valeur de ``y`` avec ``print(y)``,
+	nous donne ``42``.
 
-As we have seen in our program, we can also give names to the results of calculations and use names in
-calculations:
+Comme nous l'avons vu dans notre programme, nous pouvons également
+donner des noms aux résultats des calculs et utiliser ensuite ces noms
+comme alias de la valeur dans d'autres calculs.
 
     >>> w = 65.5
     >>> h = 175.0 / 100.0
-    >>> bmi = w / h**2
+    >>> bmi = w / h ** 2
     >>> print(w, h, bmi)
     65.5 1.75 21.387755102040817
 
-Although once a value is calculated, it is not modified:
+À noter qu'une fois que la valeur est calculée, elle n'est pas modifiée:
 
     >>> w = 64
     >>> print(w, h, bmi)
     64 1.75 21.387755102040817
 
-Until we give the Python the command to repeat the calculation again:
+Sauf si on demande à Python de la recalculée à nouveau:
 
     >>> bmi = w / h**2
     >>> print(w, h, bmi)
     64 1.75 20.897959183673468
 
-Now is time to add some comments to our program so that the user (and us too!)
-remembers that the weight has to be given in kilograms.
+Il est grand temps d'ajouter quelques commentaires à notre programme
+afin que les lecteurs (dont nous faisons partie) se souviennent que le
+poids et en kg et la taille en m.
 
-Comments allow us to put arbitrary text in our python program. Comments will be ignored by interpreter.
+Les commentaires nous permette de rajouter du texte dans notre code
+python.  Les commentaires seront simplement ignoré par l'interpreteur
+python lors de l'exécution du code.
 
-A comment in Python is everything after the character ``#`` till the end of the line::
-
+En Python, un commentaire est tous ce qui se trouve après un caractère
+``#`` et la fin de la ligne::
 
     # Weight in kilograms
     weight = 65.5
@@ -313,24 +332,29 @@ A comment in Python is everything after the character ``#`` till the end of the 
     # Height in meters
     height = 1.75
 
-    bmi = weight / height**2 # Count BMI
-    print("Your BMI is:", bmi)
+    bmi = weight / height ** 2  # Calcule l'IMC en kg/m2
+    print("Votre IMC est :", bmi)
 
-Calling a function
-==================
 
-Our program looks quite OK, but if a user wants to calculate his/her BMI, he still has to change the
-content of the program. It would be more convenient to enter the required values in the console after
-opening the program and get the BMI result.
+Les fonctions
+=============
 
-In order to write such a program we need to learn how to use the functions. The first function we are
-going to learn is :func:`help`:
+Notre programme est pas trop mal, mais si l'utilisateur souhaite
+calculer son IMC, il aura besoin de modifier le code source du
+programme. Ce serait bien plus simple de lui permettre de saisir ces
+valeurs directement dans la console après le lancement du programme et
+de lui retourner ensuite son IMC.
+
+Pour ce faire, nous devons apprendre à utiliser les fonctions. La
+première fonction que nous allons apprendre à utiliser est la fonction
+:func:`help`: ::
 
     >>> help
     Type help() for interactive help, or help(object) for help about object.
 
-:func:`help` function is very friendly as it tells us how we should use it. It can also tell you how to
-use the other functions:
+La fonction :func:`help` est très sympa car elle nous expliquer
+comment nous devons l'utiliser. Elle peut aussi nous dire comment
+utiliser d'autres fonctions::
 
     >>> help(input)
     Help on function input in module builtins:
@@ -344,26 +368,36 @@ use the other functions:
         is printed without a trailing newline before reading.
     <BLANKLINE>
 
-:func:`input` will be used to load data from the user. As we read in the description, it reads the
-string:
+Nous utiliserons :func:`input` pour lire les données de
+l'utilisateur. Comme nous pouvons le voir dans la documentation, la
+fonction nous retourne une chaîne de caractères (string).
 
 .. code::
 
     >>> input()
-    Ala has a cat
-    'Ala has a cat'
+    Julie a un chat
+    'Julie a un chat'
 
+Apprenons maintenant ce qu'"appeler une fonction" veut dire.
 
-Now you will learn what "calling a function" means. You can call a function using ``()``, which is
-an information for the interpreter to call a function. Calling a function will run a function. If you
-forget  to type ``()`` after the function name, the function is not called. In this situation
-you will not get any informations about an error, because the command you typed is still correct.
+Pour appeler une fonction, il faut utiliser ``()``, ce qui donne
+l'information à l'interpreteur Python qu'il doit appeler une fonction.
 
+Appeler une fonction c'est lancer le code de cette fonction. Si vous
+oubliez d'utiliser ``()`` après le nom de la fonction, la fonction ne
+sera pas appellée.
 
-Generally, called functions **return** some values. :func:`input` function returns a string, that’s why
-we can use it the same way as we used strings before.
+Dans cette situation, il n'y aura pas d'erreur car il est tout a fait
+possible de manipuler une fonction sans l'appeler.
 
-For example we can use ``input()`` to save given string as a name:
+La plupart du temps une fonction **return** un résultat.
+
+Dans le cas de la :func:`input`, ce résultat est une chaîne de
+caractères, c'est pourquoi nous pouvons la manipuler de la même
+manière que nous avons manipuler les chaînes de caractères auparavent.
+
+Par exemple nous pouvons donner un alias au résultat de la fonction
+``input()`` pour pouvoir réutiliser cette valeur par la suite:
 
 .. testsetup::
 
@@ -375,10 +409,10 @@ For example we can use ``input()`` to save given string as a name:
     Joanna
     >>> name
     'Joanna'
-    >>> print("Your name is:", name)
-    Your name is: Joanna
+    >>> print("Votre nom est :", name)
+    Votre nom est : Joanna
 
-Is that enough to improve our program?
+Est-ce que ça suffit pour améliorer notre programme ?
 
 .. testsetup::
 
@@ -395,12 +429,15 @@ Is that enough to improve our program?
       File "<stdin>", line 1, in <module>
     TypeError: Can't convert 'int' object to str implicitly
 
-As you can see, Python doesn’t know what result we expect. Both strings (``str``), and 
-numbers (``int``) can't be added together. Python does not know if we are referring to the number ``63.5``
-or to the string ``"60.5"``. Only we know that, so we have to include this information in the program.
+Comme vous pouvez le voir, Python ne sait pas qu'elle résultat nous
+souhaitons.  Il est n'est pas possible d'additionner des chaînes de
+type (``str``) et des entiers de type (``int``). Python ne sait pas si
+nous parlons du nombre ``63.5`` ou de la chaîne de caractères
+``"60.5"``. Nous sommes les seuls à le savoir et nous devons donc
+ajouter ces informations à notre programme.
 
 
-Let’s introduce two more functions:
+Voici deux nouvelles fonctions :
 
     >>> help(int)  # doctest: +NORMALIZE_WHITESPACE
     Help on class int in module builtins:
@@ -415,7 +452,7 @@ Let’s introduce two more functions:
      |
      |  ...
 
-and
+et
 
     >>> help(float)  # doctest: +NORMALIZE_WHITESPACE
     Help on class float in module builtins:
@@ -427,14 +464,16 @@ and
      |
      |  ...
 
-The function :func:`help` does not hesitate to inform us that, in fact,
-:func:`int` and :func:`float` are not functions, but classes (more about this in the further part of
-the manual) hence the information about all the other things that you can use them for. For now, we
-are only interested in only the basic functionality of the conversion of strings into the numbers of
-determined type.
+La fonction :func:`help` n'hésite pas à nous annoncer qu'en fait,
+:func:`int` and :func:`float` ne sont pas des fonctions, mais des
+classes (mais nous reviendrons là dessus dans la suite du tutoriel)
+ainsi que toutes les informations sur les nombreuses choses pour
+lesquelles nous pouvons les utiliser. Actuellement ce qui nous
+intéresse est simplement la fonctionnalité de base permettant de
+convertir une chaîne de caractères contenant un nombre sous la forme
+d'un nombre d'un type donné.
 
-
-Let’s test :func:`int` and :func:`float`:
+Essayons :func:`int` et :func:`float`:
 
     >>> int("0")
     0
@@ -452,20 +491,20 @@ Let’s test :func:`int` and :func:`float`:
     60.5
 
 
-Before we use the newly learnt functions in our program, let’s make a plan of how it should work:
+Avant d'utiliser ces nouvelles fonctions dans notre programme, prenons
+le temps de décrire comme il devrait fonctionner:
 
-1. Ask the user to enter the height.
-2. Load the string from the user and save it under the name ``height``.
-3. Change the string with the number to a number with a fraction.
-4. Ask the user to enter the weight.
-5. Load the string from the user and save it under the name of ``weight``.
-6. Change the string with the number to a number with a fraction.
-7. Using the remembered values calculate BMI and save as ``bmi``.
-8. Print the calculated BMI.
+1. Demander à l'utilisateur d'entrer sa taille.
+2. Lire la valeur de l'utilisateur et la stocker dans l'alias ``height``.
+3. Convertir la valeur sous forme de chaîne de caractères en valeur décimale.
+4. Demander à l'utilisateur d'entrer son poids.
+5. Lire la valeur de l'utilisateur et la stocker dans l'alias ``weight``.
+6. Convertir la valeur sous forme de chaîne de caractères en valeur décimale.
+7. En utilisant ces valeurs calculer l'IMC et stocker sa valeur dans l'alias ``imc``.
+8. Afficher la valeur de l'IMC.
 
-
-It should not surprise us that these eight points can be directly translated into eight lines of our
-program (not counting spaces):
+Sans surprise, ces 8 points peuvent être transcrit en 8 lignes de code
+(lignes vides exclues):
 
 .. testsetup::
 
@@ -474,44 +513,50 @@ program (not counting spaces):
 
 .. testcode::
 
-    print("Enter the height in meters:")
+    print("Entrez votre taille en mètres :")
     height = input()
     height = float(height)
 
-    print("Enter the weight in kilograms:")
+    print("Entrez votre poids en kilogrammes :")
     weight = input()
     weight = float(weight)
 
-    bmi = weight / height**2 # calculate BMI
-    print("Your BMI is:", bmi)
+    imc = weight / height ** 2  # calculate IMC
+    print("Votre IMC est :", imc)
 
-You can save above program to ``bmi.py`` and run ``python bmi.py``. The result should look like this:
+Vous pouvez sauvegarder votre programme dans le fichier ``imc.py`` et lancer ``python imc.py``.
+Le résultat devrait ressembler à:
 
 .. testoutput::
 
-    Enter the height in meters:
+    Entrez votre taille en mètres :
     1.75
-    Enter the weight in kilograms:
+    Entrez votre poids en kilogrammes :
     65.5
-    Your BMI is: 21.387755102040817
+    Votre IMC est : 21.387755102040817
 
-In conclusion, to call a function we need to know its name (until now we learnt a bunch of functions: :func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float` and :func:`quit`),
-and what data it expects from us (so called, the list of arguments).
+En conclusion, pour appeler une fonction, nous avons besoin de
+connaître son nom (nous en connaissons maintenant quelques-unes :
+:func:`print`, :func:`help`, :func:`input`, :func:`int`, :func:`float`
+and :func:`quit`) et ce qu'elles attendent de nous (ce qui s'appelle
+la liste des arguments de la fonction).
 
-Entering just the name does not activate the function. It will tell us only that it is a function:
+Entrer uniquement le nom de la fonction ne l'appelle pas. Mais ça va
+nous retourner qu'il s'agit bien d'une fonction.
 
     >>> input  # doctest: +SKIP
     <built-in function input>
 
 .. We skip the test above because we can't mock input.__repr__ :(
 
-In order to call the function we must put brackets after its name:
+Afin d'appeler une fonction, nous devons ajouter des parenthèses après son nom:
 
     >>> input()  # doctest: +SKIP
 
-Now the function will be executed by Python.
+Ainsi la fonction sera exécutée par Python.
 
-All arguments are given in parentheses. To specify more than one, separate them with a comma:
+Les arguments de la fonction sont donnés entre les parenthèses et s'il
+y en a plus d'un on les sépare par virgules:
 
     >>> int("FF", 16)
     255
