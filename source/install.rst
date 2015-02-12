@@ -8,8 +8,8 @@ Windows
 =======
 
 Vous pouvez télécharger une version Windows de l'interpéteur Python directement depuis `python.org`_.
-Une fois que vous avez récupéré le fichier d'installation, portant l'extension ``.msi``, il vous suffit de l'ouvrir et de suivre les instructions.
-Prenez soin de garder en mémoire le chemin d'installation - c'est-à-dire le dossier dans lequel vous avez installé Python. Vous aurez besoin de cette information par la suite, au moment de l':ref:`installation des outils <tools>`.
+Une fois que vous avez récupéré le fichier d'installation, portant l'extension ``.msi``, il vous suffit de l'exécuter et de suivre les instructions.
+Retenez bien le chemin d'installation - c'est-à-dire le dossier dans lequel vous avez installé Python. Vous aurez besoin de cette information par la suite, au moment de l':ref:`installation des outils <tools>`.
 
 
 Linux (Ubuntu, Fedora, etc.) ou Mac OS X
@@ -118,7 +118,7 @@ Par exemple, si votre répertoire personnel est ``C:\Users\Yara``, la ligne de c
     Ubuntu 14.04 has a bug (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) that causes Python3.4 `venv` module to fail when installing with `pip`.
     To work around this please use this command to create virtual environment::
 
-    Ubuntu 14.04 a un bogue (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) qui provoque l'échec de l'installation par `pip` du module `venv` de Python3.4. Pour contourner ce problème, il faut utiliser les commandes suivantes ::
+    Ubuntu 14.04 a un bogue (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) qui provoque l'échec de l'installation par ``pip`` du module ``venv`` de Python3.4. Pour contourner ce problème, il faut utiliser les commandes suivantes ::
 
         ~$ python -m venv --without-pip workshops
         ~$ source workshops/bin/activate
@@ -126,7 +126,7 @@ Par exemple, si votre répertoire personnel est ``C:\Users\Yara``, la ligne de c
         ~$ python get-pip.py
         ~$ pip --version
 
-    N'hésitez pas à consulter _`https://pip.pypa.io/en/latest/installing.html` si vous souhaitez des informations supplémentaires au sujet de l'installation de `pip`.
+    N'hésitez pas à consulter _`https://pip.pypa.io/en/latest/installing.html` si vous souhaitez des informations supplémentaires au sujet de l'installation de ``pip``.
 
 Après ces manipulations, un nouveau répertoire nommé ``workshops`` est présent dans votre répertoire personnel, contenant ce que l'on appelle un "environnement virtuel". Il convient maintenant d'activer celui-ci.
 
