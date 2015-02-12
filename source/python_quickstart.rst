@@ -14,12 +14,12 @@ Commençons par lancer l'interpréteur Python que nous avons installé lors du c
     >>>
 
 
-Avant d'entrer ``python``, nous travaillions avec la ligne de commande du
-système d'exploitation, auquel nous donnions des commandes.
+Avant d'entrer ``python``, nous entrions nos commandes sur la ligne de commande
+du système d'exploitation.
 
 L'invite de ligne de commande (aussi appelée "prompt") était ``~$``. Une fois
-la commande ``python`` entrée, l'invite de commande à changée et est désormais
-`>>>`. Cela signifie qu'à partir de maintenant, nous devons uniquement utiliser
+la commande ``python`` entrée, l'invite de commande a changée et est désormais
+``>>>``. Cela signifie qu'à partir de maintenant, nous devons uniquement utiliser
 des commandes venant du langage Python.
 
 Les commandes telles que ``cd`` ou ``mkdir`` ne fonctionneront pas. Il est
@@ -28,12 +28,12 @@ temps d'apprendre un nouveau langage !
 Nous ne taperons pas les signes ``>>>`` (de la même manière que pour ``~$``),
 l'interpréteur python le fera pour nous.
 
-Commençons par conter quelque chose, par exemple ``2 + 2``:
+Commençons par additionner deux nombres: 
 
     >>> 2 + 2
     4
 
-Python est une très bonne calculatrice:
+Python est une super calculatrice:
 
     >>> 6 * 7
     42
@@ -50,18 +50,18 @@ Python est une très bonne calculatrice:
 
 Faites bien attention lorsque vous entrez des nombres à virgules, utilisez des
 points comme séparateurs, et non pas des virgules. Les virgules nous seront
-utiles plus tard, pour définir des :ref:`tuple <bmi-tuples>`, nous
-y reviendrons plus tard.
+utiles plus tard, pour définir des :ref:`tuple <bmi-tuples>`, mais nous
+y reviendrons.
 
 
 Le temps des présentations
 ==========================
 
-Chaines de caractères (Strings)
+Chaînes de caractères (Strings)
 -------------------------------
 
 Les nombres ne sont pas suffisants pour communiquer de manière efficace, nous
-avons donc besoin d'utiliser des chaines de caractères (aussi appelés
+avons donc besoin d'utiliser des chaînes de caractères (aussi appelées
 ``strings``).
 
 Voici quelques exemples: 
@@ -75,45 +75,47 @@ Voici quelques exemples:
     >>> 'Mon nom est "Pierre"'
     'Mon nom est "Pierre"'
 
-Vous pouvez également ajouter deux chaines l'une à l'autre:
+Vous pouvez également ajouter (on dit également concaténer) deux chaînes l'une
+à l'autre:
 
     >>> 'Mon nom est ' + '"Pierre"'
     'Mon nom est "Pierre"'
 
-Ou ils peuvent être aussi multipliés par des nombres:
+Ou elles peuvent être aussi multipliés par des nombres:
 
     >>> 'oui ' * 3
     'oui oui oui'
 
-Une chaine de caractère doit toujours commencé et terminer par le même
+Une chaine de caractères doit toujours se commencer et se terminer par le même
 caractère. Il peut s'agir d'un guillemet simple (``'``), ou d'un guillemet
-double (``"``). Cela n'a aucun effet sur la valeur de la chaine de caractère.
-Par exemple, si nous entrons ``"Batman"``, nous créons une chaine de caractère
-``Batman``, les guillemets ne font pas partie de la chaine de caractère, ils
-sont là uniquement pour indiquer qu'il s'agit d'un string (malheureusement,
-Python n'est pas suffisamment brillant pour se rendre compte de ça lui même).
+double (``"``). Cela n'a aucun effet sur la valeur de la chaine de caractères.
+Par exemple, si nous entrons ``"Batman"``, nous créons une chaine de caractères
+``Batman``, les guillemets ne font pas partie de la chaine de caractères, ils
+sont là uniquement pour indiquer qu'il s'agit d'une chaîne de caractères
+(string) (malheureusement, Python n'est pas suffisamment brillant pour se
+rendre compte de ça lui même).
 
 
-Afficher les chaines de caractères
+Afficher les chaînes de caractères
 ----------------------------------
 
-Mais, comment afficher ces chaines de caractères d'une manière lisible? Il est
-possible de le faire en utilisant la commande :func:`print`.
+Mais, comment afficher ces chaînes de caractères d'une manière lisible? Il est
+possible de le faire en utilisant la fonction :func:`print`.
 
 
     >>> print("Bonjour tout le monde !")
     Bonjour tout le monde !
 
-Il est aussi possible d'afficher différentes chaines de caractères sur une même
+Il est aussi possible d'afficher différentes chaînes de caractères sur une même
 ligne, sans avoir à les ajouter l'une à l'autre. Elles seront séparées par des
 espaces:
 
     >>> print("Bonjour, mon nom est", "Pierre")
     Bonjour, mon nom est Pierre
 
-La commande :func:`print` peut être utilisée de beaucoup de manières, puisque
-elle peut écrire à peu près n'importe quoi.  Pour l'instant, le seul type de
-valeur que nous connaissons est les nombres:
+La fonction :func:`print` peut être utilisée de différentes manières,
+puisqu'elle peut écrire à peu près n'importe quoi.  Pour l'instant, le seul
+type de valeurs que nous connaissons sont les nombres:
 
     >>> print(1)
     1
@@ -122,12 +124,12 @@ valeur que nous connaissons est les nombres:
     >>> print("2 + 2 =", 2 + 2)
     2 + 2 = 4
 
-Et voila, nous avons terminé d'utiliser la console interactive de Python pour
+Et voilà, nous avons terminé d'utiliser la console interactive de Python pour
 l'instant. Pour sortir, entrez `quit()`::
 
     >>> quit()
 
-Ou plus rapidement, en tapant ``Ctrl+D`` pour Linux ou ``Ctrl+Z`` pour Windows.
+Ou tapez ``Ctrl+D`` pour Linux ou ``Ctrl+Z`` pour Windows.
 
 
 Source files
