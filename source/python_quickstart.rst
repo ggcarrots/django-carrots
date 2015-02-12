@@ -136,7 +136,7 @@ Fichiers de code source Python
 ==============================
 
 Jusqu'à présent nous avons exécuté du code dans l'invite de commande
-interractive dans laquelle nous récupèrons une réponse immédiate à nos
+interactive dans laquelle nous récupérons une réponse immédiate à nos
 commandes. C'est un bon moyen d'apprendre et d'expérimenter les
 éléments du langage. C'est pourquoi on y retourne.
 
@@ -146,7 +146,7 @@ Notre premier programme pourrait ressembler à ça::
 
 
 Enregistrez ce programme dans un fichier appelé ``visitingcard.py``,
-et lancé le depuis l'invite de commande ``python visitingcard.py``:
+et lancez-le depuis l'invite de commande ``python visitingcard.py``:
 
 .. code-block:: sh
 
@@ -154,7 +154,8 @@ et lancé le depuis l'invite de commande ``python visitingcard.py``:
     Hi, my name is Lucas
     (workshops) ~$
 
-Un même programme peut contenir plusieurs commandes. Chacune devant être sur une ligne séparée, par exemple::
+Un même programme peut contenir plusieurs commandes, chacune devant
+être sur une ligne séparée, par exemple::
 
     print("Hi,")
     print()
@@ -169,11 +170,12 @@ fichier ``visitingcard.py`` pour améliorer la lisibilité. Ici, nous
 avons séparé l'entête du message d'avec son contenu et d'avec sa fin.
 
 
-IMC calculator
-==============
+Calculateur d'IMC
+=================
 
 Essayons de créer un programme simple permettant de calculer son `IMC`
-(`Indice de Masse Corporelle`_).
+(`Indice de Masse Corporelle`_). En anglais on parle de `BMI` (Body
+Mass Index).
 
 La formule de ce calcul est la suivante::
 
@@ -188,7 +190,7 @@ essayer d'écrire le programme qui calcule l'IMC:
 
     print("Votre IMC est :", 65.5 / (1.75 ** 2))
 
-Lancer votre programme comme ceci::
+Lancez votre programme comme ceci::
 
     $ python imc.py
 
@@ -198,7 +200,7 @@ Vous obtenez::
 
     Votre IMC est : 21.387755102040817
 
-Comme vous le voyez notre programme à besoin de quelques améliorations::
+Comme vous le voyez notre programme a besoin de quelques améliorations::
 
 1. Si quelqu'un d'autre souhaite utiliser le programme nous devons
    modifier le fichier ``imc.py``.
@@ -210,7 +212,7 @@ Comme vous le voyez notre programme à besoin de quelques améliorations::
    entrée n'ayant que 3 chiffres significatifs.
 
 Programmer c'est l'art de résoudre les problèmes, alors mettons nous au travail !
-Cela va nous donner l'opportunité d'apprendre de nouvelles fonctionnalitées de Python.
+Cela va nous donner l'occasion d'apprendre de nouvelles fonctionnalités de Python.
 
 .. _`Indice de Masse Corporelle`: http://fr.wikipedia.org/wiki/Indice_de_masse_corporelle
 
@@ -230,8 +232,8 @@ C'est pourquoi nous donnons des noms à ces valeurs:
     weight = 65.5
     height = 1.75
 
-    imc = weight / height ** 2
-    print("Votre IMC est :", imc)
+    bmi = weight / height ** 2
+    print("Votre IMC est :", bmi)
 
 Le résultat n'a pas changé:
 
@@ -241,7 +243,7 @@ Le résultat n'a pas changé:
 
 
 Pour mieux comprendre le fonctionnement des alias, revenons à l'invite
-de commande Python et essayons d'en créer quelques-un
+de commande Python et essayons d'en créer quelques-uns :
 
     >>> x = 42
     >>> PI = 3.1415
@@ -250,7 +252,7 @@ de commande Python et essayons d'en créer quelques-un
     Things: 42 3.1415 Amelia
 
 Une valeur peut être liée à plusieurs alias, elle peut donc avoir
-plusieurs noms:
+plusieurs noms :
 
     >>> y = x
     >>> print(x, y)
@@ -267,14 +269,14 @@ n'a pas besoin d'être du même type que la précédente:
     Scarab
 
 Les alias sont indépendants les uns des autres. Si on modifie la
-valeur de X, la valeur de y reste la même:
+valeur de x, la valeur de y reste la même:
 
     >>> print(y)
     42
 
 .. note:: Pour ceux qui connaissent d'autres langages de programmation
 
-    Vous vous demandez surement pourquoi nous n'utilisons pas ici le
+    Vous vous demandez sûrement pourquoi nous n'utilisons pas ici le
     terme "variable". C'est simplement car en Python, les alias ne
     fonctionnent pas de la même manière que les variables.
 	Dans la plupart des langages, l'opération ``y = x`` crée une copie de
@@ -282,12 +284,12 @@ valeur de X, la valeur de y reste la même:
 
 	En Python, rien n'est copié silencieusement. ``y`` devient
 	seulement un autre moyen de nommer la même valeur. Si on modifie
-	cette valeur, ``x`` et ``y`` seront tous les deux modifiés et
+	cette valeur, ``x`` et ``y`` seront tous les deux modifié et
 	afficheront la même chose.
 
-	Dans notre exemple, nous n'avons pas modifier la valeur du nombre
+	Dans notre exemple, nous n'avons pas modifié la valeur du nombre
 	``42``, mais nous avons modifié la valeur associée à ``x`` (en
-	particulier, les valeurs des nombres ne sont jamais modifié, bien
+	particulier, les valeurs des nombres ne sont jamais modifiées, bien
 	qu'en 1897, la Chambre basse de l'état d'Indiana ait accepté de
 	modifier la valeur de π à ``3``, décision rejetée par le Sénat).
 	C'est pourquoi, afficher la valeur de ``y`` avec ``print(y)``,
@@ -299,31 +301,31 @@ comme alias de la valeur dans d'autres calculs.
 
     >>> w = 65.5
     >>> h = 175.0 / 100.0
-    >>> imc = w / h ** 2
-    >>> print(w, h, imc)
+    >>> bmi = w / h ** 2
+    >>> print(w, h, bmi)
     65.5 1.75 21.387755102040817
 
 À noter qu'une fois que la valeur est calculée, elle n'est pas modifiée:
 
     >>> w = 64
-    >>> print(w, h, imc)
+    >>> print(w, h, bmi)
     64 1.75 21.387755102040817
 
-Sauf si on demande à Python de la recalculée à nouveau:
+Sauf si on demande à Python de la recalculer :
 
-    >>> imc = w / h**2
-    >>> print(w, h, imc)
+    >>> bmi = w / h ** 2
+    >>> print(w, h, bmi)
     64 1.75 20.897959183673468
 
 Il est grand temps d'ajouter quelques commentaires à notre programme
 afin que les lecteurs (dont nous faisons partie) se souviennent que le
-poids et en kg et la taille en m.
+poids est en kg et la taille en m.
 
-Les commentaires nous permette de rajouter du texte dans notre code
-python.  Les commentaires seront simplement ignoré par l'interpreteur
-python lors de l'exécution du code.
+Les commentaires nous permettent de rajouter du texte dans notre code
+Python.  Les commentaires seront simplement ignorés par l'interpréteur
+Python lors de l'exécution du code.
 
-En Python, un commentaire est tous ce qui se trouve après un caractère
+En Python, un commentaire est tout ce qui se trouve entre un caractère
 ``#`` et la fin de la ligne::
 
     # Weight in kilograms
@@ -332,15 +334,15 @@ En Python, un commentaire est tous ce qui se trouve après un caractère
     # Height in meters
     height = 1.75
 
-    imc = weight / height ** 2  # Calculer l'IMC
-    print("Votre IMC est :", imc)
+    bmi = weight / height ** 2  # Calculer l'IMC
+    print("Votre IMC est :", bmi)
 
 
 Les fonctions
 =============
 
-Notre programme est pas trop mal, mais si l'utilisateur souhaite
-calculer son IMC, il aura besoin de modifier le code source du
+Notre programme est pas trop mal, mais si l'utilisateur-trice souhaite
+calculer son IMC, il ou elle aura besoin de modifier le code source du
 programme. Ce serait bien plus simple de lui permettre de saisir ces
 valeurs directement dans la console après le lancement du programme et
 de lui retourner ensuite son IMC.
@@ -352,7 +354,7 @@ première fonction que nous allons apprendre à utiliser est la fonction
     >>> help
     Type help() for interactive help, or help(object) for help about object.
 
-La fonction :func:`help` est très sympa car elle nous expliquer
+La fonction :func:`help` est très sympa car elle nous explique
 comment nous devons l'utiliser. Elle peut aussi nous dire comment
 utiliser d'autres fonctions::
 
@@ -381,20 +383,20 @@ fonction nous retourne une chaîne de caractères (string).
 Apprenons maintenant ce qu'"appeler une fonction" veut dire.
 
 Pour appeler une fonction, il faut utiliser ``()``, ce qui donne
-l'information à l'interpreteur Python qu'il doit appeler une fonction.
+l'information à l'interpréteur Python qu'il doit appeler une fonction.
 
 Appeler une fonction c'est lancer le code de cette fonction. Si vous
-oubliez d'utiliser ``()`` après le nom de la fonction, la fonction ne
-sera pas appellée.
+oubliez d'ajouter ``()`` après le nom de la fonction, la fonction ne
+sera pas appelée.
 
-Dans cette situation, il n'y aura pas d'erreur car il est tout a fait
+Dans cette situation, il n'y aura pas d'erreur car il est tout-à-fait
 possible de manipuler une fonction sans l'appeler.
 
 La plupart du temps une fonction **return** un résultat.
 
 Dans le cas de la :func:`input`, ce résultat est une chaîne de
-caractères, c'est pourquoi nous pouvons la manipuler de la même
-manière que nous avons manipuler les chaînes de caractères auparavent.
+caractères, c'est pourquoi nous pouvons le manipuler de la même
+manière que nous avons manipulé les chaînes de caractères auparavant.
 
 Par exemple nous pouvons donner un alias au résultat de la fonction
 ``input()`` pour pouvoir réutiliser cette valeur par la suite:
@@ -429,8 +431,8 @@ Est-ce que ça suffit pour améliorer notre programme ?
       File "<stdin>", line 1, in <module>
     TypeError: Can't convert 'int' object to str implicitly
 
-Comme vous pouvez le voir, Python ne sait pas qu'elle résultat nous
-souhaitons.  Il est n'est pas possible d'additionner des chaînes de
+Comme vous pouvez le voir, Python ne sait pas quel résultat nous
+souhaitons.  Il n'est pas possible d'additionner des chaînes de
 type (``str``) et des entiers de type (``int``). Python ne sait pas si
 nous parlons du nombre ``63.5`` ou de la chaîne de caractères
 ``"60.5"``. Nous sommes les seuls à le savoir et nous devons donc
@@ -500,10 +502,10 @@ le temps de décrire comme il devrait fonctionner:
 4. Demander à l'utilisateur d'entrer son poids.
 5. Lire la valeur de l'utilisateur et la stocker dans l'alias ``weight``.
 6. Convertir la valeur sous forme de chaîne de caractères en valeur décimale.
-7. En utilisant ces valeurs calculer l'IMC et stocker sa valeur dans l'alias ``imc``.
+7. En utilisant ces valeurs calculer l'IMC et stocker sa valeur dans l'alias ``bmi``.
 8. Afficher la valeur de l'IMC.
 
-Sans surprise, ces 8 points peuvent être transcrit en 8 lignes de code
+Sans surprise, ces 8 points peuvent être transcrits en 8 lignes de code
 (lignes vides exclues):
 
 .. testsetup::
@@ -521,10 +523,10 @@ Sans surprise, ces 8 points peuvent être transcrit en 8 lignes de code
     weight = input()
     weight = float(weight)
 
-    imc = weight / height ** 2  # Calculer IMC
-    print("Votre IMC est :", imc)
+    bmi = weight / height ** 2  # Calculer IMC
+    print("Votre IMC est :", bmi)
 
-Vous pouvez sauvegarder votre programme dans le fichier ``imc.py`` et lancer ``python imc.py``.
+Vous pouvez sauvegarder votre programme dans le fichier ``bmi.py`` et lancer ``python bmi.py``.
 Le résultat devrait ressembler à:
 
 .. testoutput::
@@ -556,7 +558,7 @@ Afin d'appeler une fonction, nous devons ajouter des parenthèses après son nom
 Ainsi la fonction sera exécutée par Python.
 
 Les arguments de la fonction sont donnés entre les parenthèses et s'il
-y en a plus d'un on les sépare par virgules:
+y en a plus d'un on les sépare par une virgule:
 
     >>> int("FF", 16)
     255
@@ -597,11 +599,11 @@ d'une condition donnée:
     weight = input()
     weight = float(weight)
 
-    imc = weight / height ** 2  # Calculer l'IMC
+    bmi = weight / height ** 2  # Calculer l'IMC
 
-    if imc < 18.5:
+    if bmi < 18.5:
         print("Maigreur")
-    elif imc < 25.0:
+    elif bmi < 25.0:
         print("Corpulence normale")
     else:
         print("Surpoids")
@@ -618,7 +620,7 @@ Conditions : vrai ou faux
 -------------------------
 
 La première chose dont nous n'avons pas encore parlé sont les conditions.
-Pour les nombres, cela fonctionne exactement comme en mathématique:
+Pour les nombres, cela fonctionne exactement comme en mathématiques :
 
     >>> 2 > 1
     True
@@ -662,10 +664,10 @@ exemple:
     >>> if 2 > 1:
     ...
 
-Pour l'instant rien ne se passe, comme le montre les points ``...`` à
-la place des habituels chevrons ``>>>``. Python s'attends à ce que
+Pour l'instant rien ne se passe, comme le montrent les points ``...`` à
+la place des habituels chevrons ``>>>``. Python s'attend à ce que
 nous donnions des instructions complémentaires qui devront être
-exéctuées si la condition ``2 > 1`` s'avère vraie. Essayons d'afficher
+exécutées si la condition ``2 > 1`` s'avère vraie. Essayons d'afficher
 "OK"::
 
     >>> if 2 > 1:
@@ -676,9 +678,9 @@ exéctuées si la condition ``2 > 1`` s'avère vraie. Essayons d'afficher
     IndentationError: expected an indented block
 
 Apparemment, ça n'a pas très bien fonctionné. En fait Python doit
-savoir si l'instruction que nous avons entré est une instruction à
+savoir si l'instruction que nous avons entrée est une instruction à
 exécuter uniquement si la condition est vraie ou si c'est une
-instruction à executer sans qu'elle ne soit affectée par la condition.
+instruction à exécuter sans qu'elle ne soit affectée par la condition.
 
 C'est pourquoi nous devons indenter notre code::
 
@@ -690,7 +692,7 @@ C'est pourquoi nous devons indenter notre code::
 Tout ce que vous devez faire c'est ajouter un espace ou une tabulation
 avant votre instruction pour dire qu'elle fait partie des instructions
 dépendantes du :keyword:`if`. Attention, toute les lignes a exécuter
-dans le if doivent être indentée de la même manière::
+dans le if doivent être indentées de la même manière::
 
     >>> if -1 < 0:
     ...  print("A")
@@ -736,33 +738,33 @@ Et si ce n'est pas le cas ?
 On pourrait se débrouiller pour écrire un programme en utilisant
 uniquement des :keyword:`if` ::
 
-    if imc < 18.5:
+    if bmi < 18.5:
         print("Maigreur")
-    if imc >= 18.5:
-        if imc < 25.0:
+    if bmi >= 18.5:
+        if bmi < 25.0:
             print("Corpulence normale")
-    if imc >= 25.0:
+    if bmi >= 25.0:
         print("Surpoids")
 
 Mais en fait, on peut aussi utiliser :keyword:`else` et
-:keyword:`elif`, afin de ne pas avoir à répèter les conditions
-similaire et améliorer la lisibilité du code. Dans des programmes plus
-compliqués, il n'est parfois de reconnaître que la condition lue est
-la condition inverse de la précédente.
+:keyword:`elif`, afin de ne pas avoir à répéter les conditions
+similaires et améliorer la lisibilité du code. Dans des programmes
+plus compliqués, il n'est parfois pas évident de reconnaître que la
+condition lue est la condition inverse de la précédente.
 
 En utilisant :keyword:`else` , nous avons la garantie que les
 instructions données seront exécutées seulement si les instructions
 données après le :keyword:`if` n'ont pas été exécutées::
 
-    if imc < 18.5:
+    if bmi < 18.5:
         print("Maigreur")
     else:
         # Si votre programme exécute ces instructions alors vous êtes
-        # certains que imc >= 18.5 !
-        if imc < 25.0:
+        # certains que bmi >= 18.5 !
+        if bmi < 25.0:
             print("Corpulence normale")
         else:
-            # Ici vous pouvez être certains que imc >= 25.0
+            # Ici vous pouvez être certains que bmi >= 25.0
             # nous n'avons donc pas à le vérifier.
             print("Surpoids")
 
@@ -791,21 +793,21 @@ condition::
         print("more")
 
 
-Le formattage des chaînes de caractères
-=======================================
+Le formatage des chaînes de caractères
+======================================
 
 La dernière ammélioration, que nous avions mentionnée ci-dessus, était
-le trop grand nombres de chiffre après la virgule de notre IMC.
+le trop grand nombre de chiffres après la virgule de notre IMC.
 
-Des trois problèmes que nous avions identifié, celui-ci est le plus
+Des trois problèmes que nous avions identifiés, celui-ci est le plus
 simple à résoudre.
 
 C'est d'ailleurs pour ça que nous l'avions gardé pour la fin de notre
-aventure d'IMC calculator.
+aventure de calculateur d'IMC.
 
 Nous savons déjà que nous pouvons concaténer des chaînes de
 caractères, les multiplier par des nombres, vous allez voir qu'on peut
-aussi les formatter. Tout d'abord, nous avons besoin de découvrir un nouveau type de données (en plus des ``strings`` et des nombres, ``int`` et ``float``, que nous connaissons déjà).
+aussi les formater. Tout d'abord, nous avons besoin de découvrir un nouveau type de données (en plus des ``strings`` et des nombres, ``int`` et ``float``, que nous connaissons déjà).
 
 
 .. _imc-tuples:
@@ -824,11 +826,11 @@ Rappelez-vous, je vous disais que nous ne pouvions pas utiliser les virgules dan
     (1, 5)
 
 Un tuple n'est ni plus ni moins qu'une valeur contenant un groupe de
-valeur. Les valeurs que nous souhaitons grouper ensemble doivent être
-séparées par des virgules. L'ensemble peut-être entouré de parenthèses
-pour rendre plus explicite le fait qu'il s'agisse bien d'un groupe,
-mais ce n'est pas obligatoire. Sauf pour le cas d'un groupe vide
-(aussi bizarre que cela puisse parraître).
+valeurs. Les valeurs que nous souhaitons grouper doivent être séparées
+par des virgules. L'ensemble peut-être entouré de parenthèses pour
+rendre plus explicite le fait qu'il s'agisse bien d'un groupe, mais ce
+n'est pas obligatoire. Sauf pour le cas d'un groupe vide (aussi
+bizarre que cela puisse paraître).
 
     >>> ()
     ()
@@ -857,27 +859,29 @@ positions (en commençant à zéro):
     15
 
 
-Formatter
----------
+Formater
+--------
 
 Pour en revenir à notre programme, actuellement le résultat est affiché sur une seule ligne.
 
 À présent, nous souhaitons afficher notre IMC comme un nombre ainsi
 que l'information de la table de classification correspondant à la
-tranche en question, comme celà::
+tranche en question, comme cela : 
+
+::
 
     Votre IMC est de 21.39 (Corpulence normale)
 
-Modifier votre programme actuel pour que la valeur de l'IMC soit disponible dans l'alias ``imc`` et l'information de la table de classification correspondante dans l'alias ``category``. Ensuite utilisez la fonction :func:`print` pour obtenir le résultat souhaité:
+Modifiez votre programme actuel pour que la valeur de l'IMC soit disponible dans l'alias ``bmi`` et l'information de la table de classification correspondante dans l'alias ``category``. Ensuite utilisez la fonction :func:`print` pour obtenir le résultat souhaité:
 
 .. testsetup::
 
-    imc = 21.387755102040817
+    bmi = 21.387755102040817
     category = "normal weight"
 
 .. testcode::
 
-    print("Votre IMC est de", imc, "(" + category + ")")
+    print("Votre IMC est de", bmi, "(" + category + ")")
 
 .. testoutput::
     :hide:
@@ -887,14 +891,14 @@ Modifier votre programme actuel pour que la valeur de l'IMC soit disponible dans
 Vous y êtes presque…. Nous avons encore un peu trop de chiffres après
 la virgule. Nous aurions également un problème si nous souhaitions
 stocker la chaîne de caractères contenant le résultat dans un alias et
-ceux parce que nous utilisons la fonction :func:`print` pour
+ce parce que nous utilisons la fonction :func:`print` pour
 concaténer les éléments.
 
 Heureusement pour nous, il y a une meilleure solution :
 
-    >>> imc = 21.387755102040817
+    >>> bmi = 21.387755102040817
     >>> category = "Corpulence normale"
-    >>> result = "Votre IMC est de %f (%s)" % (imc, category)
+    >>> result = "Votre IMC est de %f (%s)" % (bmi, category)
     >>> result
     'Votre IMC est de 21.387755 (Corpulence normale)'
     >>> print(result)
@@ -903,20 +907,20 @@ Heureusement pour nous, il y a une meilleure solution :
 Ce que nous voyons, c'est que nous avons une chaîne de caractères liée à un tuple par un ``%``.
 Cette chaîne de caractères est un patron qui est complété avec les valeurs contenues dans le tuple.
 
-Les espaces blancs à remplir, sont eux aussi annoté avec un pourcent (``%``).
+Les espaces blancs à remplir, sont eux aussi annotés avec un pourcent (``%``).
 
-La lettre qui suite définie le type de la valeur qui doit être
+La lettre qui suit définit le type de la valeur qui doit être
 insérée. Les entiers sont représentés par la lettre ``i`` pour
 **integer** (il est également possible d'utiliser la lettre ``d``
 comme **decimal**), les chaînes de caractères sont représentées par la
-lettre ``s`` comme **string** et les valeurs décimale flottante sont
+lettre ``s`` comme **string** et les valeurs décimales flottantes sont
 représentées par la lettre ``f`` comme **float**:
 
     >>> "String: %s, Numbers: %d %f" % ("Ala", 10, 3.1415)
     'String: Ala, Numbers: 10 3.141500'
 
-Ici au lieu de neuf décimale nous n'en avons plus que six, mais le
-formatting à l'avantage de nous permettre d'avoir encore plus de
+Ici au lieu de neuf décimales nous n'en avons plus que six, mais le
+formatage a l'avantage de nous permettre d'avoir encore plus de
 contrôle en ajoutant des informations complémentaires entre le ``%``
 et le ``f`` ; par exemple pour ne faire apparaître que deux chiffres :
 
@@ -926,9 +930,9 @@ et le ``f`` ; par exemple pour ne faire apparaître que deux chiffres :
     >>> "%.2f" % 21.387755102040817
     '21.39'
 
-Il y a pleins d'options de formattage, nous n'allons donc pas toutes
-les lister ici. L'une des plus utile est celle permettant d'aligner
-l'affichage sur un nombre de caractères donnés :
+Il existe beaucoup d'options de formatage, nous n'allons donc pas toutes
+les lister ici. L'une des plus utiles est celle permettant d'aligner
+l'affichage sur un nombre de caractères donné :
 
 .. testcode::
 
@@ -981,7 +985,7 @@ En résumé
 
 Dans ce chapitre nous avons appris les bases de la syntaxe
 Python. Nous avons découvert comment afficher des nombres entiers et
-décimaux, des chaînes de caractères et nous avons découverts les
+décimaux, des chaînes de caractères et nous avons découvert les
 tuples.
 
 Nous avons appris à utiliser la fonction :func:`print`, qui affiche
@@ -998,7 +1002,7 @@ Notre programme pose quelques questions à l'utilisateur, calcule des
 informations et présente les résultats dans une forme utile à
 l'utilisateur.
 
-Ça fait finalement beaucoup de chose pour un premier programme. Nous
+Ça fait finalement beaucoup de choses pour un premier programme. Nous
 avons encore pas mal de travail mais vous pouvez être fier de ce que
 vous avez fait jusqu'à présent !
 
