@@ -1,15 +1,19 @@
 =====================
-Django Carrots Manual
+Manuel Django carrots
 =====================
 
-We present you a manual to learn Python and Django. Even if you cannot program yet, by following the manual and doing all the exercises you should be able to create your own website.
+Voici un manuel pour apprendre à utiliser Python et Django. Même si vous ne savez pas encore programmer, en suivant le manuel et en vous exerçant sur chacun des exercices, vous devriez être capable de créer votre propre site web.
 
-The manual is a part of the workshop Django Carrots organized by Geek Girls Carrots. You can use it to organize your own workshops or for self-study.
-If you decide to use the manual, we would be grateful if you contact us (however it is optional).
+Ce manuel fait partie de l'atelier "Django Carrots", organisé par Geek Girls
+Carrots. Vous pouvez l'utiliser pour organiser vos propres ateliers ou pour
+pratiquer seul.
+
+Si vous décidez d'utiliser ce manuel, nous vous serions reconnaissants si vous
+nous contactiez (même si c'est optionnel)
 
 
-Table of Contents 
------------------
+Au programme
+------------
 
 .. toctree::
    :maxdepth: 3
