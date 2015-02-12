@@ -46,13 +46,13 @@ Pour démarrer, commençons par dessiner la moitié d'un Arbre de Noël :
     *****
     ******
 
-C'est pas si mal, mais nous avons du taper beaucoup de chose. Et que
-ce passe-t-il si je veux un arbre plus petit ? Ou un plus grand,
-composer de centaine d'étoiles pour l'imprimer sur un poster géant au
+C'est pas si mal, mais nous avons du taper beaucoup de choses. Et que
+se passe-t-il si je veux un arbre plus petit ? Ou un plus grand,
+composé de centaines d'étoiles pour l'imprimer sur un poster géant au
 format A0 ? Oui ça fait certainement beaucoup trop de caractères à
 taper, quand bien même on multiplierait les caractères par centaines
 (``"*" * 100``, et ainsi de suite). Ça ressemble au genre de tâche
-qu'on confierait volontier à un programme ça, non ?
+qu'on confierait volontiers à un programme ça, non ?
 
 
 Les listes et les boucles ``for``
@@ -60,25 +60,26 @@ Les listes et les boucles ``for``
 
 Les boucles sont faites exactement pour ce genre d'actions
 répétitives. Pour rester dans l'atmosphère de Noël, imaginez un
-instant que vous êtes le Père Noël et que vous deviez
+instant que vous êtes le Père Noël et que vous devez
 distribuer tous les cadeaux.
 
 Comme vous le savez, les lutins ont une liste précise des personnes
 qui méritent un cadeau. La solution la plus simple pour garantir que
-personne ne soit oublié serait de prendre la liste dans l'ordre et
-d'aller distribuer les cadeaux, dans l'ordre.
+personne ne soit oublié serait de prendre la liste et d'aller
+distribuer les cadeaux, dans l'ordre.
 
 Outre les aspects physiques de la tâche [#vitesse]_, la procédure de
 distribution des cadeaux pourrait ressembler à cela::
 
 
     Disons que la Liste des Gens Bons, contient la liste des personnes
-    qui mérite un cadeau.
+    qui méritent un cadeau.
 
     Pour chaque personne (alias ``person``), qui se trouve dans la Liste des Gens Bons:
-        Distribuer un cadeau à ce ``person``
+        Distribuer un cadeau à cette personne
 
-La disposition du texte ci-dessus n'est pas une erreur, c'est en fait un programme Python déguisé::
+La disposition du texte ci-dessus n'est pas une erreur, c'est en fait
+un programme Python déguisé::
 
     gens_bons = people_who_deserve_gifts()
 
@@ -100,15 +101,15 @@ Le nouvel élément, c'est la boucle elle-même, qui consiste en :
 * Le nom du prochain élément de la liste,
 * Le mot clé :keyword:`in`,
 * Une liste de valeur ou un alias qui y fait référence.
-* Les intructions indentée à effectuer pour chaque valeur de la liste (comme dans le cas de :keyword:`if`).
+* Les instructions indentées à effectuer pour chaque valeur de la liste (comme dans le cas de :keyword:`if`).
 
 Attendez, nous n'avons encore rien dit à propos des listes, mais
 rassurez-vous, le concept de liste en Python est très proche du
 concept de liste dans la vie de tous les jours. Nous pouvons
 simplement nous représenter une liste en Python comme nous nous
-représentons n'importe qu'elle autre liste le reste du temps (liste de
+représentons n'importe quelle autre liste le reste du temps (liste de
 courses, liste d'invités, résultats d'examens, etc.) écrite sur une
-papier et numérotées.
+papier et numérotée.
 
 Commençons par une liste vide :
 
@@ -156,7 +157,7 @@ instruction sur chaque élément de la liste:
     Name: Pierre
     Name: Amel
 
-En passant, nous pouvons ainsi afficher la première moitié de notre Arbre de Noël:
+En passant, nous pouvons ainsi afficher la première moitié de notre Arbre de Noël :
 
     >>> lst = [1, 2, 3]
     >>> for n in lst:
@@ -182,22 +183,23 @@ problème peut-être résolu à l'aide de la fonction :func:`range`. Regardez
     >>> list(range(2))
     [0, 1]
 
-La fonction :func:`range` ne créée pas directement une liste, mais
-retourne un générateur. Les générateurs génère les éléments un à un,
+La fonction :func:`range` ne crée pas directement une liste, mais
+retourne un générateur. Les générateurs génèrent les éléments un à un,
 ce qui permet de ne pas avoir à stocker l'ensemble des valeurs de la
 liste dans la mémoire de l'ordinateur.
 
-Pour obtenir une liste à partir d'un générateur, on utilise la fonction :func:`list`. Si on oublie l'appel à :func:`list`,
-le résultat ressemblera à ça :
+Pour obtenir une liste à partir d'un générateur, on utilise la
+fonction :func:`list`. Si on oublie l'appel à :func:`list`, le
+résultat ressemblera à ça :
 
     >>> range(1, 4)
     range(1, 4)
 
-La fonction :func:`range` à trois formes. La plus simple est la plus
-utilisée, est de générer une séquence de nombre de 0 à un nombre
+La fonction :func:`range` a trois formes. La plus simple, qui est la
+plus utilisée, permet de générer une séquence de nombres de 0 à un nombre
 donné. Les autres formes vous permettent de spécifier le chiffre de
 départ et le pas d'un nombre à l'autre de la séquence. La séquence
-créée n'inclue jamais la borne supérieure.
+créée n'inclut jamais la borne supérieure.
 
 Affichons un Arbre de Noël plus grand :
 
@@ -256,10 +258,10 @@ appropriée et d'utiliser des alias différents par exemple ``i`` et
     2 13
 
 Nous avons une boucle intérieure allant de 11 à 13 (n'oubliez pas que,
-14 n'est pas inclus lorsqu'on utilise ``range``) inclue dans une
+14 n'est pas incluse lorsqu'on utilise ``range``) inclue dans une
 boucle extérieure qui elle va de 1 à 2.
 
-Comme vous pouvez le voir les éléments de la boucle interieure sont
+Comme vous pouvez le voir les éléments de la boucle intérieure sont
 affichés deux fois, une fois pour chaque itération de la boucle
 extérieure.
 
@@ -280,7 +282,7 @@ En utilisant cette technique, on peut répéter les éléments de notre Arbre de
 
 Avant d'aller plus loin, créez le fichier ``noel.py`` avec ce
 programme et essayez de le modifier afin que pour chaque itération de
-la boucle extérieure la boucle intérieure soit exécuté une fois de
+la boucle extérieure la boucle intérieure soit exécutée une fois de
 plus. (Que pour chaque étage on ait une branche de plus).
 
 Vous devriez obtenir le résultat de notre demi Arbre de Noël décrit en début de chapitre.
