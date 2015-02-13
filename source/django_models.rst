@@ -3,9 +3,9 @@ Models
 ======
 
 La prochaine étape consiste en la définition du modèle de notre application. Le modèle décrit ce qui peut être stocké dans la base de données
-et comment cela sera stocké. Du point de vue de Python, ce n'est qu'une classe basique, qui hérite de ``models.Model``.
+et comment cela sera stocké. Du point de vue de Python, ce n'est qu'une classe standard, qui hérite de ``models.Model``.
 
-Notre application inclura des questions et leurs réponses, donc nous allons créer deux modèles : ``Poll`` et ``Choice``. Le modèle ``Poll`` contient le contenu des questions ainsi que la date de publication. Le modèle
+Notre application inclura des questions et leurs réponses, nous allons donc créer deux modèles : ``Poll`` et ``Choice``. Le modèle ``Poll`` contient le contenu des questions ainsi que la date de publication. Le modèle
 ``Choice`` contient une référence vers la question adéquate, le contenu des réponses et le nombre de votes.
 
 Dans le fichier ``polls/models.py`` nous écrivons::
@@ -22,10 +22,10 @@ Dans le fichier ``polls/models.py`` nous écrivons::
         votes = models.IntegerField(default=0)
 
 En ajoutant de nouveaux modèles, nous avons changé la disposition de la base de données. Nous devons appliquer la commande ``syncdb`` une nouvelle fois
-afin que les nouveaux modèles apparaissent dans la base de données.
+afin que les tables correspondantes aux nouveaux modèles apparaissent dans la base de données.
 
 .. warning::
-    Après avoir exécuté la commande ``syncdb``, vous ne pouvez pas ajouter de nouveaux champs dans le modèle. Vous pouvez seulement ajouter de nouveaux modèles. Il y a plusieurs façons d'éviter cela, mais … c'est certainement une autre histoire.
+    Après avoir exécuté la commande ``syncdb``, vous ne pouvez pas ajouter de nouveaux champs dans le modèle. Vous pouvez seulement ajouter de nouveaux modèles. Il y a plusieurs façons d'éviter cela, mais … ceci est une autre histoire.
 
 .. code-block:: sh
 
@@ -37,8 +37,8 @@ afin que les nouveaux modèles apparaissent dans la base de données.
    Installing indexes ...
    Installed 0 object(s) from 0 fixture(s)
 
-C'est tout ! Par contre, vous souhaitez probablement avoir la possibilité d'éditer les objets. La façon la plus simple de le faire c'est en
-utilisant l'interface d'administration.
+C'est tout ! Par contre, vous souhaitez probablement avoir la possibilité d'éditer les objets. La façon la plus simple de le faire c'est d'utiliser
+l'interface d'administration.
 
 Nous créons un fichier ``polls/admin.py`` qui contient::
 
@@ -52,7 +52,7 @@ Ainsi ``Poll`` et ``Choice`` seront disponibles dans l'interface d'administratio
 
 .. note::
 
-    Certaines modifications nécessitent un redémarrage du serveur. Dans la console où le serveur a été activé, appuyez sur ``Ctrl+C`` puis refaites ``pythonmanage.py runserver``.
+    Certaines modifications nécessitent un redémarrage du serveur. Dans la console où le serveur a été activé, appuyez sur ``Ctrl+C`` puis relancez ``python manage.py runserver``.
 
 Lorsque nous revenons sur la page http://localhost:8000/admin/ nous allons voir apparaître un nouvel onglet ``Polls``
 
@@ -71,12 +71,12 @@ Lorsque vous êtes dans le shell commencez par::
 
     >>> from polls.models import Poll, Choice
 
-et affichez tous les questionnaires de la base de données ; mais il n'y a rien ici pour le moment, donc nous obtenons une liste vide::
+et affichez tous les sondages de la base de données ; mais il n'y a rien ici pour le moment, donc nous obtenons une liste vide::
 
     >>> Poll.objects.all()
     []
 
-Nous créons le premier questionnaire::
+Nous créons le premier sondage::
 
     >>> import datetime
     >>> p = Poll(question="What's new?", pub_date=datetime.datetime.now())
@@ -90,7 +90,7 @@ Chaque objet dans la base de données est assigné à un identifiant unique::
     >>> p.id
     1
 
-``p`` est un simple objet. Nous pouvons lire ses attributs::
+``p`` est un objet normal dont nous pouvons lire les attributs::
 
     >>> p.question
     "What's new?"
@@ -108,11 +108,11 @@ Après la modification des attributs, nous devons encore appeler ``save()`` pour
     [<Poll: Poll object>]
 
 Les modèles de Django sont des classes et les classes peuvent avoir des méthodes. Une méthode est une fonction qui
-prends un paramètre supplémentaire ``self``, représentant l'objet courant (par exemple, le questionnaire actuel). Les méthodes
-dans les classes (modèles) vous permettent de définir des comportements supplémentaire ou de changer les comportements existants.
+prends un paramètre supplémentaire ``self``, représentant l'objet courant (par exemple, le sondage actuel). Les méthodes
+dans les classes (modèles) vous permettent de définir des comportements supplémentaire ou de modifier les comportements existants.
 
-Une des méthodes par défaut est ``__str__()``, qui vous permet de change l'affichage du modèle (un
-questionnaire ou une question). ``<Poll: Poll object>`` n'indique pas grand-chose. Corrigeons cela en ajoutant la méthode
+Une des méthodes par défaut est ``__str__()``, qui vous permet de modifier l'affichage du modèle (un
+sondage ou une question). ``<Poll: Poll object>`` n'indique pas grand-chose. Corrigeons cela en ajoutant la méthode
  ``__str__`` aux classes ``Poll`` et ``Choice``::
 
     class Poll(models.Model):
@@ -139,7 +139,7 @@ indique où se trouve le code dans le fichier)::
         def was_published_recently(self):
             return self.pub_date >= datetime.datetime.now() - datetime.timedelta(days=1)
 
-Notez que nous devons ajouter un ``import datetime`` pour utiliser les objets représentants le temps dans Python.
+Notez que nous devons importer le module ``datetime`` avec ``import datetime`` afin de pouvoir manipuler les objets représentants les dates et les heures en Python.
 
 Sauvegardons les changements et lançons une nouvelle fois l'interpréteur avec la commande ``python manage.py``::
 
@@ -149,7 +149,7 @@ Sauvegardons les changements et lançons une nouvelle fois l'interpréteur avec 
     >>> Poll.objects.all()
     [<Poll: What's up?>]
 
-Jusqu'à présent, nous avons utilisé la méthode ``all`` qui vous permet d'obtenir la liste de tous les objets d'un
+Jusqu'à présent, nous avions utilisé la méthode ``all`` qui vous permettait d'obtenir la liste de tous les objets d'un
 type défini (par exemple, toutes les questions). Il y a d'autres méthodes qui permettent de trouver des objets répondants à certaines 
 conditions:
 
@@ -179,7 +179,7 @@ Nous pouvons avoir accès aux réponses (``Choice``) des questions:
 
 .. code-block:: python
 
-    # Pour le moment notre questionnaire n'inclut aucune question. Ajoutons-en !
+    # Pour le moment notre sondage n'inclut aucune question. Ajoutons-en !
     >>> p.choice_set.all()
     []
 
@@ -190,21 +190,21 @@ Nous pouvons avoir accès aux réponses (``Choice``) des questions:
     <Choice: The sky>
     >>> c = p.choice_set.create(choice_text='Just hacking again', votes=0)
 
-    # Avec l'objet "Choice" nous pouvons trouver le questionnaire auquel la réponse correspond.
+    # Avec l'objet "Choice" nous pouvons trouver le sondage auquel la réponse correspond.
     >>> c.poll
     <Poll: What's up?>
 
-    # ...et vice versa, toutes les réponses d'un questionnaire
+    # ...et vice versa, toutes les réponses d'un sondage
     >>> p.choice_set.all()
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
     >>> p.choice_set.count()
     3
 
-    # Et maintenant quelque chose de plus difficile. Que fait cette question?
+    # Et maintenant quelque chose de plus difficile. Que fait cet appel?
     >>> Choice.objects.filter(poll__pub_date__year=2014)
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
 
-    # Finalement, enlevons une des questions. Utilisez la méthode ``delete``.
+    # Finalement, enlevons une des questions. Utilisons la méthode ``delete``.
     >>> c = p.choice_set.filter(choice_text__startswith='Just hacking')
     >>> c.delete()
 
@@ -212,7 +212,7 @@ Récapitulatif
 -------------
 
 * Nous créons des modèles en définissant des classes héritant de ``models.Model`` du fichier ``polls/models.py``.
-* Après la création d'un nouveau modèle, nous devons nous souvenir d'exécuter ``manage.py syncdb``.
+* Après la création d'un nouveau modèle, nous devons nous souvenir d'exécuter ``python manage.py syncdb``.
 * Pour récupérer tous les objets d'un modèle::
 
     Poll.objects.all()

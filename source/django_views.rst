@@ -4,9 +4,9 @@ Afficher des sites Web
 
 La connexion à l'adresse principale http://localhost:8000/ affiche toujours une affreuse page d'erreur. Cela ne peux plus durer !
 
-Il est préférable de commencer à travailler sur un site Web après avoir préparé un plan des URL (adresses). Nous savons
-que nous souhaitons voir une liste de tous les questionnaires du site, de permettre aux utilisateurs de voter et d'afficher
-l'ensemble des résultats du questionnaire.
+Il est préférable de commencer à travailler sur un site Web après avoir préparé un plan des URLs (adresses). Nous savons
+que nous souhaitons voir une liste de tous les sondages du site, de permettre aux utilisateurs de voter et d'afficher
+l'ensemble des résultats du sondage.
 
 Ouvrons le fichier ``urls.py`` une nouvelle fois et ajoutons quatre nouvelles entrées. Finalement, le fichier devrait ressembler à::
 
@@ -23,31 +23,31 @@ Ouvrons le fichier ``urls.py`` une nouvelle fois et ajoutons quatre nouvelles en
       url(r'^admin/', include(admin.site.urls)),
   )
 
-Regardons encore une fois cet exemple. Chaque argument passé à la fonction ``patterns`` (sauf le tout premier, mais nous reviendrons dessus plus tard) détermine notre motif d'URL (adresse). Le motif est écrit à l'aide des `expression rationnelle <http://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne#Wyra.C5.BCenia_regularne_w_praktyce>`_. C'est un terme technique compliqué pour un minuscule langage utilisé pour
+Regardons encore une fois cet exemple. Chaque argument passé à la fonction ``patterns`` (sauf le tout premier, mais nous reviendrons dessus plus tard) détermine notre motif d'URL (adresse). Le motif est écrit à l'aide des `expression rationnelle <http://fr.wikipedia.org/wiki/Expression_rationnelle#Notations_:_impl.C3.A9mentations_et_standardisation>`_. C'est un terme technique compliqué pour un minuscule langage utilisé pour
 la représentation concise des motifs de texte.
 
 
-Lorsque un utilisateur essaie d'entrer une adresse spécifique dans notre site Web, tel  que: http://localhost:8000/polls/1/,
+Lorsque un utilisateur essaye d'entrer une adresse spécifique dans notre site Web, tel que: http://localhost:8000/polls/1/,
 Django sélectionne la troisième partie de l'URL, après la barre oblique (dans ce cas, ``polls/1/``) et essaie de la passer dans une expression régulière pour correspondre à ``urlpatterns``. Prenons une de ces expressions en exemple::
 
   r'^polls/(?P<poll_id>\d+)/vote/$'
 
 C'est une chaîne de caractères normale (sauf, peut être pour le ``r`` au début, qui est utilisé uniquement par commodité). 
-Lorsque nous essayons d'adapter le texte à la chaîne de caractère (nous pensons toujours au ``polls/1/``), nous devons
+Lorsque nous essayons d'adapter le texte à la chaîne de caractères (nous pensons toujours au ``polls/1/``), nous devons
 nous rappeler des règles suivantes:
 
 .. admonition:: Expressions rationnelles:
    :class: alert alert-info
 
-   * Chaque lettre et nombre de l'expression rationnelle s'applique à la même lettre / nombre de la chaîne de caractères adapté. De même avec la
+   * Chaque lettre et nombre de l'expression rationnelle s'applique à la même lettre/nombre de la chaîne de caractères adapté. De même avec la
      barre oblique (``/``), l'espace (``' '`` ), le souligné (``_``) et le trait d'union (``-``).
    * ``^`` s'applique seulement au début de la chaîne de caractères (“le début” est ici un symbole abstrait
      avant le premier caractère)
    * ``$`` correspond seulement à la fin de la chaîne de caractères (d'une façon similaire au “début”).
    * Le point (``.``) correspond à n'importe quel caractère.
-   * Si plusieurs caractères sont placés dans des crochets, comme ceci: ``[abde]``, le groupe compte pour une unité
+   * Si plusieurs caractères étaient placés dans des crochets, comme ceci: ``[abde]``, le groupe compte pour une unité
      et correspondra à n'importe quel caractère compris dans le groupe.
-   * Il y a une notation abrégé pour de tels groupes. Plutôt que d'écrire toutes les minuscules de l'alphabet,
+   * Il y a une notation abrégée pour de tels groupes. Plutôt que d'écrire toutes les minuscules de l'alphabet,
      nous pouvons écrire ``[a-z]`` pour correspondre à n'importe quelle lettre minuscule. De même pour les lettres majuscules ``[A-Z]`` ou les nombres ``[0-9]``.
    * Correspondre à un nombre peut encore être plus court en utilisant la marque ``\d``.
    * Si après n'importe quelle expression ci-dessus nous plaçons un ``?`` il sera alors considéré comme optionnel. Cela signifie
@@ -56,7 +56,7 @@ nous rappeler des règles suivantes:
      zéro, ou pour ainsi dire, comme s'il est optionnel.
    * Si nous plaçons un ``+`` après l'expression elle correspondra à n'importe quel nombre de répétitions, sauf à zéro
      (l'expression doit apparaitre au moins une fois).
-   * Si plusieurs caractères sont placés dans des parenthèses, tel que ``(\d \d)`` ils seront traités comme un groupe
+   * Si plusieurs caractères étaient placés dans des parenthèses, tel que ``(\d \d)`` ils seront traités comme un groupe
      et tous les modificateurs fonctionneront sur l'ensemble de caractères du groupe. Si vous écrivez aussi avec le ``(? P <NOM> chaîne)``, le groupe peut être par la suite appelé avec NOM. C'est très courant lorsque l'on travaille avec Django.
 
 Fiou ... il y a tant de règles, mais personne ne se rappelle vraiment de toutes. Celles ci-dessus sont 
@@ -72,7 +72,7 @@ Première vue
 ------------
 
 Ok, voyons voir comment cela fonctionne dans la pratique. Malheureusement, en entrant l'adresse
-http://localhost:8000/polls/1/ cela ne fini pas très bien::
+http://localhost:8000/polls/1/ cela ne se fini pas très bien::
 
   ViewDoesNotExist at /polls/1/
 
@@ -81,7 +81,7 @@ http://localhost:8000/polls/1/ cela ne fini pas très bien::
 Cela est dû à la non-définition de la vue (Django nous indique qu'il cherchait ``polls.views.
 detail``, malheureusement, il n'a rien trouvé).
 
-Ouvrons le fichier ``polls/views.py`` et ajoutez quelques nouvelles fonctionnalités::
+Ouvrons le fichier ``polls/views.py`` et ajoutons quelques nouvelles fonctionnalités::
 
     from django.http import HttpResponse
 
@@ -98,7 +98,7 @@ Ouvrons le fichier ``polls/views.py`` et ajoutez quelques nouvelles fonctionnali
         return HttpResponse("You're voting on poll %s." % poll_id)
 
 Ce sont les vues les plus simples possibles. Elles ne renvoient pas de chaîne de caractères régulières, tel que
-la fonction qui construit un arbre de noël en Python, car elles doivent parler le protocole HTTP, qui est un peu
+la fonction qui construit un arbre de Noël en Python, car elles doivent parler le protocole HTTP, qui est un peu
 plus compliqué (Il serait intéressant ici de voir la page dans un navigateur lorsque vous entrez l'adresse
  http://localhost:8000/polls/1/).
 
@@ -108,9 +108,9 @@ Une vue qui fait réellement quelque chose
 
 Pour le moment nos vues ne font pas grand-chose. Donnons leur plus de travail !
 
-Tout ce que Django nécessite d'une vue est un objet
+Tout ce dont Django attends d'une vue, c'est quelle retourne un objet
 `HttpResponse <https://docs.djangoproject.com/en/1.4/ref/request-response/#django.http.HttpResponse>`_
-ou une exception. Tous le reste est sous votre contrôle. Par exemple, nous pouvons utilisez les fonctions que nous avons apprises dans le mode interactif pour afficher les sondages à l'utilisateur.
+ou qu'elle émette une exception. Tous le reste est sous votre contrôle. Par exemple, nous pouvons utilisez les fonctions que nous avons apprises dans le mode interactif pour afficher les sondages à l'utilisateur.
 
 
 Au début du fichier ``polls/views.py`` ajoutez::
@@ -131,19 +131,19 @@ Au début du fichier ``polls/views.py`` ajoutez::
 
     Maintenant nous ne donnons plus l'intégralité du fichier car il serait trop long. Seules les changements importants sont rapportés.
 
-Cela fonctionne! Il y a seulement un problème avec cet exemple : nous définissons dans la vue non seulement ce qui doit être
-retourné, mais aussi dans quel format cela doit être affiché à l'utilisateur du site. Un des plus importants
-talents d'un programmeur est la faculté de distingué et divisé les deux choses indépendantes. 
+Cela fonctionne ! Il y a seulement un problème avec cet exemple : nous définissons dans la vue non seulement ce qui doit être
+retourné, mais aussi dans quel format cela doit être affiché à l'utilisateur du site. Une des compétences principale
+d'un développeur, c'est sa faculté à distinguer ces deux choses indépendantes.
 
-Les programmeurs Django y ont pensé et ont décidé de créer un système de patrons:
+Les programmeurs Django y ont pensé et ont décidé de créer un système de templates:
 
 Au début du fichier ``polls/views.py`` ajoutez::
 
   from django.template import Context, loader
 
-Ce qui nous permet d'utiliser le système de patron.
+Ce qui nous permet d'utiliser le système de templates.
 
-Dans le même fichier, étendez la fonction ``index`` afin de ressembler à ceci::
+Dans le même fichier, étendez la fonction ``index`` afin de la faire ressembler à ceci::
 
   def index(request):
       latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
@@ -153,8 +153,8 @@ Dans le même fichier, étendez la fonction ``index`` afin de ressembler à ceci
       })
       return HttpResponse(t.render(c))
 
-Les fonctions: ``get_template`` (qui trouve un patron) et ``render`` (qui change un patron en un texte
-qui sera finalement envoyé à l'utilisateur) sont responsables de la gestion de nos patrons.
+Les fonctions: ``get_template`` (qui trouve un template) et ``render`` (qui transforme un template en un texte
+qui sera finalement envoyé à l'utilisateur) sont responsables de la gestion de nos templates.
 
 Le code est un peu plus long, mais nous allons bientôt voir que tout est bien plus clair. Par contre, premièrement
 chargeons la page http://localhost:8000/polls/ pour voir le résultat de notre travail::
@@ -162,7 +162,7 @@ chargeons la page http://localhost:8000/polls/ pour voir le résultat de notre t
   TemplateDoesNotExist at /polls/
   polls/index.html
 
-Oups ! Bien, nous n'avons toujours pas ajouter de patron. Pour ce faire, créez un fichier ``polls/templates/polls/index.html`` et insérez à l'intérieur:
+Oups ! Bien, nous n'avons toujours pas ajouter de template. Pour ce faire, créez un fichier ``polls/templates/polls/index.html`` et insérez à l'intérieur:
 
 .. code-block:: django
 
@@ -177,7 +177,7 @@ Oups ! Bien, nous n'avons toujours pas ajouter de patron. Pour ce faire, créez 
   {% endif %}
 
 .. note::
-    Les ``patrons`` de l'application sont situés dans le répertoire ``patrons des applications`` et la fonction get_template recherche les patrons dans ces répertoires, c'est pourquoi nous n'avons pas eu besoin de donner le chemin complet ``polls/templates/polls/index.html``, ``polls/index.html.`` suffisait.
+    Les ``templates`` de l'application sont situés dans le répertoire ``templates des applications`` et la fonction get_template recherche les templates dans ces répertoires, c'est pourquoi nous n'avons pas eu besoin de donner le chemin complet ``polls/templates/polls/index.html``, ``polls/index.html.`` suffisait.
 
 Lorsque vous rechargez la page dans le navigateur, vous devriez voir une liste de tous les sondages créés auparavant.
 
@@ -187,11 +187,11 @@ Lorsque vous rechargez la page dans le navigateur, vous devriez voir une liste d
 
 .. note::
 
-   HTML et CSS sont des formats qui définissent l'apparence des pages Web. Nous allons utiliser les patrons de Django pour générer le code HTML. Une bonne description du HTML est présenté dans le livre
+   HTML et CSS sont des formats qui définissent l'apparence des pages Web. Nous allons utiliser les templates de Django pour générer le code HTML. Une bonne description du HTML est présenté dans le livre
    `Interactive Data Visualization for the Web <http://chimera.labs.oreilly.com/books/1230000000345/index.html>`_.
    Les caractéristiques incroyables du Web sont que les codes HTML et CSS de n'importe quel site Web sont publiques. Nous vous recommandons de regarder le code de vos sites favoris.
 
-Vous allez devoir utiliser un patron dans presque toutes les vues. Par conséquent, Django propose une fonction 
+Vous allez devoir utiliser un template dans presque toutes les vues. Par conséquent, Django propose une fonction 
 ``render`` qui vous permet de faire cela d'une façon plus courte:
 
 Veuillez corriger le début du fichier ``polls/views.py`` pour correspondre à ceci::
@@ -212,8 +212,8 @@ Veuillez corriger la fonction ``index`` pour ressembler à ceci::
 Retourner un code 404
 ---------------------
 
-Maintenant, concentrons-nous sur la vue détaillant un questionnaire - un site qui affiche les questions à partir
-d'un questionnaire précis.
+Maintenant, concentrons-nous sur la vue détaillant un sondage - un site qui affiche les questions à partir
+d'un sondage précis.
 
 Au début du fichier ``polls/views.py`` ajoutez::
 
@@ -225,7 +225,7 @@ trouver le sondage demandé par l'utilisateur (en écrivant ``raise Http404``). 
 
 .. note::
 
-   Vous pouvez changer la page affichée par Djanga en cas d'erreur 404 (la page n'existe pas) et 500 (erreur inattendue du serveur). Pour ce faire, vous devez créer des patrons ``404.html`` et ``500.html``. Avant de vérifier que cela fonctionne, changez ``DEBUG`` dans le fichier ``settings.py`` à ``False``. Sinon, Django continuera d'afficher ses pages jaunes.
+   Vous pouvez changer la page affichée par Djanga en cas d'erreur 404 (la page n'existe pas) et 500 (erreur inattendue du serveur). Pour ce faire, vous devez créer des templates ``404.html`` et ``500.html``. Avant de vérifier que cela fonctionne, changez ``DEBUG`` dans le fichier ``settings.py`` à ``False``. Sinon, Django continuera d'afficher ses pages jaunes.
 
 Changez la fonction ``detail`` comme suit::
 
@@ -251,7 +251,7 @@ Puis créez le fichier ``polls/templates/polls/detail.html`` ayant pour contenu:
 Gestion de formulaire
 ---------------------
 
-Changeons le patron ``polls/templates/polls/details.html``, en ajoutant un simple formulaire HTML.
+Changeons le template ``polls/templates/polls/details.html``, en ajoutant un simple formulaire HTML.
 
 Changez le fichier ``polls/templates/polls/details.html`` comme suit:
 
@@ -311,13 +311,13 @@ L'objet ``request`` contient les données envoyées par l'utilisateur et ``reque
 Voilà qui arrive la question importante. Il peut arriver qu'une vue reçoive une réponse inexistante. Nous
 devons toujours vérifier les données provenant de l'utilisateur et répondre même aux situations où les données n'ont
 aucun sens. C'est ce qui arrive dans la clause :keyword:`except`. Ensuite nous redirigeons l'utilisateur sur
-le questionnaire et affichons l'erreur.
+le sondage et affichons l'erreur.
 
 Si l'utilisateur sélectionne l'option correcte, nous pouvons augmenter le nombre de votes et sauvegarder les modifications. Ensuite
-nous effectuons une redirection avec ``HttpResponseRedirect`` vers la vue détaillée du questionnaire précédemment inscrite.
+nous effectuons une redirection avec ``HttpResponseRedirect`` vers la vue détaillée du sondage précédemment inscrite.
 
 Un autre problème important : après avoir voter nous pouvions juste afficher la page, comme à la fin de la vue des
-détails (en utilisant render). Malheureusement, cela pourrait provoquer le renvoie du questionnaire. Si l'utilisateur
+détails (en utilisant render). Malheureusement, cela pourrait provoquer le renvoie du sondage. Si l'utilisateur
 commence à jouer avec les boutons précédent et suivant du navigateur, ou simplement en rafraichissant la page (en
 appuyant sur F5). En résumé, après que le formulaire correct soit soumis (dans ce cas, après le vote à un sondage), nous
 devons effectuer une redirection en utilisant HttpResponseRedirect.
