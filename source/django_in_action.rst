@@ -1,31 +1,29 @@
-======================
-Introduction to Django
-======================
+=====================
+Introduction à Django
+=====================
 
 
-What is Django?
-===============
+Django, qu'est-ce que c'est ?
+=============================
 
-So far we have been learning about Python. Python is just a language (and a set of basic libraries) 
-that allows you to create programs. Creating an interactive website in Python requires a huge amount 
-of work, that is why we will use Django. Django gives us a set of tools, features (as the functions we 
-learned earlier, but more complex ones), and classes which facilitate creation of websites.
+Nous avons jusqu'ici appris des rudiments de Python, mais Python est juste un langage -- accompagné de bibliothèques de code assez basiques -- permettant de créer des programmes. La création d'un site web interactif en Python demande un travail considérable, c'est pourquoi nous allons utiliser Django, qui nous fournit un ensemble d'outils, fonctions (comme celles que nous avons étudiées précédemment, mais plus élaborées) et classes qui facilitent beaucoup la création de sites.
 
-On order to obtain a fully interactive website we need a few items:
+Pour mettre en place un site web pleinement interactif, il nous faut ces quelques éléments :
 
-* application server - here we use Django
-* HTML and CSS files responsible for the appearance of the website
-* Databases to store survey questions and answers.
+* Un serveur d'application - ici nous allons utiliser Django.
+* Des fichiers HTML et CSS, qui vont décrire l'apparence du site.
+* Une base de données pour stocker les questions et réponses à nos sondages.
 
-We will start by creating an application server.
+Commençons par créer le serveur d'application.
 
-Creation of the new project
-===========================
+
+Création du projet
+==================
 
 Installation
 ------------
 
-Install Django by running it on the console ``pip install django==1.6.4``:
+Installez Django en exécutant la commande suivante dans la console : ``pip install django==1.6.4``.
 
 .. code-block:: sh
 
@@ -36,17 +34,13 @@ Install Django by running it on the console ``pip install django==1.6.4``:
    Successfully installed django
    Cleaning up...
 
-A suitable package will be downloaded from `PyPI <http://pypi.python.org>`_ - a package repository 
-where you can find many useful libraries.
+Le paquet adéquat est alors téléchargé depuis `PyPI <http://pypi.python.org>`_ - un dépôt centralisé de paquets de code où sont disponibles de nombreuses bibliothèques.
 
 
-Beginning of project
---------------------
+Démarrage du projet
+-------------------
 
-Django provides the administrative script ``django-admin.py``. It allows you to create the scheme of our 
-site.
-
-To create a new project with the site, we launch ``django-admin.py startproject carrots``:
+Django fournit le script d'administration ``django-admin.py`` qui permet entre autres choses de créer l'arborescence initiale du site. Pour démarrer le nouveau projet, exécutez la commande suivante : ``django-admin.py startproject carrots`` ::
 
 .. code-block:: sh
 
@@ -64,16 +58,15 @@ To create a new project with the site, we launch ``django-admin.py startproject 
 
    1 directory, 5 files
 
-
 .. code-block:: bat
 
    :: Windows
 
-   (workshops) C:\Users\TeddyBear> python -m django-admin startproject carrots
-   (workshops) C:\Users\TeddyBear> tree /f carrots
+   (workshops) C:\Users\Alex> python -m django-admin startproject carrots
+   (workshops) C:\Users\Alex> tree /f carrots
    Folder PATH listing
    Volume serial number is 00FA-07FF
-   C:\USERS\TEDDYBEAR\DOCUMENTS\CARROTS
+   C:\USERS\ALEX\DOCUMENTS\CARROTS
    │   manage.py
    │
    └───carrots
@@ -83,54 +76,42 @@ To create a new project with the site, we launch ``django-admin.py startproject 
            __init__.py
 
 
-Structure of project
---------------------
+Structure du projet
+-------------------
 
-The newly created project contains a "carrots" directory and some basic files.
+Le projet que nous venons de créer contient un répertoire ``carrots`` et quelques fichiers de base.
 
-The file ``carrots/settings.py`` includes the settings such as the language, a database, installed 
-applications. We can edit the file by ourselves. Inside you will find the default settings and 
-explanatory comments.
+Le fichiers ``carrots/settings.py`` contient des paramètres de configurations tels que le langage, la connexion à la base de données ou encore la liste des applications installées dans le projet. Vous pouvez modifier ce fichier vous-même, il contient un paramétrage par défaut ainsi que des commentaires explicatifs.
 
+Le fichier ``manage.py`` nous permet d'administrer le site web, créer ou effacer la base de données, démarrer un simple serveur d'application, etc... Nous verrons par la suite comment l'utiliser.
 
-``manage.py`` file allows us to administer the web site, create or clear the database, run a simple 
-application server, etc. Later we will see how to use it.
+Le fichier ``carrots/urls.py`` contient des informations sur les chemins d'accès aux différentes pages du site.
 
-
-File ``carrots/urls.py`` contains information about the paths in the site.
-
-Other files are less interesting. Usually we do not look inside them at all nor we modify them. The 
-more curious ones can find more information by Google.
-
-Settings of application
------------------------
-
-In the ``carrots/settings.py`` file find ``TIME_ZONE`` and set time zone as Warsaw. You should get the following:
-::
-
-   TIME_ZONE = 'Europe/Luxembourg'
-
-   LANGUAGE_CODE = 'en_uk'
+Les autres fichiers présentent moins d'intérêt dans l'immédiat. De manière générale, on n'a pas besoin de les ouvrir ou de les modifier. Si ces fichiers vous intriguent, n'hésitez pas à rechercher sur Internet des informations supplémentaires à leur sujet.
 
 
-To make it simpler we also exclude the advanced support for time zones in the database - it will not be needed in our project. In the ``settings.py`` file please find  ``USE_TZ``  and set them as False:
-::
+Réglages de l'application
+-------------------------
+
+Modifiez ainsi dans le fichier ``carrots/settings.py`` les lignes suivantes pour régler la langue et le fuseau horaire utilisés par l'application ::
+
+   LANGUAGE_CODE = 'fr_fr'
+
+   TIME_ZONE = 'Europe/Paris'
+
+Pour simplifier les choses nous allons désactiver la gestion avancée des fuseaux horaires dans la base de données car nous n'en aurons pas besoin pour ce projet. Localisez le paramètre ``USE_TZ`` et positionnez-le à ``False`` ::
 
    USE_TZ = False
 
-..
-.. ``INSTALLED_APPS`` zawiera informację o zainstalowanych aplikacjach. Projekty ``Django``
-.. składają się z wielu aplikacji, w tym wypadku są to na przykład aplikacje: ``auth`` do
-.. uwierzytelniania użytkowników, ``sessions`` do zarządzania sesją użytkownika itd.
+La section ``INSTALLED_APPS`` contient des informations sur les applications installées. Un projet Django est en effet conposé de plusieurs applications, comme ici l'application ``auth`` qui sert à authentifier les utilisateurs, l'application ``sessions`` qui permet de gérer les sessions des utilisateurs, et ainsi de suite.
 
-..
-.. Jak widać, ``INSTALLED_APPS`` jest po prostu krotką zawierającą napisy. Odkomentowanie
-.. dwóch ostatnich napisów włączy aplikację do administracji. Później będziemy jej używać.
+Comme vous pouvez le voir, ``INSTALLED_APPS`` est tout simplement un tuple de noms d'applications. En décommentant les deux dernières chaînes de caractères (c'est-à-dire en supprimant le caractère ``#`` en début de ligne), vous pouvez activer l'interface d'administration fournie par Django. Nous allons voir plus tard comment l'utiliser.
 
-Database
---------
 
-Now it's time to use the previously described file ``manage.py`` to create the database. For this purpose we execute the option ``syncdb``. In the project directory run ``python manage.py syncdb``:
+Base de données
+---------------
+
+Le moment est maintenant venu d'utiliser le fichier ``manage.py`` pour créer la base de données de notre site. Pour ce faire, nous allons utiliser l'option ``syncdb``. Lancez donc la commande ``python manage.py syncdb`` depuis le répertoire du projet ::
 
 .. code-block:: sh
 
@@ -151,8 +132,8 @@ Now it's time to use the previously described file ``manage.py`` to create the d
 
     You just installed Django's auth system, which means you don't have any superusers defined.
     Would you like to create one now? (yes/no): yes
-    Username (leave blank to use 'fasola'): beans
-    Email address: admin@example.com
+    Username (leave blank to use 'alex'): admin
+    Email address: alex@example.com
     Password:
     Password (again):
     Superuser created successfully.
@@ -160,28 +141,25 @@ Now it's time to use the previously described file ``manage.py`` to create the d
     Installing indexes ...
     Installed 0 object(s) from 0 fixture(s)
 
-If all goes well Django asks you to provide data of the administrator account. The user name you may 
-leave as it is proposed, you can give any e-mail address.  Memorize the provided data (i.e, username 
-and password) so that you can log in the control panel. In the above example, the user will be ``beans``.
+Si tout se passe bien, Django vous demande alors de fournir quelques informations pour créer un compte administrateur pour l'application. Vous pouvez laisser le nom d'utilisateur qui vous est proposé et saisir n'importe quelle adresse email. Retenez bien ces informations, en particulier le nom d'utilisateur et le mot de passe ; elles vous seront nécessaires pour vous connecter à l'interface d'administration. Dans l'exemple décit ci-dessus, le nom d'utilisateur sera ``admin``.
 
- If you want to learn more about ``manage.py``, run python ``manage.py help``:
+Si vous voulez en apprendre davantage au sujet de ``manage.py``, vous pouvez exécuter la commande ``python manage.py help``.
 
 .. code-block:: sh
 
     (workshops) ~/carrots$ python manage.py help
 
- You will get a list of all commands and options supported by ``manage.py``. 
-
-To get help on a single command, run  ``manage.py help`` command:
+ Vous verrez alors la liste de toutes les commandes et options proposées par ``manage.py``. Pour obtenir de l'aide sur l'une de ces commandes, il suffit alors de taper ``python manage.py help``, suivi du nom de la commande en question -- par exemple ::
 
 .. code-block:: sh
 
     (workshops) ~/carrots$ python manage.py help syncdb
 
-Administration interface
-------------------------
 
-Now we can run our aplication. Run server by typing ``python manage.py runserver``:
+Interface d'administration
+--------------------------
+
+Nous pouvons maintenant lancer notre application. Démarrez le serveur en tapant la commande ``python manage.py runserver``:
 
 .. code-block:: sh
 
@@ -194,23 +172,19 @@ Now we can run our aplication. Run server by typing ``python manage.py runserver
    Development server is running at http://127.0.0.1:8000/
    Quit the server with CTRL-BREAK.
 
-Our website will be available on the  http://127.0.0.1:8000/  or http://localhost:8000/ adress. 
+Notre site web est dès lors disponible à l'adresse http://127.0.0.1:8000/ ou encore http://localhost:8000/.
 
-Administration panel is available on ``admin/`` path, that’s why we will go to 
-http://localhost:8000/admin/.
+L'interface d'administration, quant à elle, peut être consultée au chemin ``admin/``, c'est pourquoi nous y accédons par l'adresse http://localhost:8000/admin/.
 
 
-We create a new application for questionnaires
-----------------------------------------------
+Créons une nouvelle application pour nos sondages
+-------------------------------------------------
 
-For now, we have created a project ``carrots``. Projects in Django are divided into apps that provide 
-specific functions.
+Nous avons jusqu'à présent créé un projet appelé ``carrots``. Les projets Django sont divisés en applications qui fournissent chacune des fonctions spécifiques.
 
-We want to publish questionnaires on our website, that’s why we will add the application ``polls``.
+Nous voulons publier des sondages sur notre site, nous allons donc créer une application nommée ``polls`` (ce qui signifie ``sondages`` en anglais -- l'anglais étant la langue la plus fréquemment utilisée au sein des projets informatiques).
 
-From the command line type ``python manage.py startapp polls``:
-
-::
+Depuis l'invite de commandes, tapez ``python manage.py startapp polls`` ::
 
    (workshops) ~/carrots$ python manage.py startapp polls
    (workshops) ~/carrots$ tree .
@@ -231,9 +205,7 @@ From the command line type ``python manage.py startapp polls``:
 
    2 directories, 14 files
 
-After creating the application it must be activated in our project. In the file ``carrots/settings.py``
-we have to add the application ``polls`` to ``INSTALLED_APPS``. The result should look like as 
-follows::
+Une fois l'application créée, elle doit être activée dans notre projet. Ajoutez-la donc dans la section ``INSTALLED_APPS`` du fichier ``carrots/settings.py``. Vous devriez parvenir à un résultat similaire à celui-ci ::
 
     INSTALLED_APPS = (
         'django.contrib.admin',
@@ -245,23 +217,24 @@ follows::
         'polls'
     )
 
-Applications in ``Django`` consists of several files:
+Les applications Django sont constituées de plusieurs fichiers :
 
-* ``admin.py`` - definitions for the administration panel,
-* ``models.py`` - definitions of the models for the database,
-* ``tests.py`` - testing applications,
-* ``views.py`` - views of the application.
+* ``admin.py`` - permet de configurer l'interface d'administration,
+* ``models.py`` - contient la définition des modèles de la base de données,
+* ``tests.py`` - contient l'ensemble des tests permettant de valider le bon fonctionnement de l'application,
+* ``views.py`` - contient le code des différentes vues de l'application.
 
-Summary
--------
 
-Django installation:
+En résumé
+---------
+
+Pour installer Django ::
 
 .. code-block:: sh
 
    (workshops) ~$ pip install django==1.6.4
 
-Project directory creation
+Pour créer un projet Django ::
 
 .. code-block:: sh
 
@@ -269,37 +242,36 @@ Project directory creation
 
    (workshops) ~$ django-admin.py startproject carrots
 
-
 .. code-block:: bat
 
    :: Windows
 
    (workshops) C:\Users\TeddyBear> python -m django-admin startproject carrots
 
-Setup of time zone in ``carrots/settings.py`` file::
+Pour régler le langage et le fuseau horaire, dans le fichier ``carrots/settings.py`` ::
 
-   TIME_ZONE = 'Europe/Warsaw'
+   LANGUAGE_CODE = 'fr_fr'
 
-   LANGUAGE_CODE = 'pl'
+   TIME_ZONE = 'Europe/Paris'
 
    USE_TZ = False
 
-Creation of database (you need to run that command after adding every new model):
+Pour créer ou mettre à jour la base de données, il faut lancer cette commande après avoir ajouté un nouveau modèle de données ::
 
 .. code-block:: sh
 
    (workshops) ~/carrots$ python manage.py syncdb
 
-Server's start-up:
+Pour démarrer le serveur d'application ::
 
 .. code-block:: sh
 
    (workshops) ~/carrots$ python manage.py runserver
 
-Creation of the new application named ``polls``:
+Pour créer une nouvelle application, par exemple nommée ``polls`` ::
 
 .. code-block:: sh
 
    (workshops) ~/carrots$ python manage.py startapp polls
 
-Just remember that after creating an application you should add it to ``INSTALLED_APPS``.
+N'oubliez alors pas de rajouter cette nouvelle application à la section ``INSTALLED_APPS``!
