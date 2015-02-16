@@ -1,11 +1,18 @@
-==================
-  Christmas Tree
-==================
+===============
+L'Arbre de Noël
+===============
 
-Christmas are coming, Christmas presents time and, at least for Christmas trees :) in every shopping center. As an exercise, we will try to draw a tree in the
+Noël arrive (dans plus ou moins longtemps c'est vrai), ce sera le
+temps des cadeaux et dans tous les cas celui des sapins de Noël :)
+dans tous les magasins.
+
+Comme exercice, je vous propose de dessiner un Arbre de Noël dans la
 console.
 
-We are going to start from the most basic version of this exercise so that we can later extend it to a more functional version. As an incentive, let’s make a half of the Christmas tree:
+Nous allons commencer par la version la plus simple puis ajouter des
+fonctionnalités au fur et à mesure.
+
+Pour démarrer, commençons par dessiner la moitié d'un Arbre de Noël :
 
 .. testcode::
 
@@ -39,110 +46,130 @@ We are going to start from the most basic version of this exercise so that we ca
     *****
     ******
 
-It doesn’t look bad, but we have had to do a lot of typing. What if we would like to have a smaller
-tree? Or a bigger one, composed of hundreds of elements to be printed on a page size A0? Definitely
-too much typing, even if we would do it by multiplying strings  (``"*" * 100``, and so on.). Obviously it is
-such a repetitive activity that the program can do it for us.
+C'est pas si mal, mais nous avons du taper beaucoup de choses. Et que
+se passe-t-il si je veux un arbre plus petit ? Ou un plus grand,
+composé de centaines d'étoiles pour l'imprimer sur un poster géant au
+format A0 ? Oui ça fait certainement beaucoup trop de caractères à
+taper, quand bien même on multiplierait les caractères par centaines
+(``"*" * 100``, et ainsi de suite). Ça ressemble au genre de tâche
+qu'on confierait volontiers à un programme ça, non ?
 
 
+Les listes et les boucles ``for``
+=================================
 
-Lists and the ``for`` loop
-==========================
+Les boucles sont faites exactement pour ce genre d'actions
+répétitives. Pour rester dans l'atmosphère de Noël, imaginez un
+instant que vous êtes le Père Noël et que vous devez
+distribuer tous les cadeaux.
 
-Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere, 
-imagine for a moment that we are the Santa Claus and we have to deliver Christmas gifts to everyone.
+Comme vous le savez, les lutins ont une liste précise des enfants sages
+qui méritent un cadeau. La solution la plus simple pour garantir qu'un
+enfant ne soit pas oublié serait de prendre la liste et d'aller
+distribuer les cadeaux, dans l'ordre.
 
-As you know, Santa has a list of people who deserve gifts. The simplest approach to guarantee that no
-one is omitted, will be to check sequentially the list and deliver their gifts to one after another.
-Aside from the physical aspects of the task [#speed]_, the procedure of delivering the gifts could
-look like this::
+Outre les aspects physiques de la tâche [#vitesse]_, la procédure de
+distribution des cadeaux pourrait ressembler à cela::
 
-    Let the People List contain people who should receive gifts.
 
-    For each person (known as the Person), which is on the list of people:
-        Provide a gift to the Person
+    Disons que la liste des enfants sages, contient la liste des enfants
+    qui méritent un cadeau.
 
-Formatting of text above is not accidental. This is actually a disguised program in Python::
+    Pour chaque enfant (alias ``child``), qui se trouve dans la liste des enfants sages:
+        Distribuer un cadeau à cet enfant
 
-    gift_list = people_who_deserve_gifts()
+La disposition du texte ci-dessus n'est pas une erreur, c'est en fait
+un programme Python déguisé::
 
-    for person in gift_list:
-        deliver_gift(person)
-        print("Gift delivered to:", person)
-    print("All gifts delivered")
+    children = children_who_deserve_gifts()
 
-Most of the things should look familiar to you. We are calling here two functions:
-:func:`people_who_deserve_gifts` and :func:`deliver_gift` - their inner workings are only known by Santa
-Claus. The result of the first one can be named `gift_list`, so that we could refer to this value later (
-the same as described above).
+    for child in children:
+        deliver_gift(child)
+        print("Cadeau distribué à :", child)
+    print("Tous les enfants sages ont reçus un cadeau")
 
-A new element is a loop itself, which consists of:
+La plupart des choses doivent vous sembler familières. On appelle deux fonctions :
 
-* the word :keyword:`for`,
-* names we want to give to the next elements,
-* the word :keyword:`in`,
-* the value of a list or the name that refers to it.
-* the content indented of one level (the same way as in the case of :keyword:`if`).
+:func:`children_who_deserve_gifts` et :func:`deliver_gift` - leur fonctionnement interne est uniquement connu du Père Noël.
 
-Still we haven’t said anything about lists, as they do not differ much from the intuitive concept of
-lists in the everyday life. We can easily think of lists in Python as we think of any other list (a
-shopping list, a guest list, exam results etc.) written on a paper and numbered.
+Le résultats de la première peut recevoir comme alias `children`,
+afin de se rappeler par la suite à quoi corresponds cette valeur.
 
-Let's start with a blank page by starting a new python interpreter:
+Le nouvel élément, c'est la boucle elle-même, qui consiste en :
+
+* Le mot clé :keyword:`for`,
+* Le nom du prochain élément de la liste,
+* Le mot clé :keyword:`in`,
+* Une liste de valeur ou un alias qui y fait référence.
+* Les instructions indentées à effectuer pour chaque valeur de la liste (comme dans le cas de :keyword:`if`).
+
+Attendez, nous n'avons encore rien dit à propos des listes, mais
+rassurez-vous, le concept de liste en Python est très proche du
+concept de liste dans la vie de tous les jours. Nous pouvons
+simplement nous représenter une liste en Python comme nous nous
+représentons n'importe quelle autre liste le reste du temps (liste de
+courses, liste d'invités, résultats d'examens, etc.) écrite sur une
+papier et numérotée.
+
+Commençons par une liste vide :
 
     >>> L = []
     >>> L
     []
 
-At any time we can check how many items we have saved on our list by using the function :func:`len`.
+Quand nous le souhaitons, nous pouvons demander le nombre d'éléments
+qui se trouvent dans notre liste en utilisant la fonction:func:`len`.
 
     >>> len(L)
     0
 
-Let's make another list (which can have the same name or a different one):
+Essayons avec une autre liste (qui peut avoir le même nom ou pas) :
 
-    >>> L = ["Ala", "Ola", "Jacek"]
+    >>> L = ["Yara", "Pierre", "Amel"]
     >>> len(L)
     3
 
-As in the case of tuples, consecutive elements of the list are separated by commas. Unlike tuples,
-brackets ``[`` and ``]`` are obligatory.
+Comme pour le cas des tuples, les éléments consécutifs d'une liste
+sont séparés par des virgules. À la différence des tuples, les
+crochets sont obligatoires.
 
-To preview a particular position of an element on the list (remember that we count the positions from 0 ):
+Pour récupérer la valeur d'un élément d'une position particulière de
+la liste (en se souvenant que les index des positions commencent à 0) :
 
     >>> L[0]
-    'Ala'
+    'Yara'
     >>> L[1]
-    'Ola'
+    'Pierre'
     >>> L[2]
-    'Jacek'
+    'Amel'
     >>> L[3]
     Traceback (most recent call last):
      File "<stdin>", line 1, in <module>
     IndexError: list index out of range
 
-We can also use the loop :keyword:`for`,to execute instructions for every element of the list:
+On peut aussi utiliser une boucle :keyword:`for`, pour exécuter une
+instruction sur chaque élément de la liste:
 
     >>> for name in L:
-    ...     print("Name:", name)
+    ...     print("Nom:", name)
     ...
-    Name: Ala
-    Name: Ola
-    Name: Jacek
+    Name: Yara
+    Name: Pierre
+    Name: Amel
 
-In the same way, we can print the first part of our half of the Christmas tree:
+En passant, nous pouvons ainsi afficher la première moitié de notre Arbre de Noël :
 
     >>> lst = [1, 2, 3]
     >>> for n in lst:
-    ...     print("*"*n)
+    ...     print("*" * n)
     ...
     *
     **
     ***
 
-Well, unfortunately we still have to type the entire contents of the list. This problem can be solved
-by the function :func:`range`. Check ``help(range)``
-for the full story, or check these quick examples:
+Malheureusement, nous devons encore écrire le contenu de la liste. Ce
+problème peut-être résolu à l'aide de la fonction :func:`range`. Regardez
+``help(range)`` pour apprendre à l'utiliser ou regardez ces exemples :
 
 
     >>> list(range(2, 5, 1))
@@ -156,28 +183,31 @@ for the full story, or check these quick examples:
     >>> list(range(2))
     [0, 1]
 
-The :func:`range` function does not directly create a list, but it returns a generator. Generators
-generate the elements of a sequence one at a time, thereby avoiding to store the full sequence in memory. 
-In order to obtain a list of the sequence, we use the function :func:`list`. If we skip :func:`list` call,
-the result will look like this:
+La fonction :func:`range` ne crée pas directement une liste, mais
+retourne un générateur. Les générateurs génèrent les éléments un à un,
+ce qui permet de ne pas avoir à stocker l'ensemble des valeurs de la
+liste dans la mémoire de l'ordinateur.
 
+Pour obtenir une liste à partir d'un générateur, on utilise la
+fonction :func:`list`. Si on oublie l'appel à :func:`list`, le
+résultat ressemblera à ça :
 
     >>> range(1, 4)
     range(1, 4)
 
+La fonction :func:`range` a trois formes. La plus simple, qui est la
+plus utilisée, permet de générer une séquence de nombres de 0 à un nombre
+donné. Les autres formes vous permettent de spécifier le chiffre de
+départ et le pas d'un nombre à l'autre de la séquence. La séquence
+créée n'inclut jamais la borne supérieure.
 
-The :func:`range` function has three forms. The most basic and most used one creates a sequence from 0 to the
-given number. The other forms allow you to specify the start of the range and a step. The created
-sequence never includes the end of the specified range.
-
-
-Then let’s print a larger Christmas tree:
+Affichons un Arbre de Noël plus grand :
 
     >>> lst = list(range(1, 11))
     >>> lst
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     >>> for i in lst:
-    ...     print("*"*i)
+    ...     print("*" * i)
     *
     **
     ***
@@ -189,34 +219,37 @@ Then let’s print a larger Christmas tree:
     *********
     **********
 
-:func:`range` has saved a lot of our time. We can save even more if we omit naming the list:
+:func:`range` nous a épargné beaucoup de temps, on peut en gagner encore plus si on ne nomme pas la liste:
 
     >>> for i in list(range(1, 5)):
-    ...     print(i*"#")
+    ...     print(i * "#")
     #
     ##
     ###
     ####
 
-When you use the keyword :keyword:`for`, we do not have to use the
-:func:`list`. :keyword:`for` can handle the generator given by `range`. Hence, we can simplify our program even more:
+Lorsqu'on utilise le mot clé :keyword:`for`, on n'a pas besoin
+d'utiliser la fonction :func:`list`.  :keyword:`for` sait gérer le
+générateur retourné par `range`. Ce qui nous permet de simplifier
+notre programme encore plus.
 
 
     >>> for i in range(1, 5):
-    ...     print(i*"#")
+    ...     print(i * "#")
     #
     ##
     ###
     ####
 
 
+Rien ne nous empêche de créer une boucle dans une autre boucle,
+essayons ! Simplement rappelez-vous d'utiliser l'indentation
+appropriée et d'utiliser des alias différents par exemple ``i`` et
+``j`` (ou mieux un nom en rapport avec le contenu de la liste):
 
-Nothing prevents us to put one loop inside another loop, so let's do it! Just remember to use appropriate
-indentations and use different names e.g. ``i`` and ``j`` (or more associated with the list content):
-
-    >>> for i in range(1, 3):
-    ...    for j in range(11, 14):
-    ...        print(i, j)
+    >>> for column in range(1, 3):
+    ...    for line in range(11, 14):
+    ...        print(column, line)
     1 11
     1 12
     1 13
@@ -224,15 +257,19 @@ indentations and use different names e.g. ``i`` and ``j`` (or more associated wi
     2 12
     2 13
 
-Here we have inner loop that iterates from 11 to 13 (remember, 14 is not included when using ``range``) and
-outer loop that iterates from 1 to 2. As you can see, items from inner loop are printed twice, for each iteration
-of outer loop.
+Nous avons une boucle intérieure allant de 11 à 13 (n'oubliez pas que,
+14 n'est pas incluse lorsqu'on utilise ``range``) inclue dans une
+boucle extérieure qui elle va de 1 à 2.
 
-Using this technique, we can repeat our piece of the Christmas tree:
+Comme vous pouvez le voir les éléments de la boucle intérieure sont
+affichés deux fois, une fois pour chaque itération de la boucle
+extérieure.
 
-    >>> for i in range(3): # repeats 3 times
-    ...    for size in range(1, 4):
-    ...        print(size*"*")
+En utilisant cette technique, on peut répéter les éléments de notre Arbre de Noël :
+
+    >>> for etages in range(3): # répéter 3 fois
+    ...    for taille in range(1, 4):
+    ...        print(taille * "*")
     *
     **
     ***
@@ -243,25 +280,31 @@ Using this technique, we can repeat our piece of the Christmas tree:
     **
     ***
 
-Before proceeding to the next chapter, create ``xmas.py`` file with this program and try to modify it
-so that each of the three repetitions of the first (external) loop, the second one was executed one
-more time. This way, we should get our half of the Christmas tree described at the beginning of the
-chapter.
+Avant d'aller plus loin, créez le fichier ``noel.py`` avec ce
+programme et essayez de le modifier afin que pour chaque itération de
+la boucle extérieure la boucle intérieure soit exécutée une fois de
+plus. (Que pour chaque étage on ait une branche de plus).
+
+Vous devriez obtenir le résultat de notre demi Arbre de Noël décrit en début de chapitre.
 
 
-Defining a function
-===================
+Les fonctions
+=============
 
-We have already seen how functions solve many of our problems. However, they do not solve all our problems 
-– or at least not exactly the way we would like functions to solve them.
-Sometimes we must solve a problem on our own. If it occurs often in our program, it would be nice to
-have a function that solves it for us.
+Nous avons déjà pu voir comment les fonctions résolve nombre de nos
+problèmes. Par contre elle ne solutionne pas tous nos problèmes - ou
+du moins pas exactement de la manière dont nous aimerions les
+résoudre.
 
-We can do it like this in Python:
+Parfois, nous devons résoudre nous même un problème. Et cela est même
+assez fréquent, ce serait assez cool de pouvoir créer des fonctions
+qui les solutionnent pour nous.
+
+Voici comment nous pouvons faire en Python:
 
     >>> def print_triangle(n):
-    ...     for size in range(1, n+1):
-    ...         print(size*"*")
+    ...     for size in range(1, n + 1):
+    ...         print(size * "*")
     ...
     >>> print_triangle(3)
     *
@@ -274,26 +317,25 @@ We can do it like this in Python:
     ****
     *****
 
-Let's have a closer look at the function :func:`print_triangle`::
+Regardons de plus près la fonction :func:`print_triangle`::
 
     def print_triangle(n):
-        for size in range(1, n+1):
-            print(size*"*")
+        for size in range(1, n + 1):
+            print(size * "*")
 
-The definition of a function always starts with the word :keyword:`def`. Next, we give the name to our
-function. Between the parenthesizes, we indicate what names should be given to its arguments when the function is
-called. In the following lines we provide instructions to be executed when we use the function.
+La définition d'une fonction commence toujours avec le mot clé :keyword:`def`. Ensuite on donne un nom à la fonction.
+Entre les parenthèses, on indique quels sont les noms des arguments passés à la fonction lorsqu'elle est appelée.
+Les lignes suivantes définissent les instructions à exécuter lors de l'utilisation de la fonction.
 
-
-As shown in the example, the instructions in the function may include names that we have given as the
-names of the arguments. The principle of operation is as follows - if you create a function with
-three arguments:
+Comme vu dans l'exemple, les instructions peuvent utiliser les alias
+des noms des arguments. Le principe opératoire est le suivant - si on
+créé une fonction avec trois arguments :
 
     >>> def foo(a, b, c):
     ...     print("FOO", a, b, c)
 
-When you call this new function, you need to
-specify a value for each argument. This just like all the functions we called before:
+Lorsque vous appelez cette nouvelle fonction, vous devez spécifier une valeur pour chacun des arguments.
+De la même manière que ce que nous faisions pour appeler les fonctions précédentes :
 
     >>> foo(1, "Ala", 2 + 3 + 4)
     FOO 1 Ala 9
@@ -301,8 +343,9 @@ specify a value for each argument. This just like all the functions we called be
     >>> foo(x, x + 1, x + 2)
     FOO 42 43 44
 
-Note that the argument name is just a label. If we change the value attached to a label for another one, the other labels will not
-change – the same happens with the arguments:
+On notera qu'un argument est simplement un alias, si on modifie la
+valeur liée à cet alias pour une autre valeur, les autres alias ne
+sont pas modifiés - c'est la même chose pour les arguments:
 
     >>> def plus_five(n):
     ...     n = n + 5
@@ -313,48 +356,54 @@ change – the same happens with the arguments:
     >>> x
     43
 
-It is as normal names (variables) we saw before. There are only two differences:
+ça fonctionne comme pour les alias (variables) que nous avons vu
+précédement. Il y a seulement deux différences :
 
-Firstly, argument names of a function are defined at each function call, and Python attaches the corresponding
-argument value to to each of the argument names it just created.
 
-Secondly, the argument names are not available outside the function as they are created when the function is called
-and forgotten after the call. That is, if you try now to access 
-the argument name ``n`` we defined in our :func:`plus_five` function outside of the function's code, 
-Python tells you it is not defined:
+Premièrement, les alias des arguments d'une fonction sont définis à
+chaque appel de la fonction, et Python attache la valeur
+correspondante à la valeur de l'argument à l'alias de l'argument qu'il
+vient de créér.
+
+
+Deuxièmement, les alias des arguments ne sont pas utilisable à
+l'extérieur de la fonction car ils sont créé lors de l'appel de la
+fonction et oublié à la fin de celle-ci. C'est pourquoi, si vous essayez d'accéder à la valeur ``n`` que nous avons définie dans notre fonction :func:`plus_five` à l'extérieur du code de la fonction Python vous dit qu'elle n'est pas définie :
 
     >>> n
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     NameError: name 'n' is not defined
+
+C'est comme ça notre cher Python fait le ménage à la fin d'un appel de fonction :)    
     
-That is, our prim and proper Python cleans up his room at the end of a function call :)
     
-    
-Returning values
-----------------
+Retourner un résultat
+---------------------
 
-The functions which we have previously used had one important property that is missing in the
-functions created by ourselves - they gave back the value they computed
-instead of printing it immediately. To
-achieve the same effect, you need to use the instruction :keyword:`return`. This is a special
-instruction that can be found only in functions.
+Une des propriétés principales des fonctions que nous avons utilisé
+précédement manque cruellement à nos fonctions — elles retournaient le
+résultat qu'elle avait calculé au lieu de l'écrire directement. Pour
+obtenir un comportement similaire, il faut utiliser l'instruction
+:keyword:`return`. C'est une instruction spécifique qui ne fonctionne
+qu'au sein d'une fonction.
 
+On peut améliorer notre calculateur d'IMC en ajoutant une fonction
+permettant le calcul de l'IMC::
 
-We can now improve our BMI calculator by adding a function to compute BMI::
-
-    def calc_bmi(height, weight):
+    def calculate_imc(height, weight):
         return weight / height ** 2
 
-Finally, as a last example on functions, here is a solution to the problem from the end of the previous chapter:
+Pour finir, comme dernier exemple de fonction, voici la solution au
+problème posé à la fin du chapitre précédent :
 
 
 .. testcode::
 
-    # xmas.py
+    # noel.py
 
     def print_triangle(n):
-        for size in range(1, n+1):
+        for size in range(1, n + 1):
             print(size * "*")
 
     for i in range(2, 5):
@@ -374,15 +423,17 @@ Finally, as a last example on functions, here is a solution to the problem from 
     ****
 
 
-The Entire Christmas tree
-=========================
+Un Arbre de Noël entier
+=======================
 
-The previous chapter was fairly theoretical, so now we'll use some of this new knowledge
-to complete our program to display a Christmas tree.
+Le chapitre précédent était principalement de la théorie. Utilisons
+nos nouvelles connaissances pour terminer notre programme et afficher
+notre Arbre de Noël.
 
-For the record::
 
-    # xmas.py
+Voici à quoi ressemble notre fichier actuel::
+
+    # noel.py
 
     def print_triangle(n):
         for size in range(1, n+1):
@@ -391,24 +442,25 @@ For the record::
     for i in range(2, 5):
         print_triangle(i)
 
-How can we improve the function :func:`print_triangle`, o display the entire segment of the Christmas
-tree, not just half of it?
+Comment pouvons-nous améliorer la fonction :func:`print_triangle`,
+pour afficher un Arbre de Noël entier et non juste la moitié ?
 
 
-First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``. 
-It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect::
+Tout d'abord, essayons de déterminer le résultat attendu en fonction de la valeur de l'argument ``n``. 
+Il parait naturel que ``n`` soit la largeur. Ainsi pour ``n = 5`` on s'attendrait à::
 
       *
      ***
     *****
 
-It is worth noting that each line consists of two asterix more than the previous one. So we can use
-the third argument :func:`range`:
+Il est intéressant de noter que chaque ligne possède deux étoiles de
+plus que la ligne précédente. Nous pouvons donc utiliser le troisième
+argument de :func:`range`:
 
 .. testcode::
 
     def print_segment(n):
-        for size in range(1, n+1, 2):
+        for size in range(1, n + 1, 2):
             print(size * "*")
 
     print_segment(5)
@@ -419,14 +471,18 @@ the third argument :func:`range`:
     ***
     *****
 
-It is not exactly what we have wanted, as it should be aligned in the centre. The method/function 
-:func:`unicode.center` mentioned in the previous section, helps us:
+Ce n'est pas exactement ce à quoi on s'attendait, il y a effectivement
+le bon nombre d'étoiles mais on souhaiterait qu'elle soit aligné au
+centre.
+
+La fonction :func:`unicode.center` que vous avez peut-être trouvé en
+répondant à la question de fin du chapitre précédent, peut nous aider:
 
 
 .. testcode::
 
     def print_segment(n):
-        for size in range(1, n+1, 2):
+        for size in range(1, n + 1, 2):
             print((size * "*").center(n))
 
     print_segment(5)
@@ -438,12 +494,12 @@ It is not exactly what we have wanted, as it should be aligned in the centre. Th
      ***
     *****
 
-However, a new problem appears:
+Cependant, un nouveau problème apparait :
 
 .. testcode::
 
     def print_segment(n):
-        for size in range(1, n+1, 2):
+        for size in range(1, n + 1, 2):
             print((size * "*").center(n))
 
     for i in range(3, 8, 2):
@@ -462,9 +518,10 @@ However, a new problem appears:
      *****
     *******
 
-If we know in advance, what size the widest segment is, we can add an additional argument to  
-:func:`print_segment`,  to align to the width. Combining all of the knowledge we have 
-acquired up to the moment:
+Si nous avions un moyen de connaitre à l'avance la taille du segment
+le plus grand, nous pourrions ajouter un argument supplémentaire à
+:func:`print_segment`, pour faire le centrage sur cette largeur. En
+combinant toute la connaissance acquise :
 
 
 .. testsetup:: tree-final
@@ -474,21 +531,21 @@ acquired up to the moment:
 .. testcode:: tree-final
 
     def print_segment(n, total_width):
-        for size in range(1, n+1, 2):
+        for size in range(1, n + 1, 2):
             print((size * "*").center(total_width))
 
     def print_tree(size):
-        for i in range(3, size+1, 2):
+        for i in range(3, size + 1, 2):
             print_segment(i, size)
 
-    print("Choose size of the Christmas tree:")
+    print("Choisissez la taille de votre Arbre de Noël :")
     n = int(input())
     print_tree(n)
 
 .. testoutput:: tree-final
     :options: +NORMALIZE_WHITESPACE
 
-    Choose size of the Christmas tree:
+    Choisissez la taille de votre Arbre de Noël :
     7
        *
       ***
@@ -501,11 +558,12 @@ acquired up to the moment:
     *******
 
 
-Task for volunteers
--------------------
+Pour aller plus loin
+--------------------
 
-Create a class ``XMASTree`` which for a given size and upon calling the method ``draw`` will print the
-following pictures (sizes 1, 2 and 3):
+Réaliser une classe ``XMASTree`` qui pour une taille donnée et lors de
+l'appel de la méthode ``draw`` va afficher les résultats suivants
+(pour les tailles 1, 2 et 3) :
 
 ::
           *
@@ -539,5 +597,6 @@ following pictures (sizes 1, 2 and 3):
 
 .. rubric:: Notes
 
-.. [#speed] Assuming you have 24 hours to deliver one gift for everyone in the world,
-    for one gift you have about 10 microseconds.
+.. [#vitesse] En considérant que vous avez 24 heures pour distribuer
+              un cadeau à chaque personne de la Terre, il faudrait
+              distribuer un cadeau toute les 10 microsecondes.
