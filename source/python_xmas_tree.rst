@@ -63,36 +63,36 @@ répétitives. Pour rester dans l'atmosphère de Noël, imaginez un
 instant que vous êtes le Père Noël et que vous devez
 distribuer tous les cadeaux.
 
-Comme vous le savez, les lutins ont une liste précise des personnes
-qui méritent un cadeau. La solution la plus simple pour garantir que
-personne ne soit oublié serait de prendre la liste et d'aller
+Comme vous le savez, les lutins ont une liste précise des enfants sages
+qui méritent un cadeau. La solution la plus simple pour garantir qu'un
+enfant ne soit pas oublié serait de prendre la liste et d'aller
 distribuer les cadeaux, dans l'ordre.
 
 Outre les aspects physiques de la tâche [#vitesse]_, la procédure de
 distribution des cadeaux pourrait ressembler à cela::
 
 
-    Disons que la Liste des Gens Bons, contient la liste des personnes
+    Disons que la liste des enfants sages, contient la liste des enfants
     qui méritent un cadeau.
 
-    Pour chaque personne (alias ``person``), qui se trouve dans la Liste des Gens Bons:
-        Distribuer un cadeau à cette personne
+    Pour chaque enfant (alias ``child``), qui se trouve dans la liste des enfants sages:
+        Distribuer un cadeau à cet enfant
 
 La disposition du texte ci-dessus n'est pas une erreur, c'est en fait
 un programme Python déguisé::
 
-    gens_bons = people_who_deserve_gifts()
+    children = children_who_deserve_gifts()
 
-    for person in gens_bons:
-        deliver_gift(person)
-        print("Cadeau distribué à :", person)
-    print("Tous les Gens Bons ont reçus un cadeau")
+    for child in children:
+        deliver_gift(child)
+        print("Cadeau distribué à :", child)
+    print("Tous les enfants sages ont reçus un cadeau")
 
-La plupart des choses doivent vous sembler familière. On appelle deux fonctions :
+La plupart des choses doivent vous sembler familières. On appelle deux fonctions :
 
-:func:`people_who_deserve_gifts` et :func:`deliver_gift` - leur fonctionnement interne est uniquement connu du Père Noël.
+:func:`children_who_deserve_gifts` et :func:`deliver_gift` - leur fonctionnement interne est uniquement connu du Père Noël.
 
-Le résultats de la première peut recevoir comme alias `gens_bons`,
+Le résultats de la première peut recevoir comme alias `children`,
 afin de se rappeler par la suite à quoi corresponds cette valeur.
 
 Le nouvel élément, c'est la boucle elle-même, qui consiste en :
