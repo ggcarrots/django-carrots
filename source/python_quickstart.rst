@@ -200,7 +200,7 @@ Vous obtenez::
 
     Votre IMC est : 21.387755102040817
 
-Comme vous le voyez notre programme a besoin de quelques améliorations::
+Comme vous le voyez notre programme a besoin de quelques améliorations:
 
 1. Si quelqu'un d'autre souhaite utiliser le programme nous devons
    modifier le fichier ``imc.py``.
@@ -279,8 +279,8 @@ valeur de x, la valeur de y reste la même:
     Vous vous demandez sûrement pourquoi nous n'utilisons pas ici le
     terme "variable". C'est simplement car en Python, les alias ne
     fonctionnent pas de la même manière que les variables.
-	Dans la plupart des langages, l'opération ``y = x`` crée une copie de
-    ``x`` et la stocke dans la variable ``y``
+    Dans la plupart des langages, l'opération ``y = x`` crée une copie
+    de ``x`` et la stocke dans la variable ``y``
 
 	En Python, rien n'est copié silencieusement. ``y`` devient
 	seulement un autre moyen de nommer la même valeur. Si on modifie
@@ -294,6 +294,7 @@ valeur de x, la valeur de y reste la même:
 	modifier la valeur de π à ``3``, décision rejetée par le Sénat).
 	C'est pourquoi, afficher la valeur de ``y`` avec ``print(y)``,
 	nous donne ``42``.
+
 
 Comme nous l'avons vu dans notre programme, nous pouvons également
 donner des noms aux résultats des calculs et utiliser ensuite ces noms

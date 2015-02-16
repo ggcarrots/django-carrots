@@ -97,14 +97,16 @@ Ouvrons le fichier ``polls/views.py`` et ajoutons quelques nouvelles fonctionnal
     def vote(request, poll_id):
         return HttpResponse("You're voting on poll %s." % poll_id)
 
-Ce sont les vues les plus simples possibles. Elles ne renvoient pas de chaîne de caractères régulières, tel que
-la fonction qui construit un arbre de Noël en Python, car elles doivent parler le protocole HTTP, qui est un peu
-plus compliqué (Il serait intéressant ici de voir la page dans un navigateur lorsque vous entrez l'adresse
- http://localhost:8000/polls/1/).
+Ce sont les vues les plus simples possibles. Elles ne renvoient pas de
+chaîne de caractères régulières, tel que la fonction qui construit un
+arbre de Noël en Python, car elles doivent parler le protocole HTTP,
+qui est un peu plus compliqué (Il serait intéressant ici de voir la
+page dans un navigateur lorsque vous entrez l'adresse
+http://localhost:8000/polls/1/).
 
 
 Une vue qui fait réellement quelque chose
-----------------------------------------
+-----------------------------------------
 
 Pour le moment nos vues ne font pas grand-chose. Donnons leur plus de travail !
 

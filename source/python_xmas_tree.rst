@@ -566,12 +566,15 @@ l'appel de la méthode ``draw`` va afficher les résultats suivants
 (pour les tailles 1, 2 et 3) :
 
 ::
+
           *
          /|\
         /_|_\
           |
 
+
 ::
+
            *
           /|\
          /_|_\
@@ -580,7 +583,9 @@ l'appel de la méthode ``draw`` va afficher les résultats suivants
         /__|__\
            |
 
+
 ::
+
             *
            /|\
           /_|_\

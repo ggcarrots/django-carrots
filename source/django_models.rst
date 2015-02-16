@@ -111,9 +111,10 @@ Les modèles de Django sont des classes et les classes peuvent avoir des méthod
 prends un paramètre supplémentaire ``self``, représentant l'objet courant (par exemple, le sondage actuel). Les méthodes
 dans les classes (modèles) vous permettent de définir des comportements supplémentaire ou de modifier les comportements existants.
 
-Une des méthodes par défaut est ``__str__()``, qui vous permet de modifier l'affichage du modèle (un
-sondage ou une question). ``<Poll: Poll object>`` n'indique pas grand-chose. Corrigeons cela en ajoutant la méthode
- ``__str__`` aux classes ``Poll`` et ``Choice``::
+Une des méthodes par défaut est ``__str__()``, qui vous permet de
+modifier l'affichage du modèle (un sondage ou une question). ``<Poll:
+Poll object>`` n'indique pas grand-chose. Corrigeons cela en ajoutant
+la méthode ``__str__`` aux classes ``Poll`` et ``Choice``::
 
     class Poll(models.Model):
         # ...
