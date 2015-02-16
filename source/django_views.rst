@@ -53,7 +53,7 @@ nous rappeler des règles suivantes:
    * Si après n'importe quelle expression ci-dessus nous plaçons un ``?`` il sera alors considéré comme optionnel. Cela signifie
      que si dans la chaîne de caractères correspondante il n'y a pas de telle expression, la correspondance restera possible. Si elle existe, alors elle y correspondra.
    * Si nous plaçons un ``*`` après l'expression, elle correspondra à n'importe quel nombre de répétitions même pour un nombre de
-     zéro, ou pour ainsi dire, comme s'il est optionnel.
+     zéro, ou pour ainsi dire, comme s'il était optionnel.
    * Si nous plaçons un ``+`` après l'expression elle correspondra à n'importe quel nombre de répétitions, sauf à zéro
      (l'expression doit apparaitre au moins une fois).
    * Si plusieurs caractères étaient placés dans des parenthèses, tel que ``(\d \d)`` ils seront traités comme un groupe
