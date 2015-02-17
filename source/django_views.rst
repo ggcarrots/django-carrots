@@ -45,7 +45,7 @@ nous rappeler des règles suivantes:
      avant le premier caractère)
    * ``$`` correspond seulement à la fin de la chaîne de caractères (d'une façon similaire au “début”).
    * Le point (``.``) correspond à n'importe quel caractère.
-   * Si plusieurs caractères étaient placés dans des crochets, comme ceci: ``[abde]``, le groupe compte pour une unité
+   * Si plusieurs caractères sont placés dans des crochets, comme ceci: ``[abde]``, le groupe compte pour une unité
      et correspondra à n'importe quel caractère compris dans le groupe.
    * Il y a une notation abrégée pour de tels groupes. Plutôt que d'écrire toutes les minuscules de l'alphabet,
      nous pouvons écrire ``[a-z]`` pour correspondre à n'importe quelle lettre minuscule. De même pour les lettres majuscules ``[A-Z]`` ou les nombres ``[0-9]``.
@@ -56,7 +56,7 @@ nous rappeler des règles suivantes:
      zéro, ou pour ainsi dire, comme s'il était optionnel.
    * Si nous plaçons un ``+`` après l'expression elle correspondra à n'importe quel nombre de répétitions, sauf à zéro
      (l'expression doit apparaitre au moins une fois).
-   * Si plusieurs caractères étaient placés dans des parenthèses, tel que ``(\d \d)`` ils seront traités comme un groupe
+   * Si plusieurs caractères sont placés dans des parenthèses, tel que ``(\d \d)`` ils seront traités comme un groupe
      et tous les modificateurs fonctionneront sur l'ensemble de caractères du groupe. Si vous écrivez aussi avec le ``(? P <NOM> chaîne)``, le groupe peut être par la suite appelé avec NOM. C'est très courant lorsque l'on travaille avec Django.
 
 Fiou ... il y a tant de règles, mais personne ne se rappelle vraiment de toutes. Celles ci-dessus sont 
