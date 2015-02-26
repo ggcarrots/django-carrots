@@ -40,7 +40,7 @@ Le paquet adéquat est alors téléchargé depuis `PyPI <http://pypi.python.org>
 Démarrage du projet
 -------------------
 
-Django fournit le script d'administration ``django-admin.py`` qui permet entre autres choses de créer l'arborescence initiale du site. Pour démarrer le nouveau projet, exécutez la commande suivante : ``django-admin.py startproject carrots`` 
+Django fournit le script d'administration ``django-admin.py`` qui permet entre autres choses de créer l'arborescence initiale du site. Pour démarrer le nouveau projet, exécutez la commande suivante : ``django-admin.py startproject carrots``
 
 .. code-block:: sh
 
@@ -184,7 +184,7 @@ Nous avons jusqu'à présent créé un projet appelé ``carrots``. Les projets D
 
 Nous voulons publier des sondages sur notre site, nous allons donc créer une application nommée ``polls`` (ce qui signifie ``sondages`` en anglais -- l'anglais étant la langue la plus fréquemment utilisée au sein des projets informatiques).
 
-Depuis l'invite de commandes, tapez ``python manage.py startapp polls`` 
+Depuis l'invite de commandes, tapez ``python manage.py startapp polls``
 ::
 
    (workshops) ~/carrots$ python manage.py startapp polls
@@ -249,7 +249,7 @@ Pour créer un projet Django
 
    (workshops) C:\Users\TeddyBear> python -m django-admin startproject carrots
 
-Pour régler le langage et le fuseau horaire, dans le fichier ``carrots/settings.py`` 
+Pour régler le langage et le fuseau horaire, dans le fichier ``carrots/settings.py``
 
 .. code-block:: sh
 
@@ -265,7 +265,7 @@ Pour créer ou mettre à jour la base de données, il faut lancer cette commande
 
    (workshops) ~/carrots$ python manage.py syncdb
 
-Pour démarrer le serveur d'application 
+Pour démarrer le serveur d'application
 
 .. code-block:: sh
 
