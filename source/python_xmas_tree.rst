@@ -3,8 +3,7 @@ L'Arbre de Noël
 ===============
 
 Noël arrive (dans plus ou moins longtemps c'est vrai), ce sera le
-temps des cadeaux et dans tous les cas celui des sapins de Noël :)
-dans tous les magasins.
+temps des cadeaux et des sapins de Noël dans tous les magasins. :)
 
 Comme exercice, je vous propose de dessiner un Arbre de Noël dans la
 console.
@@ -151,11 +150,11 @@ On peut aussi utiliser une boucle :keyword:`for`, pour exécuter une
 instruction sur chaque élément de la liste:
 
     >>> for name in L:
-    ...     print("Nom:", name)
+    ...     print("Nom :", name)
     ...
-    Name: Yara
-    Name: Pierre
-    Name: Amel
+    Nom : Yara
+    Nom : Pierre
+    Nom : Amel
 
 En passant, nous pouvons ainsi afficher la première moitié de notre Arbre de Noël :
 
@@ -291,14 +290,13 @@ Vous devriez obtenir le résultat de notre demi Arbre de Noël décrit en début
 Les fonctions
 =============
 
-Nous avons déjà pu voir comment les fonctions résolve nombre de nos
-problèmes. Par contre elle ne solutionne pas tous nos problèmes - ou
-du moins pas exactement de la manière dont nous aimerions les
-résoudre.
+Nous avons déjà pu voir comment les fonctions résolvent nombre de nos
+problèmes. Par contre elle ne les résolvent pas tous - ou du moins pas
+exactement de la manière dont nous aimerions les résoudre.
 
-Parfois, nous devons résoudre nous même un problème. Et cela est même
-assez fréquent, ce serait assez cool de pouvoir créer des fonctions
-qui les solutionnent pour nous.
+Parfois, et même assez souventn nous devons résoudre nous-mêmes un problème.
+Ce serait donc assez cool de pouvoir créer des fonctions qui le fassent pour
+nous.
 
 Voici comment nous pouvons faire en Python:
 
@@ -375,15 +373,15 @@ fonction et oublié à la fin de celle-ci. C'est pourquoi, si vous essayez d'acc
       File "<stdin>", line 1, in <module>
     NameError: name 'n' is not defined
 
-C'est comme ça notre cher Python fait le ménage à la fin d'un appel de fonction :)    
-    
-    
+C'est comme ça notre cher Python fait le ménage à la fin d'un appel de fonction :)
+
+
 Retourner un résultat
 ---------------------
 
-Une des propriétés principales des fonctions que nous avons utilisé
+Une des propriétés principales des fonctions que nous avons utilisées
 précédement manque cruellement à nos fonctions — elles retournaient le
-résultat qu'elle avait calculé au lieu de l'écrire directement. Pour
+résultat qu'elles avait calculé au lieu de l'écrire directement. Pour
 obtenir un comportement similaire, il faut utiliser l'instruction
 :keyword:`return`. C'est une instruction spécifique qui ne fonctionne
 qu'au sein d'une fonction.
@@ -391,7 +389,7 @@ qu'au sein d'une fonction.
 On peut améliorer notre calculateur d'IMC en ajoutant une fonction
 permettant le calcul de l'IMC::
 
-    def calculate_imc(height, weight):
+    def compute_bmi(height, weight):
         return weight / height ** 2
 
 Pour finir, comme dernier exemple de fonction, voici la solution au
@@ -446,7 +444,7 @@ Comment pouvons-nous améliorer la fonction :func:`print_triangle`,
 pour afficher un Arbre de Noël entier et non juste la moitié ?
 
 
-Tout d'abord, essayons de déterminer le résultat attendu en fonction de la valeur de l'argument ``n``. 
+Tout d'abord, essayons de déterminer le résultat attendu en fonction de la valeur de l'argument ``n``.
 Il parait naturel que ``n`` soit la largeur. Ainsi pour ``n = 5`` on s'attendrait à::
 
       *
@@ -475,7 +473,7 @@ Ce n'est pas exactement ce à quoi on s'attendait, il y a effectivement
 le bon nombre d'étoiles mais on souhaiterait qu'elle soit aligné au
 centre.
 
-La fonction :func:`unicode.center` que vous avez peut-être trouvé en
+La fonction :func:`unicode.center`, que vous avez peut-être trouvée en
 répondant à la question de fin du chapitre précédent, peut nous aider:
 
 
