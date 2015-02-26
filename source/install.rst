@@ -2,7 +2,7 @@
 Installation
 ============
 
-Pendant nos ateliers, nous allons utiliser un interpréteur de langage Python, en version 3.4. Vous trouverez ci-dessous quelques conseils pour vérifier si vous avez déjà l'interpréteur ou bien, dans le cas contraire, pour l'installer ainsi que quelques outils complémentaires.
+Pendant nos ateliers, nous allons utiliser un interpréteur de langage Python, en version 3.4. Vous trouverez ci-dessous quelques conseils pour vérifier si vous avez déjà l'interpréteur avec la "bonne version" ou bien, dans le cas contraire, pour l'installer ainsi que quelques outils complémentaires.
 
 Windows
 =======
@@ -27,7 +27,7 @@ Si la commande ``python`` n'est pas disponible, ou si une version inférieure es
 Ubuntu
 ------
 
-Entrez la commande suivante::
+Tapez la commande suivante::
 
     sudo apt-get install python3.4
 
@@ -115,9 +115,7 @@ Par exemple, si votre répertoire personnel est ``C:\Users\Yara``, la ligne de c
     ~$ python3.4 -m venv workshops
 
 .. note::
-    Ubuntu 14.04 has a bug (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) that causes Python3.4 `venv` module to fail when installing with `pip`.
-    To work around this please use this command to create virtual environment::
-
+    Pour pouvoir fonctionner votre environnement virtuel doit installer un gestionnaire de modules complémentaires, paquets Python, appelé ``pip``.
     Ubuntu 14.04 a un bogue (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) qui provoque l'échec de l'installation par ``pip`` du module ``venv`` de Python3.4. Pour contourner ce problème, il faut utiliser les commandes suivantes ::
 
         ~$ python -m venv --without-pip workshops
