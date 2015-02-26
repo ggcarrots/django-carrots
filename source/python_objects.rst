@@ -9,19 +9,20 @@ pouvoir travailler avec Django.
 Toute valeur est un objet
 -------------------------
 
-Toute chose que nous avons appelée valeur jusqu'à présent peut-etre
+Toutes les choses que nous avons appelées valeur jusqu'à présent peut-etre
 appelé "un objet" dans l'univers de Python. On dit communément que
 "tout est objet".
 
 Par exemple les entiers, pour lesquels la fonction :func:`help` nous
 retournait des dizaines de lignes d'information à propos de
-:func:`int`.
+:func:`int`sont aussi des objets.
 
+.. Par exemple une variable name = "toto" est un objet de type string
 
 Tout objet a une classe
 -----------------------
 
-Une classe est le type d'un objet. Par analogie, on peut dire que
+Une classe est le type d'un objet (un type d'objet?). Par analogie, on peut dire que
 c'est le moule qui permet de créer l'objet.
 
 On peut tout simplement utiliser la fonction :func:`type`: pour
@@ -99,7 +100,8 @@ Toutes ces opérations sont applicable à n'importe quelle chaîne de caractère
 
 Une fonction appliquée à un objet est appelée une méthode de l'objet.
 
-Encore une dernière chose importante, pour créer un nouvel objet, on appelle la classe de l'objet. L'objet ainsi créé est appelé une instance de la classe :
+Encore une dernière chose importante, pour créer un nouvel objet, on appelle la classe de l'objet (dans le jargon technique on dit qu'on instancie un objet). 
+L'objet ainsi créé est appelé une instance de la classe :
 
     >>> int()
     0
@@ -160,7 +162,7 @@ Vous pouvez appeler ce premier argument comme vous le souhaitez mais `la convent
 Attributs des objets
 --------------------
 
-Outre les méthodes, fonctions définies dans une classe, les objets
+Outre les méthodes (les fonctions définies dans une classe), les objets
 peuvent également avoir des attributs.
 
 .. testcode:: simple-class
@@ -212,11 +214,12 @@ Dans la fonction ``__init__``, nous avons assigné une valeur à un nouvel attri
 La fonction :func:`__init__` est appelée durant la création de l'objet.
 On l'appelle contructeur; car elle aide à la création de l'objet.
 
+
 Dans cet exemple, la fonction ``__init__`` accepte deux arguments:
 ``self`` et ``name``, mais quand on créé une instance de la classe
 ``Dog``, nous ne spécifions que l'argument ```name``, ``self``
 est automatiquement spécifié par Python.
-
+Désormais, lorsque que nous instancions un nouvel objet Dog, celui-ci a un attribut: son nom
 
 Héritage
 ========
