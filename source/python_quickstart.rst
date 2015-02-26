@@ -18,9 +18,9 @@ Avant d'entrer ``python``, nous entrions nos commandes sur la ligne de commande
 du système d'exploitation.
 
 L'invite de ligne de commande (aussi appelée "prompt") était ``~$``. Une fois
-la commande ``python`` entrée, l'invite de commande a changée et est désormais
+la commande ``python`` entrée, l'invite de commande a changé et est désormais
 ``>>>``. Cela signifie qu'à partir de maintenant, nous devons uniquement utiliser
-des commandes venant du langage Python.
+des commandes du langage Python.
 
 Les commandes telles que ``cd`` ou ``mkdir`` ne fonctionneront pas. Il est
 temps d'apprendre un nouveau langage !
@@ -28,7 +28,7 @@ temps d'apprendre un nouveau langage !
 Nous ne taperons pas les signes ``>>>`` (de la même manière que pour ``~$``),
 l'interpréteur python le fera pour nous.
 
-Commençons par additionner deux nombres: 
+Commençons par additionner deux nombres:
 
     >>> 2 + 2
     4
@@ -64,7 +64,7 @@ Les nombres ne sont pas suffisants pour communiquer de manière efficace, nous
 avons donc besoin d'utiliser des chaînes de caractères (aussi appelées
 ``strings``).
 
-Voici quelques exemples: 
+Voici quelques exemples:
 
     >>> "Bonjour tout le monde"
     'Bonjour tout le monde'
@@ -72,34 +72,34 @@ Voici quelques exemples:
     'Foo Bar'
     >>> "Rock 'n' Roll"
     "Rock 'n' Roll"
-    >>> 'Mon nom est "Pierre"'
-    'Mon nom est "Pierre"'
+    >>> 'Mon nom est "Camille"'
+    'Mon nom est "Camille"'
 
 Vous pouvez également ajouter (on dit également concaténer) deux chaînes l'une
 à l'autre:
 
-    >>> 'Mon nom est ' + '"Pierre"'
-    'Mon nom est "Pierre"'
+    >>> 'Mon nom est ' + '"Camille"'
+    'Mon nom est "Camille"'
 
 Ou elles peuvent être aussi multipliés par des nombres:
 
     >>> 'oui ' * 3
     'oui oui oui'
 
-Une chaine de caractères doit toujours se commencer et se terminer par le même
+Une chaîne de caractères doit toujours commencer et se terminer par le même
 caractère. Il peut s'agir d'un guillemet simple (``'``), ou d'un guillemet
-double (``"``). Cela n'a aucun effet sur la valeur de la chaine de caractères.
-Par exemple, si nous entrons ``"Batman"``, nous créons une chaine de caractères
-``Batman``, les guillemets ne font pas partie de la chaine de caractères, ils
+double (``"``). Cela n'a aucun effet sur la valeur de la chaîne de caractères.
+Par exemple, si nous entrons ``"Batman"``, nous créons une chaîne de caractères
+``Batman``, les guillemets ne font pas partie de la chaîne de caractères, ils
 sont là uniquement pour indiquer qu'il s'agit d'une chaîne de caractères
 (string) (malheureusement, Python n'est pas suffisamment brillant pour se
-rendre compte de ça lui même).
+rendre compte de ça lui-même).
 
 
 Afficher les chaînes de caractères
 ----------------------------------
 
-Mais, comment afficher ces chaînes de caractères d'une manière lisible? Il est
+Mais comment afficher ces chaînes de caractères d'une manière lisible? Il est
 possible de le faire en utilisant la fonction :func:`print`.
 
 
@@ -110,8 +110,8 @@ Il est aussi possible d'afficher différentes chaînes de caractères sur une m�
 ligne, sans avoir à les ajouter l'une à l'autre. Elles seront séparées par des
 espaces:
 
-    >>> print("Bonjour, mon nom est", "Pierre")
-    Bonjour, mon nom est Pierre
+    >>> print("Bonjour, mon nom est", "Camille")
+    Bonjour, mon nom est Camille
 
 La fonction :func:`print` peut être utilisée de différentes manières,
 puisqu'elle peut écrire à peu près n'importe quoi.  Pour l'instant, le seul
@@ -290,7 +290,7 @@ valeur de x, la valeur de y reste la même:
 	Dans notre exemple, nous n'avons pas modifié la valeur du nombre
 	``42``, mais nous avons modifié la valeur associée à ``x`` (en
 	particulier, les valeurs des nombres ne sont jamais modifiées, bien
-	qu'en 1897, la Chambre basse de l'état d'Indiana ait accepté de
+	qu'en 1897, la Chambre basse de l'état de l'Indiana ait accepté de
 	modifier la valeur de π à ``3``, décision rejetée par le Sénat).
 	C'est pourquoi, afficher la valeur de ``y`` avec ``print(y)``,
 	nous donne ``42``.
@@ -319,7 +319,7 @@ Sauf si on demande à Python de la recalculer :
     64 1.75 20.897959183673468
 
 Il est grand temps d'ajouter quelques commentaires à notre programme
-afin que les lecteurs (dont nous faisons partie) se souviennent que le
+afin que les lecteurs-trices (dont nous faisons partie) se souviennent que le
 poids est en kg et la taille en m.
 
 Les commentaires nous permettent de rajouter du texte dans notre code
@@ -435,7 +435,7 @@ Est-ce que ça suffit pour améliorer notre programme ?
 Comme vous pouvez le voir, Python ne sait pas quel résultat nous
 souhaitons.  Il n'est pas possible d'additionner des chaînes de
 type (``str``) et des entiers de type (``int``). Python ne sait pas si
-nous parlons du nombre ``63.5`` ou de la chaîne de caractères
+nous parlons du nombre ``60.5`` ou de la chaîne de caractères
 ``"60.5"``. Nous sommes les seuls à le savoir et nous devons donc
 ajouter ces informations à notre programme.
 
@@ -797,7 +797,7 @@ condition::
 Le formatage des chaînes de caractères
 ======================================
 
-La dernière ammélioration, que nous avions mentionnée ci-dessus, était
+La dernière amélioration, que nous avions mentionnée ci-dessus, était
 le trop grand nombre de chiffres après la virgule de notre IMC.
 
 Des trois problèmes que nous avions identifiés, celui-ci est le plus
@@ -867,7 +867,7 @@ Pour en revenir à notre programme, actuellement le résultat est affiché sur u
 
 À présent, nous souhaitons afficher notre IMC comme un nombre ainsi
 que l'information de la table de classification correspondant à la
-tranche en question, comme cela : 
+tranche en question, comme cela :
 
 ::
 
@@ -943,7 +943,7 @@ l'affichage sur un nombre de caractères donné :
     print("| Name and last name |  Weight  |")
     print("-" * WIDTH)
     print("| %15s | %6.2f |" % ("Lucas", 67.5))
-    print("| %15s | %6.2f |" % ("Pierre", 123))
+    print("| %15s | %6.2f |" % ("Camille", 123))
     print("-" * WIDTH)
 
 .. testoutput::
@@ -952,7 +952,7 @@ l'affichage sur un nombre de caractères donné :
     | Name and last name  |  Weight|
     --------------------------------
     |               Lucas |  67.50 |
-    |              Pierre | 123.00 |
+    |             Camille | 123.00 |
     --------------------------------
 
 Nous pouvons aussi aligner les chaînes de caractères à gauche en
@@ -966,7 +966,7 @@ prefixant le nombre de caractères par un ``-`` :
     print("| Name and last name |  Weight |")
     print("-" * WIDTH)
     print("| %-15s | %6.2f |" % ("Lucas", 67.5))
-    print("| %-15s | %6.2f |" % ("Pierre", 123))
+    print("| %-15s | %6.2f |" % ("Camille", 123))
     print("-" * WIDTH)
 
 .. testoutput::
@@ -975,7 +975,7 @@ prefixant le nombre de caractères par un ``-`` :
     | Name and last name|  Weight |
     -------------------------------
     | Lucas             |  67.50  |
-    | Pierre            | 123.00  |
+    | Camille           | 123.00  |
     -------------------------------
 
 Je vous laisse chercher comment faire pour aligner au centre :).
@@ -1006,4 +1006,3 @@ l'utilisateur.
 Ça fait finalement beaucoup de choses pour un premier programme. Nous
 avons encore pas mal de travail mais vous pouvez être fier de ce que
 vous avez fait jusqu'à présent !
-
