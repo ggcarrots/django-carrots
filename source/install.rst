@@ -131,7 +131,7 @@ Après ces manipulations, un nouveau répertoire nommé ``workshops`` est prése
 .. code-block:: bat
 
     :: Windows
-    C:\Users\Yara> workshops\Scripts\activate
+    C:\Users\Yara> workshops\Scripts\activate.bat
 
 .. code-block:: sh
 
