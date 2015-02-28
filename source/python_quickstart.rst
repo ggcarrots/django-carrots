@@ -174,8 +174,7 @@ Calculateur d'IMC
 =================
 
 Essayons de créer un programme simple permettant de calculer son `IMC`
-(`Indice de Masse Corporelle`_). En anglais on parle de `BMI` (Body
-Mass Index).
+(`Indice de Masse Corporelle`_).
 
 La formule de ce calcul est la suivante::
 
@@ -184,7 +183,6 @@ La formule de ce calcul est la suivante::
 Nous savons déjà faire une division, une puissance et afficher des
 nombres. Il ne nous reste plus qu`à créer un fichier ``imc.py`` et à
 essayer d'écrire le programme qui calcule l'IMC:
-
 
 .. testcode::
 
@@ -229,10 +227,10 @@ C'est pourquoi nous donnons des noms à ces valeurs:
 
 .. testcode::
 
-    weight = 65.5
-    height = 1.75
+    poids = 65.5
+    taille = 1.75
 
-    imc = weight / height ** 2
+    imc = poids / taille ** 2
     print("Votre IMC est :", imc)
 
 Le résultat n'a pas changé:
@@ -302,20 +300,20 @@ comme alias de la valeur dans d'autres calculs.
 
     >>> w = 65.5
     >>> h = 175.0 / 100.0
-    >>> bmi = w / h ** 2
-    >>> print(w, h, bmi)
+    >>> imc = w / h ** 2
+    >>> print(w, h, imc)
     65.5 1.75 21.387755102040817
 
 À noter qu'une fois que la valeur est calculée, elle n'est pas modifiée:
 
     >>> w = 64
-    >>> print(w, h, bmi)
+    >>> print(w, h, imc)
     64 1.75 21.387755102040817
 
 Sauf si on demande à Python de la recalculer :
 
-    >>> bmi = w / h ** 2
-    >>> print(w, h, bmi)
+    >>> imc = w / h ** 2
+    >>> print(w, h, imc)
     64 1.75 20.897959183673468
 
 Il est grand temps d'ajouter quelques commentaires à notre programme
@@ -329,14 +327,14 @@ Python lors de l'exécution du code.
 En Python, un commentaire est tout ce qui se trouve entre un caractère
 ``#`` et la fin de la ligne::
 
-    # Weight in kilograms
-    weight = 65.5
+    # poids in kilograms
+    poids = 65.5
 
-    # Height in meters
-    height = 1.75
+    # taille in meters
+    taille = 1.75
 
-    bmi = weight / height ** 2  # Calculer l'IMC
-    print("Votre IMC est :", bmi)
+    imc = poids / taille ** 2  # Calculer l'IMC
+    print("Votre IMC est :", imc)
 
 
 Les fonctions
@@ -498,12 +496,12 @@ Avant d'utiliser ces nouvelles fonctions dans notre programme, prenons
 le temps de décrire comme il devrait fonctionner:
 
 1. Demander à l'utilisateur d'entrer sa taille.
-2. Lire la valeur de l'utilisateur et la stocker dans l'alias ``height``.
+2. Lire la valeur de l'utilisateur et la stocker dans l'alias ``taille``.
 3. Convertir la valeur sous forme de chaîne de caractères en valeur décimale.
 4. Demander à l'utilisateur d'entrer son poids.
-5. Lire la valeur de l'utilisateur et la stocker dans l'alias ``weight``.
+5. Lire la valeur de l'utilisateur et la stocker dans l'alias ``poids``.
 6. Convertir la valeur sous forme de chaîne de caractères en valeur décimale.
-7. En utilisant ces valeurs calculer l'IMC et stocker sa valeur dans l'alias ``bmi``.
+7. En utilisant ces valeurs calculer l'IMC et stocker sa valeur dans l'alias ``imc``.
 8. Afficher la valeur de l'IMC.
 
 Sans surprise, ces 8 points peuvent être transcrits en 8 lignes de code
@@ -517,17 +515,17 @@ Sans surprise, ces 8 points peuvent être transcrits en 8 lignes de code
 .. testcode::
 
     print("Entrez votre taille en mètres :")
-    height = input()
-    height = float(height)
+    taille = input()
+    taille = float(taille)
 
     print("Entrez votre poids en kilogrammes :")
-    weight = input()
-    weight = float(weight)
+    poids = input()
+    poids = float(poids)
 
-    bmi = weight / height ** 2  # Calculer IMC
-    print("Votre IMC est :", bmi)
+    imc = poids / taille ** 2  # Calculer IMC
+    print("Votre IMC est :", imc)
 
-Vous pouvez sauvegarder votre programme dans le fichier ``bmi.py`` et lancer ``python bmi.py``.
+Vous pouvez sauvegarder votre programme dans le fichier ``imc.py`` et lancer ``python imc.py``.
 Le résultat devrait ressembler à:
 
 .. testoutput::
@@ -593,18 +591,18 @@ d'une condition donnée:
 .. testcode::
 
     print("Entrez votre taille en mètres ::")
-    height = input()
-    height = float(height)
+    taille = input()
+    taille = float(taille)
 
     print("Entrez votre poids en kilogrammes :")
-    weight = input()
-    weight = float(weight)
+    poids = input()
+    poids = float(poids)
 
-    bmi = weight / height ** 2  # Calculer l'IMC
+    imc = poids / taille ** 2  # Calculer l'IMC
 
-    if bmi < 18.5:
+    if imc < 18.5:
         print("Maigreur")
-    elif bmi < 25.0:
+    elif imc < 25.0:
         print("Corpulence normale")
     else:
         print("Surpoids")
@@ -739,12 +737,12 @@ Et si ce n'est pas le cas ?
 On pourrait se débrouiller pour écrire un programme en utilisant
 uniquement des :keyword:`if` ::
 
-    if bmi < 18.5:
+    if imc < 18.5:
         print("Maigreur")
-    if bmi >= 18.5:
-        if bmi < 25.0:
+    if imc >= 18.5:
+        if imc < 25.0:
             print("Corpulence normale")
-    if bmi >= 25.0:
+    if imc >= 25.0:
         print("Surpoids")
 
 Mais en fait, on peut aussi utiliser :keyword:`else` et
@@ -757,15 +755,15 @@ En utilisant :keyword:`else` , nous avons la garantie que les
 instructions données seront exécutées seulement si les instructions
 données après le :keyword:`if` n'ont pas été exécutées::
 
-    if bmi < 18.5:
+    if imc < 18.5:
         print("Maigreur")
     else:
         # Si votre programme exécute ces instructions alors vous êtes
-        # certains que bmi >= 18.5 !
-        if bmi < 25.0:
+        # certains que imc >= 18.5 !
+        if imc < 25.0:
             print("Corpulence normale")
         else:
-            # Ici vous pouvez être certains que bmi >= 25.0
+            # Ici vous pouvez être certains que imc >= 25.0
             # nous n'avons donc pas à le vérifier.
             print("Surpoids")
 
@@ -873,16 +871,16 @@ tranche en question, comme cela :
 
     Votre IMC est de 21.39 (Corpulence normale)
 
-Modifiez votre programme actuel pour que la valeur de l'IMC soit disponible dans l'alias ``bmi`` et l'information de la table de classification correspondante dans l'alias ``category``. Ensuite utilisez la fonction :func:`print` pour obtenir le résultat souhaité:
+Modifiez votre programme actuel pour que la valeur de l'IMC soit disponible dans l'alias ``imc`` et l'information de la table de classification correspondante dans l'alias ``category``. Ensuite utilisez la fonction :func:`print` pour obtenir le résultat souhaité:
 
 .. testsetup::
 
-    bmi = 21.387755102040817
-    category = "normal weight"
+    imc = 21.387755102040817
+    category = "normal poids"
 
 .. testcode::
 
-    print("Votre IMC est de", bmi, "(" + category + ")")
+    print("Votre IMC est de", imc, "(" + category + ")")
 
 .. testoutput::
     :hide:
@@ -897,9 +895,9 @@ concaténer les éléments.
 
 Heureusement pour nous, il y a une meilleure solution :
 
-    >>> bmi = 21.387755102040817
+    >>> imc = 21.387755102040817
     >>> category = "Corpulence normale"
-    >>> result = "Votre IMC est de %f (%s)" % (bmi, category)
+    >>> result = "Votre IMC est de %f (%s)" % (imc, category)
     >>> result
     'Votre IMC est de 21.387755 (Corpulence normale)'
     >>> print(result)
@@ -940,7 +938,7 @@ l'affichage sur un nombre de caractères donné :
     WIDTH = 28
 
     print("-" * WIDTH)
-    print("| Name and last name |  Weight  |")
+    print("| Name and last name |  poids  |")
     print("-" * WIDTH)
     print("| %15s | %6.2f |" % ("Lucas", 67.5))
     print("| %15s | %6.2f |" % ("Camille", 123))
@@ -949,7 +947,7 @@ l'affichage sur un nombre de caractères donné :
 .. testoutput::
 
     --------------------------------
-    | Name and last name  |  Weight|
+    | Name and last name  |  poids|
     --------------------------------
     |               Lucas |  67.50 |
     |             Camille | 123.00 |
@@ -963,7 +961,7 @@ prefixant le nombre de caractères par un ``-`` :
     WIDTH = 28
 
     print("-" * WIDTH)
-    print("| Name and last name |  Weight |")
+    print("| Name and last name |  poids |")
     print("-" * WIDTH)
     print("| %-15s | %6.2f |" % ("Lucas", 67.5))
     print("| %-15s | %6.2f |" % ("Camille", 123))
@@ -972,7 +970,7 @@ prefixant le nombre de caractères par un ``-`` :
 .. testoutput::
 
     -------------------------------
-    | Name and last name|  Weight |
+    | Name and last name|  poids |
     -------------------------------
     | Lucas             |  67.50  |
     | Camille           | 123.00  |
