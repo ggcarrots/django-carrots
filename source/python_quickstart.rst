@@ -774,22 +774,24 @@ code avec de nombreux niveaux d'indentation.
 
 C'est pourquoi les développeurs Python on ajouté un troisième mot clé,
 :keyword:`elif`, qui permet de vérifier directement une autre
-condition::
+condition.
+
+::
 
     if n < 1:
-        print("un")
+        # Si n est inférieur à un.
+        print("inferieur à un")
     elif n < 2:
-        # Si ce n'était pas un, alors c'est deux
-        print("deux")
+        # Si est supérieur ou égal à un, et inférieur à deux.
+        print("entre un (compris) et deux")
     elif n < 3:
-
-        # Si aucune des conditions précédentes n'a été validée alors
-        # c'est trois
-        # n >= 1 et n>= 2 et n < 3
-        print("trois")
+        # Si n est supérieur ou égal à un,
+        # que n est supérieur ou égal à deux,
+        # et que n est inférieur à 3
+        print("entre deux et trois")
     else:
-        # Les trolls ne savent compter que jusqu'à trois
-        print("more")
+        # Si aucune des conditions précédentes n'est vérifiée
+        print("supérieur ou égal à trois")
 
 
 Le formatage des chaînes de caractères
