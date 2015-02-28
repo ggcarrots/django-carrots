@@ -194,7 +194,7 @@ Lancez votre programme comme ceci::
 
     $ python imc.py
 
-Vous obtenez::
+Vous obtenez:
 
 .. testoutput::
 
@@ -232,8 +232,8 @@ C'est pourquoi nous donnons des noms à ces valeurs:
     weight = 65.5
     height = 1.75
 
-    bmi = weight / height ** 2
-    print("Votre IMC est :", bmi)
+    imc = weight / height ** 2
+    print("Votre IMC est :", imc)
 
 Le résultat n'a pas changé:
 
