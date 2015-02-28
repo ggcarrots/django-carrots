@@ -769,7 +769,7 @@ données après le :keyword:`if` n'ont pas été exécutées::
 
 Regardez bien attentivement la manière dont le code est indenté. À
 chaque utilisation de :keyword:`else`, un niveau d'indentation a été
-ajouté à chaque niveau du code. C'est très ennuyeux d'avoir lire du
+ajouté à chaque niveau du code. C'est très ennuyeux d'avoir à lire du
 code avec de nombreux niveaux d'indentation.
 
 C'est pourquoi les développeurs Python on ajouté un troisième mot clé,
