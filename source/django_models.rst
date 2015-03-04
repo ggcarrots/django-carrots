@@ -11,7 +11,7 @@ Notre application inclura des questions et leurs réponses, nous allons donc
 créer deux modèles : ``Poll`` et ``Choice``. Le modèle ``Poll`` contient le
 contenu des questions ainsi que la date de publication. Le modèle ``Choice``
 contient une référence vers la question adéquate, le contenu des réponses et le
- nombre de votes.
+nombre de votes.
 
 Dans le fichier ``polls/models.py`` nous écrivons::
 

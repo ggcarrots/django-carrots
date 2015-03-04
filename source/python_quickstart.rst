@@ -937,46 +937,46 @@ l'affichage sur un nombre de caractères donné :
 
 .. testcode::
 
-    WIDTH = 28
+    WIDTH = 26
 
     print("-" * WIDTH)
-    print("| Name and last name |  poids  |")
+    print("| Prénom et nom |  Poids |")
     print("-" * WIDTH)
-    print("| %15s | %6.2f |" % ("Lucas", 67.5))
-    print("| %15s | %6.2f |" % ("Camille", 123))
+    print("| %13s | %6.2f |" % ("Lucas", 67.5))
+    print("| %13s | %6.2f |" % ("Camille", 123))
     print("-" * WIDTH)
 
 .. testoutput::
 
-    --------------------------------
-    | Name and last name  |  poids|
-    --------------------------------
-    |               Lucas |  67.50 |
-    |             Camille | 123.00 |
-    --------------------------------
+    --------------------------
+    | Prénom et nom |  Poids |
+    --------------------------
+    |         Lucas |  67.50 |
+    |       Camille | 123.00 |
+    --------------------------
 
 Nous pouvons aussi aligner les chaînes de caractères à gauche en
 prefixant le nombre de caractères par un ``-`` :
 
 .. testcode::
 
-    WIDTH = 28
+    WIDTH = 26
 
     print("-" * WIDTH)
-    print("| Name and last name |  poids |")
+    print("| Prénom et nom |  Poids |")
     print("-" * WIDTH)
-    print("| %-15s | %6.2f |" % ("Lucas", 67.5))
-    print("| %-15s | %6.2f |" % ("Camille", 123))
+    print("| %-13s | %6.2f |" % ("Lucas", 67.5))
+    print("| %-13s | %6.2f |" % ("Camille", 123))
     print("-" * WIDTH)
 
 .. testoutput::
 
-    -------------------------------
-    | Name and last name|  poids |
-    -------------------------------
-    | Lucas             |  67.50  |
-    | Camille           | 123.00  |
-    -------------------------------
+    --------------------------
+    | Prénom et nom |  Poids |
+    --------------------------
+    | Lucas         |  67.50 |
+    | Camille       | 123.00 |
+    --------------------------
 
 Je vous laisse chercher comment faire pour aligner au centre :).
 
