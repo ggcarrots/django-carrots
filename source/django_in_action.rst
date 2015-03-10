@@ -46,7 +46,7 @@ Beginning of project
 Django provides the administrative script ``django-admin.py``. It allows you to create the basic scheme of our 
 site.
 
-To create a new project with the site, we launch ``django-admin.py startproject carrots``:
+To create a new project with the site, launch ``django-admin.py startproject carrots``:
 
 .. code-block:: sh
 
@@ -210,7 +210,7 @@ specific functions.
 
 We want to publish questionnaires on our website, so we will add the application ``polls``.
 
-From the command line type ``python manage.py startapp polls``:
+From the command line, type ``python manage.py startapp polls``:
 
 ::
 
@@ -233,9 +233,8 @@ From the command line type ``python manage.py startapp polls``:
 
    2 directories, 14 files
 
-After creating the application it must be activated in our project. In the file ``carrots/settings.py``
-we have to add the application ``polls`` to ``INSTALLED_APPS``. The result should look like as 
-follows::
+After creating the application, it must be activated in our project. In the file ``carrots/settings.py``
+we have to add the application ``polls`` to ``INSTALLED_APPS``. The result should look like this::
 
     INSTALLED_APPS = (
         'django.contrib.admin',
@@ -263,7 +262,7 @@ Django installation:
 
    (workshops) ~$ pip install django==1.6.4
 
-Project directory creation
+Project directory creation:
 
 .. code-block:: sh
 
@@ -292,7 +291,7 @@ Creation of database (you need to run that command after adding every new model)
 
    (workshops) ~/carrots$ python manage.py syncdb
 
-Server's start-up:
+Server start-up:
 
 .. code-block:: sh
 
