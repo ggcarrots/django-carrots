@@ -121,8 +121,10 @@ Our first program will look like this::
 
     print("Hi, my name is Lucas")
 
-Save this program in a new file called ``visitingcard.py``, and then run it from the command line using the
-command ``python visitingcard.py``:
+We need to use a text editor, in order to write and save code in a file. Find a text editor
+that your OS supports (for instance, see [Wikipedia](http://en.wikipedia.org/wiki/List_of_text_editors)).
+Type the above Python code and save it in a new file called ``visitingcard.py``.
+Then run your first Python program, from the command line, using the following::
 
 .. code-block:: sh
 
