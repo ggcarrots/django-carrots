@@ -121,10 +121,10 @@ Our first program will look like this::
 
     print("Hi, my name is Lucas")
 
-We need to use a text editor, in order to write and save code in a file. Find a text editor
-that your OS supports (for instance, see [Wikipedia](http://en.wikipedia.org/wiki/List_of_text_editors)).
+In order to write and save code in a file we need to use a text editor.
+Find a text editor that works on your OS (see `list of text editors on Wikipedia <http://en.wikipedia.org/wiki/List_of_text_editors>`_ for examples).
 Type the above Python code and save it in a new file called ``visitingcard.py``.
-Then run your first Python program, from the command line, using the following::
+Then run your first Python program, from the command line, using the following.
 
 .. code-block:: sh
 
@@ -323,7 +323,7 @@ use the other functions:
         On Unix, GNU readline is used if enabled.  The prompt string, if given,
         is printed without a trailing newline before reading.
     <BLANKLINE>
-    
+
 We will use :func:`input` to load data from the user. As we read in the description, :func:`input` reads the
 string:
 
@@ -375,7 +375,7 @@ Is that enough to improve our program?
       File "<stdin>", line 1, in <module>
     TypeError: Can't convert 'int' object to str implicitly
 
-As you can see, Python doesn’t know what result we expect. Both strings (``str``), and 
+As you can see, Python doesn’t know what result we expect. Both strings (``str``), and
 numbers (``int``) can't be added together. Python does not know if we are referring to the number ``63.5``
 or to the string ``"60.5"``. Only we know that, so we have to include this information in the program.
 
@@ -872,7 +872,7 @@ Summary
 In this chapter we learned basics of Python syntax. We discovered how to print integers,
 floating-point numbers, strings and tuples.
 
-We learnt the function :func:`print`, that prints information for the user and the function 
+We learnt the function :func:`print`, that prints information for the user and the function
 :func:`input`, which reads it.
 
 We also know now that indentations can be important, especially when we want to use
@@ -884,4 +884,3 @@ user.
 
 This is quite a lot like for a first program. We still have a lot of work, anyhow you can be proud of
 what we have done so far!
-
