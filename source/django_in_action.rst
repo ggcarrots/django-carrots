@@ -8,14 +8,14 @@ What is Django?
 
 So far we have been learning about Python. Python is just a language (and a set of basic libraries) 
 that allows you to create programs. Creating an interactive website in Python requires a huge amount 
-of work, that is why we will use Django. Django gives us a set of tools, features (as the functions we 
-learned earlier, but more complex ones), and classes which facilitate creation of websites.
+of work, which is why we will use the Django framework instead. Django gives us a set of tools, features (like the functions we 
+learned about earlier, but more complex), and classes that facilitate the creation of websites.
 
-On order to obtain a fully interactive website we need a few items:
+In order to obtain a fully interactive website we need a few items:
 
-* application server - here we use Django
-* HTML and CSS files responsible for the appearance of the website
-* Databases to store survey questions and answers.
+* Application server - where we use Django
+* HTML and CSS files - responsible for the appearance of the website
+* Databases - to store survey questions and answers
 
 We will start by creating an application server.
 
@@ -43,10 +43,10 @@ where you can find many useful libraries.
 Beginning of project
 --------------------
 
-Django provides the administrative script ``django-admin.py``. It allows you to create the scheme of our 
+Django provides the administrative script ``django-admin.py``. It allows you to create the basic scheme of our 
 site.
 
-To create a new project with the site, we launch ``django-admin.py startproject carrots``:
+To create a new project with the site, launch ``django-admin.py startproject carrots``:
 
 .. code-block:: sh
 
@@ -88,24 +88,24 @@ Structure of project
 
 The newly created project contains a "carrots" directory and some basic files.
 
-The file ``carrots/settings.py`` includes the settings such as the language, a database, installed 
-applications. We can edit the file by ourselves. Inside you will find the default settings and 
+The file ``carrots/settings.py`` includes the settings such as the language, a database, and installed 
+applications. We can edit the file ourselves. Inside, you will find the default settings and 
 explanatory comments.
 
 
-``manage.py`` file allows us to administer the web site, create or clear the database, run a simple 
-application server, etc. Later we will see how to use it.
+The file ``manage.py`` allows us to administer the web site, create or clear the database, run a simple 
+application server, etc. We will learn how to use it later on.
 
 
-File ``carrots/urls.py`` contains information about the paths in the site.
+The file ``carrots/urls.py`` contains information about the paths in the site.
 
-Other files are less interesting. Usually we do not look inside them at all nor we modify them. The 
-more curious ones can find more information by Google.
+Other files are less interesting. Usually we do not look inside them at all nor do we modify them. If you are curious,
+you can find more information through Google.
 
 Settings of application
 -----------------------
 
-In the ``carrots/settings.py`` file find ``TIME_ZONE`` and set time zone as Warsaw. You should get the following:
+In the ``carrots/settings.py`` file, find ``TIME_ZONE`` and set time zone as Warsaw. You should get the following:
 ::
 
    TIME_ZONE = 'Europe/Luxembourg'
@@ -113,7 +113,8 @@ In the ``carrots/settings.py`` file find ``TIME_ZONE`` and set time zone as Wars
    LANGUAGE_CODE = 'en_uk'
 
 
-To make it simpler we also exclude the advanced support for time zones in the database - it will not be needed in our project. In the ``settings.py`` file please find  ``USE_TZ``  and set them as False:
+To make it simpler we also exclude the advanced support for time zones in the database - it will not be needed in our project. 
+In the file ``settings.py`` please find  ``USE_TZ``  and set it as False:
 ::
 
    USE_TZ = False
@@ -130,7 +131,8 @@ To make it simpler we also exclude the advanced support for time zones in the da
 Database
 --------
 
-Now it's time to use the previously described file ``manage.py`` to create the database. For this purpose we execute the option ``syncdb``. In the project directory run ``python manage.py syncdb``:
+Now it's time to use the previously described file ``manage.py`` to create the database. 
+In order to do this, we will execute the option ``syncdb``. In the project directory, run ``python manage.py syncdb``:
 
 .. code-block:: sh
 
@@ -160,9 +162,9 @@ Now it's time to use the previously described file ``manage.py`` to create the d
     Installing indexes ...
     Installed 0 object(s) from 0 fixture(s)
 
-If all goes well Django asks you to provide data of the administrator account. The user name you may 
-leave as it is proposed, you can give any e-mail address.  Memorize the provided data (i.e, username 
-and password) so that you can log in the control panel. In the above example, the user will be ``beans``.
+If all goes well, Django will ask you to provide data for the administrator account. You may leave the username 
+as it is proposed, and you may give any e-mail address. Memorize the data you provided (i.e, username 
+and password) so that you can log in to the control panel. In the above example, the user will be ``beans``.
 
  If you want to learn more about ``manage.py``, run python ``manage.py help``:
 
@@ -181,7 +183,7 @@ To get help on a single command, run  ``manage.py help`` command:
 Administration interface
 ------------------------
 
-Now we can run our aplication. Run server by typing ``python manage.py runserver``:
+Now we can run our application. Run the server by typing ``python manage.py runserver``:
 
 .. code-block:: sh
 
@@ -194,21 +196,21 @@ Now we can run our aplication. Run server by typing ``python manage.py runserver
    Development server is running at http://127.0.0.1:8000/
    Quit the server with CTRL-BREAK.
 
-Our website will be available on the  http://127.0.0.1:8000/  or http://localhost:8000/ adress. 
+Our website will be available at http://127.0.0.1:8000/  or http://localhost:8000/ 
 
-Administration panel is available on ``admin/`` path, that’s why we will go to 
-http://localhost:8000/admin/.
+The administration panel is available in the ``admin/`` path, that’s why we will go to 
+http://localhost:8000/admin/ to find it.
 
 
 We create a new application for questionnaires
 ----------------------------------------------
 
-For now, we have created a project ``carrots``. Projects in Django are divided into apps that provide 
+For now, we have created the project ``carrots``. Projects in Django are divided into apps that provide 
 specific functions.
 
-We want to publish questionnaires on our website, that’s why we will add the application ``polls``.
+We want to publish questionnaires on our website, so we will add the application ``polls``.
 
-From the command line type ``python manage.py startapp polls``:
+From the command line, type ``python manage.py startapp polls``:
 
 ::
 
@@ -231,9 +233,8 @@ From the command line type ``python manage.py startapp polls``:
 
    2 directories, 14 files
 
-After creating the application it must be activated in our project. In the file ``carrots/settings.py``
-we have to add the application ``polls`` to ``INSTALLED_APPS``. The result should look like as 
-follows::
+After creating the application, it must be activated in our project. In the file ``carrots/settings.py``
+we have to add the application ``polls`` to ``INSTALLED_APPS``. The result should look like this::
 
     INSTALLED_APPS = (
         'django.contrib.admin',
@@ -261,7 +262,7 @@ Django installation:
 
    (workshops) ~$ pip install django==1.6.4
 
-Project directory creation
+Project directory creation:
 
 .. code-block:: sh
 
@@ -290,7 +291,7 @@ Creation of database (you need to run that command after adding every new model)
 
    (workshops) ~/carrots$ python manage.py syncdb
 
-Server's start-up:
+Server start-up:
 
 .. code-block:: sh
 

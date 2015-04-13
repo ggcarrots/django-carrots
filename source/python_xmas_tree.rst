@@ -49,7 +49,7 @@ such a repetitive activity that the program can do it for us.
 Lists and the ``for`` loop
 ==========================
 
-Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere, 
+Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere,
 imagine for a moment that we are the Santa Claus and we have to deliver Christmas gifts to everyone.
 
 As you know, Santa has a list of people who deserve gifts. The simplest approach to guarantee that no
@@ -157,7 +157,7 @@ for the full story, or check these quick examples:
     [0, 1]
 
 The :func:`range` function does not directly create a list, but it returns a generator. Generators
-generate the elements of a sequence one at a time, thereby avoiding to store the full sequence in memory. 
+generate the elements of a sequence one at a time, thereby avoiding to store the full sequence in memory.
 In order to obtain a list of the sequence, we use the function :func:`list`. If we skip :func:`list` call,
 the result will look like this:
 
@@ -252,7 +252,7 @@ chapter.
 Defining a function
 ===================
 
-We have already seen how functions solve many of our problems. However, they do not solve all our problems 
+We have already seen how functions solve many of our problems. However, they do not solve all our problems
 – or at least not exactly the way we would like functions to solve them.
 Sometimes we must solve a problem on our own. If it occurs often in our program, it would be nice to
 have a function that solves it for us.
@@ -319,18 +319,18 @@ Firstly, argument names of a function are defined at each function call, and Pyt
 argument value to to each of the argument names it just created.
 
 Secondly, the argument names are not available outside the function as they are created when the function is called
-and forgotten after the call. That is, if you try now to access 
-the argument name ``n`` we defined in our :func:`plus_five` function outside of the function's code, 
+and forgotten after the call. That is, if you try now to access
+the argument name ``n`` we defined in our :func:`plus_five` function outside of the function's code,
 Python tells you it is not defined:
 
     >>> n
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     NameError: name 'n' is not defined
-    
+
 That is, our prim and proper Python cleans up his room at the end of a function call :)
-    
-    
+
+
 Returning values
 ----------------
 
@@ -395,7 +395,7 @@ How can we improve the function :func:`print_triangle`, o display the entire seg
 tree, not just half of it?
 
 
-First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``. 
+First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``.
 It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect::
 
       *
@@ -419,7 +419,7 @@ the third argument :func:`range`:
     ***
     *****
 
-It is not exactly what we have wanted, as it should be aligned in the centre. The method/function 
+It is not exactly what we have wanted, as it should be aligned in the centre. The method/function
 :func:`unicode.center` mentioned in the previous section, helps us:
 
 
@@ -462,8 +462,8 @@ However, a new problem appears:
      *****
     *******
 
-If we know in advance, what size the widest segment is, we can add an additional argument to  
-:func:`print_segment`,  to align to the width. Combining all of the knowledge we have 
+If we know in advance, what size the widest segment is, we can add an additional argument to
+:func:`print_segment`,  to align to the width. Combining all of the knowledge we have
 acquired up to the moment:
 
 
@@ -508,12 +508,14 @@ Create a class ``XMASTree`` which for a given size and upon calling the method `
 following pictures (sizes 1, 2 and 3):
 
 ::
+
           *
          /|\
         /_|_\
           |
 
 ::
+
            *
           /|\
          /_|_\
@@ -523,6 +525,7 @@ following pictures (sizes 1, 2 and 3):
            |
 
 ::
+
             *
            /|\
           /_|_\
