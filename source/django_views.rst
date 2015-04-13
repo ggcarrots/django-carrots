@@ -2,11 +2,11 @@
 Rendering websites
 ==================
 
-Navigating to the main address http://localhost:8000/ still displays an ugly error page. We can't have 
+Navigating to the main address http://localhost:8000/ still displays an ugly error page. We can't have
 that!
 
-It's good to start working on a new website after preparing a plan for URLs (addresses). We know we 
-will want to see a list of all the questionnaires on the site, let users vote and display the 
+It's good to start working on a new website after preparing a plan for URLs (addresses). We know we
+will want to see a list of all the questionnaires on the site, let users vote and display the
 aggregated results of the questionnaire.
 
 Let's open the file ``urls.py`` again and add four new entries. Eventually the file should look like this::
@@ -14,7 +14,6 @@ Let's open the file ``urls.py`` again and add four new entries. Eventually the f
   from django.conf.urls import patterns, include, url
 
   from django.contrib import admin
-  admin.autodiscover()
 
   urlpatterns = patterns('',
       url(r'^polls/$', 'polls.views.index'),
@@ -24,7 +23,7 @@ Let's open the file ``urls.py`` again and add four new entries. Eventually the f
       url(r'^admin/', include(admin.site.urls)),
   )
 
-Let's look at this example again. Each argument passed to the function ``patterns`` (except for the first one, but more on that later) determines our pattern URL (address). This pattern is written using a `regular expression <http://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne#Wyra.C5.BCenia_regularne_w_praktyce>`_. This is a difficult technical term for a tiny language used for 
+Let's look at this example again. Each argument passed to the function ``patterns`` (except for the first one, but more on that later) determines our pattern URL (address). This pattern is written using a `regular expression <http://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne#Wyra.C5.BCenia_regularne_w_praktyce>`_. This is a difficult technical term for a tiny language used for
 concise representation of text patterns.
 
 
@@ -34,7 +33,7 @@ Django selects the third part of the URL after the slash (in this case, ``polls/
   r'^polls/(?P<poll_id>\d+)/vote/$'
 
 This is a normal string (except for the initial ``r``, which is used here only for
-convenience). When we try to adjust the text to the string (we still think of ``polls/1/``), we need 
+convenience). When we try to adjust the text to the string (we still think of ``polls/1/``), we need
 to remember the following:
 
 .. admonition:: Regular expressions:
@@ -42,29 +41,29 @@ to remember the following:
 
    * Each letter and number of the regular expression applies to the same letter / number of the adjusted string. The same with the
      slash (``/``), space (``' '`` ), underscore (``_``) and hyphen (``-``).
-   * ``^`` applies only to the beginning of the string (“the beginning” is an abstract symbol 
+   * ``^`` applies only to the beginning of the string (“the beginning” is an abstract symbol
      before the first character)
    * ``$`` matches only to the end of the string (in a similar way as “the beginning”).
    * The dot (``.``) matches any character.
-   * If several characters are put in the square brackets, like this: ``[abde]``, the group counts as 
+   * If several characters are put in the square brackets, like this: ``[abde]``, the group counts as
      one unit and will match any of the characters within the group.
    * There is an abbreviated notation for such groups. Rather than write all the small letters of the
      alphabet, we can write ``[a-z]`` to match any single lowercase letter. Same for the upper case letters ``[A-Z]`` or digits ``[0-9]``.
    * Matching one number can be even shorter by using the stamp ``\d``.
-   * If after any of the above expressions we put the sign ``?`` it will be treated as optional. This 
+   * If after any of the above expressions we put the sign ``?`` it will be treated as optional. This
      means that if in the matched string there is no such expression it will still be possible to match it. If it exits, it will be matched.
    * If we put ``*`` after the expression it will match zero or more repetitions (the expression may be optional).
    * If we put ``+`` after the expression it will match one or more repetitions (the expression must occur at least once).
-   * If several characters are put in parentheses, such as ``(\d \d)`` they will be treated as a 
+   * If several characters are put in parentheses, such as ``(\d \d)`` they will be treated as a
      group and all of these modifiers will work with the whole group of characters. If you also write it with ``(? P <NAME> string)``, the group can be later called by NAME. This is very popular when working with Django.
 
-Phew ... There are many rules, but no one can really remember them all. These are sufficient in 
+Phew ... There are many rules, but no one can really remember them all. These are sufficient in
 most cases.
 
 Now do you see that our sample phrase matches ``polls/1/?`` Why?
 
-Once Django finds a match, it will look at the second part of the line. It defines the view, which is 
-called to create the site for the user. For ``polls/1/`` it will be ``polls.views.detail``. All named 
+Once Django finds a match, it will look at the second part of the line. It defines the view, which is
+called to create the site for the user. For ``polls/1/`` it will be ``polls.views.detail``. All named
 groups will be transferred to the view as arguments of the same name.
 
 First view
@@ -96,9 +95,9 @@ Let’s open the file ``polls/views.py`` and add a few new features::
     def vote(request, poll_id):
         return HttpResponse("You're voting on poll %s." % poll_id)
 
-These are the simplest possible views. They do not return regular strings, like the function that 
-builds the Christmas tree in Python, because they have to speak in HTTP protocol, which is a bit more 
-complicated (Here it would be interesting to see in a browser, what's going on when you enter the 
+These are the simplest possible views. They do not return regular strings, like the function that
+builds the Christmas tree in Python, because they have to speak in HTTP protocol, which is a bit more
+complicated (Here it would be interesting to see in a browser, what's going on when you enter the
 address http://localhost:8000/polls/1/).
 
 
@@ -130,9 +129,9 @@ Expand function ``index`` to look as below:
 
     We do not want to display the entire content of the file as it would be too long. Only the most important changes should be reported.
 
-It works! There is only one problem with this example: we define in the view not only what has to be 
-returned, but also in what format it should be returned to the site user. One of the most important 
-skills of a programmer is the ability to distinguish and divide those two independent things. 
+It works! There is only one problem with this example: we define in the view not only what has to be
+returned, but also in what format it should be returned to the site user. One of the most important
+skills of a programmer is the ability to distinguish and divide those two independent things.
 
 Django programmers thought about it and decided to create a system of templates:
 
@@ -152,10 +151,10 @@ In the same file, expand the function ``index`` into this::
       })
       return HttpResponse(t.render(c))
 
-The functions ``get_template`` (it finds a template) and ``render`` (it changes the template into a text 
+The functions ``get_template`` (it finds a template) and ``render`` (it changes the template into a text
 to be delivered to the user) are responsible for our template handling.
 
-The code is a bit longer, but we will see soon that everything is much clearer. First, 
+The code is a bit longer, but we will see soon that everything is much clearer. First,
 let’s load the page http://localhost:8000/polls/ to see the result of our work::
 
   TemplateDoesNotExist at /polls/
@@ -190,7 +189,7 @@ When you reload the page in a browser you should see a list of all the polls cre
    `Interactive Data Visualization for the Web <http://chimera.labs.oreilly.com/books/1230000000345/index.html>`_.
    The incredible characteristics of the Web is that HTML and CSS codes of every site are public. We recommend to look at the code of your favorite sites.
 
-In almost every view, you will eventually need to use a template. Therefore, in Django there is a 
+In almost every view, you will eventually need to use a template. Therefore, in Django there is a
 function ``render`` which allows you to do this in a shorter way:
 
 Please correct the beginning of the file ``polls/views.py`` to look like this::
@@ -211,15 +210,15 @@ Please correct the ``index`` function to look like this::
 Returning 404 code
 ------------------
 
-Now let’s focus on the view of the poll details – a site which displays questions from a defined 
+Now let’s focus on the view of the poll details – a site which displays questions from a defined
 questionnaire.
 
 At the beginning of the file ``polls/views.py``, append::
 
     from django.http import Http404
 
-``Http404`` is an exception shared by Django. We can use this exception in case our application can’t 
-find the poll desired by the user (by writing ``raise Http404``). As a result, the browser will show the error 
+``Http404`` is an exception shared by Django. We can use this exception in case our application can’t
+find the poll desired by the user (by writing ``raise Http404``). As a result, the browser will show the error
 404 page.
 
 
@@ -275,8 +274,8 @@ Change the file ``polls/templates/polls/details.html`` as below:
    ``{% csrf_token %}``  is a very magical way to protect websites from new forms of attack on websites users. You can find more information in the documentation
    `Cross Site Request Forgery <https://docs.djangoproject.com/en/1.4/ref/contrib/csrf/>`_.
 
-Attentive readers will note that the form is sent to the ``/polls/{{ poll.id }}/vote/`` address, which does not yet 
-support data from forms. Let's add support for forms. 
+Attentive readers will note that the form is sent to the ``/polls/{{ poll.id }}/vote/`` address, which does not yet
+support data from forms. Let's add support for forms.
 
 At the beginning of the file ``polls/views.py`` append::
 
@@ -301,24 +300,24 @@ Correct the function ``vote`` as below::
         # Save the new number of votes
         selected_choice.votes += 1
         selected_choice.save()
-        # Redirect a user to the detail view of the poll on which he or she just voted.  
+        # Redirect a user to the detail view of the poll on which he or she just voted.
        return HttpResponseRedirect(reverse('polls.views.results', args=(p.id,)))
 
 In the view there are a lot of new ideas we have not yet discussed.
 
 The ``request`` object contains the data sent by the user, and ``request.POST`` contains the form data sent by the user. This lets us know which option was selected.
 
-Here comes the important question: it may turn out that the view received a nonexistent answer. We 
-always have to check the data received from the user and respond to a situation when the data does not make 
-sense. This is what happens in the :keyword:`except` clause. In such a case, we redirect the user to the 
+Here comes the important question: it may turn out that the view received a nonexistent answer. We
+always have to check the data received from the user and respond to a situation when the data does not make
+sense. This is what happens in the :keyword:`except` clause. In such a case, we redirect the user to the
 questionnaire and display the error.
 
 If the user selects the correct option, we can increase the number of votes and save the changes. Then,
 we redirect to the view of the questionnaire details we wrote previously by using ``HttpResponseRedirect``.
 
-Another important issue: after voting, we could just display the page, like at the end of the view of 
-details (by using render). Unfortunately this could lead to  resending of the questionnaire if the 
-user starts playing with the back and forward buttons in the browser, or just refreshes the page (by 
+Another important issue: after voting, we could just display the page, like at the end of the view of
+details (by using render). Unfortunately this could lead to  resending of the questionnaire if the
+user starts playing with the back and forward buttons in the browser, or just refreshes the page (by
 pressing F5). To prevent this, we should always redirect with HttpResponseRedirect after the correct form is submitted (in this case, voting for a poll).
 
 At the end we still have to develop a view of the poll results to display after voting.
@@ -343,7 +342,7 @@ Create the file ``polls/templates/polls/results.html`` with the following conten
 
   <a href="/polls/{{ poll.id }}/">Vote again?</a>
 
-That's it! Enter the address http://localhost:8000/admin/ and create several new polls and questions. 
+That's it! Enter the address http://localhost:8000/admin/ and create several new polls and questions.
 Then play with voting on them and invite others to do the same.
 
 
@@ -408,7 +407,6 @@ Then play with voting on them and invite others to do the same.
         from django.conf.urls import patterns, include, url
 
         from django.contrib import admin
-        admin.autodiscover()
 
         urlpatterns = patterns('',
           url(r'^polls/$', 'polls.views.index'),
