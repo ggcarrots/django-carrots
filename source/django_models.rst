@@ -53,7 +53,8 @@ By that ``Poll`` and ``Choice`` model will be available in administration panel.
 
 .. note::
 
-    Some changes require a server restart. In the console with the server activated push the buttons ``Ctrl+C`` and then ``pythonmanage.py runserver`` again.
+    Some changes require a server restart. In the console with the server
+    running, do ``Ctrl+C`` and then ``python manage.py runserver`` again.
 
 When we go back to http://localhost:8000/admin/ we will see that a new bookmark ``Polls`` appeared.
 
