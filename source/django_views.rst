@@ -41,9 +41,9 @@ to remember the following:
 
    * Each letter and number of the regular expression applies to the same letter / number of the adjusted string. The same with the
      slash (``/``), space (``' '`` ), underscore (``_``) and hyphen (``-``).
-   * ``^`` applies only to the beginning of the string (“the beginning” is an abstract symbol
+   * ``^`` applies only to the beginning of the string (*the beginning* is an abstract symbol
      before the first character)
-   * ``$`` matches only to the end of the string (in a similar way as “the beginning”).
+   * ``$`` matches only to the end of the string (in a similar way as *the beginning*).
    * The dot (``.``) matches any character.
    * If several characters are put in the square brackets, like this: ``[abde]``, the group counts as
      one unit and will match any of the characters within the group.

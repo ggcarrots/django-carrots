@@ -509,7 +509,7 @@ classification for the calculated BMI by using the table below:
  ≥ 25,0                     overweight
 =====================   ==================
 
-We need to use the “conditional statement” :keyword:`if`. It will execute the rest of the program
+We need to use the *conditional statement* :keyword:`if`. It will execute the rest of the program
 depending on a given condition:
 
 
@@ -821,44 +821,44 @@ the option of aligning to a specific number of characters:
 
 .. testcode::
 
-    WIDTH = 28
+    WIDTH = 31
 
     print("-" * WIDTH)
-    print("| Name and last name |  Weight  |")
+    print("| Name and last name | Weight |")
     print("-" * WIDTH)
-    print("| %15s | %6.2f |" % ("Łukasz", 67.5))
-    print("| %15s | %6.2f |" % ("Pudzian", 123))
+    print("| %18s | %6.2f |" % ("Łukasz", 67.5))
+    print("| %18s | %6.2f |" % ("Pudzian", 123))
     print("-" * WIDTH)
 
 .. testoutput::
 
-    --------------------------------
-    | Name and last name  |  Weight|
-    --------------------------------
-    |              Łukasz |  67.50 |
-    |             Pudzian | 123.00 |
-    --------------------------------
+    -------------------------------
+    | Name and last name | Weight |
+    -------------------------------
+    |             Łukasz |  67.50 |
+    |            Pudzian | 123.00 |
+    -------------------------------
 
 We can also align the string ``-``  to the left by putting before the number of characters:
 
 .. testcode::
 
-    WIDTH = 28
+    WIDTH = 31
 
     print("-" * WIDTH)
-    print("| Name and last name |  Weight |")
+    print("| Name and last name | Weight |")
     print("-" * WIDTH)
-    print("| %-15s | %6.2f |" % ("Łukasz", 67.5))
-    print("| %-15s | %6.2f |" % ("Pudzian", 123))
+    print("| %-18s | %6.2f |" % ("Łukasz", 67.5))
+    print("| %-18s | %6.2f |" % ("Pudzian", 123))
     print("-" * WIDTH)
 
 .. testoutput::
 
     -------------------------------
-    | Name and last name|  Weight |
+    | Name and last name | Weight |
     -------------------------------
-    | Łukasz            |  67.50  |
-    | Pudzian           | 123.00  |
+    | Łukasz             |  67.50 |
+    | Pudzian            | 123.00 |
     -------------------------------
 
 Aligning towards the centre is an additional excercise for you :).

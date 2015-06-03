@@ -323,7 +323,20 @@ and forgotten after the call. That is, if you try now to access
 the argument name ``n`` we defined in our :func:`plus_five` function outside of the function's code,
 Python tells you it is not defined:
 
-    >>> n
+.. testsetup:: name-error
+
+    try:
+        del n
+    except NameError:
+        pass
+
+.. testcode:: name-error
+
+    n
+
+.. testoutput:: name-error
+    :options: +NORMALIZE_WHITESPACE
+
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     NameError: name 'n' is not defined
