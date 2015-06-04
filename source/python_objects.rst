@@ -216,7 +216,7 @@ an instance of class ``Dog`` we need to provide only ``name`` arguemnt. ``self``
 always filled automatically by Python.
 
 Inheritance
-===========
+-----------
 
 In previous chapter we created a ``Dog`` class that was subtype of ``object``, but this is
 not the only possible case. We can for example say that that ``Dog`` is also an ``Animal``::
