@@ -22,21 +22,32 @@ In the file ``polls/models.py`` type::
         choice_text = models.CharField(max_length=200)
         votes = models.IntegerField(default=0)
 
-By adding new models we have changed the database schema. We need to run ``syncdb`` again so that 
+By adding new models we have changed the database schema. In other words we have to *migrate database schema* from one to another. We need to run ``makemigrations`` and then ``migrate`` so that 
 new models can appear in the database.
 
 .. warning::
-    After executing the ``syncdb``, you can not add new fields to the model. You can only add new models. There are ways to avoid it, but … it is a totally different story
+    After executing the ``makemigrations`` and ``migrate``, you cannot add new fields to the model. You can only add new models. There are ways to avoid it, but... it is a totally different story.
 
 .. code-block:: sh
 
-   (workshops) ~/carrots$ python manage.py syncdb
-   Creating tables ...
-   Creating table polls_poll
-   Creating table polls_choice
-   Installing custom SQL ...
-   Installing indexes ...
-   Installed 0 object(s) from 0 fixture(s)
+    (workshops) ~/carrots$ python manage.py makemigrations
+    Migrations for 'polls':
+      0001_initial.py:
+        - Create model Choice
+        - Create model Poll
+        - Add field poll to choice
+
+    (workshops) ~/carrots$ python manage.py migrate
+    Operations to perform:
+      Synchronize unmigrated apps: staticfiles, messages
+      Apply all migrations: polls, sessions, admin, auth, contenttypes
+    Synchronizing apps without migrations:
+      Creating tables...
+        Running deferred SQL...
+      Installing custom SQL...
+    Running migrations:
+      Rendering model states... DONE
+      Applying polls.0001_initial... OK
 
 That’s it! However, we probably would like to be able to edit objects. The easiest way is to do it in 
 the administrative interface.
@@ -49,13 +60,13 @@ We create a file ``polls/admin.py``, which includes::
     admin.site.register(Poll)
     admin.site.register(Choice)
 
-Now, the ``Poll`` and ``Choice`` models will be available from the administration panel.  
+Now, the ``Poll`` and ``Choice`` models will be available from the administration panel.
 
 .. note::
 
-    Some changes require a server restart. In the console with the server activated push the buttons ``Ctrl+C`` and then ``pythonmanage.py runserver`` again.
+    Some changes require a server restart. In the console with the server activated push the buttons ``Ctrl+C`` and then ``python manage.py runserver`` again.
 
-When we go back to http://localhost:8000/admin/ we will see that a new bookmark ``Polls`` has appeared.
+When we go back to ``http://localhost:8000/admin/`` we will see that a new bookmark ``Polls`` has appeared.
 
 
 Playing in the console
@@ -66,7 +77,7 @@ as when you activate the command ``python``), but we can also use the tools and 
 
 .. code-block:: sh
 
-   (workshops) ~/carrots$ python manage.py shell
+    (workshops) ~/carrots$ python manage.py shell
 
 Once you are in the shell, type::
 
@@ -96,7 +107,7 @@ Each object in the database is assigned to a unique ID::
     >>> p.question
     "What's new?"
     >>> p.pub_date
-    datetime.datetime(2014, 10, 18, 13, 0, 0, 775217)
+    datetime.datetime(2015, 6, 1, 3, 14, 15, 926535)
 
 After changing the attributes we again call ``save()`` to save changes::
 
@@ -109,7 +120,7 @@ After changing the attributes we again call ``save()`` to save changes::
     [<Poll: Poll object>]
 
 Django models are classes, which can define methods. A method is a function that gets an extra 
-parameter ``self``, which is the current object (e.g, the current questionnaire). Methods in classes (
+parameter ``self``, which is the current object (e.g. the current questionnaire). Methods in classes (
 models) allow you to add additional behaviors or change the existing ones.
 
 One of the methods is ``__str__()``, which allows you to change the display of the model (a 
@@ -128,7 +139,7 @@ method ``__str__`` to ``Poll`` and ``Choice``::
 
 Django will use these methods for displaying objects, not just in the console but also in the administration interface.
 
-We can also add other methods.  In ``carrots/polls/models.py``, append the following (comments ``#…`` 
+We can also add other methods.  In ``carrots/polls/models.py``, append the following (comments ``#...`` 
 mean the code located in the file)::
 
     import datetime
@@ -141,7 +152,7 @@ mean the code located in the file)::
 
 Note that we had to add ``import datetime`` at the beginning of the file to use objects representing the time in Python.
 
-Let’s save the changes and run the intepreter with the command ``python manage.py`` once again::
+Let’s save the changes and run the intepreter with the command ``python manage.py shell`` once again::
 
     >>> from polls.models import Poll, Choice
 
@@ -161,14 +172,14 @@ certain conditions:
     [<Poll: What's up?>]
     >>> Poll.objects.filter(question__startswith='What')
     [<Poll: What's up?>]
-    >>> Poll.objects.get(pub_date__year=2014)
+    >>> Poll.objects.get(pub_date__year=2015)
     <Poll: What's up?>
 
     # The attempt to retrieve a nonexistent object will make Python protest, but we are already used to this.
     >>> Poll.objects.get(id=2)
     Traceback (most recent call last):
         ...
-    DoesNotExist: Poll matching query does not exist. Lookup parameters were {'id': 2}
+    polls.models.DoesNotExist: Poll matching query does not exist.
 
     # Let’s try our own method.
     >>> p = Poll.objects.get(pk=1)
@@ -201,7 +212,7 @@ We can also have access to the answers (``Choice``):
     3
 
     # And now something more difficult. What does this command do?
-    >>> Choice.objects.filter(poll__pub_date__year=2014)
+    >>> Choice.objects.filter(poll__pub_date__year=2015)
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
 
     # Finally, let's remove one of the questions. Use the method ``delete``.
@@ -211,8 +222,8 @@ We can also have access to the answers (``Choice``):
 Summary
 -------
 
-* We create models by defining classes inheriting from ``models.Model`` in ``polls/models.py file``.
-* After creating a new model, we have to remember to run python ``manage.py syncdb``.
+* We create models by defining classes inheriting from ``models.Model`` in ``polls/models.py`` file.
+* After creating a new model, we have to remember to run ``python manage.py makemigrations`` and ``python manage.py migrate``.
 * To download every object in the model::
 
     Poll.objects.all()
@@ -223,5 +234,5 @@ Summary
 
 * To download a single object::
 
-    Poll.objects.get(id=2)
+    Poll.objects.get(id=1)
 
