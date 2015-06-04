@@ -36,7 +36,7 @@ Install Django by running it on the console ``pip install django==1.8.2``:
     Successfully installed django
     Cleaning up...
 
-A suitable package will be downloaded from `PyPI <http://pypi.python.org>`_ - a package repository 
+A suitable package will be downloaded from `PyPI <https://pypi.python.org/pypi>`_ - a package repository 
 where you can find many useful libraries.
 
 
