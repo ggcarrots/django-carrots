@@ -180,7 +180,7 @@ As you can see, our program still needs some improvements:
 3. Printing so many decimal places is unnecessary. BMI is measured with an accuracy of two decimal
    places.
 
-Programming is the art of solving problems, so … let's get to work! It will give us an
+Programming is the art of solving problems, so... let's get to work! It will give us an
 opportunity to learn about some new features of Python.
 
 .. _`Body Mass Index`: http://pl.wikipedia.org/wiki/Body_Mass_Index
@@ -785,7 +785,7 @@ required result:
 
     Your BMI is equal: 21.387755102040817 (normal weight)
 
-Well, almost….We still have too many digits. We would also have a problem if we wanted to generate
+Well, almost... .We still have too many digits. We would also have a problem if we wanted to generate
 such a string and save with a name, because we use :func:`print` to separate the elements.
 Fortunately, there is a better way:
 
