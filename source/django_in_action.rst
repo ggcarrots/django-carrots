@@ -25,16 +25,16 @@ Creation of the new project
 Installation
 ------------
 
-Install Django by running it on the console ``pip install django==1.6.4``:
+Install Django by running it on the console ``pip install django==1.8.2``:
 
 .. code-block:: sh
 
-   (workshops) ~$ pip install django==1.6.4
-   Downloading/unpacking django==1.6.4
-     Downloading Django-1.6.4-py2.py3-none-any.whl (6.7MB): 6.7MB downloaded
-   Installing collected packages: django
-   Successfully installed django
-   Cleaning up...
+    (workshops) ~$ pip install django==1.8.2
+    Downloading/unpacking django==1.8.2
+      Downloading Django-1.8.2-py2.py3-none-any.whl (6.2MB): 6.2MB downloaded
+    Installing collected packages: django
+    Successfully installed django
+    Cleaning up...
 
 A suitable package will be downloaded from `PyPI <http://pypi.python.org>`_ - a package repository 
 where you can find many useful libraries.
@@ -50,37 +50,37 @@ To create a new project with the site, launch ``django-admin.py startproject car
 
 .. code-block:: sh
 
-   # Linux
+    # Linux
 
-   (workshops) ~$ django-admin.py startproject carrots
-   (workshops) ~$ tree carrots
-   carrots/
-   ├── carrots
-   │   ├── __init__.py
-   │   ├── settings.py
-   │   ├── urls.py
-   │   └── wsgi.py
-   └── manage.py
+    (workshops) ~$ django-admin.py startproject carrots
+    (workshops) ~$ tree carrots
+    carrots/
+    ├── carrots
+    │   ├── __init__.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    └── manage.py
 
-   1 directory, 5 files
+    1 directory, 5 files
 
 
 .. code-block:: bat
 
-   :: Windows
+    :: Windows
 
-   (workshops) C:\Users\TeddyBear> python -m django-admin startproject carrots
-   (workshops) C:\Users\TeddyBear> tree /f carrots
-   Folder PATH listing
-   Volume serial number is 00FA-07FF
-   C:\USERS\TEDDYBEAR\DOCUMENTS\CARROTS
-   │   manage.py
-   │
-   └───carrots
-           settings.py
-           urls.py
-           wsgi.py
-           __init__.py
+    (workshops) C:\Users\TeddyBear> python -m django-admin startproject carrots
+    (workshops) C:\Users\TeddyBear> tree /f carrots
+    Folder PATH listing
+    Volume serial number is 00FA-07FF
+    C:\USERS\TEDDYBEAR\DOCUMENTS\CARROTS
+    │   manage.py
+    │
+    └───carrots
+            settings.py
+            urls.py
+            wsgi.py
+            __init__.py
 
 
 Structure of project
@@ -108,16 +108,16 @@ Settings of application
 In the ``carrots/settings.py`` file, find ``TIME_ZONE`` and set time zone as Warsaw. You should get the following:
 ::
 
-   TIME_ZONE = 'Europe/Luxembourg'
+    TIME_ZONE = 'Europe/Luxembourg'
 
-   LANGUAGE_CODE = 'en_uk'
+    LANGUAGE_CODE = 'en-GB'
 
 
 To make it simpler we also exclude the advanced support for time zones in the database - it will not be needed in our project. 
 In the file ``settings.py`` please find  ``USE_TZ``  and set it as False:
 ::
 
-   USE_TZ = False
+    USE_TZ = False
 
 ..
 .. ``INSTALLED_APPS`` zawiera informację o zainstalowanych aplikacjach. Projekty ``Django``
@@ -136,37 +136,45 @@ In order to do this, we will execute the option ``syncdb``. In the project direc
 
 .. code-block:: sh
 
-   (workshops) ~$ cd carrots
-   (workshops) ~/carrots$ python manage.py syncdb
+    (workshops) ~$ cd carrots
+    (workshops) ~/carrots$ python manage.py migrate
+    Operations to perform:
+      Synchronize unmigrated apps: staticfiles, messages
+      Apply all migrations: admin, contenttypes, auth, sessions
+    Synchronizing apps without migrations:
+      Creating tables...
+        Running deferred SQL...
+      Installing custom SQL...
+    Running migrations:
+      Rendering model states... DONE
+      Applying contenttypes.0001_initial... OK
+      Applying auth.0001_initial... OK
+      Applying admin.0001_initial... OK
+      Applying contenttypes.0002_remove_content_type_name... OK
+      Applying auth.0002_alter_permission_name_max_length... OK
+      Applying auth.0003_alter_user_email_max_length... OK
+      Applying auth.0004_alter_user_username_opts... OK
+      Applying auth.0005_alter_user_last_login_null... OK
+      Applying auth.0006_require_contenttypes_0002... OK
+      Applying sessions.0001_initial... OK
 
-    Creating tables ...
-    Creating table auth_permission
-    Creating table auth_group_permissions
-    Creating table auth_group
-    Creating table auth_user_groups
-    Creating table auth_user_user_permissions
-    Creating table auth_user
-    Creating table django_content_type
-    Creating table django_session
-    Creating table django_site
-    Creating table django_admin_log
+You just installed Django's system base, which means you have empty tables in your database and have no administrators (administration accounts aka admins or superusers) defined. Let's create one by running ``python manage.py createsuperuser``:
 
-    You just installed Django's auth system, which means you don't have any superusers defined.
-    Would you like to create one now? (yes/no): yes
-    Username (leave blank to use 'fasola'): beans
+.. code-block:: sh
+
+    (workshops) ~/carrots$ python manage.py createsuperuser
+    Username (leave blank to use 'teddybear'): beans
     Email address: admin@example.com
     Password:
     Password (again):
     Superuser created successfully.
-    Installing custom SQL ...
-    Installing indexes ...
-    Installed 0 object(s) from 0 fixture(s)
+
 
 If all goes well, Django will ask you to provide data for the administrator account. You may leave the username 
 as it is proposed, and you may give any e-mail address. Memorize the data you provided (i.e, username 
 and password) so that you can log in to the control panel. In the above example, the user will be ``beans``.
 
- If you want to learn more about ``manage.py``, run python ``manage.py help``:
+If you want to learn more about ``manage.py``, run python ``manage.py help``:
 
 .. code-block:: sh
 
@@ -178,7 +186,7 @@ To get help on a single command, run  ``manage.py help`` command:
 
 .. code-block:: sh
 
-    (workshops) ~/carrots$ python manage.py help syncdb
+    (workshops) ~/carrots$ python manage.py help migrate
 
 Administration interface
 ------------------------
@@ -187,19 +195,19 @@ Now we can run our application. Run the server by typing ``python manage.py runs
 
 .. code-block:: sh
 
-   (workshops) ~/carrots$ python manage.py runserver
-   Validating models...
+    (workshops) ~/carrots$ python manage.py runserver
+    Performing system checks...
 
-   0 errors found
-   April 19, 2013 - 20:14:37
-   Django version 1.6.4, using settings 'carrots.settings'
-   Development server is running at http://127.0.0.1:8000/
-   Quit the server with CTRL-BREAK.
+    System check identified no issues (0 silenced).
+    June 01, 2015 - 3:14:15
+    Django version 1.8.2, using settings 'carrots.settings'
+    Starting development server at http://127.0.0.1:8000/
+    Quit the server with CONTROL-C.
 
-Our website will be available at http://127.0.0.1:8000/  or http://localhost:8000/ 
+Our website will be available at ``http://127.0.0.1:8000/`` or ``http://localhost:8000/``
 
 The administration panel is available in the ``admin/`` path, that’s why we will go to 
-http://localhost:8000/admin/ to find it.
+``http://localhost:8000/admin/`` to find it.
 
 
 We create a new application for questionnaires
@@ -210,28 +218,30 @@ specific functions.
 
 We want to publish questionnaires on our website, so we will add the application ``polls``.
 
-From the command line, type ``python manage.py startapp polls``:
+Quit the server and from the command line, type ``python manage.py startapp polls``:
 
 ::
 
-   (workshops) ~/carrots$ python manage.py startapp polls
-   (workshops) ~/carrots$ tree .
-   .
-   ├── carrots
-   │   ├── __init__.py
-   │   ├── settings.py
-   │   ├── urls.py
-   │   ├── wsgi.py
-   ├── db.sqlite3
-   ├── manage.py
-   └── polls
-       ├── __init__.py
-       ├── admin.py
-       ├── models.py
-       ├── tests.py
-       └── views.py
+    (workshops) ~/carrots$ python manage.py startapp polls
+    (workshops) ~/carrots$ tree .
+    .
+    ├── carrots
+    │   ├── __init__.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    ├── db.sqlite3
+    ├── manage.py
+    └── polls
+        ├── admin.py
+        ├── __init__.py
+        ├── migrations
+        │   └── __init__.py
+        ├── models.py
+        ├── tests.py
+        └── views.py
 
-   2 directories, 14 files
+    4 directories, 15 files
 
 After creating the application, it must be activated in our project. In the file ``carrots/settings.py``
 we have to add the application ``polls`` to ``INSTALLED_APPS``. The result should look like this::
@@ -260,47 +270,47 @@ Django installation:
 
 .. code-block:: sh
 
-   (workshops) ~$ pip install django==1.6.4
+    (workshops) ~$ pip install django==1.8.2
 
 Project directory creation:
 
 .. code-block:: sh
 
-   # Linux
+    # Linux
 
-   (workshops) ~$ django-admin.py startproject carrots
+    (workshops) ~$ django-admin.py startproject carrots
 
 
 .. code-block:: bat
 
-   :: Windows
+    :: Windows
 
-   (workshops) C:\Users\TeddyBear> python -m django-admin startproject carrots
+    (workshops) C:\Users\TeddyBear> python -m django-admin startproject carrots
 
 Setup of time zone in ``carrots/settings.py`` file::
 
-   TIME_ZONE = 'Europe/Warsaw'
+    TIME_ZONE = 'Europe/Luxembourg'
 
-   LANGUAGE_CODE = 'pl'
+    LANGUAGE_CODE = 'en-GB'
 
-   USE_TZ = False
+    USE_TZ = False
 
 Creation of database (you need to run that command after adding every new model):
 
 .. code-block:: sh
 
-   (workshops) ~/carrots$ python manage.py syncdb
+    (workshops) ~/carrots$ python manage.py migrate
 
 Server start-up:
 
 .. code-block:: sh
 
-   (workshops) ~/carrots$ python manage.py runserver
+    (workshops) ~/carrots$ python manage.py runserver
 
 Creation of the new application named ``polls``:
 
 .. code-block:: sh
 
-   (workshops) ~/carrots$ python manage.py startapp polls
+    (workshops) ~/carrots$ python manage.py startapp polls
 
 Just remember that after creating an application you should add it to ``INSTALLED_APPS``.
