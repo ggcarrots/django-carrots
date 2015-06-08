@@ -25,13 +25,13 @@ Creation of the new project
 Installation
 ------------
 
-Install Django by running it on the console ``pip install django==1.6.4``:
+Install Django by running it on the console ``pip install django==1.8.2``:
 
 .. code-block:: sh
 
-   (workshops) ~$ pip install django==1.6.4
-   Downloading/unpacking django==1.6.4
-     Downloading Django-1.6.4-py2.py3-none-any.whl (6.7MB): 6.7MB downloaded
+   (workshops) ~$ pip install django==1.8.2
+   Downloading/unpacking django==1.8.2
+   Downloading Django-1.8.2-py2.py3-none-any.whl (6.2MB): 6.2MB downloaded
    Installing collected packages: django
    Successfully installed django
    Cleaning up...
@@ -130,38 +130,40 @@ To make it simpler we also exclude the advanced support for time zones in the da
 Database
 --------
 
-Now it's time to use the previously described file ``manage.py`` to create the database. For this purpose we execute the option ``syncdb``. In the project directory run ``python manage.py syncdb``:
+Now it's time to use the previously described file ``manage.py`` to create the database. For this purpose we execute the option ``migrate``. In the project directory run ``python manage.py migrate``:
 
 .. code-block:: sh
 
    (workshops) ~$ cd carrots
-   (workshops) ~/carrots$ python manage.py syncdb
+   (workshops) ~/carrots$ python manage.py migrate
+   Operations to perform:
+     Synchronize unmigrated apps: staticfiles, messages
+     Apply all migrations: admin, contenttypes, auth, sessions
+   Synchronizing apps without migrations:
+     Creating tables...
+       Running deferred SQL...
+     Installing custom SQL...
+   Running migrations:
+     Rendering model states... DONE
+     Applying contenttypes.0001_initial... OK
+     Applying auth.0001_initial... OK
+     Applying admin.0001_initial... OK
+     Applying contenttypes.0002_remove_content_type_name... OK
+     Applying auth.0002_alter_permission_name_max_length... OK
+     Applying auth.0003_alter_user_email_max_length... OK
+     Applying auth.0004_alter_user_username_opts... OK
+     Applying auth.0005_alter_user_last_login_null... OK
+     Applying auth.0006_require_contenttypes_0002... OK
+     Applying sessions.0001_initial... OK
+   (workshops) ~/carrots$ python manage.py createsuperuser
+   Username (leave blank to use 'br'): admin
+   Email address: admin@admin.com
+   Password:
+   Password (again):
+   Superuser created successfully.
 
-    Creating tables ...
-    Creating table auth_permission
-    Creating table auth_group_permissions
-    Creating table auth_group
-    Creating table auth_user_groups
-    Creating table auth_user_user_permissions
-    Creating table auth_user
-    Creating table django_content_type
-    Creating table django_session
-    Creating table django_site
-    Creating table django_admin_log
-
-    You just installed Django's auth system, which means you don't have any superusers defined.
-    Would you like to create one now? (yes/no): yes
-    Username (leave blank to use 'fasola'): beans
-    Email address: admin@example.com
-    Password:
-    Password (again):
-    Superuser created successfully.
-    Installing custom SQL ...
-    Installing indexes ...
-    Installed 0 object(s) from 0 fixture(s)
-
-If all goes well Django asks you to provide data of the administrator account. The user name you may 
-leave as it is proposed, you can give any e-mail address.  Memorize the provided data (i.e, username 
+If all goes well Django asks you to provide data of the administrator account. The user name you may
+leave as it is proposed, you can give any e-mail address.  Memorize the provided data (i.e, username
 and password) so that you can log in the control panel. In the above example, the user will be ``beans``.
 
  If you want to learn more about ``manage.py``, run python ``manage.py help``:
@@ -176,7 +178,7 @@ To get help on a single command, run  ``manage.py help`` command:
 
 .. code-block:: sh
 
-    (workshops) ~/carrots$ python manage.py help syncdb
+    (workshops) ~/carrots$ python manage.py help migrate
 
 Administration interface
 ------------------------
@@ -259,7 +261,7 @@ Django installation:
 
 .. code-block:: sh
 
-   (workshops) ~$ pip install django==1.6.4
+   (workshops) ~$ pip install django==1.8.2
 
 Project directory creation
 
@@ -288,7 +290,7 @@ Creation of database (you need to run that command after adding every new model)
 
 .. code-block:: sh
 
-   (workshops) ~/carrots$ python manage.py syncdb
+   (workshops) ~/carrots$ python manage.py migrate
 
 Server's start-up:
 

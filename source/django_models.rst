@@ -22,23 +22,31 @@ In the file ``polls/models.py`` we type::
         choice_text = models.CharField(max_length=200)
         votes = models.IntegerField(default=0)
 
-By adding new models we have changed the database schema. We need to make the ``syncdb`` again so that 
-new models could appear in the database.
-
-.. warning::
-    After executing the ``syncdb``, you can not add new fields to the model. You can only add new models. There are ways to avoid it, but … it is a totally different story
+By adding new models we have changed the database schema. We need to create migration files containing
+instructions to add the corresponding new tables in database, using the ``makemigrations`` coammand and
+then execute these migrations files, using the ``migrate`` command.
 
 .. code-block:: sh
 
-   (workshops) ~/carrots$ python manage.py syncdb
-   Creating tables ...
-   Creating table polls_poll
-   Creating table polls_choice
-   Installing custom SQL ...
-   Installing indexes ...
-   Installed 0 object(s) from 0 fixture(s)
+    (workshops) ~/carrots$ python manage.py makemigrations
+    Migrations for 'polls':
+      0001_initial.py:
+        - Create model Choice
+        - Create model Poll
+        - Add field poll to choice
+    (workshops) ~/carrots$ python manage.py migrate
+    Operations to perform:
+      Synchronize unmigrated apps: staticfiles, messages
+      Apply all migrations: admin, contenttypes, polls, auth, sessions
+    Synchronizing apps without migrations:
+      Creating tables...
+        Running deferred SQL...
+      Installing custom SQL...
+    Running migrations:
+      Rendering model states... DONE
+      Applying polls.0001_initial... OK
 
-That’s it! However, probably we would like to be able to edit objects. The easiest way is to do it in 
+That’s it! However, probably we would like to be able to edit objects. The easiest way is to do it in
 the administrative interface.
 
 We create a file ``polls/admin.py`` and the file includes::
