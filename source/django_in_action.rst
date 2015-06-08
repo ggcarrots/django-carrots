@@ -6,9 +6,9 @@ Introduction to Django
 What is Django?
 ===============
 
-So far we have been learning about Python. Python is just a language (and a set of basic libraries) 
-that allows you to create programs. Creating an interactive website in Python requires a huge amount 
-of work, which is why we will use the Django framework instead. Django gives us a set of tools, features (like the functions we 
+So far we have been learning about Python. Python is just a language (and a set of basic libraries)
+that allows you to create programs. Creating an interactive website in Python requires a huge amount
+of work, which is why we will use the Django framework instead. Django gives us a set of tools, features (like the functions we
 learned about earlier, but more complex), and classes that facilitate the creation of websites.
 
 In order to obtain a fully interactive website we need a few items:
@@ -25,25 +25,25 @@ Creation of the new project
 Installation
 ------------
 
-Install Django by running it on the console ``pip install django==1.6.4``:
+Install Django by running it on the console ``pip install django==1.8.2``:
 
 .. code-block:: sh
 
-   (workshops) ~$ pip install django==1.6.4
-   Downloading/unpacking django==1.6.4
-     Downloading Django-1.6.4-py2.py3-none-any.whl (6.7MB): 6.7MB downloaded
+   (workshops) ~$ pip install django==1.8.2
+   Downloading/unpacking django==1.8.2
+   Downloading Django-1.8.2-py2.py3-none-any.whl (6.2MB): 6.2MB downloaded
    Installing collected packages: django
    Successfully installed django
    Cleaning up...
 
-A suitable package will be downloaded from `PyPI <http://pypi.python.org>`_ - a package repository 
+A suitable package will be downloaded from `PyPI <http://pypi.python.org>`_ - a package repository
 where you can find many useful libraries.
 
 
 Beginning of project
 --------------------
 
-Django provides the administrative script ``django-admin.py``. It allows you to create the basic scheme of our 
+Django provides the administrative script ``django-admin.py``. It allows you to create the basic scheme of our
 site.
 
 To create a new project with the site, launch ``django-admin.py startproject carrots``:
@@ -88,12 +88,12 @@ Structure of project
 
 The newly created project contains a "carrots" directory and some basic files.
 
-The file ``carrots/settings.py`` includes the settings such as the language, a database, and installed 
-applications. We can edit the file ourselves. Inside, you will find the default settings and 
+The file ``carrots/settings.py`` includes the settings such as the language, a database, and installed
+applications. We can edit the file ourselves. Inside, you will find the default settings and
 explanatory comments.
 
 
-The file ``manage.py`` allows us to administer the web site, create or clear the database, run a simple 
+The file ``manage.py`` allows us to administer the web site, create or clear the database, run a simple
 application server, etc. We will learn how to use it later on.
 
 
@@ -113,7 +113,7 @@ In the ``carrots/settings.py`` file, find ``TIME_ZONE`` and set time zone as War
    LANGUAGE_CODE = 'en_uk'
 
 
-To make it simpler we also exclude the advanced support for time zones in the database - it will not be needed in our project. 
+To make it simpler we also exclude the advanced support for time zones in the database - it will not be needed in our project.
 In the file ``settings.py`` please find  ``USE_TZ``  and set it as False:
 ::
 
@@ -131,40 +131,41 @@ In the file ``settings.py`` please find  ``USE_TZ``  and set it as False:
 Database
 --------
 
-Now it's time to use the previously described file ``manage.py`` to create the database. 
-In order to do this, we will execute the option ``syncdb``. In the project directory, run ``python manage.py syncdb``:
+Now it's time to use the previously described file ``manage.py`` to create the database. For this purpose we execute the option ``migrate``. In the project directory run ``python manage.py migrate``:
 
 .. code-block:: sh
 
    (workshops) ~$ cd carrots
-   (workshops) ~/carrots$ python manage.py syncdb
+   (workshops) ~/carrots$ python manage.py migrate
+   Operations to perform:
+     Synchronize unmigrated apps: staticfiles, messages
+     Apply all migrations: admin, contenttypes, auth, sessions
+   Synchronizing apps without migrations:
+     Creating tables...
+       Running deferred SQL...
+     Installing custom SQL...
+   Running migrations:
+     Rendering model states... DONE
+     Applying contenttypes.0001_initial... OK
+     Applying auth.0001_initial... OK
+     Applying admin.0001_initial... OK
+     Applying contenttypes.0002_remove_content_type_name... OK
+     Applying auth.0002_alter_permission_name_max_length... OK
+     Applying auth.0003_alter_user_email_max_length... OK
+     Applying auth.0004_alter_user_username_opts... OK
+     Applying auth.0005_alter_user_last_login_null... OK
+     Applying auth.0006_require_contenttypes_0002... OK
+     Applying sessions.0001_initial... OK
+   (workshops) ~/carrots$ python manage.py createsuperuser
+   Username (leave blank to use 'beans'): beans
+   Email address: beans@beans.com
+   Password:
+   Password (again):
+   Superuser created successfully.
 
-    Creating tables ...
-    Creating table auth_permission
-    Creating table auth_group_permissions
-    Creating table auth_group
-    Creating table auth_user_groups
-    Creating table auth_user_user_permissions
-    Creating table auth_user
-    Creating table django_content_type
-    Creating table django_session
-    Creating table django_site
-    Creating table django_admin_log
-
-    You just installed Django's auth system, which means you don't have any superusers defined.
-    Would you like to create one now? (yes/no): yes
-    Username (leave blank to use 'fasola'): beans
-    Email address: admin@example.com
-    Password:
-    Password (again):
-    Superuser created successfully.
-    Installing custom SQL ...
-    Installing indexes ...
-    Installed 0 object(s) from 0 fixture(s)
-
-If all goes well, Django will ask you to provide data for the administrator account. You may leave the username 
-as it is proposed, and you may give any e-mail address. Memorize the data you provided (i.e, username 
-and password) so that you can log in to the control panel. In the above example, the user will be ``beans``.
+If all goes well Django asks you to provide data of the administrator account. The user name you may
+leave as it is proposed, you can give any e-mail address.  Memorize the provided data (i.e, username
+and password) so that you can log in the control panel. In the above example, the user will be ``beans``.
 
  If you want to learn more about ``manage.py``, run python ``manage.py help``:
 
@@ -178,7 +179,7 @@ To get help on a single command, run  ``manage.py help`` command:
 
 .. code-block:: sh
 
-    (workshops) ~/carrots$ python manage.py help syncdb
+    (workshops) ~/carrots$ python manage.py help migrate
 
 Administration interface
 ------------------------
@@ -196,16 +197,16 @@ Now we can run our application. Run the server by typing ``python manage.py runs
    Development server is running at http://127.0.0.1:8000/
    Quit the server with CTRL-BREAK.
 
-Our website will be available at http://127.0.0.1:8000/  or http://localhost:8000/ 
+Our website will be available at http://127.0.0.1:8000/  or http://localhost:8000/
 
-The administration panel is available in the ``admin/`` path, that’s why we will go to 
+The administration panel is available in the ``admin/`` path, that’s why we will go to
 http://localhost:8000/admin/ to find it.
 
 
 We create a new application for questionnaires
 ----------------------------------------------
 
-For now, we have created the project ``carrots``. Projects in Django are divided into apps that provide 
+For now, we have created the project ``carrots``. Projects in Django are divided into apps that provide
 specific functions.
 
 We want to publish questionnaires on our website, so we will add the application ``polls``.
@@ -260,7 +261,7 @@ Django installation:
 
 .. code-block:: sh
 
-   (workshops) ~$ pip install django==1.6.4
+   (workshops) ~$ pip install django==1.8.2
 
 Project directory creation:
 
@@ -289,7 +290,7 @@ Creation of database (you need to run that command after adding every new model)
 
 .. code-block:: sh
 
-   (workshops) ~/carrots$ python manage.py syncdb
+   (workshops) ~/carrots$ python manage.py migrate
 
 Server start-up:
 
