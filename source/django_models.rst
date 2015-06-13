@@ -34,6 +34,9 @@ then execute these migrations files, using the ``migrate`` command.
         - Create model Choice
         - Create model Poll
         - Add field poll to choice
+
+.. code-block:: sh
+
     (workshops) ~/carrots$ python manage.py migrate
     Operations to perform:
       Synchronize unmigrated apps: staticfiles, messages

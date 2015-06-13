@@ -156,7 +156,7 @@ Now it's time to use the previously described file ``manage.py`` to create the d
      Applying auth.0006_require_contenttypes_0002... OK
      Applying sessions.0001_initial... OK
    (workshops) ~/carrots$ python manage.py createsuperuser
-   Username (leave blank to use 'br'): admin
+   Username (leave blank to use 'beans'): admin
    Email address: admin@admin.com
    Password:
    Password (again):
