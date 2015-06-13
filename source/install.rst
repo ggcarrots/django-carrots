@@ -133,10 +133,17 @@ For example, if our home directory is ``C:\Users\lrekucki``, the command line wo
         ~$ python get-pip.py
         ~$ pip --version
 
-    Check out _`https://pip.pypa.io/en/latest/installing.html` for more information about installing pip.
+    Check out _`https://pip.pypa.io/en/latest/installing.html` for more information about installing ``pip``.
 
-In your home directory we will create a ``workshops`` directory containing the so called “virtual
-environment”.
+.. note::
+    If ``venv`` module is absent (*No module named venv* or similar message) you should slightly change commad used to create virtual environment::
+
+        ~$ python3 -m venv --without-pip workshops
+        # (...)
+
+    For more information about installing ``virtualenv`` check out _`https://virtualenv.pypa.io/en/latest/installation.html`.
+
+In your home directory we will create a ``workshops`` directory containing the so called *virtual environment*.
 For now, it is important to activate it:
 
 .. code-block:: bat
@@ -182,7 +189,7 @@ Ensure your terminal is well configured:
     3.4.0
 
 
-.. _python.org: http://python.org/download/releases/3.4.0/
+.. _python.org: https://www.python.org/download/releases/3.4.0/
 
 .. note::
     You may already have the ``pip`` command available on your system. Always check which pip you are using with command: ``pip --version``.

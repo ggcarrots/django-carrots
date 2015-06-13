@@ -182,7 +182,7 @@ As you can see, our program still needs some improvements:
 3. Printing so many decimal places is unnecessary. BMI is measured with an accuracy of two decimal
    places.
 
-Programming is the art of solving problems, so … let's get to work! It will give us an
+Programming is the art of solving problems, so... let's get to work! It will give us an
 opportunity to learn about some new features of Python.
 
 .. _`Body Mass Index`: http://pl.wikipedia.org/wiki/Body_Mass_Index
@@ -511,7 +511,7 @@ classification for the calculated BMI by using the table below:
  ≥ 25,0                     overweight
 =====================   ==================
 
-We need to use the “conditional statement” :keyword:`if`. It will execute the rest of the program
+We need to use the *conditional statement* :keyword:`if`. It will execute the rest of the program
 depending on a given condition:
 
 
@@ -787,7 +787,7 @@ required result:
 
     Your BMI is equal: 21.387755102040817 (normal weight)
 
-Well, almost….We still have too many digits. We would also have a problem if we wanted to generate
+Well, almost... .We still have too many digits. We would also have a problem if we wanted to generate
 such a string and save with a name, because we use :func:`print` to separate the elements.
 Fortunately, there is a better way:
 
@@ -823,44 +823,44 @@ the option of aligning to a specific number of characters:
 
 .. testcode::
 
-    WIDTH = 28
+    WIDTH = 31
 
     print("-" * WIDTH)
-    print("| Name and last name |  Weight  |")
+    print("| Name and last name | Weight |")
     print("-" * WIDTH)
-    print("| %15s | %6.2f |" % ("Łukasz", 67.5))
-    print("| %15s | %6.2f |" % ("Pudzian", 123))
+    print("| %18s | %6.2f |" % ("Łukasz", 67.5))
+    print("| %18s | %6.2f |" % ("Pudzian", 123))
     print("-" * WIDTH)
 
 .. testoutput::
 
-    --------------------------------
-    | Name and last name  |  Weight|
-    --------------------------------
-    |              Łukasz |  67.50 |
-    |             Pudzian | 123.00 |
-    --------------------------------
+    -------------------------------
+    | Name and last name | Weight |
+    -------------------------------
+    |             Łukasz |  67.50 |
+    |            Pudzian | 123.00 |
+    -------------------------------
 
 We can also align the string ``-``  to the left by putting before the number of characters:
 
 .. testcode::
 
-    WIDTH = 28
+    WIDTH = 31
 
     print("-" * WIDTH)
-    print("| Name and last name |  Weight |")
+    print("| Name and last name | Weight |")
     print("-" * WIDTH)
-    print("| %-15s | %6.2f |" % ("Łukasz", 67.5))
-    print("| %-15s | %6.2f |" % ("Pudzian", 123))
+    print("| %-18s | %6.2f |" % ("Łukasz", 67.5))
+    print("| %-18s | %6.2f |" % ("Pudzian", 123))
     print("-" * WIDTH)
 
 .. testoutput::
 
     -------------------------------
-    | Name and last name|  Weight |
+    | Name and last name | Weight |
     -------------------------------
-    | Łukasz            |  67.50  |
-    | Pudzian           | 123.00  |
+    | Łukasz             |  67.50 |
+    | Pudzian            | 123.00 |
     -------------------------------
 
 Aligning towards the centre is an additional excercise for you :).

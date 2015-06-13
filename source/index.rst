@@ -17,6 +17,7 @@ Table of Contents
    install
    python_quickstart
    python_xmas_tree
+   python_objects
    django_in_action
    django_models
    django_views
