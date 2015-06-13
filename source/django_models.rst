@@ -22,24 +22,34 @@ In the file ``polls/models.py`` type::
         choice_text = models.CharField(max_length=200)
         votes = models.IntegerField(default=0)
 
-By adding new models we have changed the database schema. We need to run ``syncdb`` again so that
-new models can appear in the database.
-
-.. warning::
-    After executing the ``syncdb``, you can not add new fields to the model. You can only add new models. There are ways to avoid it, but … it is a totally different story
+By adding new models we have changed the database schema. We need to create migration files containing
+instructions to add the corresponding new tables in database, using the ``makemigrations`` coammand and
+then execute these migrations files, using the ``migrate`` command.
 
 .. code-block:: sh
 
-   (workshops) ~/carrots$ python manage.py syncdb
-   Creating tables ...
-   Creating table polls_poll
-   Creating table polls_choice
-   Installing custom SQL ...
-   Installing indexes ...
-   Installed 0 object(s) from 0 fixture(s)
+    (workshops) ~/carrots$ python manage.py makemigrations
+    Migrations for 'polls':
+      0001_initial.py:
+        - Create model Choice
+        - Create model Poll
+        - Add field poll to choice
 
-That’s it! However, we probably would like to be able to edit objects. The easiest way is to do it in
-the administrative interface.
+.. code-block:: sh
+
+    (workshops) ~/carrots$ python manage.py migrate
+    Operations to perform:
+      Synchronize unmigrated apps: staticfiles, messages
+      Apply all migrations: admin, contenttypes, polls, auth, sessions
+    Synchronizing apps without migrations:
+      Creating tables...
+        Running deferred SQL...
+      Installing custom SQL...
+    Running migrations:
+      Rendering model states... DONE
+      Applying polls.0001_initial... OK
+
+That’s it! However, probably we would like to be able to edit objects. The easiest way is to do it in
 
 We create a file ``polls/admin.py``, which includes::
 
@@ -96,7 +106,7 @@ Each object in the database is assigned to a unique ID::
     >>> p.question
     "What's new?"
     >>> p.pub_date
-    datetime.datetime(2015, 10, 18, 13, 0, 0, 775217)
+    datetime.datetime(2014, 10, 18, 13, 0, 0, 775217)
 
 After changing the attributes we again call ``save()`` to save changes::
 
@@ -161,7 +171,7 @@ certain conditions:
     [<Poll: What's up?>]
     >>> Poll.objects.filter(question__startswith='What')
     [<Poll: What's up?>]
-    >>> Poll.objects.get(pub_date__year=2015)
+    >>> Poll.objects.get(pub_date__year=2014)
     <Poll: What's up?>
 
     # The attempt to retrieve a nonexistent object will make Python protest, but we are already used to this.
