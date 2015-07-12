@@ -53,8 +53,8 @@ function we need to provide module name and function name separated by dot, just
 like we did with objects. In this example ``tree_utils`` is a module name. Thanks
 to this we have access to all the functions and objects from ``tree_utils`` module.
 
-``Import from``
----------------
+Import from
+-----------
 
 :keyword:``import`` keyword has also another form: ``from module import function``.
 When we rewrite ``tree_main.py`` example to use this form it will look like this::
