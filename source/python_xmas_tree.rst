@@ -615,7 +615,9 @@ Podpowiedź: Zacznij od napisania funkcji, która wyświetli dni jednego miesią
 Rozbudowa gry 'papier, nożyce i kamień'
 -------------------
 
+
 Zadanie 1: Gramy dalej, czyli kilka rozdań w jednej grze 
+
 
 Opis:
 
@@ -637,7 +639,9 @@ Głupi komputer potrafi też być uparty. Spraw, by czasami na odpowiedź `nie` 
   
 I zaczynał grę od początku. (ale bez wyboru poziomu umiejętności komputera!)
 
+
 Zadanie 2: Dodanie ekranów do gry
+
 
 Opis:
 
@@ -650,8 +654,6 @@ Przykład:
 
 .. code-block::
 
-  import os
-  os.system('cls')
   print("Witaj w grze!")
 
 Dopracuj grę by jej przebieg miał następujące `ekrany`:
@@ -683,7 +685,9 @@ Dopracuj grę by jej przebieg miał następujące `ekrany`:
 
 Uwzględnij wszystkie funkcjonalności jakie udało ci się zbudować wcześniej. Każdy z tych ekranów powinien pojawiać się na czystej konsoli. 
 
+
 Zadanie 3: Statystyki graczy
+
 
 Opis:
 
