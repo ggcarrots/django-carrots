@@ -544,3 +544,141 @@ following pictures (sizes 1, 2 and 3):
 
 .. [#speed] Assuming you have 24 hours to deliver one gift for everyone in the world,
     for one gift you have about 10 microseconds.
+    
+Rozbudowa gry 'papier, nożyce i kamień'
+-------------------
+
+Zadanie 1: Gramy dalej, czyli kilka rozdań w jednej grze 
+
+Opis:
+
+Nasza gra nie jest aktualnie najlepsza ponieważ za każdym razem gdy chcemy zagrać musimy odpalać nasz skrypt i po jednej rozgrywce nasz program się kończy.
+Musimy dać użytkownikowi wybór czy po danej rozgrywce chce zakończyć grę czy grać dalej. Wykorzystamy do tego pętlę `while` i słówko kluczowe `break`.
+
+Po każdej rozgrywce użytkownik powinien zobaczyć pytanie:
+
+.. code-block:: sh
+
+  Czy chcesz grać dalej? tak/nie: 
+
+
+Głupi komputer potrafi też być uparty. Spraw, by czasami na odpowiedź `nie` na ostatnie pytanie wypisywał:
+
+.. code-block:: sh
+
+  Nie!? Tak łatwo mi się nie wymkniesz! Gramy dalej!
+  
+I zaczynał grę od początku. (ale bez wyboru poziomu umiejętności komputera!)
+
+Zadanie 2: Dodanie ekranów do gry
+
+Opis:
+
+Nasz gra strasznie śmieci w terminalu, ale możemy to zmienić. Za każdym razem gdy będziemy rozpoczynać nową rozgrywkę chcemy mieć pusty ekran z powitaniem.
+Możemy wykorzystać do tego moduł `os` i jego funkcję `system` by wywołać polecenie systemowe `cls` (dla linuxa i macosx `clear`).
+
+**UWAGA**: Poniższy kod nie zadziała gdy będzie uruchamiany z poziomu edytora IDLE (klawisz F5 lub menu Run -> Run Module). Aby poniższy kod poprawinie wyczyścił ekran, wasz program powinien być uruchomiony z poziomu konsoli systemowej. W windowsie aby uruchomić konsolę systemowa należy uruchomić polecenie `cmd.exe` lub zlokalizować w menu `Comand Prompt`/`Wiersz poleceń`, następnie wewnątrz konsoli systemowej wykonać polecenie `py C:/scieżka/do/waszego/pliku/gry.py`, zamieniająć podaną tu ścieżką na ścieżkę do waszego pliku z grą.
+
+Przykład:
+
+.. code-block::
+
+  import os
+  os.system('cls')
+  print("Witaj w grze!")
+
+Dopracuj grę by jej przebieg miał następujące `ekrany`:
+
+.. code-block:: sh
+  Witaj w grze:
+  S - Start gry
+  P - Wybierz poziom komputera
+  Q - Wyjście
+
+.. code-block:: sh
+
+  Wybierz poziom komputera:
+  A - Sprytny computer
+  B - Głupi computer
+
+
+.. code-block:: sh
+
+  Podaj swój wybór:
+  K - Kamień
+  P - Papier
+  N - Nożyczki
+
+
+.. code-block:: sh
+
+  Czy chcesz grać dalej? tak/nie:
+
+Uwzględnij wszystkie funkcjonalności jakie udało ci się zbudować wcześniej. Każdy z tych ekranów powinien pojawiać się na czystej konsoli. 
+
+Zadanie 3: Statystyki graczy
+
+Opis:
+
+Pora by zacząć zbierać statystyki naszych wygranych i przegranych.
+Pod koniec gry (po wszystkich rozgrywkach) wyświetl ilość wygranych komputera i gracza, oraz wyświetl kto wygrał największą ilość razy.
+
+Explore:
+
+* Oblicz procentowe wartości i wyświetl obok wyników.
+
+* Wyświetl najdłuższą sekwencję wygranych dla gracza i komputera.
+
+* Zbieraj więcej danych do analizy przy pomocy `list`. 
+
+  - https://docs.python.org/3.4/tutorial/introduction.html#lists
+  - https://docs.python.org/3.4/tutorial/datastructures.html#more-on-lists
+
+  Wyświetl najdłuższe sekwencje wygranych (jak w drugim punkcie \*) i przegranych.
+  
+Zadanie dodatkowe: Kółko i krzyżyk
+-------------------
+
+Opis:
+
+Zaprogramuj grę kółko i krzyżyk dla dwóch graczy. 
+Zacznij od najważniejszej części: rozgrywki, później rozbuduj ją o menu, imiona graczy itp.
+
+Przykładowa rozgrywka mogła by wyglądać tak:
+
+.. code-block::
+
+   1   2   3
+  A  . | . | .
+  B  . | . | .
+  C  . | . | .
+
+  Gracz X, podaj pozycję: A1
+
+   1   2   3
+  A  X | . | .
+  B  . | . | .
+  C  . | . | .
+
+  Gracz O, podaj pozycję: B2
+
+   1   2   3
+  A  X | . | .
+  B  . | O | .
+  C  . | . | .
+
+  Gracz X, podaj pozycję: B1
+
+  ...
+
+   1   2   3
+  A  X | O | X
+  B  X | O | X
+  C  O | X | O
+
+  Remis!
+
+  Czy chcesz grać dalej? [tak/nie]:
+
+
+
