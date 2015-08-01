@@ -16,9 +16,6 @@ If you decide to use the manual, we would be grateful if you contact us (however
    python_dictionaries
    python_objects
    python_import
-   django_in_action
-   django_models
-   django_views
    code_of_conduct
 
 .. going_social
