@@ -1,9 +1,9 @@
 
 Słowniki
-===================
+========
 
 Wprowadzenie
-------------------------
+------------
 
 Czas żebyś poznał/a przydatną struktrurę danych - słownik. Słowniki służą do przechowywania danych w formie klucz wartość (tak jak w encyklopedii mamy hasło, a z nim powiązany opis).
 Wyobraź sobie, że chcemy przechowywać informacje o czytelnikach w bibliotece. Dla każdego czytelnika mamy następujące dane: imię, nazwisko, data urodzenia, miejsce urodzenia, numer karty czytelnika.
@@ -19,14 +19,12 @@ Tak to wygląda w języku Python z zastosowaniem słowników:
     'readers_nr': 'ASDF1234',
   }
 
-W tym przykładzie 'name' to klucz (hasło w słowniku), któremu odpowiada wartość 'Kasia' (opis hasła).
+W tym przykładzie ``name`` to klucz (hasło w słowniku), któremu odpowiada wartość ``Kasia`` (opis hasła).
 Spróbuj teraz stworzyć swój własny rekord czytelnika.
 
 Nowoczesna Biblioteka Raczyńskich w Poznaniu chce wysyłać swoim czytelnikom życzenia urodzinowe. Żeby pan bibliotekarz wiedział kiedy się urodziłaś/eś wystarczy, że sprawdzi:
 
-.. code-block:: python
-
-  print reader['date_of_birth']
+  >>> print reader['date_of_birth']
   '19-01-1985'
   
 Pan bibliotekarz przypomniał sobie: żeby wysłać Tobie życzenia urodzinowe potrzebuje Twojego adresu. Możesz go dodać do swoich danych czytelnika w następujący sposób:
@@ -41,15 +39,19 @@ Możesz też łatwo zmienić wartość w słowniku, jeśli wcześniej popełnił
 
   reader['place_of_birth'] = 'Łódź'
   
-Żeby wypisać cały słownik na ekran, użyj komendy:
+Żeby wypisać cały słownik na ekran, możemy użyć pętli :keyword:`for`:
 
 .. code-block:: python
 
-  for key, value in reader.items():
-    print key, value
-    
+  for key in reader:
+    print key, reader[key]
+
+Użycie pętli for ze słownikiem pozwala przeiterować się po kolejnych kluczach słownika. ``reader[key]`` daje skolei dosUwaga, kolejność w jakiej
+będziemy otrzymywać klucze jest losowa, słowniki nie pamiętają kolejności. Jeżeli chcemy zapamiętać kolejność musimy
+użyć przykładowo list.
+
 Zadanie 1
-------------------------
+---------
   
 Opis: System biblioteczny zawiera dane o autorze dla każdej ksiąki. Pan bibliotrekarz układając książki na regale sprawdza autora, żeby książki były ułożone alfabetycznie.
 Spróbuj wypisać pary: książka --> autor dla każdej pozycji w słowniku, który opisuje księgozbiór biblioteki.
@@ -75,27 +77,28 @@ PRZYKŁAD (jedna linijka oczekiwanego wyjścia):
 
 
 Zadanie 2
-------------------------
+---------
 
 Możesz pomóc bibliotekarzowi sprawdzić, na którą półkę powinien odłożyć daną książkę. W tym momencie biblioteka przechowuje 
-dane o książkach w dwóch słownikach: 'title_to_author' i 'title_to_shelf_number'. Musimy je połączyć.
+dane o książkach w dwóch słownikach: ``title_to_author`` i ``title_to_shelf_number``. Musimy je połączyć.
 W wyniku połączenia powstanie nowy słownik, który dla danego tytułu książki ma zawierać informacje o numerze półki oraz autorze.
 Te informacje mają być przechowywane w krotkach o postaci (numer półki, imię i nazwisko autora)
 
-Połącz dwa słowniki title_to_author i title_to_shelf_number w jeden, przechowywany w zmiennej title_to_book_record
-Słownik title_to_author przechowuje pary (klucz : wartość) - "tytuł książki" : "imię głównego authora"
-Słownik title_to_shelf_number przechowuje pary (klucz : wartość) - "tytuł książki" : "numer półki"
+Połącz dwa słowniki ``title_to_author`` i ``title_to_shelf_number`` w jeden, przechowywany w zmiennej
+``title_to_book_record``:
 
-Wynikowy słownik title_to_book_record powinien przechowywać pary (klucz : wartość) - "tytuł książki" : 2 ELEMENTOWA KROTKA ("imię głównego autora", "numer półki")
+* Kluczem w słowniku ``title_to_author`` jest "tytuł książki", a wartością "imię głównego authora"
+* Kluczem w słowniku ``title_to_shelf_number`` jest "tytuł książki", a wartością "numer półki"
+* Kluczem w wynikowym słowniku ``title_to_book_record`` powinien być "tytuł książki", a wartością 2 elementowa krotka
+  ("imię głównego autora", "numer półki")
 
 PRZYKŁAD:
-Dla klucza 'The C Programming Language' słownik 'title_to_book_record' powinien zwrócić krotkę: ('Brian W. Kernighan', 23)
-Czyli, w interpreterze Pythona:
 
-.. code-block:: python
+Dla klucza ``The C Programming Language`` słownik ``title_to_book_record`` powinien zwrócić krotkę:
+``('Brian W. Kernighan', 23)``. Czyli, w interpreterze Pythona:
 
   >>> title_to_book_record['The C Programming Language']
-  >>>('Brian W. Kernighan', 23)
+  ('Brian W. Kernighan', 23)
   
 .. code-block:: python
 
@@ -125,16 +128,19 @@ Czyli, w interpreterze Pythona:
                          
 
 Zadanie 3
-------------------------
+---------
 
 Gdybyś szukał konkretnego wydania ksiażki po ISBN to możesz skorzystać z poniższego słownika.
 
-Wypisz zawartość słownika w formacie:
-'TITLE' by 'AUTOR' is on shelf 'NUMBER_OF_SHELF' (ISBN: 'NUMBER_OF_ISBN')
-Słownik books przechowuje pary (klucz : wartość) - "ISBN" : 3 ELEMENTOWA KROTKA ("tytuł książki", "imię głównego autora", "numer półki")
+Wypisz zawartość słownika w formacie::
 
-PRZYKŁAD (jedna linijka oczekiwanego wyjścia):
-Introduction to Algorithms by Thomas H. Cormen is on shelf 34 (ISBN: 0262032937)
+    'TITLE' by 'AUTOR' is on shelf 'NUMBER_OF_SHELF' (ISBN: 'NUMBER_OF_ISBN')
+
+Kluczem w słownik ``books`` jest numer "ISBN" , a wartością 3 ELEMENTOWA KROTKA ("tytuł książki", "imię głównego autora", "numer półki")
+
+PRZYKŁAD (jedna linijka oczekiwanego wyjścia)::
+
+    Introduction to Algorithms by Thomas H. Cormen is on shelf 34 (ISBN: 0262032937)
 
 .. code-block:: python
 
@@ -151,10 +157,12 @@ Introduction to Algorithms by Thomas H. Cormen is on shelf 34 (ISBN: 0262032937)
          
          
 Zadanie dodatkowe
-------------------------
+-----------------
 
-Uzupełnij ciało funkcji find_by_isbn_part tak, aby zwracała tytuły książek zawierające podany fragment numeru ISBN.
-Słownik books przechowuje pary (klucz : wartość) - "ISBN" : 3 ELEMENTOWA KROTKA ("tytuł książki", "imię głównego autora", "numer półki")
+Uzupełnij ciało funkcji ``find_by_isbn_part`` tak, aby zwracała tytuły książek zawierające podany fragment numeru ISBN.
+Kluczem w słowniku ``books`` jest numer ``ISBN``, a wartością 3 ELEMENTOWA KROTKA::
+
+    ("tytuł książki", "imię głównego autora", "numer półki")
 
 Uruchomienie tego skryptu spowoduje wywołanie funkcji testującej, która sprawdzi czy funkcja dobrze działa i wypisze raport na konsolę.
 
@@ -171,37 +179,35 @@ Uruchomienie tego skryptu spowoduje wywołanie funkcji testującej, która spraw
          '0735619670' : ('Code Complete', 'Steve McConnell', 77),
          '0201835959' : ('The Mythical Man-Month: Essays on Software Engineering', 'Frederick P. Brooks Jr.', 3)}
 
-POPRAW PONIŻSZĄ FUNKCJĘ
+POPRAW FUNKCJĘ ``find_by_isbn_part``:
 
 .. code-block:: python
 
-  def find_by_isbn_part(books, isbn_part):
-      result = []
-    
-    PODPOWIEDZI:
-      - użyj for
-      - isbn_part in isbn to warunek, który sprawdza czy ciąg znaków isbn_part zawiera się w isbn
-      - dodawanie elementów do listy, gdzie x to lista, a e to element, który chcesz dodać: x.append(e)
-    return result
+    def find_by_isbn_part(books, isbn_part):
+        result = []
 
-    TEGO PONIŻEJ NIE ZMIENIAJ
-    
-    .. code-block:: python
-  def test(books):
-      single_test(books, '020', ['The Pragmatic Programmer: From Journeyman to Master', 
-                               'Art of Computer Programming',
-                               'Design Patterns: Elements of Reusable Object-Oriented Software',
-                               'The Mythical Man-Month: Essays on Software Engineering'])
-      single_test(books, '18', ['The Mythical Man-Month: Essays on Software Engineering'])
-      single_test(books, '22', ['The Pragmatic Programmer: From Journeyman to Master',
-                              'Artificial Intelligence: A Modern Approach'])
-      single_test(books, '0735619670', ['Code Complete'])
+        # PODPOWIEDZI:
+        #  - użyj pętli for
+        #  - isbn_part in isbn to warunek, który sprawdza czy ciąg znaków isbn_part zawiera się w isbn
+        #  - dodawanie elementów do listy, gdzie x to lista, a e to element, który chcesz dodać: x.append(e)
+        return result
 
-  def single_test(books, input, expected_output):
-      output = find_by_isbn_part(books, input)
-      if set(output) != set(expected_output) or len(output) != len(expected_output):
-          print("ŹLE! DLA '"+input+"' WYNIK TO: '"+str(output)+"', OCZEKIWANO: '"+str(expected_output)+"'")
-      else:
-          print("OK! DLA '"+input+"'")
+    # TEGO PONIŻEJ NIE ZMIENIAJ
+    def test(books):
+        single_test(books, '020', ['The Pragmatic Programmer: From Journeyman to Master',
+                                 'Art of Computer Programming',
+                                 'Design Patterns: Elements of Reusable Object-Oriented Software',
+                                 'The Mythical Man-Month: Essays on Software Engineering'])
+        single_test(books, '18', ['The Mythical Man-Month: Essays on Software Engineering'])
+        single_test(books, '22', ['The Pragmatic Programmer: From Journeyman to Master',
+                                'Artificial Intelligence: A Modern Approach'])
+        single_test(books, '0735619670', ['Code Complete'])
 
-  test(books)
+    def single_test(books, input, expected_output):
+        output = find_by_isbn_part(books, input)
+        if set(output) != set(expected_output) or len(output) != len(expected_output):
+            print("ŹLE! DLA '"+input+"' WYNIK TO: '"+str(output)+"', OCZEKIWANO: '"+str(expected_output)+"'")
+        else:
+            print("OK! DLA '"+input+"'")
+
+    test(books)
