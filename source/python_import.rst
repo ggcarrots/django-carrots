@@ -69,6 +69,18 @@ This way we can call ``print_tree`` function as in the original program (as if i
 was defined in the same file). Now it is easier to call this function, but we have
 access to only this function.
 
+We can also access both ``tree_utils`` function by writing::
+
+    from tree_utils import print_tree, print_segment
+
+This way we can import as many functions or objects from a module as we want. To
+make the code shorter we can also write::
+
+    from tree_utils import *
+
+This will import all functions and objects from ``tree_utils`` module, but this
+solutions discouraged, as it is difficult to see what was actually imported.
+
 Batteries included
 ------------------
 
@@ -126,3 +138,46 @@ Lets finnish our lottery example by adding user input::
 
 
 .. _here: https://docs.python.org/3/library/random.html
+
+Packages
+========
+
+So we have learned how to organize our code into multiple files. As our program gets
+bigger we can split it into multiple modules. As time goes by we will have more and
+more files. In order to deal with this we can put files (modules) in a directory.
+
+Lets consider following file structure::
+
+    trees/
+        __init__.py
+        oak.py
+        beech.py
+        maple.py
+        xmas.py
+    sequence/
+        __init__.py
+        arithmetic.py
+        geometric.py
+        fibonacci.py
+
+So we have two directories: ``trees`` and ``sequence`` that contain some modules
+(.py files). These directories are called `packages`. In order for a directory to
+be a package, it has to contain ``__init__.py`` file (it can be empty). This way
+Python can distinguish packages from other directories.
+
+If we want to import something from a package we can use the same ``import`` keyword
+as before::
+
+    import trees.xmas
+
+    tree.xmas.print_tree(4)
+
+As you can see, we have to use ``.`` to indicate that we want to import ``xmas``
+module from ``trees`` package. In order to use functions from this module we need to
+write whole package and module name before function name: ``tree.xmas.print_tree``.
+This is because ``tree`` package and ``xmas`` module are also objects just like any
+other object in python and we can use them in the same way.
+
+Packages can be nested in each other, but remember, there have to be ``__init__.py``
+file on each level. Using packages and modules we can create most complex
+applications.
