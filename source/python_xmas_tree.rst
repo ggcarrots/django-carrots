@@ -547,15 +547,14 @@ following pictures (sizes 1, 2 and 3):
     
     
 Kalendarz
--------------------
+---------
 
 Opis:
 
 Przy pomocy danych:
 
-.. code-block::
+.. code-block:: python
 
-  python
   data = [
       ('January', range(31)),
       ('February', range(28)),
@@ -574,7 +573,7 @@ Przy pomocy danych:
 
 Wyświetl kalendarz:
 
-.. code-block::
+::
 
   January
 
@@ -591,7 +590,7 @@ Wyświetl kalendarz:
   14 15 16 17 18 19 20
   21 22 23 24 25 26 27
 
- ...
+  ...
 
   November
 
@@ -613,11 +612,11 @@ Podpowiedź: Zacznij od napisania funkcji, która wyświetli dni jednego miesią
 
     
 Rozbudowa gry 'papier, nożyce i kamień'
--------------------
+---------------------------------------
 
 
 Zadanie 1: Gramy dalej, czyli kilka rozdań w jednej grze 
-
+````````````````````````````````````````````````````````
 
 Opis:
 
@@ -626,14 +625,14 @@ Musimy dać użytkownikowi wybór czy po danej rozgrywce chce zakończyć grę c
 
 Po każdej rozgrywce użytkownik powinien zobaczyć pytanie:
 
-.. code-block:: sh
+::
 
   Czy chcesz grać dalej? tak/nie: 
 
 
 Głupi komputer potrafi też być uparty. Spraw, by czasami na odpowiedź `nie` na ostatnie pytanie wypisywał:
 
-.. code-block:: sh
+::
 
   Nie!? Tak łatwo mi się nie wymkniesz! Gramy dalej!
   
@@ -641,7 +640,7 @@ I zaczynał grę od początku. (ale bez wyboru poziomu umiejętności komputera!
 
 
 Zadanie 2: Dodanie ekranów do gry
-
+`````````````````````````````````
 
 Opis:
 
@@ -652,26 +651,27 @@ Możemy wykorzystać do tego moduł `os` i jego funkcję `system` by wywołać p
 
 Przykład:
 
-.. code-block::
+.. code-block:: python
 
   print("Witaj w grze!")
 
 Dopracuj grę by jej przebieg miał następujące `ekrany`:
 
-.. code-block:: sh
+::
+
   Witaj w grze:
   S - Start gry
   P - Wybierz poziom komputera
   Q - Wyjście
 
-.. code-block:: sh
+::
 
   Wybierz poziom komputera:
   A - Sprytny computer
   B - Głupi computer
 
 
-.. code-block:: sh
+::
 
   Podaj swój wybór:
   K - Kamień
@@ -679,7 +679,7 @@ Dopracuj grę by jej przebieg miał następujące `ekrany`:
   N - Nożyczki
 
 
-.. code-block:: sh
+::
 
   Czy chcesz grać dalej? tak/nie:
 
@@ -687,7 +687,7 @@ Uwzględnij wszystkie funkcjonalności jakie udało ci się zbudować wcześniej
 
 
 Zadanie 3: Statystyki graczy
-
+````````````````````````````
 
 Opis:
 
@@ -708,7 +708,7 @@ Explore:
   Wyświetl najdłuższe sekwencje wygranych (jak w drugim punkcie \*) i przegranych.
   
 Zadanie dodatkowe: Kółko i krzyżyk
--------------------
+``````````````````````````````````
 
 Opis:
 
@@ -717,7 +717,7 @@ Zacznij od najważniejszej części: rozgrywki, później rozbuduj ją o menu, i
 
 Przykładowa rozgrywka mogła by wyglądać tak:
 
-.. code-block::
+::
 
    1   2   3
   A  . | . | .
