@@ -236,7 +236,7 @@ We also can change the value assigned to the name. The new value does not need t
     >>> print(x)
     Scarab
 
-The names are independent of each other. We have just assigned a new valu
+The names are independent of each other. We have just assigned a new value
 to ``x``, but the value assigned to ``y`` remains unchanged:
 
     >>> print(y)
@@ -497,7 +497,7 @@ All arguments are given in parentheses. To specify more than one, separate them 
 
 
 Checking conditions
-====================
+===================
 
 Let’s go to our next problem. We want our program to print the appropriate
 classification for the calculated BMI by using the table below:
