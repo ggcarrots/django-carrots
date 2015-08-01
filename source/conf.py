@@ -186,22 +186,24 @@ blockdiag_fontpath = "fonts/ubuntu/Ubuntu-B.ttf"
 # -- Options for LaTeX output --------------------------------------------------
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-'papersize': 'a4paper',
+    # The paper size ('letterpaper' or 'a4paper').
+    'papersize': 'a4paper',
+    # The font size ('10pt', '11pt' or '12pt').
+    #'pointsize': '10pt',
 
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    # Additional stuff for the LaTeX preamble.
+    'preamble': r'''
+    \usepackage{fontspec}
+    \setmainfont{DejaVu Sans}
+    \setmonofont{DejaVu Sans Mono}
+    ''',
 
-# Additional stuff for the LaTeX preamble.
-'preamble': r'''
-\usepackage{fontspec}
-\setmainfont{DejaVu Sans}
-\setmonofont{DejaVu Sans Mono}
-''',
-
-# Disable inputenc to use lualatex
-'inputenc': '',
-'fontenc': '',
+    # for polish characters (and eglish to)
+    'babel': '\usepackage[polish,english]{babel}',
+    # Disable inputenc to use lualatex
+    'utf8extra': '',
+    'inputenc': '',
+    'fontenc': '',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
