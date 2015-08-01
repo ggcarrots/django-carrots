@@ -136,11 +136,8 @@ Lets finnish our lottery example by adding user input::
     else:
         print("Sorry, today's winning number is %s." % (value,))
 
-
-.. _here: https://docs.python.org/3/library/random.html
-
 Packages
-========
+--------
 
 So we have learned how to organize our code into multiple files. As our program gets
 bigger we can split it into multiple modules. As time goes by we will have more and
@@ -181,3 +178,12 @@ other object in python and we can use them in the same way.
 Packages can be nested in each other, but remember, there have to be ``__init__.py``
 file on each level. Using packages and modules we can create most complex
 applications.
+
+Exercise
+--------
+
+Write program ``lotto.py`` that asks user to give 6 numbers from 1-49, then selects
+6 numbers from 1-49 by random and tell user if he won or not.
+
+
+.. _here: https://docs.python.org/3/library/random.html
