@@ -182,7 +182,7 @@ Ensure your terminal is well configured:
     3.4.0
 
 
-.. _python.org: http://python.org/download/releases/3.4.0/
+.. _python.org: https://www.python.org/downloads/release/python-343/
 
 .. note::
     You may already have the ``pip`` command available on your system. Always check which pip you are using with command: ``pip --version``.
