@@ -866,9 +866,10 @@ We can also align the string ``-``  to the left by putting before the number of 
 Aligning towards the centre is an additional excercise for you :).
 
 Powtórzenie funkcji print i input
-----------
+---------------------------------
 
 Zadanie 1: Gra 'papier, nożyczki, kamień'
+`````````````````````````````````````````
 
 Opis:
 
@@ -883,9 +884,8 @@ Na początek nasza gra ma zadanie:
 
 Kod początkowy:
 
-.. code-block:: sh
-  
-    python
+.. code-block:: python
+
     print("Witaj w grze")
     computer_choice = 'kamien'
 
@@ -902,58 +902,20 @@ Explore:
     * Wyświetlić opis gry w ładnej ramce
     * Wyświetlić opis gry na żądanie (np. gdy użytkownik wpiszę jako swój wybór `help`)
 
-Zadanie 2: Losowość w grze 
 
-
-Opis:
-
-Wykorzystując kod z zadania 1 zmodyfikuj kod by komputer losował swój wybór wykorzystując moduł `random`.
-
-Pomoże wam dokumentacja modułu random w internecie https://docs.python.org/3/library/random.html lub w interaktywnej konsoli: 
-    
-.. code-block:: sh
-    
-    python
-    import random
-    help(random)
-    
-
-**Podpowiedź:**
-Wykorzystamy w tym zadaniu tzw. `krotki` (ang. tuple), które służą do przechowywania sekwencji danych np.:
-
-.. code-block:: sh
-    
-    python
-    my_numbers = (1, 20, 3, 10)
-    my_friends = ('John', 'Alice', 'Kate', 'Lucas')
-    my_pets = ('skipper', 'Mr. Parrot', 'kitty', 'blacky')
-    
-W krotce będziemy przechowywać 'papier', 'nożyce', 'kamień'.
-
-Explore:
-
-A. Spraw by wybór komputera był trochę `głupszy` i zamiast wybierać z pośród 3 możliwości z równym prawdopodobieństwem wybierał jedną opcję z z prawdopodobieństwem 50% a pozostałe dwie z 25%. 
-
-B. Spraw by wybór komputera był `głupszy` jak w 1. ale tym razem element który będzie losowany z 50% prawdopodobieństwem również był losowy, np:
-
-        - W pierwszym uruchomieniu komputer może wybrać: kamień 50%, papier 25%, nożyczki 25%.
-        - W kolejnym uruchomieniu komputer może wybrać: kamień 25%, papier 50%, nożyczki 25%.
-
-**Uwaga:** powyższe przykłady nie mają ustalonej kolejności, wybory komputera powinny być losowe!
-Podpowiedź: należy wylosować indeks elementu, który będzie miał pradopodobieństwo 50%.
-
-
-Zadanie 3. Dodanie menu do gry
+Zadanie 2. Dodanie menu do gry
+``````````````````````````````
 
 Opis:
 
-Aktualnie nasza gra przyjmuje wszystkie wartości jakie wpiszę użytkownik i działa na nich jakby były zawsze popraw. Pora to zmienić i przyjmować tylko określone wartości od użytkownika a na niepoprawną wartość wypisywać błąd.
+Aktualnie nasza gra przyjmuje wszystkie wartości jakie wpisze użytkownik i działa na nich jakby były zawsze poprawne.
+Pora to zmienić i przyjmować tylko określone wartości od użytkownika a na niepoprawną wartość wypisywać błąd.
 
 Explore:
 
  * Zamiast przyjmować wartości bezpośrednio wyświetl `menu` z możliwościami wyboru, np:
 
-.. code-block:: sh
+::
 
     A. Kamień
     B. Papier
@@ -964,10 +926,10 @@ Explore:
 
  * Dodaj przed rozpoczęciem prawdziwej gry wybór poziomu trudności komputera, np:
 
-.. code-block:: sh
+::
 
-    A. Sprytny computer
-    B. Mniej sprytny computer
+    A. Sprytny komputer
+    B. Mniej sprytny komputer
     
 który będzie określał czy komputer ma być losowy (33%/33%/33%) czy `głupi` (50%/25%/25%).
 
