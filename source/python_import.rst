@@ -179,8 +179,75 @@ Packages can be nested in each other, but remember, there have to be ``__init__.
 file on each level. Using packages and modules we can create most complex
 applications.
 
-Exercise
---------
+Exercises
+---------
+
+Zadanie 1: Losowość w grze
+``````````````````````````
+
+Opis:
+
+Wykorzystując kod z zadania *Gra 'papier, nożyczki, kamień'* zmodyfikuj kod by komputer losował swój wybór wykorzystując
+moduł `random`.
+
+**Podpowiedź:**
+
+Wykorzystamy w tym zadaniu tzw. `krotki` (ang. tuple), które służą do przechowywania sekwencji danych np.:
+
+.. code-block:: sh
+
+    python
+    my_numbers = (1, 20, 3, 10)
+    my_friends = ('John', 'Alice', 'Kate', 'Lucas')
+    my_pets = ('skipper', 'Mr. Parrot', 'kitty', 'blacky')
+
+W krotce będziemy przechowywać 'papier', 'nożyce', 'kamień'.
+
+Explore:
+
+* Spraw by wybór komputera był trochę `głupszy` i zamiast wybierać z pośród 3 możliwości z równym prawdopodobieństwem
+  wybierał jedną opcję z z prawdopodobieństwem 50% a pozostałe dwie z 25%.
+* Spraw by wybór komputera był `głupszy` jak w poprzednim punkcie, ale tym razem element, który będzie losowany z 50%
+  prawdopodobieństwem również był losowy, np:
+
+  * W pierwszym uruchomieniu komputer może wybrać: kamień 50%, papier 25%, nożyczki 25%.
+  * W kolejnym uruchomieniu komputer może wybrać: kamień 25%, papier 50%, nożyczki 25%.
+
+**Uwaga:** powyższe przykłady nie mają ustalonej kolejności, wybory komputera powinny być losowe!
+Podpowiedź: należy wylosować indeks elementu, który będzie miał pradopodobieństwo 50%.
+
+Zadanie 2. Dodanie menu do gry
+``````````````````````````````
+
+Opis:
+
+Aktualnie nasza gra przyjmuje wszystkie wartości jakie wpisze użytkownik i działa na nich jakby były zawsze poprawne.
+Pora to zmienić i przyjmować tylko określone wartości od użytkownika a na niepoprawną wartość wypisywać błąd.
+
+Explore:
+
+ * Zamiast przyjmować wartości bezpośrednio wyświetl `menu` z możliwościami wyboru, np:
+
+::
+
+    A. Kamień
+    B. Papier
+    C. Nożyczki
+    D. Help
+    Q. Wyjście
+
+
+ * Dodaj przed rozpoczęciem prawdziwej gry wybór poziomu trudności komputera, np:
+
+::
+
+    A. Sprytny komputer
+    B. Mniej sprytny komputer
+
+który będzie określał czy komputer ma być losowy (33%/33%/33%) czy `głupi` (50%/25%/25%).
+
+Zadanie 3. Lotto
+````````````````
 
 Write program ``lotto.py`` that asks user to give 6 numbers from 1-49, then selects
 6 numbers from 1-49 by random and tell user if he won or not.
