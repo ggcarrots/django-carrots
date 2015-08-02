@@ -647,8 +647,6 @@ Opis:
 Nasz gra strasznie śmieci w terminalu, ale możemy to zmienić. Za każdym razem gdy będziemy rozpoczynać nową rozgrywkę chcemy mieć pusty ekran z powitaniem.
 Możemy wykorzystać do tego moduł `os` i jego funkcję `system` by wywołać polecenie systemowe `cls` (dla linuxa i macosx `clear`).
 
-**UWAGA**: Poniższy kod nie zadziała gdy będzie uruchamiany z poziomu edytora IDLE (klawisz F5 lub menu Run -> Run Module). Aby poniższy kod poprawinie wyczyścił ekran, wasz program powinien być uruchomiony z poziomu konsoli systemowej. W windowsie aby uruchomić konsolę systemowa należy uruchomić polecenie `cmd.exe` lub zlokalizować w menu `Comand Prompt`/`Wiersz poleceń`, następnie wewnątrz konsoli systemowej wykonać polecenie `py C:/scieżka/do/waszego/pliku/gry.py`, zamieniająć podaną tu ścieżką na ścieżkę do waszego pliku z grą.
-
 Przykład:
 
 .. code-block:: python
@@ -696,16 +694,16 @@ Pod koniec gry (po wszystkich rozgrywkach) wyświetl ilość wygranych komputera
 
 Explore:
 
-* Oblicz procentowe wartości i wyświetl obok wyników.
+1. Oblicz procentowe wartości i wyświetl obok wyników.
 
-* Wyświetl najdłuższą sekwencję wygranych dla gracza i komputera.
+2. Wyświetl najdłuższą sekwencję wygranych dla gracza i komputera.
 
-* Zbieraj więcej danych do analizy przy pomocy `list`. 
+3. Zbieraj więcej danych do analizy przy pomocy `list`.
 
   - https://docs.python.org/3.4/tutorial/introduction.html#lists
   - https://docs.python.org/3.4/tutorial/datastructures.html#more-on-lists
 
-  Wyświetl najdłuższe sekwencje wygranych (jak w drugim punkcie \*) i przegranych.
+  Wyświetl najdłuższe sekwencje wygranych (jak w punkcie 2.) i przegranych.
   
 Zadanie dodatkowe: Kółko i krzyżyk
 ``````````````````````````````````
@@ -750,6 +748,3 @@ Przykładowa rozgrywka mogła by wyglądać tak:
   Remis!
 
   Czy chcesz grać dalej? [tak/nie]:
-
-
-
