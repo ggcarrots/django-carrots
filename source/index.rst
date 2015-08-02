@@ -7,10 +7,6 @@ This is a manual to learn Python and Django. Even if you cannot program yet, you
 The manual is a part of the Django Carrots workshop organized by Geek Girls Carrots. You can use it to organize your own workshops or for self-study.
 If you decide to use the manual, we would be grateful if you contact us (however it is optional).
 
-
-Table of Contents 
------------------
-
 .. toctree::
    :maxdepth: 3
 

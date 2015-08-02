@@ -209,7 +209,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ('index', 'workshops.tex', 'Django Carrots', 'Geek Girls Carrots and others', 'manual'),
+    ('index', 'workshops.tex', html_title, 'Geek Girls Carrots and others', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -238,7 +238,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'warsztatydjango', 'Django Carrots',
+    ('index', 'warsztatydjango', html_title,
      [u'Geek Girls Carrots and others'], 1)
 ]
 
@@ -252,7 +252,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'WarsztatyDjango', 'Django Carrots',
+  ('index', 'WarsztatyDjango', html_title,
    'Geek Girls Carrots and others', 'WarsztatyDjango',
    'One line description of project.',
    'Miscellaneous'),
@@ -271,7 +271,7 @@ texinfo_documents = [
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = 'Django Carrots'
+epub_title = html_title
 epub_author = 'Geek Girls Carrots and others'
 epub_publisher = 'Geek Girls Carrots'
 epub_copyright = 'Geek Girls Carrots and others'
