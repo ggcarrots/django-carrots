@@ -3,7 +3,7 @@ Objects and classes
 ===================
 
 In fact, this chapter could be the subject of a series of workshops, but we will focus on the most
-basic things, which we will need while working with Django.
+basic things.
 
 Every value is an object
 ------------------------
