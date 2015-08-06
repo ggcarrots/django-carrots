@@ -49,7 +49,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Django Carrots'
-copyright = u'Geek Girls Carrots and others'
+copyright = u'Code Carrots powered by Intel (7-9 August)'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -200,7 +200,7 @@ latex_elements = {
 
     # for polish characters (and eglish to)
     'babel': '\usepackage[polish,english]{babel}',
-    # Disable inputenc to use lualatex
+    # Disable inputenc to use lualatex or xelatex
     'utf8extra': '',
     'inputenc': '',
     'fontenc': '',
@@ -209,7 +209,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ('index', 'workshops.tex', html_title, 'Geek Girls Carrots and others', 'manual'),
+    ('index', 'workshops.tex', html_title, copyright, 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -239,7 +239,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'warsztatydjango', html_title,
-     [u'Geek Girls Carrots and others'], 1)
+     [copyright], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -253,7 +253,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'WarsztatyDjango', html_title,
-   'Geek Girls Carrots and others', 'WarsztatyDjango',
+   copyright, 'WarsztatyDjango',
    'One line description of project.',
    'Miscellaneous'),
 ]
@@ -272,9 +272,9 @@ texinfo_documents = [
 
 # Bibliographic Dublin Core info.
 epub_title = html_title
-epub_author = 'Geek Girls Carrots and others'
+epub_author = copyright
 epub_publisher = 'Geek Girls Carrots'
-epub_copyright = 'Geek Girls Carrots and others'
+epub_copyright = copyright
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
