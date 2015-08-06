@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction to Python &mdash; Django Carrots</title>
+    <title>Introduction to Python &mdash; Code Carrots</title>
     
     <link rel="stylesheet" href="_static/carrots.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -13,7 +13,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0dev1',
+        VERSION:     '2.0dev1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Carrots" href="index.html" />
+    <link rel="top" title="Code Carrots" href="index.html" />
     <link rel="next" title="Christmas Tree" href="python_xmas_tree.html" />
     <link rel="prev" title="Installation" href="install.html" /> 
   </head>
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="install.html" title="Installation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Django Carrots</a> &raquo;</li> 
+        <li><a href="index.html">Code Carrots</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -59,10 +59,10 @@ Type <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credi
 </pre></div>
 </div>
 <p>Earlier we were working in the operating system&#8217;s command line and we could give commands.
-The prompt was <tt class="docutils literal"><span class="pre">~$</span></tt>. After running the <tt class="docutils literal"><span class="pre">python</span></tt> command, prompt changed to
-<tt class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></tt>.  For us that means that for now we may only use commands from the Python language. Recent commands (
+The prompt was <tt class="docutils literal"><span class="pre">~$</span></tt>. After running the <tt class="docutils literal"><span class="pre">python</span></tt> command, the prompt changed to
+<tt class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></tt>.  For us, that means that for now we may only use commands from the Python language. Recent commands (
 such as: <tt class="docutils literal"><span class="pre">cd</span></tt>, <tt class="docutils literal"><span class="pre">mkdir</span></tt>) will not work. This is the moment when we start to learn a new language!</p>
-<p>We will not type signs <tt class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></tt> (the same as with <tt class="docutils literal"><span class="pre">~$</span></tt>) - the interpreter will do that for us.</p>
+<p>We don&#8217;t type the prompt <tt class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></tt> (the same as with <tt class="docutils literal"><span class="pre">~$</span></tt>) - the interpreter will do that for us.</p>
 <p>Now we can count something, for example: <tt class="docutils literal"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">2</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
 <span class="go">4</span>
@@ -84,7 +84,7 @@ such as: <tt class="docutils literal"><span class="pre">cd</span></tt>, <tt clas
 </pre></div>
 </div>
 <p>Please pay special attention when writing decimals: use a period, not a comma. Commas will be used to
-define <a class="reference internal" href="#bmi-tuples"><em>tuple</em></a> but more on that later.</p>
+define <a class="reference internal" href="#bmi-tuples"><em>tuple</em></a> (but more on that later).</p>
 <div class="section" id="introduce-yourself">
 <h2>Introduce yourself<a class="headerlink" href="#introduce-yourself" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="strings">
@@ -113,18 +113,18 @@ Here are some examples:</p>
 </pre></div>
 </div>
 <p>The string must always begin and end with the same character. This may be a single quote (<tt class="docutils literal"><span class="pre">'</span></tt>) or
-double quotes (<tt class="docutils literal"><span class="pre">&quot;</span></tt>). It has no effect on the value of the string, i.e, typing <tt class="docutils literal"><span class="pre">&quot;Batman&quot;</span></tt> we create
+double quotes (<tt class="docutils literal"><span class="pre">&quot;</span></tt>). It has no effect on the value of the string, i.e, typing <tt class="docutils literal"><span class="pre">&quot;Batman&quot;</span></tt> creates
 a string <tt class="docutils literal"><span class="pre">Batman</span></tt> - quotes are not a part of it, they only indicate that it is a string (
-unfortunately, Python is not so clever to guess it by itself).</p>
+unfortunately, Python is not so clever as to guess it by itself).</p>
 </div>
 <div class="section" id="printing-the-strings">
 <h3>Printing the strings<a class="headerlink" href="#printing-the-strings" title="Permalink to this headline">¶</a></h3>
-<p>But how to present value in a readable form? We can do it by using the command  <a class="reference external" href="http://docs.python.org/3/library/functions.html#print" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">print()</span></tt></a>:</p>
+<p>How do we present values in a readable form? We can do it by using the <a class="reference external" href="http://docs.python.org/3/library/functions.html#print" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">print()</span></tt></a> command:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
 <span class="go">Hello World</span>
 </pre></div>
 </div>
-<p>In a similar way we can write several strings in a single line, without adding them to each other.
+<p>In a similar way, we can write several strings in a single line without adding them to each other.
 They will be separated by spaces:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;Hi, my name is&quot;</span><span class="p">,</span> <span class="s">&quot;Łukasz&quot;</span><span class="p">)</span>
 <span class="go">Hi, my name is Łukasz</span>
@@ -140,30 +140,32 @@ For now, the only other kind of values we know are numbers:</p>
 <span class="go">2 + 2 = 4</span>
 </pre></div>
 </div>
-<p>For now we finish our work with the interactive console. To exit it enter <cite>quit()</cite>:</p>
+<p>We are done with the interactive console for now. To exit it enter <cite>quit()</cite>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">quit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Or faster by typing <tt class="docutils literal"><span class="pre">Ctrl+D</span></tt> (for Linux) or <tt class="docutils literal"><span class="pre">Ctrl+Z</span></tt> (for Windows).</p>
+<p>Or hold <tt class="docutils literal"><span class="pre">Ctrl+D</span></tt> (for Linux) or <tt class="docutils literal"><span class="pre">Ctrl+Z</span></tt> (for Windows).</p>
 </div>
 </div>
 <div class="section" id="source-files">
 <h2>Source files<a class="headerlink" href="#source-files" title="Permalink to this headline">¶</a></h2>
-<p>So far our code was executed in an interactive mode where we give commands
+<p>So far, our code was executed in an interactive mode where we give commands
 separately and immediately get an answer. It’s a great way to experiment and learn
-new language elements, that is why we will get back to it.</p>
-<p>Our first program may look as follows:</p>
+new language elements, which is why we will get back to it eventually.</p>
+<p>Our first program will look like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;Hi, my name is Lucas&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Save this program in a new file called <tt class="docutils literal"><span class="pre">visitingcard.py</span></tt>, and then run it from the command line using the
-command <tt class="docutils literal"><span class="pre">python</span> <span class="pre">visitingcard.py</span></tt>:</p>
+<p>In order to write and save code in a file we need to use a text editor.
+Find a text editor that works on your OS (see <a class="reference external" href="http://en.wikipedia.org/wiki/List_of_text_editors">list of text editors on Wikipedia</a> for examples).
+Type the above Python code and save it in a new file called <tt class="docutils literal"><span class="pre">visitingcard.py</span></tt>.
+Then run your first Python program, from the command line, using the following.</p>
 <div class="highlight-sh"><div class="highlight"><pre>(workshops) ~$ python visitingcard.py
 Hi, my name is Lucas
 (workshops) ~$
 </pre></div>
 </div>
-<p>A single program can contain more than one command. Each should be in a separate line, for example:</p>
+<p>A single program can contain more than one command. Each should be on a separate line. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;Hi,&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">()</span>
 
@@ -174,7 +176,7 @@ Hi, my name is Lucas
 </pre></div>
 </div>
 <p>We can insert blank lines wherever we want in <tt class="docutils literal"><span class="pre">visitingcard.py</span></tt> file to increase its readability.
-Here we split the message header from its content and its end.</p>
+Here, we split the message header from the content and the end.</p>
 </div>
 <div class="section" id="bmi-calculator">
 <h2>BMI calculator<a class="headerlink" href="#bmi-calculator" title="Permalink to this headline">¶</a></h2>
@@ -183,8 +185,8 @@ The formula for its calculation is as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre>BMI = (mass (kg)) / (height (m)) squared
 </pre></div>
 </div>
-<p>We can divide, exponentate, and print out numbers. So let&#8217;s create a new file called <tt class="docutils literal"><span class="pre">bmi.py</span></tt>
-and try to write a program that calculates our BMI:</p>
+<p>We already know how to divide, exponentiate, and print out numbers. Let&#8217;s create a new file called <tt class="docutils literal"><span class="pre">bmi.py</span></tt>
+and write a program that calculates our BMI:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;Your BMI is:&quot;</span><span class="p">,</span> <span class="mf">65.5</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.75</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -198,20 +200,20 @@ and try to write a program that calculates our BMI:</p>
 </div>
 <p>As you can see, our program still needs some improvements:</p>
 <ol class="arabic simple">
-<li>If someone else would like to use this program, we must change the contents of <tt class="docutils literal"><span class="pre">bmi.py</span></tt> file.</li>
-<li>For a person who does not know the value of BMI table by heart, the value 21.387755102 won’t say
+<li>If someone else would like to use this program, we must change the contents of the <tt class="docutils literal"><span class="pre">bmi.py</span></tt> file.</li>
+<li>To someone who does has not memorized the BMI table, the value 21.387755102 won’t mean
 anything.</li>
 <li>Printing so many decimal places is unnecessary. BMI is measured with an accuracy of two decimal
 places.</li>
 </ol>
-<p>Anyway, programming is an art of solving problems, so … let&#8217;s get to work! It will give us an
+<p>Programming is the art of solving problems, so … let&#8217;s get to work! It will give us an
 opportunity to learn about some new features of Python.</p>
 </div>
 <div class="section" id="names">
 <h2>Names<a class="headerlink" href="#names" title="Permalink to this headline">¶</a></h2>
-<p>Let&#8217;s try to solve the first problem. At the beginning we would like to make our program more
+<p>Let&#8217;s try to solve the first problem. We would like to make our program more
 readable, i.e. so that for the person reading the results, it would be obvious which value is the
-weight, and which is the height.</p>
+weight and which is the height.</p>
 <p>That&#8217;s why we give names to these values​​:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">weight</span> <span class="o">=</span> <span class="mf">65.5</span>
 <span class="n">height</span> <span class="o">=</span> <span class="mf">1.75</span>
@@ -224,8 +226,8 @@ weight, and which is the height.</p>
 <div class="highlight-none"><div class="highlight"><pre>Your BMI is: 21.387755102040817
 </pre></div>
 </div>
-<p>In order to understand better how names work, let’s go back for a while
-to the interactive mode and give a few names to some values:</p>
+<p>In order to better understand how names work, let’s go back to the interactive mode
+for a while and give names to some values:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">PI</span> <span class="o">=</span> <span class="mf">3.1415</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Amelia&quot;</span>
@@ -248,26 +250,26 @@ to the interactive mode and give a few names to some values:</p>
 <span class="go">Scarab</span>
 </pre></div>
 </div>
-<p>The names are independent of each other. We have just assigned to <tt class="docutils literal"><span class="pre">x</span></tt>
-a new value, but the value assigned to <tt class="docutils literal"><span class="pre">y</span></tt> remains unchanged:</p>
+<p>The names are independent of each other. We have just assigned a new value
+to <tt class="docutils literal"><span class="pre">x</span></tt>, but the value assigned to <tt class="docutils literal"><span class="pre">y</span></tt> remains unchanged:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="go">42</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>For the ones who already know other programming languages.</p>
+<p>For those who already know other programming languages.</p>
 <p>You probably wonder why we do not use the term &#8220;variable&#8221;.
-This is because the names in Python do not work the same way as variables.
-In most languages, the operation  <tt class="docutils literal"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span></tt> would create a copy of the <tt class="docutils literal"><span class="pre">x</span></tt>
+This is because the names in Python do not work in the same way as variables.
+In most languages, the operation  <tt class="docutils literal"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span></tt> would create a copy of <tt class="docutils literal"><span class="pre">x</span></tt>
 and would introduce it in the variable <tt class="docutils literal"><span class="pre">y</span></tt>.</p>
-<p>In Python nothing is duplicated. <tt class="docutils literal"><span class="pre">y</span></tt> becomes only an alternative name for the same value.
-If you change this value, both the <tt class="docutils literal"><span class="pre">x</span></tt>, and <tt class="docutils literal"><span class="pre">y</span></tt> will show the same thing.</p>
+<p>In Python, nothing is silently copied. <tt class="docutils literal"><span class="pre">y</span></tt> only becomes an alternative name for the same value.
+If you change this value, both <tt class="docutils literal"><span class="pre">x</span></tt>, and <tt class="docutils literal"><span class="pre">y</span></tt> will show the same thing.</p>
 <p class="last">In our example we did not change the value of the number <tt class="docutils literal"><span class="pre">42</span></tt>,
-but only the value assigned to  <tt class="docutils literal"><span class="pre">x</span></tt> (in particular, the values of the numbers
-are not modified, despite the fact that in 1897 the lower house of the Indiana state accepted
+but only the value assigned to  <tt class="docutils literal"><span class="pre">x</span></tt> (the values of numbers
+are not modified despite the fact that in 1897 the lower house of the state of Indiana voted
 to change the value of the number π to <tt class="docutils literal"><span class="pre">3</span></tt> - which was rejected in the Senate).
-Therefore, the print  <tt class="docutils literal"><span class="pre">print(y)</span></tt> will give us <tt class="docutils literal"><span class="pre">42</span></tt>.</p>
+Therefore, <tt class="docutils literal"><span class="pre">print(y)</span></tt> will give us <tt class="docutils literal"><span class="pre">42</span></tt>.</p>
 </div>
 <p>As we have seen in our program, we can also give names to the results of calculations and use names in
 calculations:</p>
@@ -278,7 +280,7 @@ calculations:</p>
 <span class="go">65.5 1.75 21.387755102040817</span>
 </pre></div>
 </div>
-<p>Although once a value is calculated, it is not modified:</p>
+<p>Once a value is calculated, it is not modified:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="mi">64</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">bmi</span><span class="p">)</span>
 <span class="go">64 1.75 21.387755102040817</span>
@@ -292,8 +294,8 @@ calculations:</p>
 </div>
 <p>Now is time to add some comments to our program so that the user (and us too!)
 remembers that the weight has to be given in kilograms.</p>
-<p>Comments allow us to put arbitrary text in our python program. Comments will be ignored by interpreter.</p>
-<p>A comment in Python is everything after the character <tt class="docutils literal"><span class="pre">#</span></tt> till the end of the line:</p>
+<p>Comments allow us to put arbitrary text in our python program. Comments will be ignored by the interpreter.</p>
+<p>A comment in Python is everything after the character <tt class="docutils literal"><span class="pre">#</span></tt> until the end of the line:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># Weight in kilograms</span>
 <span class="n">weight</span> <span class="o">=</span> <span class="mf">65.5</span>
 
@@ -307,16 +309,16 @@ remembers that the weight has to be given in kilograms.</p>
 </div>
 <div class="section" id="calling-a-function">
 <h2>Calling a function<a class="headerlink" href="#calling-a-function" title="Permalink to this headline">¶</a></h2>
-<p>Our program looks quite OK, but if a user wants to calculate his/her BMI, he still has to change the
+<p>Our program looks good, but if a user wants to calculate his/her BMI, they still have to change the
 content of the program. It would be more convenient to enter the required values in the console after
 opening the program and get the BMI result.</p>
-<p>In order to write such a program we need to learn how to use the functions. The first function we are
+<p>To write such a program, we need to learn how to use the functions. The first function we are
 going to learn is <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span>
 <span class="go">Type help() for interactive help, or help(object) for help about object.</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> function is very friendly as it tells us how we should use it. It can also tell you how to
+<p>The <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> function is very friendly and tells us how we should use it. It can also tell you how to
 use the other functions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
 <span class="go">Help on function input in module builtins:</span>
@@ -330,7 +332,7 @@ use the other functions:</p>
 <span class="go">    is printed without a trailing newline before reading.</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="http://docs.python.org/3/library/functions.html#input" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">input()</span></tt></a> will be used to load data from the user. As we read in the description, it reads the
+<p>We will use <a class="reference external" href="http://docs.python.org/3/library/functions.html#input" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">input()</span></tt></a> to load data from the user. As we read in the description, <a class="reference external" href="http://docs.python.org/3/library/functions.html#input" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">input()</span></tt></a> reads the
 string:</p>
 <div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">input</span><span class="p">()</span>
 <span class="go">Ala has a cat</span>
@@ -339,11 +341,11 @@ string:</p>
 </div>
 <p>Now you will learn what &#8220;calling a function&#8221; means. You can call a function using <tt class="docutils literal"><span class="pre">()</span></tt>, which is
 an information for the interpreter to call a function. Calling a function will run a function. If you
-forget  to type <tt class="docutils literal"><span class="pre">()</span></tt> after the function name, the function is not called. In this situation
-you will not get any informations about an error, because the command you typed is still correct.</p>
-<p>Generally, called functions <strong>return</strong> some values. <a class="reference external" href="http://docs.python.org/3/library/functions.html#input" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">input()</span></tt></a> function returns a string, that’s why
-we can use it the same way as we used strings before.</p>
-<p>For example we can use <tt class="docutils literal"><span class="pre">input()</span></tt> to save given string as a name:</p>
+forget  to type <tt class="docutils literal"><span class="pre">()</span></tt> after the function name, the function is not called. In this situation,
+you will not get any informations about errors, because the command you typed is still correct.</p>
+<p>Generally, function calls <strong>return</strong> some values. The <a class="reference external" href="http://docs.python.org/3/library/functions.html#input" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">input()</span></tt></a> function returns a string, that’s why
+we can use it the same way that we used strings before.</p>
+<p>For example, we can use <tt class="docutils literal"><span class="pre">input()</span></tt> to save a given string as a name:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="go">Joanna</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">name</span>
@@ -396,10 +398,9 @@ or to the string <tt class="docutils literal"><span class="pre">&quot;60.5&quot;
 <span class="go"> |  ...</span>
 </pre></div>
 </div>
-<p>The function <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> does not hesitate to inform us that, in fact,
-<tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">float()</span></tt> are not functions, but classes (more about this in the further part of
-the manual) hence the information about all the other things that you can use them for. For now, we
-are only interested in only the basic functionality of the conversion of strings into the numbers of
+<p>The <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> function does not hesitate to inform us that, in fact,
+<tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">float()</span></tt> are not functions but classes (we will talk about those later), hence the information about all the other things that you can use them for. For now, we
+are only interested in the basic functionality of converting strings into numbers of a
 determined type.</p>
 <p>Let’s test <tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">float()</span></tt>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">)</span>
@@ -424,12 +425,12 @@ determined type.</p>
 <p>Before we use the newly learnt functions in our program, let’s make a plan of how it should work:</p>
 <ol class="arabic simple">
 <li>Ask the user to enter the height.</li>
-<li>Load the string from the user and save it under the name “height”.</li>
-<li>Replace the string with the number with a fraction.</li>
+<li>Load the string from the user and save it under the name <tt class="docutils literal"><span class="pre">height</span></tt>.</li>
+<li>Change the string with the number to a number with a fraction.</li>
 <li>Ask the user to enter the weight.</li>
-<li>Load the string from the user and save it under the name of “weight”.</li>
-<li>Replace the string with the number with a fraction.</li>
-<li>Using the remembered values calculate BMI and save as bmi.</li>
+<li>Load the string from the user and save it under the name of <tt class="docutils literal"><span class="pre">weight</span></tt>.</li>
+<li>Change the string with the number to a number with a fraction.</li>
+<li>Using the remembered values calculate BMI and save as <tt class="docutils literal"><span class="pre">bmi</span></tt>.</li>
 <li>Print the calculated BMI.</li>
 </ol>
 <p>It should not surprise us that these eight points can be directly translated into eight lines of our
@@ -446,7 +447,7 @@ program (not counting spaces):</p>
 <span class="k">print</span><span class="p">(</span><span class="s">&quot;Your BMI is:&quot;</span><span class="p">,</span> <span class="n">bmi</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You can save above program to <tt class="docutils literal"><span class="pre">bmi.py</span></tt> and run <tt class="docutils literal"><span class="pre">python</span> <span class="pre">bmi.py</span></tt>. The result should look like this:</p>
+<p>You can save this program to <tt class="docutils literal"><span class="pre">bmi.py</span></tt> and run <tt class="docutils literal"><span class="pre">python</span> <span class="pre">bmi.py</span></tt>. The result should look like this:</p>
 <div class="highlight-none"><div class="highlight"><pre>Enter the height in meters:
 1.75
 Enter the weight in kilograms:
@@ -455,17 +456,17 @@ Your BMI is: 21.387755102040817
 </pre></div>
 </div>
 <p>In conclusion, to call a function we need to know its name (until now we learnt a bunch of functions: <a class="reference external" href="http://docs.python.org/3/library/functions.html#print" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">print()</span></tt></a>, <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a>, <a class="reference external" href="http://docs.python.org/3/library/functions.html#input" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">input()</span></tt></a>, <tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt>, <tt class="xref py py-func docutils literal"><span class="pre">float()</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">quit()</span></tt>),
-and what data it expects from us (so called, the list of arguments).</p>
+and what data it expects from us (called the list of arguments).</p>
 <p>Entering just the name does not activate the function. It will tell us only that it is a function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">input</span>  
 <span class="go">&lt;built-in function input&gt;</span>
 </pre></div>
 </div>
-<p>In order to call the function we must put brackets after its name:</p>
+<p>In order to call the function, we must put parentheses after its name:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">input</span><span class="p">()</span>  
 </pre></div>
 </div>
-<p>Now the function will be executed by Python.</p>
+<p>Now Python will execute the function.</p>
 <p>All arguments are given in parentheses. To specify more than one, separate them with a comma:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="s">&quot;FF&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
 <span class="go">255</span>
@@ -499,7 +500,7 @@ classification for the calculated BMI by using the table below:</p>
 </tbody>
 </table>
 <p>We need to use the “conditional statement” <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#if" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">if</span></tt></a>. It will execute the rest of the program
-based on a given condition:</p>
+depending on a given condition:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;Enter your height in meters:&quot;</span><span class="p">)</span>
 <span class="n">height</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="n">height</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
@@ -527,8 +528,7 @@ normal weight
 </div>
 <div class="section" id="comparisons-true-or-false">
 <h3>Comparisons:  true or false?<a class="headerlink" href="#comparisons-true-or-false" title="Permalink to this headline">¶</a></h3>
-<p>The first element which we have not mentioned yet, are comparisons. For numbers they act exactly like
-during the math lessons:</p>
+<p>Let us now talk about comparisons. Let&#8217;s look at how they behave in a short math lesson:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
@@ -543,8 +543,8 @@ during the math lessons:</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>The result of comparison is always <tt class="docutils literal"><span class="pre">True</span></tt> or <tt class="docutils literal"><span class="pre">False</span></tt>.
-They can be combined into more complex conditions by using words <a class="reference external" href="http://docs.python.org/3/reference/expressions.html#and" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">and</span></tt></a> and
+<p>The result of a comparison is always <tt class="docutils literal"><span class="pre">True</span></tt> or <tt class="docutils literal"><span class="pre">False</span></tt>.
+Comparisons can be combined into more complex conditions by using the words <a class="reference external" href="http://docs.python.org/3/reference/expressions.html#and" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">and</span></tt></a> and
 <a class="reference external" href="http://docs.python.org/3/reference/expressions.html#or" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">or</span></tt></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span>
@@ -563,14 +563,14 @@ They can be combined into more complex conditions by using words <a class="refer
 <div class="section" id="indentations">
 <h3>Indentations<a class="headerlink" href="#indentations" title="Permalink to this headline">¶</a></h3>
 <p>Another thing you should pay attention to is the indentation in the code. Open the interactive mode
-and enter a simple condition, such as:</p>
+and enter a simple condition such as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 <span class="gp">...</span>
 </pre></div>
 </div>
-<p>So far nothing has happened, as evidenced by dots <tt class="docutils literal"><span class="pre">...</span></tt> instead of incentives <tt class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></tt>, which we
-saw so far. Python expects us to give further instructions which are supposed to be executed if the
-condition <tt class="docutils literal"><span class="pre">2</span> <span class="pre">&gt;</span> <span class="pre">1</span></tt>  turns to be true. Let’s try to make Python print &#8220;OK&#8221;:</p>
+<p>So far nothing has happened, as evidenced by dots <tt class="docutils literal"><span class="pre">...</span></tt> instead of a prompt <tt class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></tt>, which we
+have seen so far. Python expects us to give further instructions that are supposed to be executed if the
+condition <tt class="docutils literal"><span class="pre">2</span> <span class="pre">&gt;</span> <span class="pre">1</span></tt>  turns out to be true. Let’s try to make Python print &#8220;OK&#8221;:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 <span class="gp">... </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">)</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">2</span>
@@ -583,9 +583,9 @@ condition <tt class="docutils literal"><span class="pre">2</span> <span class="p
 <span class="gr">IndentationError</span>: <span class="n">expected an indented block</span>
 </pre></div>
 </div>
-<p>Unfortunately, we haven’t succeeded. Python needs to know whether the instruction we have written is a
-continuation of  <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#if" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">if</span></tt></a> or it is the next instruction not covered by the condition. To this
-purpose we need to indent our code:</p>
+<p>Unfortunately, we did not succeed. Python needs to know whether the instruction we have written is a
+continuation of <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#if" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">if</span></tt></a> or it is the next instruction not covered by the condition. To this
+purpose, we need to indent our code:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 <span class="gp">... </span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">)</span>
 <span class="gp">...</span>
@@ -593,7 +593,7 @@ purpose we need to indent our code:</p>
 </pre></div>
 </div>
 <p>All you need is one space or <tt class="docutils literal"><span class="pre">TAB</span></tt>. However, all the lines that are supposed to be executed one
-after another, should be indented the same way:</p>
+after another should be indented the same way:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
 <span class="gp">... </span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span>
 <span class="gp">... </span>  <span class="k">print</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)</span>
@@ -622,7 +622,7 @@ after another, should be indented the same way:</p>
 <span class="gr">IndentationError</span>: <span class="n">unindent does not match any outer indentation level</span>
 </pre></div>
 </div>
-<p>To avoid chaos, most of the Python’ programmers use four spaces for each level of indentation. We will
+<p>To avoid chaos, most Python programmers use four spaces for each level of indentation. We will
 do the same:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
@@ -647,9 +647,8 @@ do the same:</p>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;overweight&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>However, we have used also <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#else" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">else</span></tt></a> and <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#elif" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">elif</span></tt></a>, so that we would not have to repeat
-similar conditions nor to increase readability. In more complex programs it may not be obvious from
-the beginning that the following condition is the opposite of the previous one.</p>
+<p>We can also use <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#else" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">else</span></tt></a> and <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#elif" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">elif</span></tt></a> to avoid repeating similar conditions and increase readability. In more complex programs it may not be obvious from
+the beginning that a certain condition is the opposite of the previous one.</p>
 <p>Using <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#else" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">else</span></tt></a> , we have the guarantee that the given instructions will be executed only if the instructions printed under <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#if" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">if</span></tt></a> haven’t been executed:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">bmi</span> <span class="o">&lt;</span> <span class="mf">18.5</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&quot;underweight&quot;</span><span class="p">)</span>
@@ -664,7 +663,7 @@ the beginning that the following condition is the opposite of the previous one.<
         <span class="k">print</span><span class="p">(</span><span class="s">&quot;overweight&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Pay particular attention to the indentations. Every use of  <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#else" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">else</span></tt></a>,
+<p>Pay particular attention to the indentations. Every use of <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#else" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">else</span></tt></a>,
 will cause an increased indentation of our code. It is very annoying when you have to check a few or a
 dozen or so conditions which exclude one another . Therefore the authors of Python added a little
 &#8216;improvement&#8217; in the form of <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#elif" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">elif</span></tt></a>, instruction, which allows you to check another condition
@@ -819,6 +818,41 @@ the option of aligning to a specific number of characters:</p>
 </div>
 <p>Aligning towards the centre is an additional excercise for you :).</p>
 </div>
+<div class="section" id="powtorzenie-funkcji-print-i-input">
+<h3>Powtórzenie funkcji print i input<a class="headerlink" href="#powtorzenie-funkcji-print-i-input" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="zadanie-1-gra-papier-nozyczki-kamien">
+<h4>Zadanie 1: Gra &#8216;papier, nożyczki, kamień&#8217;<a class="headerlink" href="#zadanie-1-gra-papier-nozyczki-kamien" title="Permalink to this headline">¶</a></h4>
+<p>Opis:</p>
+<p>Programujemy prostą grę kamień-papier-nożyczki.
+Na początek nasza gra ma zadanie:</p>
+<ol class="arabic simple">
+<li>Wyświetlić opis gry.</li>
+<li>Pobrać od użytkownika jego wybór</li>
+<li>Porównać wybór użytkownika z zapisanym na sztywno w programie wyborem komputera</li>
+<li>Wyświetlić wynik rozgrywki</li>
+</ol>
+<p>Kod początkowy:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;Witaj w grze&quot;</span><span class="p">)</span>
+<span class="n">computer_choice</span> <span class="o">=</span> <span class="s">&#39;kamien&#39;</span>
+
+<span class="c"># Wypisz opis gry, możliwości, autor itp.</span>
+
+<span class="c"># Pobierz wybór od użytkownika</span>
+
+<span class="c"># Porównaj wybór użytkownika z wyborem komputera</span>
+
+<span class="c"># Wypisz wynik rozgrywki</span>
+</pre></div>
+</div>
+<p>Explore:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Wyświetlić opis gry w ładnej ramce</li>
+<li>Wyświetlić opis gry na żądanie (np. gdy użytkownik wpiszę jako swój wybór <cite>help</cite>)</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
 </div>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
@@ -864,15 +898,16 @@ what we have done so far!</p>
 <li class="toctree-l2"><a class="reference internal" href="#strings-formatting">Strings formatting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tuples">Tuples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#formatting">Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#powtorzenie-funkcji-print-i-input">Powtórzenie funkcji print i input</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="django_in_action.html">Introduction to Django</a></li>
-<li class="toctree-l1"><a class="reference internal" href="django_models.html">Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="django_views.html">Rendering websites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Słowniki</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_objects.html">Objects and classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_import.html">Multiple Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
 </ul>
 
@@ -881,7 +916,7 @@ what we have done so far!</p>
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright Geek Girls Carrots and others.
+    &copy; Copyright Code Carrots powered by Intel (7-9 August).
   </div>
   
   <a href="https://github.com/ggcarrots/django-carrots">

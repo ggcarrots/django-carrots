@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Multiple Files &mdash; Code Carrots</title>
+    
+    <link rel="stylesheet" href="_static/carrots.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0dev1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Code Carrots" href="index.html" />
+    <link rel="next" title="Geek Girls Carrots Code of Conduct" href="code_of_conduct.html" />
+    <link rel="prev" title="Objects and classes" href="python_objects.html" /> 
+  </head>
+  <body>
+  
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="code_of_conduct.html" title="Geek Girls Carrots Code of Conduct"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="python_objects.html" title="Objects and classes"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Code Carrots</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="multiple-files">
+<h1>Multiple Files<a class="headerlink" href="#multiple-files" title="Permalink to this headline">¶</a></h1>
+<p>Up to this point we have written all of our programs in one file. This is perfectly
+fine as long as the file is not much longer than 100 lines. As the file gets bigger
+is getting more and more difficult to find something in it. That&#8217;s why it is a good
+practice to keep the program files smaller, but obviously not all (or even most)
+the programs can fit into one file that small. Python solves this problem using
+<a class="reference external" href="http://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">import</span></tt></a> keyword.</p>
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
+<p>Lets get back for a second to our xmas tree example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">print_segment</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">total_width</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">((</span><span class="n">size</span> <span class="o">*</span> <span class="s">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">total_width</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">print_tree</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">print_segment</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Choose size of the Christmas tree:&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">print_tree</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This program is not yet to big, but lets try to split it into smaller files. First
+create new file <tt class="docutils literal"><span class="pre">tree_utils.py</span></tt> and move the first two functions to that file, so
+it looks like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">print_segment</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">total_width</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">((</span><span class="n">size</span> <span class="o">*</span> <span class="s">&quot;*&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">total_width</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">print_tree</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">print_segment</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now lets create another file <tt class="docutils literal"><span class="pre">tree_main.py</span></tt> (in the same directory, this is
+important) with the following contents:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">tree_utils</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Choose size of the Christmas tree:&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">tree_utils</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we can see how :keyword:<tt class="docutils literal"><span class="pre">import</span></tt> keyword is used. It allows us to use
+functions and objects from other files. After the keyword we provide the name of
+file without <tt class="docutils literal"><span class="pre">.py</span></tt> extension, this is called the module name. When using imported
+function we need to provide module name and function name separated by dot, just
+like we did with objects. In this example <tt class="docutils literal"><span class="pre">tree_utils</span></tt> is a module name. Thanks
+to this we have access to all the functions and objects from <tt class="docutils literal"><span class="pre">tree_utils</span></tt> module.</p>
+</div>
+<div class="section" id="import-from">
+<h2>Import from<a class="headerlink" href="#import-from" title="Permalink to this headline">¶</a></h2>
+<p>:keyword:<tt class="docutils literal"><span class="pre">import</span></tt> keyword has also another form: <tt class="docutils literal"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">function</span></tt>.
+When we rewrite <tt class="docutils literal"><span class="pre">tree_main.py</span></tt> example to use this form it will look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">tree_utils</span> <span class="kn">import</span> <span class="n">print_tree</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Choose size of the Christmas tree:&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">print_tree</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This way we can call <tt class="docutils literal"><span class="pre">print_tree</span></tt> function as in the original program (as if it
+was defined in the same file). Now it is easier to call this function, but we have
+access to only this function.</p>
+<p>We can also access both <tt class="docutils literal"><span class="pre">tree_utils</span></tt> function by writing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">tree_utils</span> <span class="kn">import</span> <span class="n">print_tree</span><span class="p">,</span> <span class="n">print_segment</span>
+</pre></div>
+</div>
+<p>This way we can import as many functions or objects from a module as we want. To
+make the code shorter we can also write:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">tree_utils</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>This will import all functions and objects from <tt class="docutils literal"><span class="pre">tree_utils</span></tt> module, but this
+solutions discouraged, as it is difficult to see what was actually imported.</p>
+</div>
+<div class="section" id="batteries-included">
+<h2>Batteries included<a class="headerlink" href="#batteries-included" title="Permalink to this headline">¶</a></h2>
+<p>Python has a <cite>batteries included</cite> philosophy. This means that Python comes with many
+modules that can be used by developers. This way we can concentrate on writing our
+programs instead of solving all the basic problems that have been already solved.</p>
+<p>For the list of modules available with Python check python <a class="reference external" href="https://docs.python.org/3/library/index.html">documentation</a>. As you
+can see there are a lot of them. They allow as to deal with system services, math,
+date and time and many more.</p>
+</div>
+<div class="section" id="lottery">
+<h2>Lottery<a class="headerlink" href="#lottery" title="Permalink to this headline">¶</a></h2>
+<p>One of the interesting modules included with Python is <tt class="docutils literal"><span class="pre">random</span></tt> module. It allows
+us to generate random number (real or integer), select random element from a list
+and many other. Documentation for this module can be found <a class="reference external" href="https://docs.python.org/3/library/random.html">here</a>. When you
+read it, you will notice it says <cite>pseudo-random number generators</cite>. That&#8217;s just
+because these are not really random numbers, they only look like this, but this is
+good enough for our purpose.</p>
+<p>So now we can create a lottery. For we have to import <tt class="docutils literal"><span class="pre">random</span></tt> module and use
+<tt class="xref py py-func docutils literal"><span class="pre">randrange()</span></tt> function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Save it to a file <tt class="docutils literal"><span class="pre">lottery.py</span></tt>.</p>
+<p><a class="reference external" href="http://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">import</span></tt></a> keyword allows us to use not only files created by us, but also
+included with Python. That is why we can write <tt class="docutils literal"><span class="pre">import</span> <span class="pre">random</span></tt> even though there
+is no <tt class="docutils literal"><span class="pre">random.py</span></tt> file in the same directory.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You need to be careful here and not name the file <tt class="docutils literal"><span class="pre">random.py</span></tt>. If you do
+Python will have problem with importing <tt class="docutils literal"><span class="pre">random</span></tt> module, as it will try
+to import our file instead of the one included with Python.</p>
+</div>
+<p>Lets finnish our lottery example by adding user input:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">user_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Please choose a number from 1 to 10: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">user_value</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Congratulations, you have won.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Sorry, today&#39;s winning number is </span><span class="si">%s</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">value</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
+<p>So we have learned how to organize our code into multiple files. As our program gets
+bigger we can split it into multiple modules. As time goes by we will have more and
+more files. In order to deal with this we can put files (modules) in a directory.</p>
+<p>Lets consider following file structure:</p>
+<div class="highlight-python"><div class="highlight"><pre>trees/
+    __init__.py
+    oak.py
+    beech.py
+    maple.py
+    xmas.py
+sequence/
+    __init__.py
+    arithmetic.py
+    geometric.py
+    fibonacci.py
+</pre></div>
+</div>
+<p>So we have two directories: <tt class="docutils literal"><span class="pre">trees</span></tt> and <tt class="docutils literal"><span class="pre">sequence</span></tt> that contain some modules
+(.py files). These directories are called <cite>packages</cite>. In order for a directory to
+be a package, it has to contain <tt class="docutils literal"><span class="pre">__init__.py</span></tt> file (it can be empty). This way
+Python can distinguish packages from other directories.</p>
+<p>If we want to import something from a package we can use the same <tt class="docutils literal"><span class="pre">import</span></tt> keyword
+as before:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">trees.xmas</span>
+
+<span class="n">tree</span><span class="o">.</span><span class="n">xmas</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you can see, we have to use <tt class="docutils literal"><span class="pre">.</span></tt> to indicate that we want to import <tt class="docutils literal"><span class="pre">xmas</span></tt>
+module from <tt class="docutils literal"><span class="pre">trees</span></tt> package. In order to use functions from this module we need to
+write whole package and module name before function name: <tt class="docutils literal"><span class="pre">tree.xmas.print_tree</span></tt>.
+This is because <tt class="docutils literal"><span class="pre">tree</span></tt> package and <tt class="docutils literal"><span class="pre">xmas</span></tt> module are also objects just like any
+other object in python and we can use them in the same way.</p>
+<p>Packages can be nested in each other, but remember, there have to be <tt class="docutils literal"><span class="pre">__init__.py</span></tt>
+file on each level. Using packages and modules we can create most complex
+applications.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zadanie-1-losowosc-w-grze">
+<h3>Zadanie 1: Losowość w grze<a class="headerlink" href="#zadanie-1-losowosc-w-grze" title="Permalink to this headline">¶</a></h3>
+<p>Opis:</p>
+<p>Wykorzystując kod z zadania <em>Gra &#8216;papier, nożyczki, kamień&#8217;</em> zmodyfikuj kod by komputer losował swój wybór wykorzystując
+moduł <cite>random</cite>.</p>
+<p><strong>Podpowiedź:</strong></p>
+<p>Wykorzystamy w tym zadaniu tzw. <cite>krotki</cite> (ang. tuple), które służą do przechowywania sekwencji danych np.:</p>
+<div class="highlight-sh"><div class="highlight"><pre>python
+<span class="nv">my_numbers</span> <span class="o">=</span> <span class="o">(</span>1, 20, 3, 10<span class="o">)</span>
+<span class="nv">my_friends</span> <span class="o">=</span> <span class="o">(</span><span class="s1">&#39;John&#39;</span>, <span class="s1">&#39;Alice&#39;</span>, <span class="s1">&#39;Kate&#39;</span>, <span class="s1">&#39;Lucas&#39;</span><span class="o">)</span>
+<span class="nv">my_pets</span> <span class="o">=</span> <span class="o">(</span><span class="s1">&#39;skipper&#39;</span>, <span class="s1">&#39;Mr. Parrot&#39;</span>, <span class="s1">&#39;kitty&#39;</span>, <span class="s1">&#39;blacky&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>W krotce będziemy przechowywać &#8216;papier&#8217;, &#8216;nożyce&#8217;, &#8216;kamień&#8217;.</p>
+<p>Explore:</p>
+<ul class="simple">
+<li>Spraw by wybór komputera był trochę <cite>głupszy</cite> i zamiast wybierać z pośród 3 możliwości z równym prawdopodobieństwem
+wybierał jedną opcję z z prawdopodobieństwem 50% a pozostałe dwie z 25%.</li>
+<li>Spraw by wybór komputera był <cite>głupszy</cite> jak w poprzednim punkcie, ale tym razem element, który będzie losowany z 50%
+prawdopodobieństwem również był losowy, np:<ul>
+<li>W pierwszym uruchomieniu komputer może wybrać: kamień 50%, papier 25%, nożyczki 25%.</li>
+<li>W kolejnym uruchomieniu komputer może wybrać: kamień 25%, papier 50%, nożyczki 25%.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Uwaga:</strong> powyższe przykłady nie mają ustalonej kolejności, wybory komputera powinny być losowe!
+Podpowiedź: należy wylosować indeks elementu, który będzie miał pradopodobieństwo 50%.</p>
+</div>
+<div class="section" id="zadanie-2-dodanie-menu-do-gry">
+<h3>Zadanie 2. Dodanie menu do gry<a class="headerlink" href="#zadanie-2-dodanie-menu-do-gry" title="Permalink to this headline">¶</a></h3>
+<p>Opis:</p>
+<p>Aktualnie nasza gra przyjmuje wszystkie wartości jakie wpisze użytkownik i działa na nich jakby były zawsze poprawne.
+Pora to zmienić i przyjmować tylko określone wartości od użytkownika a na niepoprawną wartość wypisywać błąd.</p>
+<p>Explore:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Zamiast przyjmować wartości bezpośrednio wyświetl <cite>menu</cite> z możliwościami wyboru, np:</li>
+</ul>
+</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre>   A. Kamień
+   B. Papier
+   C. Nożyczki
+   D. Help
+   Q. Wyjście
+
+
+* Dodaj przed rozpoczęciem prawdziwej gry wybór poziomu trudności komputera, np:
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>A. Sprytny komputer
+B. Mniej sprytny komputer
+</pre></div>
+</div>
+<p>który będzie określał czy komputer ma być losowy (33%/33%/33%) czy <cite>głupi</cite> (50%/25%/25%).</p>
+</div>
+<div class="section" id="zadanie-3-lotto">
+<h3>Zadanie 3. Lotto<a class="headerlink" href="#zadanie-3-lotto" title="Permalink to this headline">¶</a></h3>
+<p>Write program <tt class="docutils literal"><span class="pre">lotto.py</span></tt> that asks user to give 6 numbers from 1-49, then selects
+6 numbers from 1-49 by random and tell user if he won or not.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <a href="index.html" class="logo"><img class="logo" src="_static/logo.png" style="width: 200px; height: 169px; margin: -10px 0 10px 0"></a>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Słowniki</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_objects.html">Objects and classes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Multiple Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-from">Import from</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batteries-included">Batteries included</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lottery">Lottery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packages">Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#zadanie-1-losowosc-w-grze">Zadanie 1: Losowość w grze</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zadanie-2-dodanie-menu-do-gry">Zadanie 2. Dodanie menu do gry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zadanie-3-lotto">Zadanie 3. Lotto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    &copy; Copyright Code Carrots powered by Intel (7-9 August).
+  </div>
+  
+  <a href="https://github.com/ggcarrots/django-carrots">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png">
+  </a>
+  </body>
+</html>

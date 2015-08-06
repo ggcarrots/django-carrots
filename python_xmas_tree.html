@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Christmas Tree &mdash; Django Carrots</title>
+    <title>Christmas Tree &mdash; Code Carrots</title>
     
     <link rel="stylesheet" href="_static/carrots.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -13,7 +13,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0dev1',
+        VERSION:     '2.0dev1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,8 +22,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Carrots" href="index.html" />
-    <link rel="next" title="Introduction to Django" href="django_in_action.html" />
+    <link rel="top" title="Code Carrots" href="index.html" />
+    <link rel="next" title="Słowniki" href="python_dictionaries.html" />
     <link rel="prev" title="Introduction to Python" href="python_quickstart.html" /> 
   </head>
   <body>
@@ -34,12 +34,12 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="django_in_action.html" title="Introduction to Django"
+          <a href="python_dictionaries.html" title="Słowniki"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="python_quickstart.html" title="Introduction to Python"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Django Carrots</a> &raquo;</li> 
+        <li><a href="index.html">Code Carrots</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -98,7 +98,7 @@ look like this:</p>
 <div class="highlight-python"><div class="highlight"><pre>Let the People List contain people who should receive gifts.
 
 For each person (known as the Person), which is on the list of people:
-    Provide a gift to Person
+    Provide a gift to the Person
 </pre></div>
 </div>
 <p>Formatting of text above is not accidental. This is actually a disguised program in Python:</p>
@@ -196,7 +196,12 @@ for the full story, or check these quick examples:</p>
 </div>
 <p>The <tt class="xref py py-func docutils literal"><span class="pre">range()</span></tt> function does not directly create a list, but it returns a generator. Generators
 generate the elements of a sequence one at a time, thereby avoiding to store the full sequence in memory.
-In order to obtain a list of the sequence, we use the function <tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt>.</p>
+In order to obtain a list of the sequence, we use the function <tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt>. If we skip <tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt> call,
+the result will look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">range(1, 4)</span>
+</pre></div>
+</div>
 <p>The <tt class="xref py py-func docutils literal"><span class="pre">range()</span></tt> function has three forms. The most basic and most used one creates a sequence from 0 to the
 given number. The other forms allow you to specify the start of the range and a step. The created
 sequence never includes the end of the specified range.</p>
@@ -240,14 +245,19 @@ sequence never includes the end of the specified range.</p>
 <p>Nothing prevents us to put one loop inside another loop, so let&#8217;s do it! Just remember to use appropriate
 indentations and use different names e.g. <tt class="docutils literal"><span class="pre">i</span></tt> and <tt class="docutils literal"><span class="pre">j</span></tt> (or more associated with the list content):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
-<span class="gp">... </span>   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">):</span>
 <span class="gp">... </span>       <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
-<span class="go">1 2</span>
-<span class="go">1 3</span>
-<span class="go">2 2</span>
-<span class="go">2 3</span>
+<span class="go">1 11</span>
+<span class="go">1 12</span>
+<span class="go">1 13</span>
+<span class="go">2 11</span>
+<span class="go">2 12</span>
+<span class="go">2 13</span>
 </pre></div>
 </div>
+<p>Here we have inner loop that iterates from 11 to 13 (remember, 14 is not included when using <tt class="docutils literal"><span class="pre">range</span></tt>) and
+outer loop that iterates from 1 to 2. As you can see, items from inner loop are printed twice, for each iteration
+of outer loop.</p>
 <p>Using this technique, we can repeat our piece of the Christmas tree:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="c"># repeats 3 times</span>
 <span class="gp">... </span>   <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
@@ -379,170 +389,6 @@ instruction that can be found only in functions.</p>
 ****
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="objects-and-classes">
-<h2>Objects and classes<a class="headerlink" href="#objects-and-classes" title="Permalink to this headline">¶</a></h2>
-<p>In fact, this chapter could be the subject of a series of workshops, but we will focus on the most
-basic things, which we will need while working with Django.</p>
-<div class="section" id="every-value-is-an-object">
-<h3>Every value is an object<a class="headerlink" href="#every-value-is-an-object" title="Permalink to this headline">¶</a></h3>
-<p>Everything that we have called a value until now can be called “an object” in the world of Python. We saw it in the
-example of integers, when <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> printed for us dozens of additional lines of information about
-<tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt>.</p>
-</div>
-<div class="section" id="every-object-has-a-class">
-<h3>Every object has a class<a class="headerlink" href="#every-object-has-a-class" title="Permalink to this headline">¶</a></h3>
-<p>The class is the type of an object.
-To know what is the class of an object, simply use the function <tt class="xref py py-func docutils literal"><span class="pre">type()</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">&lt;class &#39;int&#39;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
-<span class="go">&lt;class &#39;float&#39;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="s">&quot;spam eggs&quot;</span><span class="p">)</span>
-<span class="go">&lt;class &#39;str&#39;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">&lt;class &#39;tuple&#39;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">([])</span>
-<span class="go">&lt;class &#39;list&#39;&gt;</span>
-</pre></div>
-</div>
-<p>When we use numbers in our program, we expect that it will behave like a number - we rely on our
-intuition.</p>
-<p>However, Python has to know exactly what it means to be an integer, e.g., what should happen when we
-sum up two numbers and what when we divide them. The class provides all this information and even more.</p>
-<p>By using <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> , check what the class <tt class="docutils literal"><span class="pre">str</span></tt> gives us. Here we give just a few interesting
-features:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">)</span>
-<span class="go">Help on method_descriptor:</span>
-
-<span class="go">lower(...)</span>
-<span class="go">    S.lower() -&gt; str</span>
-
-<span class="go">    Return a copy of the string S converted to lowercase.</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
-<span class="go">Help on method_descriptor:</span>
-
-<span class="go">upper(...)</span>
-<span class="go">    S.upper() -&gt; str</span>
-
-<span class="go">    Return a copy of S converted to uppercase.</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">ljust</span><span class="p">)</span>
-<span class="go">Help on method_descriptor:</span>
-
-<span class="go">ljust(...)</span>
-<span class="go">    S.ljust(width[, fillchar]) -&gt; str</span>
-
-<span class="go">    Return S left-justified in a Unicode string of length width. Padding is</span>
-<span class="go">    done using the specified fill character (default is a space).</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
-<span class="go">Help on method_descriptor:</span>
-
-<span class="go">center(...)</span>
-<span class="go">    S.center(width[, fillchar]) -&gt; str</span>
-
-<span class="go">    Return S centered in a string of length width. Padding is</span>
-<span class="go">    done using the specified fill character (default is a space)</span>
-</pre></div>
-</div>
-<p>All these are operations that each string can do. We can get to them by using dots and calling the
-function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Ala&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="go">&#39;ALA&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="go">&#39;ala&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="go">&#39;   Ala   &#39;</span>
-</pre></div>
-</div>
-<p>And one more important function of a class - it can create a new object of the type it describes. This is called
-called &#8220;an instance&#8221; of a class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">()</span>
-<span class="go">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">()</span>
-<span class="go">&#39;&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">()</span>
-<span class="go">[]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">()</span>
-<span class="go">()</span>
-</pre></div>
-</div>
-<p>So an instance is a new, fresh, value of the type described by the class.</p>
-<p>In summary, we&#8217;ve looked at the classes <tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt>, <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>, <tt class="xref py py-func docutils literal"><span class="pre">tuple()</span></tt> and
-<tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt>. To find out from which class is the value (object), we use the function
-<tt class="xref py py-func docutils literal"><span class="pre">type()</span></tt>. To create an instance of a class (a new object), we call the class like call
-a function, by using parentheses <tt class="docutils literal"><span class="pre">()</span></tt>. For instance:
-<tt class="docutils literal"><span class="pre">int()</span></tt>.</p>
-</div>
-<div class="section" id="define-classes">
-<h3>Define classes<a class="headerlink" href="#define-classes" title="Permalink to this headline">¶</a></h3>
-<p>Just as you can create your own functions, you can create your own classes. In fact, a class is
-basically nothing but a group of functions:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-
-    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Woof! Woof!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Classes begin with the word <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">class</span></tt></a>, after which we give the name of the new class.
-The <tt class="docutils literal"><span class="pre">(object)</span></tt> indicates that our new type <tt class="docutils literal"><span class="pre">Dog</span></tt> is a specific sub-type of <tt class="docutils literal"><span class="pre">object</span></tt>.
-That is, instances of our class, i.e. values created from it, will be of the type <tt class="docutils literal"><span class="pre">Dog</span></tt> but
-also of the more general type <tt class="docutils literal"><span class="pre">object</span></tt>.</p>
-<p>Actually this is what we said that every value is an object.
-Indeed, each class is a specialization of <tt class="docutils literal"><span class="pre">object</span></tt> in Python. Hence, every value value has always <tt class="docutils literal"><span class="pre">object</span></tt>
-as most general type.</p>
-<p>However, it is worth to know that every function in the class must have at least one argument. Its
-value is an object from which we have called this function (that is to say the object placed before
-the dot):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">my_new_pet</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
-<span class="n">my_new_pet</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-none"><div class="highlight"><pre>Woof! Woof!
-</pre></div>
-</div>
-<p>This argument can be named as you wish, but the
-<a class="reference external" href="http://legacy.python.org/dev/peps/pep-0008/">most widespread convention</a> is to call it <tt class="docutils literal"><span class="pre">self</span></tt>.</p>
-</div>
-<div class="section" id="attributes-of-objects">
-<h3>Attributes of objects<a class="headerlink" href="#attributes-of-objects" title="Permalink to this headline">¶</a></h3>
-<p>Besides methods (functions) the objects can also have attributes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">my_new_pet</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">()</span>
-<span class="n">my_new_pet</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Snoopy&quot;</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">my_new_pet</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-none"><div class="highlight"><pre>Snoopy
-</pre></div>
-</div>
-<p>Sometimes we want for every object of the class to have an attribute, such as every dog should have a
-name. We can add this requirement by defining a function with a special name <tt class="docutils literal"><span class="pre">__init__</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-
-    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">&quot;Woof! </span><span class="si">%s</span><span class="s">! Woof!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,)</span>
-
-<span class="n">snoopy</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Snoopy&quot;</span><span class="p">)</span>
-<span class="n">pluto</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Pluto&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">snoopy</span><span class="o">.</span><span class="n">bark</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="n">pluto</span><span class="o">.</span><span class="n">bark</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-none"><div class="highlight"><pre>Woof! Snoopy! Woof!
-Woof! Pluto! Woof!
-</pre></div>
-</div>
-<p>This <tt class="xref py py-func docutils literal"><span class="pre">__init__()</span></tt> function is called during the creation of an object.
-We call this special function a constructor, because it helps to build the object.</p>
 </div>
 </div>
 <div class="section" id="the-entire-christmas-tree">
@@ -687,6 +533,172 @@ for one gift you have about 10 microseconds.</td></tr>
 </tbody>
 </table>
 </div>
+<div class="section" id="kalendarz">
+<h3>Kalendarz<a class="headerlink" href="#kalendarz" title="Permalink to this headline">¶</a></h3>
+<p>Opis:</p>
+<p>Przy pomocy danych:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s">&#39;January&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;February&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">28</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;March&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;April&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;May&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;June&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;July&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;August&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;September&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;October&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;November&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">&#39;December&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">)),</span>
+      <span class="p">]</span>
+</pre></div>
+</div>
+<p>Wyświetl kalendarz:</p>
+<div class="highlight-python"><div class="highlight"><pre>January
+
+00 01 02 03 04 05 06
+07 08 09 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30
+
+February
+
+00 01 02 03 04 05 06
+07 08 09 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+
+...
+
+November
+
+00 01 02 03 04 05 06
+07 08 09 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29
+
+December
+
+00 01 02 03 04 05 06
+07 08 09 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30
+</pre></div>
+</div>
+<p>Podpowiedź: Zacznij od napisania funkcji, która wyświetli dni jednego miesiąca. Potem wywołaj ją dla wszystkich elementów listy &#8216;data&#8217;. Pamiętaj, że tydzień ma 7 dni.</p>
+</div>
+<div class="section" id="rozbudowa-gry-papier-nozyce-i-kamien">
+<h3>Rozbudowa gry &#8216;papier, nożyce i kamień&#8217;<a class="headerlink" href="#rozbudowa-gry-papier-nozyce-i-kamien" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="zadanie-1-gramy-dalej-czyli-kilka-rozdan-w-jednej-grze">
+<h4>Zadanie 1: Gramy dalej, czyli kilka rozdań w jednej grze<a class="headerlink" href="#zadanie-1-gramy-dalej-czyli-kilka-rozdan-w-jednej-grze" title="Permalink to this headline">¶</a></h4>
+<p>Opis:</p>
+<p>Nasza gra nie jest aktualnie najlepsza ponieważ za każdym razem gdy chcemy zagrać musimy odpalać nasz skrypt i po jednej rozgrywce nasz program się kończy.
+Musimy dać użytkownikowi wybór czy po danej rozgrywce chce zakończyć grę czy grać dalej. Wykorzystamy do tego pętlę <cite>while</cite> i słówko kluczowe <cite>break</cite>.</p>
+<p>Po każdej rozgrywce użytkownik powinien zobaczyć pytanie:</p>
+<div class="highlight-python"><div class="highlight"><pre>Czy chcesz grać dalej? tak/nie:
+</pre></div>
+</div>
+<p>Głupi komputer potrafi też być uparty. Spraw, by czasami na odpowiedź <cite>nie</cite> na ostatnie pytanie wypisywał:</p>
+<div class="highlight-python"><div class="highlight"><pre>Nie!? Tak łatwo mi się nie wymkniesz! Gramy dalej!
+</pre></div>
+</div>
+<p>I zaczynał grę od początku. (ale bez wyboru poziomu umiejętności komputera!)</p>
+</div>
+<div class="section" id="zadanie-2-dodanie-ekranow-do-gry">
+<h4>Zadanie 2: Dodanie ekranów do gry<a class="headerlink" href="#zadanie-2-dodanie-ekranow-do-gry" title="Permalink to this headline">¶</a></h4>
+<p>Opis:</p>
+<p>Nasz gra strasznie śmieci w terminalu, ale możemy to zmienić. Za każdym razem gdy będziemy rozpoczynać nową rozgrywkę chcemy mieć pusty ekran z powitaniem.
+Możemy wykorzystać do tego moduł <cite>os</cite> i jego funkcję <cite>system</cite> by wywołać polecenie systemowe <cite>cls</cite> (dla linuxa i macosx <cite>clear</cite>).</p>
+<p>Przykład:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;Witaj w grze!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dopracuj grę by jej przebieg miał następujące <cite>ekrany</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Witaj w grze:
+S - Start gry
+P - Wybierz poziom komputera
+Q - Wyjście
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>Wybierz poziom komputera:
+A - Sprytny computer
+B - Głupi computer
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>Podaj swój wybór:
+K - Kamień
+P - Papier
+N - Nożyczki
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>Czy chcesz grać dalej? tak/nie:
+</pre></div>
+</div>
+<p>Uwzględnij wszystkie funkcjonalności jakie udało ci się zbudować wcześniej. Każdy z tych ekranów powinien pojawiać się na czystej konsoli.</p>
+</div>
+<div class="section" id="zadanie-3-statystyki-graczy">
+<h4>Zadanie 3: Statystyki graczy<a class="headerlink" href="#zadanie-3-statystyki-graczy" title="Permalink to this headline">¶</a></h4>
+<p>Opis:</p>
+<p>Pora by zacząć zbierać statystyki naszych wygranych i przegranych.
+Pod koniec gry (po wszystkich rozgrywkach) wyświetl ilość wygranych komputera i gracza, oraz wyświetl kto wygrał największą ilość razy.</p>
+<p>Explore:</p>
+<ol class="arabic simple">
+<li>Oblicz procentowe wartości i wyświetl obok wyników.</li>
+<li>Wyświetl najdłuższą sekwencję wygranych dla gracza i komputera.</li>
+<li>Zbieraj więcej danych do analizy przy pomocy <cite>list</cite>.</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3.4/tutorial/introduction.html#lists">https://docs.python.org/3.4/tutorial/introduction.html#lists</a></li>
+<li><a class="reference external" href="https://docs.python.org/3.4/tutorial/datastructures.html#more-on-lists">https://docs.python.org/3.4/tutorial/datastructures.html#more-on-lists</a></li>
+</ul>
+<p>Wyświetl najdłuższe sekwencje wygranych (jak w punkcie 2.) i przegranych.</p>
+</div></blockquote>
+</div>
+<div class="section" id="zadanie-dodatkowe-kolko-i-krzyzyk">
+<h4>Zadanie dodatkowe: Kółko i krzyżyk<a class="headerlink" href="#zadanie-dodatkowe-kolko-i-krzyzyk" title="Permalink to this headline">¶</a></h4>
+<p>Opis:</p>
+<p>Zaprogramuj grę kółko i krzyżyk dla dwóch graczy.
+Zacznij od najważniejszej części: rozgrywki, później rozbuduj ją o menu, imiona graczy itp.</p>
+<p>Przykładowa rozgrywka mogła by wyglądać tak:</p>
+<div class="highlight-python"><div class="highlight"><pre> 1   2   3
+A  . | . | .
+B  . | . | .
+C  . | . | .
+
+Gracz X, podaj pozycję: A1
+
+ 1   2   3
+A  X | . | .
+B  . | . | .
+C  . | . | .
+
+Gracz O, podaj pozycję: B2
+
+ 1   2   3
+A  X | . | .
+B  . | O | .
+C  . | . | .
+
+Gracz X, podaj pozycję: B1
+
+...
+
+ 1   2   3
+A  X | O | X
+B  X | O | X
+C  O | X | O
+
+Remis!
+
+Czy chcesz grać dalej? [tak/nie]:
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -706,22 +718,17 @@ for one gift you have about 10 microseconds.</td></tr>
 <li class="toctree-l3"><a class="reference internal" href="#returning-values">Returning values</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#objects-and-classes">Objects and classes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#every-value-is-an-object">Every value is an object</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#every-object-has-a-class">Every object has a class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#define-classes">Define classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#attributes-of-objects">Attributes of objects</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#the-entire-christmas-tree">The Entire Christmas tree</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#task-for-volunteers">Task for volunteers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kalendarz">Kalendarz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rozbudowa-gry-papier-nozyce-i-kamien">Rozbudowa gry &#8216;papier, nożyce i kamień&#8217;</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="django_in_action.html">Introduction to Django</a></li>
-<li class="toctree-l1"><a class="reference internal" href="django_models.html">Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="django_views.html">Rendering websites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Słowniki</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_objects.html">Objects and classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_import.html">Multiple Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
 </ul>
 
@@ -730,7 +737,7 @@ for one gift you have about 10 microseconds.</td></tr>
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright Geek Girls Carrots and others.
+    &copy; Copyright Code Carrots powered by Intel (7-9 August).
   </div>
   
   <a href="https://github.com/ggcarrots/django-carrots">

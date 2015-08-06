@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Rendering websites &mdash; Django Carrots</title>
+    <title>Rendering websites &mdash; Code Carrots</title>
     
     <link rel="stylesheet" href="_static/carrots.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -13,7 +13,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0dev1',
+        VERSION:     '2.0dev1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,9 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Django Carrots" href="index.html" />
-    <link rel="next" title="Geek Girls Carrots Code of Conduct" href="code_of_conduct.html" />
-    <link rel="prev" title="Models" href="django_models.html" /> 
+    <link rel="top" title="Code Carrots" href="index.html" /> 
   </head>
   <body>
   
@@ -33,13 +31,7 @@
     <div class="related">
       <h3>Navigation</h3>
       <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="code_of_conduct.html" title="Geek Girls Carrots Code of Conduct"
-             accesskey="N">next</a></li>
-        <li class="right" >
-          <a href="django_models.html" title="Models"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Django Carrots</a> &raquo;</li> 
+        <li><a href="index.html">Code Carrots</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -50,12 +42,12 @@
             
   <div class="section" id="rendering-websites">
 <h1>Rendering websites<a class="headerlink" href="#rendering-websites" title="Permalink to this headline">¶</a></h1>
-<p>Entering the main address <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a> still displays an ugly error page. It can not be like
+<p>Navigating to the main address <a class="reference external" href="http://localhost:8000/">http://localhost:8000/</a> still displays an ugly error page. We can&#8217;t have
 that!</p>
-<p>It&#8217;s good to start working on a new website after preparing a plan of URLs (addresses). We know we
+<p>It&#8217;s good to start working on a new website after preparing a plan for URLs (addresses). We know we
 will want to see a list of all the questionnaires on the site, let users vote and display the
 aggregated results of the questionnaire.</p>
-<p>Let&#8217;s open the file <tt class="docutils literal"><span class="pre">urls.py</span></tt> again and add four new entries. Eventually the file should look as follows:</p>
+<p>Let&#8217;s open the file <tt class="docutils literal"><span class="pre">urls.py</span></tt> again and add four new entries. Eventually the file should look like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
 
 <span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
@@ -73,21 +65,21 @@ aggregated results of the questionnaire.</p>
 <p>Let&#8217;s look at this example again. Each argument passed to the function <tt class="docutils literal"><span class="pre">patterns</span></tt> (except for the first one, but more on that later) determines our pattern URL (address). This pattern is written using a <a class="reference external" href="http://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne#Wyra.C5.BCenia_regularne_w_praktyce">regular expression</a>. This is a difficult technical term for a tiny language used for
 concise representation of text patterns.</p>
 <p>When a user tries to enter a specific address on our website, such as: <a class="reference external" href="http://localhost:8000/polls/1/">http://localhost:8000/polls/1/</a>,
-Django selects the third part of the URL after the slash (in this case, <tt class="docutils literal"><span class="pre">polls/1/</span></tt>) and tries to turn it subsequently into a regular expression to match the <tt class="docutils literal"><span class="pre">urlpatterns</span></tt>. Let&#8217;s look at an example of such expressions:</p>
+Django selects the third part of the URL after the slash (in this case, <tt class="docutils literal"><span class="pre">polls/1/</span></tt>) and tries to turn it into a regular expression to match the <tt class="docutils literal"><span class="pre">urlpatterns</span></tt>. Let&#8217;s look at an example of such expressions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="s">r&#39;^polls/(?P&lt;poll_id&gt;\d+)/vote/$&#39;</span>
 </pre></div>
 </div>
-<p>This is a normal string (maybe except for the initial <tt class="docutils literal"><span class="pre">r</span></tt>, which is used here only for
+<p>This is a normal string (except for the initial <tt class="docutils literal"><span class="pre">r</span></tt>, which is used here only for
 convenience). When we try to adjust the text to the string (we still think of <tt class="docutils literal"><span class="pre">polls/1/</span></tt>), we need
 to remember the following:</p>
 <div class="alert alert-info admonition">
 <p class="first admonition-title">Regular expressions:</p>
 <ul class="last simple">
 <li>Each letter and number of the regular expression applies to the same letter / number of the adjusted string. The same with the
-slash (<tt class="docutils literal"><span class="pre">/</span></tt>), space (<tt class="docutils literal"><span class="pre">'</span> <span class="pre">'</span></tt> ), the underscore (<tt class="docutils literal"><span class="pre">_</span></tt>) and hyphen (<tt class="docutils literal"><span class="pre">-</span></tt>).</li>
-<li><tt class="docutils literal"><span class="pre">^</span></tt> applies only to the beginning of the string (“the beginning” is here an abstract symbol
+slash (<tt class="docutils literal"><span class="pre">/</span></tt>), space (<tt class="docutils literal"><span class="pre">'</span> <span class="pre">'</span></tt> ), underscore (<tt class="docutils literal"><span class="pre">_</span></tt>) and hyphen (<tt class="docutils literal"><span class="pre">-</span></tt>).</li>
+<li><tt class="docutils literal"><span class="pre">^</span></tt> applies only to the beginning of the string (“the beginning” is an abstract symbol
 before the first character)</li>
-<li><tt class="docutils literal"><span class="pre">$</span></tt> matches only the end of the string (in a similar way as “the beginning”).</li>
+<li><tt class="docutils literal"><span class="pre">$</span></tt> matches only to the end of the string (in a similar way as “the beginning”).</li>
 <li>The dot (<tt class="docutils literal"><span class="pre">.</span></tt>) matches any character.</li>
 <li>If several characters are put in the square brackets, like this: <tt class="docutils literal"><span class="pre">[abde]</span></tt>, the group counts as
 one unit and will match any of the characters within the group.</li>
@@ -95,19 +87,17 @@ one unit and will match any of the characters within the group.</li>
 alphabet, we can write <tt class="docutils literal"><span class="pre">[a-z]</span></tt> to match any single lowercase letter. Same for the upper case letters <tt class="docutils literal"><span class="pre">[A-Z]</span></tt> or digits <tt class="docutils literal"><span class="pre">[0-9]</span></tt>.</li>
 <li>Matching one number can be even shorter by using the stamp <tt class="docutils literal"><span class="pre">\d</span></tt>.</li>
 <li>If after any of the above expressions we put the sign <tt class="docutils literal"><span class="pre">?</span></tt> it will be treated as optional. This
-means that if in the matched string there is no such an expression it will still be possible to match it. If it exits, it will be matched.</li>
-<li>If we put <tt class="docutils literal"><span class="pre">*</span></tt> after the expression it will match with any number of repetitions, except for a
-zero of repetitions, that is to say, as if it was optional.</li>
-<li>If we put <tt class="docutils literal"><span class="pre">+</span></tt> after the expression it will match with any number of repetitions, except for a
-zero repetitions (the expression must occur at least once).</li>
-<li>If several characters are put in regular brackets, such as <tt class="docutils literal"><span class="pre">(\d</span> <span class="pre">\d)</span></tt> they will be treated as a
-group and all of these modifiers will work with the whole group of characters. If you also write it with <tt class="docutils literal"><span class="pre">(?</span> <span class="pre">P</span> <span class="pre">&lt;NAME&gt;</span> <span class="pre">string)</span></tt>, the group can be later called as NAME. It is very popular while working with Django.</li>
+means that if in the matched string there is no such expression it will still be possible to match it. If it exits, it will be matched.</li>
+<li>If we put <tt class="docutils literal"><span class="pre">*</span></tt> after the expression it will match zero or more repetitions (the expression may be optional).</li>
+<li>If we put <tt class="docutils literal"><span class="pre">+</span></tt> after the expression it will match one or more repetitions (the expression must occur at least once).</li>
+<li>If several characters are put in parentheses, such as <tt class="docutils literal"><span class="pre">(\d</span> <span class="pre">\d)</span></tt> they will be treated as a
+group and all of these modifiers will work with the whole group of characters. If you also write it with <tt class="docutils literal"><span class="pre">(?</span> <span class="pre">P</span> <span class="pre">&lt;NAME&gt;</span> <span class="pre">string)</span></tt>, the group can be later called by NAME. This is very popular when working with Django.</li>
 </ul>
 </div>
-<p>Phew ... There are many rules, but no one really can remember them all. The above is sufficient in
+<p>Phew ... There are many rules, but no one can really remember them all. These are sufficient in
 most cases.</p>
-<p>Do you see already that the sample phrase matches the <tt class="docutils literal"><span class="pre">polls/1/?</span></tt> Why?</p>
-<p>Once Django finds a match it will look at the second part of the line. It defines the view, which is
+<p>Now do you see that our sample phrase matches <tt class="docutils literal"><span class="pre">polls/1/?</span></tt> Why?</p>
+<p>Once Django finds a match, it will look at the second part of the line. It defines the view, which is
 called to create the site for the user. For <tt class="docutils literal"><span class="pre">polls/1/</span></tt> it will be <tt class="docutils literal"><span class="pre">polls.views.detail</span></tt>. All named
 groups will be transferred to the view as arguments of the same name.</p>
 <div class="section" id="first-view">
@@ -119,9 +109,9 @@ groups will be transferred to the view as arguments of the same name.</p>
 Could not import polls.views.detail. View does not exist in module polls.views.
 </pre></div>
 </div>
-<p>This is because we have not defined the view yet (Django tells us that was looking for <tt class="docutils literal"><span class="pre">polls.views.</span>
+<p>This is because we have not defined the view yet (Django tells us that it was looking for <tt class="docutils literal"><span class="pre">polls.views.</span>
 <span class="pre">detail</span></tt>, unfortunately without any success).</p>
-<p>Let’s open the file in the <tt class="docutils literal"><span class="pre">polls/views.py</span></tt> and add a few new features:</p>
+<p>Let’s open the file <tt class="docutils literal"><span class="pre">polls/views.py</span></tt> and add a few new features:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
 
 <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
@@ -137,8 +127,8 @@ Could not import polls.views.detail. View does not exist in module polls.views.
     <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s">&quot;You&#39;re voting on poll </span><span class="si">%s</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="n">poll_id</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>These are the simplest possible views. They do not return regular strings, such as the function which
-builds the Christmas tree in Python, because they have to speak HTTP protocol, which is a bit more
+<p>These are the simplest possible views. They do not return regular strings, like the function that
+builds the Christmas tree in Python, because they have to speak in HTTP protocol, which is a bit more
 complicated (Here it would be interesting to see in a browser, what&#8217;s going on when you enter the
 address <a class="reference external" href="http://localhost:8000/polls/1/">http://localhost:8000/polls/1/</a>).</p>
 </div>
@@ -162,18 +152,18 @@ object or a thrown exception. All the rest is under our control. For example, we
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Now we do not give the entire content of the file as it would be too long. Only the most important changes should be reported.</p>
+<p class="last">We do not want to display the entire content of the file as it would be too long. Only the most important changes should be reported.</p>
 </div>
 <p>It works! There is only one problem with this example: we define in the view not only what has to be
 returned, but also in what format it should be returned to the site user. One of the most important
-skills of a programmer is the ability to distinguish and divide the two independent things.</p>
+skills of a programmer is the ability to distinguish and divide those two independent things.</p>
 <p>Django programmers thought about it and decided to create a system of templates:</p>
 <p>At the beginning of the <tt class="docutils literal"><span class="pre">polls/views.py</span></tt> file append:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">loader</span>
 </pre></div>
 </div>
-<p>That will let us to use template system.</p>
-<p>In the same file expand function <tt class="docutils literal"><span class="pre">index</span></tt> to look as below:</p>
+<p>This will let us use the template system.</p>
+<p>In the same file, expand the function <tt class="docutils literal"><span class="pre">index</span></tt> into this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">latest_poll_list</span> <span class="o">=</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">&#39;-pub_date&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s">&#39;polls/index.html&#39;</span><span class="p">)</span>
@@ -183,9 +173,9 @@ skills of a programmer is the ability to distinguish and divide the two independ
     <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>The functions: <tt class="docutils literal"><span class="pre">get_template</span></tt> (it finds a template) and <tt class="docutils literal"><span class="pre">render</span></tt> (it changes the template into a text
-will be finally delivered to the user) are responsible for our template handling.</p>
-<p>The code is a bit longer, but we will see soon that everything is much more clear. However, first
+<p>The functions <tt class="docutils literal"><span class="pre">get_template</span></tt> (it finds a template) and <tt class="docutils literal"><span class="pre">render</span></tt> (it changes the template into a text
+to be delivered to the user) are responsible for our template handling.</p>
+<p>The code is a bit longer, but we will see soon that everything is much clearer. First,
 let’s load the page <a class="reference external" href="http://localhost:8000/polls/">http://localhost:8000/polls/</a> to see the result of our work:</p>
 <div class="highlight-python"><div class="highlight"><pre>TemplateDoesNotExist at /polls/
 polls/index.html
@@ -216,16 +206,16 @@ polls/index.html
 <p class="first admonition-title">Note</p>
 <p class="last">HTML and CSS are the formats that define the appearance of web pages. We will use Django templates to generate the HTML code. A good description of HTML is in the book
 <a class="reference external" href="http://chimera.labs.oreilly.com/books/1230000000345/index.html">Interactive Data Visualization for the Web</a>.
-The incredible characteristics of the Web is that HTML and CSS codes of every site are public. We recommend to watch the code of your favorite sites.</p>
+The incredible characteristics of the Web is that HTML and CSS codes of every site are public. We recommend to look at the code of your favorite sites.</p>
 </div>
-<p>Almost in every view you will need eventually to use a template. Therefore, in Django there is a
+<p>In almost every view, you will eventually need to use a template. Therefore, in Django there is a
 function <tt class="docutils literal"><span class="pre">render</span></tt> which allows you to do this in a shorter way:</p>
-<p>Please correct beginning of the file <tt class="docutils literal"><span class="pre">polls/views.py</span></tt> to looks as below:</p>
+<p>Please correct the beginning of the file <tt class="docutils literal"><span class="pre">polls/views.py</span></tt> to look like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
 <span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Poll</span>
 </pre></div>
 </div>
-<p>Please correct <tt class="docutils literal"><span class="pre">index</span></tt> function to looks as below:</p>
+<p>Please correct the <tt class="docutils literal"><span class="pre">index</span></tt> function to look like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
     <span class="n">latest_poll_list</span> <span class="o">=</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s">&#39;-pub_date&#39;</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
@@ -239,18 +229,18 @@ function <tt class="docutils literal"><span class="pre">render</span></tt> which
 <h2>Returning 404 code<a class="headerlink" href="#returning-404-code" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s focus on the view of the poll details – a site which displays questions from a defined
 questionnaire.</p>
-<p>At the beginning of the <tt class="docutils literal"><span class="pre">polls/views.py</span></tt> file append:</p>
+<p>At the beginning of the file <tt class="docutils literal"><span class="pre">polls/views.py</span></tt>, append:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">Http404</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">Http404</span></tt> is an exception shared by Django. We can use this exception in case our aplication can’t
-found a poll desired by user (by writing <tt class="docutils literal"><span class="pre">raise</span> <span class="pre">Http404</span></tt>). As a result browser will show the error
+<p><tt class="docutils literal"><span class="pre">Http404</span></tt> is an exception shared by Django. We can use this exception in case our application can’t
+find the poll desired by the user (by writing <tt class="docutils literal"><span class="pre">raise</span> <span class="pre">Http404</span></tt>). As a result, the browser will show the error
 404 page.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">You can change the page displayed by Django in case of the error 404 (the page does not exist) and 500 (unexpected server error). To do this, you need to create templates <tt class="docutils literal"><span class="pre">404.html</span></tt> and <tt class="docutils literal"><span class="pre">500.html</span></tt>. Before checking if it works, change <tt class="docutils literal"><span class="pre">DEBUG</span></tt> in the <tt class="docutils literal"><span class="pre">settings.py</span></tt> file to <tt class="docutils literal"><span class="pre">False</span></tt>. Otherwise, Django will continue to display its auxiliary yellow pages.</p>
 </div>
-<p>PChange <tt class="docutils literal"><span class="pre">detail</span></tt> function as below:</p>
+<p>Change the function <tt class="docutils literal"><span class="pre">detail</span></tt> as below:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">poll_id</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">Poll</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">poll_id</span><span class="p">)</span>
@@ -259,7 +249,7 @@ found a poll desired by user (by writing <tt class="docutils literal"><span clas
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&#39;polls/detail.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;poll&#39;</span><span class="p">:</span> <span class="n">p</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>Then create <tt class="docutils literal"><span class="pre">polls/templates/polls/detail.html</span></tt> file with content as below:</p>
+<p>Then create the <tt class="docutils literal"><span class="pre">polls/templates/polls/detail.html</span></tt> file with content as below:</p>
 <div class="highlight-django"><div class="highlight"><pre><span class="x">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">poll.question</span> <span class="cp">}}</span><span class="x">&lt;/h1&gt;</span>
 <span class="x">&lt;ul&gt;</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">choice</span> <span class="k">in</span> <span class="nv">poll.choice_set.all</span> <span class="cp">%}</span><span class="x"></span>
@@ -271,8 +261,8 @@ found a poll desired by user (by writing <tt class="docutils literal"><span clas
 </div>
 <div class="section" id="form-management">
 <h2>Form management<a class="headerlink" href="#form-management" title="Permalink to this headline">¶</a></h2>
-<p>Let&#8217;s change the template <tt class="docutils literal"><span class="pre">polls/templates/polls/details.html</span></tt>, by adding a simple HTML form.</p>
-<p>Change <tt class="docutils literal"><span class="pre">polls/templates/polls/details.html</span></tt> file as below:</p>
+<p>Let&#8217;s change the template <tt class="docutils literal"><span class="pre">polls/templates/polls/details.html</span></tt> by adding a simple HTML form.</p>
+<p>Change the file <tt class="docutils literal"><span class="pre">polls/templates/polls/details.html</span></tt> as below:</p>
 <div class="highlight-django"><div class="highlight"><pre><span class="x">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">poll.question</span> <span class="cp">}}</span><span class="x">&lt;/h1&gt;</span>
 
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">error_message</span> <span class="cp">%}</span><span class="x">&lt;p&gt;&lt;strong&gt;</span><span class="cp">{{</span> <span class="nv">error_message</span> <span class="cp">}}</span><span class="x">&lt;/strong&gt;&lt;/p&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
@@ -289,59 +279,57 @@ found a poll desired by user (by writing <tt class="docutils literal"><span clas
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><tt class="docutils literal"><span class="pre">{%</span> <span class="pre">csrf_token</span> <span class="pre">%}</span></tt>  is a very magical way to protect websites from new forms of attack on websites users. More information in the documentation
-<a class="reference external" href="https://docs.djangoproject.com/en/1.4/ref/contrib/csrf/">documentation Cross Site Request Forgery</a>.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">{%</span> <span class="pre">csrf_token</span> <span class="pre">%}</span></tt>  is a very magical way to protect websites from new forms of attack on websites users. You can find more information in the documentation
+<a class="reference external" href="https://docs.djangoproject.com/en/1.4/ref/contrib/csrf/">Cross Site Request Forgery</a>.</p>
 </div>
-<p>Attentive reader will note that form is send to <tt class="docutils literal"><span class="pre">/polls/{{</span> <span class="pre">poll.id</span> <span class="pre">}}/vote/</span></tt> adress, which does not
-support data from forms yet. Now we will add forms&#8217; support.</p>
-<p>At the beginning of the <tt class="docutils literal"><span class="pre">polls/views.py</span></tt> file append:</p>
+<p>Attentive readers will note that the form is sent to the <tt class="docutils literal"><span class="pre">/polls/{{</span> <span class="pre">poll.id</span> <span class="pre">}}/vote/</span></tt> address, which does not yet
+support data from forms. Let&#8217;s add support for forms.</p>
+<p>At the beginning of the file <tt class="docutils literal"><span class="pre">polls/views.py</span></tt> append:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
 <span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse</span>
 <span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span>
 <span class="kn">from</span> <span class="nn">polls.models</span> <span class="kn">import</span> <span class="n">Choice</span>
 </pre></div>
 </div>
-<p>Correct <tt class="docutils literal"><span class="pre">vote</span></tt> function, as below:</p>
+<p>Correct the function <tt class="docutils literal"><span class="pre">vote</span></tt> as below:</p>
 <div class="highlight-python"><div class="highlight"><pre>def vote(request, poll_id):
     p = get_object_or_404(Poll, id=poll_id)
     try:
         selected_choice = p.choice_set.get(id=request.POST[&#39;choice&#39;])
     except (KeyError, Choice.DoesNotExist):
-        # If user would choose the wrong option, show error
+        # If the user chooses the wrong option, show error
         return render(request, &#39;polls/detail.html&#39;, {
             &#39;poll&#39;: p,
-            &#39;error_message&#39;: &quot;You have to choose correct option.&quot;,
+            &#39;error_message&#39;: &quot;You have to choose the correct option.&quot;,
         })
 
     # Save the new number of votes
     selected_choice.votes += 1
     selected_choice.save()
-    # Redirect a user to poll detail view, on which he or she just voted.
+    # Redirect a user to the detail view of the poll on which he or she just voted.
    return HttpResponseRedirect(reverse(&#39;polls.views.results&#39;, args=(p.id,)))
 </pre></div>
 </div>
-<p>In the view there are a lot of new ideas here which we have not discussed yet.</p>
-<p>The <tt class="docutils literal"><span class="pre">request</span></tt> object contains the data sent by the user and <tt class="docutils literal"><span class="pre">request.POST</span></tt> contains the form data sent by the user. In this way we know which option was selected.</p>
-<p>Here comes the important question. It may turn out that the view received a nonexistent answer. We
-always have to check the data received from the user and respond to a situation when the data has no
-sense. This is what happens in the :keyword:<a href="#id1"><span class="problematic" id="id2">`</span></a>except`clause. Then we redirect the user to the
+<p>In the view there are a lot of new ideas we have not yet discussed.</p>
+<p>The <tt class="docutils literal"><span class="pre">request</span></tt> object contains the data sent by the user, and <tt class="docutils literal"><span class="pre">request.POST</span></tt> contains the form data sent by the user. This lets us know which option was selected.</p>
+<p>Here comes the important question: it may turn out that the view received a nonexistent answer. We
+always have to check the data received from the user and respond to a situation when the data does not make
+sense. This is what happens in the <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#except" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">except</span></tt></a> clause. In such a case, we redirect the user to the
 questionnaire and display the error.</p>
-<p>If the user selects the correct option, we can increase the number of votes and save the changes. Then
-we make a redirection by using <tt class="docutils literal"><span class="pre">HttpResponseRedirect</span></tt> to the previously written view of the details
-of questionnaire.</p>
-<p>Another important issue: after voting we could just display the page, like at the end of the view of
-details (by using render). Unfortunately this could lead to the resending of the questionnaire. If the
+<p>If the user selects the correct option, we can increase the number of votes and save the changes. Then,
+we redirect to the view of the questionnaire details we wrote previously by using <tt class="docutils literal"><span class="pre">HttpResponseRedirect</span></tt>.</p>
+<p>Another important issue: after voting, we could just display the page, like at the end of the view of
+details (by using render). Unfortunately this could lead to  resending of the questionnaire if the
 user starts playing with the back and forward buttons in the browser, or just refreshes the page (by
-pressing F5) In short, always after the correct form is submitted (in this case, voting for a poll),
-we should perform a redirection by using HttpResponseRedirect.</p>
-<p>At the end we still have to develop a view of the poll results, displayed after voting.</p>
+pressing F5). To prevent this, we should always redirect with HttpResponseRedirect after the correct form is submitted (in this case, voting for a poll).</p>
+<p>At the end we still have to develop a view of the poll results to display after voting.</p>
 <p>Correct <tt class="docutils literal"><span class="pre">results</span> <span class="pre">function</span></tt>, as below:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">results</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">poll_id</span><span class="p">):</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Poll</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">poll_id</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&#39;polls/results.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;poll&#39;</span><span class="p">:</span> <span class="n">p</span><span class="p">})</span>
 </pre></div>
 </div>
-<p>And create <tt class="docutils literal"><span class="pre">polls/templates/polls/results.html</span></tt> file, with the following content:</p>
+<p>Create the file <tt class="docutils literal"><span class="pre">polls/templates/polls/results.html</span></tt> with the following content:</p>
 <div class="highlight-django"><div class="highlight"><pre><span class="x">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">poll.question</span> <span class="cp">}}</span><span class="x">&lt;/h1&gt;</span>
 
 <span class="x">&lt;ul&gt;</span>
@@ -354,7 +342,7 @@ we should perform a redirection by using HttpResponseRedirect.</p>
 </pre></div>
 </div>
 <p>That&#8217;s it! Enter the address <a class="reference external" href="http://localhost:8000/admin/">http://localhost:8000/admin/</a> and create several new polls and questions.
-Then play with voting them and invite others to do the same.</p>
+Then play with voting on them and invite others to do the same.</p>
 <div class="alert alert-hidden admonition">
 <p class="first admonition-title"><tt class="docutils literal"><span class="pre">polls/views.py</span></tt></p>
 <div class="last highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
@@ -456,19 +444,13 @@ Then play with voting them and invite others to do the same.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <a href="index.html" class="logo"><img class="logo" src="_static/logo.png" style="width: 200px; height: 169px; margin: -10px 0 10px 0"></a>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="django_in_action.html">Introduction to Django</a></li>
-<li class="toctree-l1"><a class="reference internal" href="django_models.html">Models</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Rendering websites</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#first-view">First view</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#view-that-really-does-something">View that really does something</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#returning-404-code">Returning 404 code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#form-management">Form management</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Słowniki</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_objects.html">Objects and classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_import.html">Multiple Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
 </ul>
 
@@ -477,7 +459,7 @@ Then play with voting them and invite others to do the same.</p>
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright Geek Girls Carrots and others.
+    &copy; Copyright Code Carrots powered by Intel (7-9 August).
   </div>
   
   <a href="https://github.com/ggcarrots/django-carrots">

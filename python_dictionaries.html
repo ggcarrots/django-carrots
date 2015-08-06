@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Słowniki &mdash; Code Carrots</title>
+    
+    <link rel="stylesheet" href="_static/carrots.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0dev1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Code Carrots" href="index.html" />
+    <link rel="next" title="Objects and classes" href="python_objects.html" />
+    <link rel="prev" title="Christmas Tree" href="python_xmas_tree.html" /> 
+  </head>
+  <body>
+  
+  
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="python_objects.html" title="Objects and classes"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="python_xmas_tree.html" title="Christmas Tree"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Code Carrots</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="slowniki">
+<h1>Słowniki<a class="headerlink" href="#slowniki" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="wprowadzenie">
+<h2>Wprowadzenie<a class="headerlink" href="#wprowadzenie" title="Permalink to this headline">¶</a></h2>
+<p>Czas żebyś poznał/a przydatną struktrurę danych - słownik. Słowniki służą do przechowywania danych w formie klucz wartość (tak jak w encyklopedii mamy hasło, a z nim powiązany opis).
+Wyobraź sobie, że chcemy przechowywać informacje o czytelnikach w bibliotece. Dla każdego czytelnika mamy następujące dane: imię, nazwisko, data urodzenia, miejsce urodzenia, numer karty czytelnika.
+Tak to wygląda w języku Python z zastosowaniem słowników:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">reader</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Kasia&#39;</span><span class="p">,</span>
+  <span class="s">&#39;surname&#39;</span><span class="p">:</span> <span class="s">&#39;Kowalska&#39;</span><span class="p">,</span>
+  <span class="s">&#39;date_of_birth&#39;</span><span class="p">:</span> <span class="s">&#39;19-01-1985&#39;</span><span class="p">,</span>
+  <span class="s">&#39;place_of_birth&#39;</span><span class="p">:</span> <span class="s">&#39;Wrocław&#39;</span><span class="p">,</span>
+  <span class="s">&#39;readers_nr&#39;</span><span class="p">:</span> <span class="s">&#39;ASDF1234&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>W tym przykładzie <tt class="docutils literal"><span class="pre">name</span></tt> to klucz (hasło w słowniku), któremu odpowiada wartość <tt class="docutils literal"><span class="pre">Kasia</span></tt> (opis hasła).
+Spróbuj teraz stworzyć swój własny rekord czytelnika.</p>
+<p>Nowoczesna Biblioteka Raczyńskich w Poznaniu chce wysyłać swoim czytelnikom życzenia urodzinowe. Żeby pan bibliotekarz wiedział kiedy się urodziłaś/eś wystarczy, że sprawdzi:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">reader</span><span class="p">[</span><span class="s">&#39;date_of_birth&#39;</span><span class="p">]</span>
+<span class="go">&#39;19-01-1985&#39;</span>
+</pre></div>
+</div>
+<p>Pan bibliotekarz przypomniał sobie: żeby wysłać Tobie życzenia urodzinowe potrzebuje Twojego adresu. Możesz go dodać do swoich danych czytelnika w następujący sposób:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">reader</span><span class="p">[</span><span class="s">&#39;address&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;ul. Marszałkowska 1, 01-234 Warszawa&#39;</span>
+</pre></div>
+</div>
+<p>Możesz też łatwo zmienić wartość w słowniku, jeśli wcześniej popełniłeś/łaś błąd- wystarczy nadpisać istniejącą wartość:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">reader</span><span class="p">[</span><span class="s">&#39;place_of_birth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Łódź&#39;</span>
+</pre></div>
+</div>
+<p>Żeby wypisać cały słownik na ekran, możemy użyć pętli <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+  <span class="k">print</span> <span class="n">key</span><span class="p">,</span> <span class="n">reader</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Użycie pętli for ze słownikiem pozwala przeiterować się po kolejnych kluczach słownika. <tt class="docutils literal"><span class="pre">reader[key]</span></tt> daje skolei dosUwaga, kolejność w jakiej
+będziemy otrzymywać klucze jest losowa, słowniki nie pamiętają kolejności. Jeżeli chcemy zapamiętać kolejność musimy
+użyć przykładowo list.</p>
+</div>
+<div class="section" id="zadanie-1">
+<h2>Zadanie 1<a class="headerlink" href="#zadanie-1" title="Permalink to this headline">¶</a></h2>
+<p>Opis: System biblioteczny zawiera dane o autorze dla każdej ksiąki. Pan bibliotrekarz układając książki na regale sprawdza autora, żeby książki były ułożone alfabetycznie.
+Spróbuj wypisać pary: książka &#8211;&gt; autor dla każdej pozycji w słowniku, który opisuje księgozbiór biblioteki.</p>
+<p>PRZYKŁAD (jedna linijka oczekiwanego wyjścia):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;Introduction to Algorithms&#39;</span> <span class="o">--&gt;</span> <span class="s">&#39;Thomas H. Cormen&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">title_to_author</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Structure and Interpretation of Computer Programs&#39;</span> <span class="p">:</span> <span class="s">&#39;Harold Abelson&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Introduction to Algorithms&#39;</span> <span class="p">:</span> <span class="s">&#39;Thomas H. Cormen&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;The C Programming Language&#39;</span> <span class="p">:</span> <span class="s">&#39;Brian W. Kernighan&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span> <span class="p">:</span> <span class="s">&#39;Andrew Hunt&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Art of Computer Programming&#39;</span> <span class="p">:</span> <span class="s">&#39;Donald Ervin Knuth&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span> <span class="p">:</span> <span class="s">&#39;Erich Gamma&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Artificial Intelligence: A Modern Approach&#39;</span> <span class="p">:</span> <span class="s">&#39;Stuart Russell&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Introduction to the Theory of Computation&#39;</span> <span class="p">:</span> <span class="s">&#39;Michael Sipser&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Code Complete&#39;</span> <span class="p">:</span> <span class="s">&#39;Steve McConnell&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span> <span class="p">:</span> <span class="s">&#39;Frederick P. Brooks Jr.&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zadanie-2">
+<h2>Zadanie 2<a class="headerlink" href="#zadanie-2" title="Permalink to this headline">¶</a></h2>
+<p>Możesz pomóc bibliotekarzowi sprawdzić, na którą półkę powinien odłożyć daną książkę. W tym momencie biblioteka przechowuje
+dane o książkach w dwóch słownikach: <tt class="docutils literal"><span class="pre">title_to_author</span></tt> i <tt class="docutils literal"><span class="pre">title_to_shelf_number</span></tt>. Musimy je połączyć.
+W wyniku połączenia powstanie nowy słownik, który dla danego tytułu książki ma zawierać informacje o numerze półki oraz autorze.
+Te informacje mają być przechowywane w krotkach o postaci (numer półki, imię i nazwisko autora)</p>
+<p>Połącz dwa słowniki <tt class="docutils literal"><span class="pre">title_to_author</span></tt> i <tt class="docutils literal"><span class="pre">title_to_shelf_number</span></tt> w jeden, przechowywany w zmiennej
+<tt class="docutils literal"><span class="pre">title_to_book_record</span></tt>:</p>
+<ul class="simple">
+<li>Kluczem w słowniku <tt class="docutils literal"><span class="pre">title_to_author</span></tt> jest &#8220;tytuł książki&#8221;, a wartością &#8220;imię głównego authora&#8221;</li>
+<li>Kluczem w słowniku <tt class="docutils literal"><span class="pre">title_to_shelf_number</span></tt> jest &#8220;tytuł książki&#8221;, a wartością &#8220;numer półki&#8221;</li>
+<li>Kluczem w wynikowym słowniku <tt class="docutils literal"><span class="pre">title_to_book_record</span></tt> powinien być &#8220;tytuł książki&#8221;, a wartością 2 elementowa krotka
+(&#8220;imię głównego autora&#8221;, &#8220;numer półki&#8221;)</li>
+</ul>
+<p>PRZYKŁAD:</p>
+<p>Dla klucza <tt class="docutils literal"><span class="pre">The</span> <span class="pre">C</span> <span class="pre">Programming</span> <span class="pre">Language</span></tt> słownik <tt class="docutils literal"><span class="pre">title_to_book_record</span></tt> powinien zwrócić krotkę:
+<tt class="docutils literal"><span class="pre">('Brian</span> <span class="pre">W.</span> <span class="pre">Kernighan',</span> <span class="pre">23)</span></tt>. Czyli, w interpreterze Pythona:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">title_to_book_record</span><span class="p">[</span><span class="s">&#39;The C Programming Language&#39;</span><span class="p">]</span>
+<span class="go">(&#39;Brian W. Kernighan&#39;, 23)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">title_to_author</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Structure and Interpretation of Computer Programs&#39;</span> <span class="p">:</span> <span class="s">&#39;Harold Abelson&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Introduction to Algorithms&#39;</span> <span class="p">:</span> <span class="s">&#39;Thomas H. Cormen&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;The C Programming Language&#39;</span> <span class="p">:</span> <span class="s">&#39;Brian W. Kernighan&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span> <span class="p">:</span> <span class="s">&#39;Andrew Hunt&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Art of Computer Programming&#39;</span> <span class="p">:</span> <span class="s">&#39;Donald Ervin Knuth&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span> <span class="p">:</span> <span class="s">&#39;Erich Gamma&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Artificial Intelligence: A Modern Approach&#39;</span> <span class="p">:</span> <span class="s">&#39;Stuart Russell&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Introduction to the Theory of Computation&#39;</span> <span class="p">:</span> <span class="s">&#39;Michael Sipser&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;Code Complete&#39;</span> <span class="p">:</span> <span class="s">&#39;Steve McConnell&#39;</span><span class="p">,</span>
+                 <span class="s">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span> <span class="p">:</span> <span class="s">&#39;Frederick P. Brooks Jr.&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">title_to_shelf_number</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Structure and Interpretation of Computer Programs&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                       <span class="s">&#39;Introduction to Algorithms&#39;</span> <span class="p">:</span> <span class="mi">34</span><span class="p">,</span>
+                       <span class="s">&#39;The C Programming Language&#39;</span> <span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+                       <span class="s">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span> <span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                       <span class="s">&#39;Art of Computer Programming&#39;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                       <span class="s">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span> <span class="p">:</span> <span class="mi">586</span><span class="p">,</span>
+                       <span class="s">&#39;Artificial Intelligence: A Modern Approach&#39;</span> <span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+                       <span class="s">&#39;Introduction to the Theory of Computation&#39;</span> <span class="p">:</span> <span class="mi">98</span><span class="p">,</span>
+                       <span class="s">&#39;Code Complete&#39;</span> <span class="p">:</span> <span class="mi">77</span><span class="p">,</span>
+                       <span class="s">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zadanie-3">
+<h2>Zadanie 3<a class="headerlink" href="#zadanie-3" title="Permalink to this headline">¶</a></h2>
+<p>Gdybyś szukał konkretnego wydania ksiażki po ISBN to możesz skorzystać z poniższego słownika.</p>
+<p>Wypisz zawartość słownika w formacie:</p>
+<div class="highlight-python"><div class="highlight"><pre>&#39;TITLE&#39; by &#39;AUTOR&#39; is on shelf &#39;NUMBER_OF_SHELF&#39; (ISBN: &#39;NUMBER_OF_ISBN&#39;)
+</pre></div>
+</div>
+<p>Kluczem w słownik <tt class="docutils literal"><span class="pre">books</span></tt> jest numer &#8220;ISBN&#8221; , a wartością 3 ELEMENTOWA KROTKA (&#8220;tytuł książki&#8221;, &#8220;imię głównego autora&#8221;, &#8220;numer półki&#8221;)</p>
+<p>PRZYKŁAD (jedna linijka oczekiwanego wyjścia):</p>
+<div class="highlight-python"><div class="highlight"><pre>Introduction to Algorithms by Thomas H. Cormen is on shelf 34 (ISBN: 0262032937)
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">books</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;0262510871&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Structure and Interpretation of Computer Programs&#39;</span><span class="p">,</span> <span class="s">&#39;Harold Abelson&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+       <span class="s">&#39;0262032937&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Introduction to Algorithms&#39;</span><span class="p">,</span> <span class="s">&#39;Thomas H. Cormen&#39;</span><span class="p">,</span> <span class="mi">34</span><span class="p">),</span>
+       <span class="s">&#39;0131103628&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;The C Programming Language&#39;</span><span class="p">,</span> <span class="s">&#39;Brian W. Kernighan&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+       <span class="s">&#39;020161622X&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span><span class="p">,</span> <span class="s">&#39;Andrew Hunt&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+       <span class="s">&#39;0201485419&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Art of Computer Programming&#39;</span><span class="p">,</span> <span class="s">&#39;Donald Ervin Knuth&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+       <span class="s">&#39;0201633612&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span><span class="p">,</span> <span class="s">&#39;Erich Gamma&#39;</span><span class="p">,</span> <span class="mi">586</span><span class="p">),</span>
+       <span class="s">&#39;0130803022&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Artificial Intelligence: A Modern Approach&#39;</span><span class="p">,</span> <span class="s">&#39;Stuart Russell&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
+       <span class="s">&#39;0534950973&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Introduction to the Theory of Computation&#39;</span><span class="p">,</span> <span class="s">&#39;Michael Sipser&#39;</span><span class="p">,</span> <span class="mi">98</span><span class="p">),</span>
+       <span class="s">&#39;0735619670&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Code Complete&#39;</span><span class="p">,</span> <span class="s">&#39;Steve McConnell&#39;</span><span class="p">,</span> <span class="mi">77</span><span class="p">),</span>
+       <span class="s">&#39;0201835959&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span><span class="p">,</span> <span class="s">&#39;Frederick P. Brooks Jr.&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zadanie-dodatkowe">
+<h2>Zadanie dodatkowe<a class="headerlink" href="#zadanie-dodatkowe" title="Permalink to this headline">¶</a></h2>
+<p>Uzupełnij ciało funkcji <tt class="docutils literal"><span class="pre">find_by_isbn_part</span></tt> tak, aby zwracała tytuły książek zawierające podany fragment numeru ISBN.
+Kluczem w słowniku <tt class="docutils literal"><span class="pre">books</span></tt> jest numer <tt class="docutils literal"><span class="pre">ISBN</span></tt>, a wartością 3 ELEMENTOWA KROTKA:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="s">&quot;tytuł książki&quot;</span><span class="p">,</span> <span class="s">&quot;imię głównego autora&quot;</span><span class="p">,</span> <span class="s">&quot;numer półki&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Uruchomienie tego skryptu spowoduje wywołanie funkcji testującej, która sprawdzi czy funkcja dobrze działa i wypisze raport na konsolę.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">books</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;0262510871&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Structure and Interpretation of Computer Programs&#39;</span><span class="p">,</span> <span class="s">&#39;Harold Abelson&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+       <span class="s">&#39;0262032937&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Introduction to Algorithms&#39;</span><span class="p">,</span> <span class="s">&#39;Thomas H. Cormen&#39;</span><span class="p">,</span> <span class="mi">34</span><span class="p">),</span>
+       <span class="s">&#39;0131103628&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;The C Programming Language&#39;</span><span class="p">,</span> <span class="s">&#39;Brian W. Kernighan&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">),</span>
+       <span class="s">&#39;020161622X&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span><span class="p">,</span> <span class="s">&#39;Andrew Hunt&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+       <span class="s">&#39;0201485419&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Art of Computer Programming&#39;</span><span class="p">,</span> <span class="s">&#39;Donald Ervin Knuth&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+       <span class="s">&#39;0201633612&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span><span class="p">,</span> <span class="s">&#39;Erich Gamma&#39;</span><span class="p">,</span> <span class="mi">586</span><span class="p">),</span>
+       <span class="s">&#39;0130803022&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Artificial Intelligence: A Modern Approach&#39;</span><span class="p">,</span> <span class="s">&#39;Stuart Russell&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
+       <span class="s">&#39;0534950973&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Introduction to the Theory of Computation&#39;</span><span class="p">,</span> <span class="s">&#39;Michael Sipser&#39;</span><span class="p">,</span> <span class="mi">98</span><span class="p">),</span>
+       <span class="s">&#39;0735619670&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;Code Complete&#39;</span><span class="p">,</span> <span class="s">&#39;Steve McConnell&#39;</span><span class="p">,</span> <span class="mi">77</span><span class="p">),</span>
+       <span class="s">&#39;0201835959&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span><span class="p">,</span> <span class="s">&#39;Frederick P. Brooks Jr.&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)}</span>
+</pre></div>
+</div>
+<p>POPRAW FUNKCJĘ <tt class="docutils literal"><span class="pre">find_by_isbn_part</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">find_by_isbn_part</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="n">isbn_part</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c"># PODPOWIEDZI:</span>
+    <span class="c">#  - użyj pętli for</span>
+    <span class="c">#  - isbn_part in isbn to warunek, który sprawdza czy ciąg znaków isbn_part zawiera się w isbn</span>
+    <span class="c">#  - dodawanie elementów do listy, gdzie x to lista, a e to element, który chcesz dodać: x.append(e)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c"># TEGO PONIŻEJ NIE ZMIENIAJ</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">books</span><span class="p">):</span>
+    <span class="n">single_test</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="s">&#39;020&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span><span class="p">,</span>
+                             <span class="s">&#39;Art of Computer Programming&#39;</span><span class="p">,</span>
+                             <span class="s">&#39;Design Patterns: Elements of Reusable Object-Oriented Software&#39;</span><span class="p">,</span>
+                             <span class="s">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span><span class="p">])</span>
+    <span class="n">single_test</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="s">&#39;18&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;The Mythical Man-Month: Essays on Software Engineering&#39;</span><span class="p">])</span>
+    <span class="n">single_test</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="s">&#39;22&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;The Pragmatic Programmer: From Journeyman to Master&#39;</span><span class="p">,</span>
+                            <span class="s">&#39;Artificial Intelligence: A Modern Approach&#39;</span><span class="p">])</span>
+    <span class="n">single_test</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="s">&#39;0735619670&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;Code Complete&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">single_test</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">expected_output</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">find_by_isbn_part</span><span class="p">(</span><span class="n">books</span><span class="p">,</span> <span class="nb">input</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">set</span><span class="p">(</span><span class="n">expected_output</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">expected_output</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;ŹLE! DLA &#39;&quot;</span><span class="o">+</span><span class="nb">input</span><span class="o">+</span><span class="s">&quot;&#39; WYNIK TO: &#39;&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;&#39;, OCZEKIWANO: &#39;&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">expected_output</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;&#39;&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;OK! DLA &#39;&quot;</span><span class="o">+</span><span class="nb">input</span><span class="o">+</span><span class="s">&quot;&#39;&quot;</span><span class="p">)</span>
+
+<span class="n">test</span><span class="p">(</span><span class="n">books</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <a href="index.html" class="logo"><img class="logo" src="_static/logo.png" style="width: 200px; height: 169px; margin: -10px 0 10px 0"></a>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Słowniki</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wprowadzenie">Wprowadzenie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zadanie-1">Zadanie 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zadanie-2">Zadanie 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zadanie-3">Zadanie 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zadanie-dodatkowe">Zadanie dodatkowe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python_objects.html">Objects and classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_import.html">Multiple Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    &copy; Copyright Code Carrots powered by Intel (7-9 August).
+  </div>
+  
+  <a href="https://github.com/ggcarrots/django-carrots">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png">
+  </a>
+  </body>
+</html>
