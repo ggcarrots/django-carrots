@@ -1,13 +1,11 @@
-
-Słowniki
+Dictionaries
 ========
 
-Wprowadzenie
+Introduction
 ------------
 
-Czas żebyś poznał/a przydatną struktrurę danych - słownik. Słowniki służą do przechowywania danych w formie klucz wartość (tak jak w encyklopedii mamy hasło, a z nim powiązany opis).
-Wyobraź sobie, że chcemy przechowywać informacje o czytelnikach w bibliotece. Dla każdego czytelnika mamy następujące dane: imię, nazwisko, data urodzenia, miejsce urodzenia, numer karty czytelnika.
-Tak to wygląda w języku Python z zastosowaniem słowników:
+It is time for you to get to know useful data structure - dictionary. Dictionaries are used to store data as a key and value (just like in encyclopedia - you have entry and a description attached to it). Imagine you want to store information about library users. For every reader you have: name, surname, birthdate, birthplace, id number.
+In python such a structure would look like this:
 
 .. code-block:: python
 
@@ -19,44 +17,43 @@ Tak to wygląda w języku Python z zastosowaniem słowników:
     'readers_nr': 'ASDF1234',
   }
 
-W tym przykładzie ``name`` to klucz (hasło w słowniku), któremu odpowiada wartość ``Kasia`` (opis hasła).
-Spróbuj teraz stworzyć swój własny rekord czytelnika.
+In this example ``name`` is a key (dictionary entry), witch assigned value ``Kasia`` (entry description).
+Try to create your own user entry.
 
-Nowoczesna Biblioteka Raczyńskich w Poznaniu chce wysyłać swoim czytelnikom życzenia urodzinowe. Żeby pan bibliotekarz wiedział kiedy się urodziłaś/eś wystarczy, że sprawdzi:
+Nowoczesna Biblioteka Raczyńskich in Poznan wants to send its users birthday wishes. For the library worker to know when you were born it only takes to check:
 
   >>> print reader['date_of_birth']
   '19-01-1985'
-  
-Pan bibliotekarz przypomniał sobie: żeby wysłać Tobie życzenia urodzinowe potrzebuje Twojego adresu. Możesz go dodać do swoich danych czytelnika w następujący sposób:
+
+The clerk recalled: to send you birthday wishes he needs your address aswell. You can add them to your reader's data in such manner:
 
 .. code-block:: python
 
   reader['address'] = 'ul. Marszałkowska 1, 01-234 Warszawa'
   
-Możesz też łatwo zmienić wartość w słowniku, jeśli wcześniej popełniłeś/łaś błąd- wystarczy nadpisać istniejącą wartość:
+You can easily change the value in dictionary, if you make any mistake- it only takes to rewrite existing value:
 
 .. code-block:: python
 
   reader['place_of_birth'] = 'Łódź'
-  
-Żeby wypisać cały słownik na ekran, możemy użyć pętli :keyword:`for`:
+
+To print to screen whole dictionary, we can use loop :keyword:`for`:
 
 .. code-block:: python
 
   for key in reader:
     print key, reader[key]
 
-Użycie pętli for ze słownikiem pozwala przeiterować się po kolejnych kluczach słownika. ``reader[key]`` daje skolei dosUwaga, kolejność w jakiej
-będziemy otrzymywać klucze jest losowa, słowniki nie pamiętają kolejności. Jeżeli chcemy zapamiętać kolejność musimy
-użyć przykładowo list.
+Using 'for' loop on dictionary allows to iterate though every single key. ``reader[key]`` gives access to the value under given key.
+Beware, the order of records is random, dictionaries do not have assigned order. If you want to use ordered structures use lists.
 
-Zadanie 1
----------
+Task 1
+------
   
-Opis: System biblioteczny zawiera dane o autorze dla każdej ksiąki. Pan bibliotrekarz układając książki na regale sprawdza autora, żeby książki były ułożone alfabetycznie.
-Spróbuj wypisać pary: książka --> autor dla każdej pozycji w słowniku, który opisuje księgozbiór biblioteki.
+Description: Library system contains author data assigned to every book. Library clerk checks book author while putting books on shelf in alphabetic order.
+Try to write down pairs: book --> author for every record in dictionary, used to store library information.
 
-PRZYKŁAD (jedna linijka oczekiwanego wyjścia):
+EXAMPLE (one line output):
 
 .. code-block:: python
 
@@ -76,26 +73,24 @@ PRZYKŁAD (jedna linijka oczekiwanego wyjścia):
                    'The Mythical Man-Month: Essays on Software Engineering' : 'Frederick P. Brooks Jr.'}
 
 
-Zadanie 2
----------
+Task 2
+------
 
-Możesz pomóc bibliotekarzowi sprawdzić, na którą półkę powinien odłożyć daną książkę. W tym momencie biblioteka przechowuje 
-dane o książkach w dwóch słownikach: ``title_to_author`` i ``title_to_shelf_number``. Musimy je połączyć.
-W wyniku połączenia powstanie nowy słownik, który dla danego tytułu książki ma zawierać informacje o numerze półki oraz autorze.
-Te informacje mają być przechowywane w krotkach o postaci (numer półki, imię i nazwisko autora)
+You can help the clerk to find out on which shelf given book should be putted. In this very moment the library store data about its books in two dictionaries:: ``title_to_author`` and ``title_to_shelf_number``. We need to join them. 
+After join there will be one dictionary, containing information about shelf and author of a book.
+These information will be stored in tuplets of such elements (shelf number, author's full name)
 
-Połącz dwa słowniki ``title_to_author`` i ``title_to_shelf_number`` w jeden, przechowywany w zmiennej
-``title_to_book_record``:
+Merge two dictionaries ``title_to_author`` and ``title_to_shelf_number`` in one, stored in variable ``title_to_book_record``:
 
-* Kluczem w słowniku ``title_to_author`` jest "tytuł książki", a wartością "imię głównego authora"
-* Kluczem w słowniku ``title_to_shelf_number`` jest "tytuł książki", a wartością "numer półki"
-* Kluczem w wynikowym słowniku ``title_to_book_record`` powinien być "tytuł książki", a wartością 2 elementowa krotka
-  ("imię głównego autora", "numer półki")
+* The key in dictionary ``title_to_author`` is "book's title", and value is "main author's name"
+* The key in dictionary ``title_to_shelf_number`` is "book's title", and value is "shelf number"
+* The key in output dictionary ``title_to_book_record`` should be "book's title", and value should contain 2 elements tuple
+  ("main author's name", "shelf number")
 
-PRZYKŁAD:
+EXAMPLE:
 
-Dla klucza ``The C Programming Language`` słownik ``title_to_book_record`` powinien zwrócić krotkę:
-``('Brian W. Kernighan', 23)``. Czyli, w interpreterze Pythona:
+For key ``The C Programming Language`` dictionary ``title_to_book_record`` should return a tuplet:
+``('Brian W. Kernighan', 23)``. In Python interpreter:
 
   >>> title_to_book_record['The C Programming Language']
   ('Brian W. Kernighan', 23)
@@ -127,18 +122,18 @@ Dla klucza ``The C Programming Language`` słownik ``title_to_book_record`` powi
                          'The Mythical Man-Month: Essays on Software Engineering' : 3}
                          
 
-Zadanie 3
----------
+Task 3
+------
 
-Gdybyś szukał konkretnego wydania ksiażki po ISBN to możesz skorzystać z poniższego słownika.
+If you would like to find books particular edition by ISBN, you can use dictionary as below.
 
-Wypisz zawartość słownika w formacie::
+Print out dictionary's content in such manner::
 
     'TITLE' by 'AUTOR' is on shelf 'NUMBER_OF_SHELF' (ISBN: 'NUMBER_OF_ISBN')
 
-Kluczem w słownik ``books`` jest numer "ISBN" , a wartością 3 ELEMENTOWA KROTKA ("tytuł książki", "imię głównego autora", "numer półki")
+The key in dictionary ``books`` is integer "ISBN" , and value is THREE ELEMENTS TUPLE ("book's title", "main author's name", "shelf number")
 
-PRZYKŁAD (jedna linijka oczekiwanego wyjścia)::
+EXAMPLE (one line output)::
 
     Introduction to Algorithms by Thomas H. Cormen is on shelf 34 (ISBN: 0262032937)
 
@@ -156,15 +151,15 @@ PRZYKŁAD (jedna linijka oczekiwanego wyjścia)::
          '0201835959' : ('The Mythical Man-Month: Essays on Software Engineering', 'Frederick P. Brooks Jr.', 3)}
          
          
-Zadanie dodatkowe
------------------
+Additional task
+---------------
 
-Uzupełnij ciało funkcji ``find_by_isbn_part`` tak, aby zwracała tytuły książek zawierające podany fragment numeru ISBN.
-Kluczem w słowniku ``books`` jest numer ``ISBN``, a wartością 3 ELEMENTOWA KROTKA::
+Fill the body of method ``find_by_isbn_part``, so it would return all books' titles matching part of given ISBN.
+The key in dictionary ``books`` is ``ISBN``, and value is THREE ELEMENTS TUPLE::
 
-    ("tytuł książki", "imię głównego autora", "numer półki")
+    ("book's title", "main author's name", "shelf number")
 
-Uruchomienie tego skryptu spowoduje wywołanie funkcji testującej, która sprawdzi czy funkcja dobrze działa i wypisze raport na konsolę.
+Running this script will execute test function, that will verify if the method works properly and output the result to the terminal.
 
 .. code-block:: python
 
@@ -179,20 +174,20 @@ Uruchomienie tego skryptu spowoduje wywołanie funkcji testującej, która spraw
          '0735619670' : ('Code Complete', 'Steve McConnell', 77),
          '0201835959' : ('The Mythical Man-Month: Essays on Software Engineering', 'Frederick P. Brooks Jr.', 3)}
 
-POPRAW FUNKCJĘ ``find_by_isbn_part``:
+CORRECT THE FUNCTION ``find_by_isbn_part``:
 
 .. code-block:: python
 
     def find_by_isbn_part(books, isbn_part):
         result = []
 
-        # PODPOWIEDZI:
-        #  - użyj pętli for
-        #  - isbn_part in isbn to warunek, który sprawdza czy ciąg znaków isbn_part zawiera się w isbn
-        #  - dodawanie elementów do listy, gdzie x to lista, a e to element, który chcesz dodać: x.append(e)
+        # HINTS:
+        #  - user for loop
+        #  - isbn_part in isbn is a condition that verifies if isbn contains isbn_part
+        #  - adding elements to list, where x is a list and e is an element to add: x.append(e)
         return result
 
-    # TEGO PONIŻEJ NIE ZMIENIAJ
+    # DO NOT ALTER
     def test(books):
         single_test(books, '020', ['The Pragmatic Programmer: From Journeyman to Master',
                                  'Art of Computer Programming',
@@ -206,8 +201,8 @@ POPRAW FUNKCJĘ ``find_by_isbn_part``:
     def single_test(books, input, expected_output):
         output = find_by_isbn_part(books, input)
         if set(output) != set(expected_output) or len(output) != len(expected_output):
-            print("ŹLE! DLA '"+input+"' WYNIK TO: '"+str(output)+"', OCZEKIWANO: '"+str(expected_output)+"'")
+            print("WRONG! FOR '"+input+"' RESULT IS: '"+str(output)+"', EXPECTED: '"+str(expected_output)+"'")
         else:
-            print("OK! DLA '"+input+"'")
+            print("OK! FOR '"+input+"'")
 
     test(books)
