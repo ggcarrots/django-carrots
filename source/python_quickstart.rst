@@ -868,39 +868,37 @@ Aligning towards the centre is an additional excercise for you :).
 Powtórzenie funkcji print i input
 ---------------------------------
 
-Zadanie 1: Gra 'papier, nożyczki, kamień'
-`````````````````````````````````````````
+Task 1: Game ‘rock-paper-scissors’
+``````````````````````````````````
 
-Opis:
+Description:
 
-Programujemy prostą grę kamień-papier-nożyczki.
-Na początek nasza gra ma zadanie:
+We will implement a simple game called rock-paper-scissors. Let's define goals of the game:
 
-1. Wyświetlić opis gry.
-2. Pobrać od użytkownika jego wybór
-3. Porównać wybór użytkownika z zapisanym na sztywno w programie wyborem komputera
-4. Wyświetlić wynik rozgrywki
+1. Show game manual.
+2. Get users choice as an input
+3. Compare user's choice with predefined computer's choice
+4. Print the outcome
 
-
-Kod początkowy:
+Initial code:
 
 .. code-block:: python
 
-    print("Witaj w grze")
-    computer_choice = 'kamien'
+    print("Welcome")
+    computer_choice = 'rock'
 
-    # Wypisz opis gry, możliwości, autor itp.
+    # Print game manual, possible chocies, author itp.
 
-    # Pobierz wybór od użytkownika
+    # Get user input
 
-    # Porównaj wybór użytkownika z wyborem komputera
+    # Compare user's and computer's choices
 
-    # Wypisz wynik rozgrywki
+    # Print the outcome
 
 Explore:
 
-    * Wyświetlić opis gry w ładnej ramce
-    * Wyświetlić opis gry na żądanie (np. gdy użytkownik wpiszę jako swój wybór `help`)
+    * Print game manual in stylish frame
+    * Print game manual on call (for instance, when user's choice was help)
 
 
 Summary

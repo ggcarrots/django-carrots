@@ -396,8 +396,9 @@ tree, not just half of it?
 
 
 First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``.
-It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect::
+It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect:
 
+.. code-block::
       *
      ***
     *****
@@ -507,14 +508,14 @@ Task for volunteers
 Create a class ``XMASTree`` which for a given size and upon calling the method ``draw`` will print the
 following pictures (sizes 1, 2 and 3):
 
-::
+.. code-block::
 
           *
          /|\
         /_|_\
           |
 
-::
+.. code-block::
 
            *
           /|\
@@ -524,7 +525,7 @@ following pictures (sizes 1, 2 and 3):
         /__|__\
            |
 
-::
+.. code-block::
 
             *
            /|\
@@ -546,12 +547,12 @@ following pictures (sizes 1, 2 and 3):
     for one gift you have about 10 microseconds.
     
     
-Kalendarz
----------
+Calendar
+--------
 
-Opis:
+Description:
 
-Przy pomocy danych:
+Using data:
 
 .. code-block:: python
 
@@ -571,7 +572,7 @@ Przy pomocy danych:
         ]
 
 
-Wyświetl kalendarz:
+Print a calendar:
 
 ::
 
@@ -608,143 +609,140 @@ Wyświetl kalendarz:
   21 22 23 24 25 26 27
   28 29 30
   
-Podpowiedź: Zacznij od napisania funkcji, która wyświetli dni jednego miesiąca. Potem wywołaj ją dla wszystkich elementów listy 'data'. Pamiętaj, że tydzień ma 7 dni.
+Hint: Start with a method that will print days of a single month. Run it for each element of the list ‘data’. Rememeber
+that every week has 7 days.
 
     
-Rozbudowa gry 'papier, nożyce i kamień'
----------------------------------------
+Improvement of the ‘rock-paper-scissors’ game
+---------------------------------------------
 
 
-Zadanie 1: Gramy dalej, czyli kilka rozdań w jednej grze 
-````````````````````````````````````````````````````````
+Task 1: Let's play some more, i.e. few rounds of a game
+```````````````````````````````````````````````````````
 
-Opis:
+Description:
 
-Nasza gra nie jest aktualnie najlepsza ponieważ za każdym razem gdy chcemy zagrać musimy odpalać nasz skrypt i po jednej rozgrywce nasz program się kończy.
-Musimy dać użytkownikowi wybór czy po danej rozgrywce chce zakończyć grę czy grać dalej. Wykorzystamy do tego pętlę `while` i słówko kluczowe `break`.
+Our game is not the most playable at this point, because it has to be reload every single time. We have to give user
+a choice if he wants to continue or end the game after one round. Let's use a `while` loop and keyword `break`.
 
-Po każdej rozgrywce użytkownik powinien zobaczyć pytanie:
-
-::
-
-  Czy chcesz grać dalej? tak/nie: 
-
-
-Głupi komputer potrafi też być uparty. Spraw, by czasami na odpowiedź `nie` na ostatnie pytanie wypisywał:
+After every round user should see the question:
 
 ::
 
-  Nie!? Tak łatwo mi się nie wymkniesz! Gramy dalej!
+  Would you like to continue yes/no:
+
+
+The computer can also be stubborn. If user decides no in previous step, make it ask user addition question:
+
+::
+
+  No!? You will not get away so easily! Prepare yourself for the next round!
   
-I zaczynał grę od początku. (ale bez wyboru poziomu umiejętności komputera!)
+And start next round. (but without a choice of difficulty level!)
 
 
-Zadanie 2: Dodanie ekranów do gry
+Task 2: Some addiotional screens
 `````````````````````````````````
 
-Opis:
+Description:
 
-Nasz gra strasznie śmieci w terminalu, ale możemy to zmienić. Za każdym razem gdy będziemy rozpoczynać nową rozgrywkę chcemy mieć pusty ekran z powitaniem.
-Możemy wykorzystać do tego moduł `os` i jego funkcję `system` by wywołać polecenie systemowe `cls` (dla linuxa i macosx `clear`).
+Adjust the game so it has such `screens`:
 
-Przykład:
+Welcome screen:
 
-.. code-block:: python
+.. code-block::
 
-  print("Witaj w grze!")
+    Welcome:
+    S - Start
+    P - Difficulty level
+    Q - Quit
 
-Dopracuj grę by jej przebieg miał następujące `ekrany`:
+Level selection:
 
-::
+.. code-block::
 
-  Witaj w grze:
-  S - Start gry
-  P - Wybierz poziom komputera
-  Q - Wyjście
+    Difficulty level:
+    A - Smart
+    B - Stupid
 
-::
+Game:
 
-  Wybierz poziom komputera:
-  A - Sprytny computer
-  B - Głupi computer
+.. code-block::
 
+    Your choice:
+    K - Stone
+    P - Paper
+    N - Scissors
 
-::
+End of game:
 
-  Podaj swój wybór:
-  K - Kamień
-  P - Papier
-  N - Nożyczki
+.. code-block::
 
+  Would you like to continue yes/no:
 
-::
+Take under consideration all previously implemented functionality.
 
-  Czy chcesz grać dalej? tak/nie:
+Task 3: User stats
+``````````````````
 
-Uwzględnij wszystkie funkcjonalności jakie udało ci się zbudować wcześniej. Każdy z tych ekranów powinien pojawiać się na czystej konsoli. 
+Description:
 
-
-Zadanie 3: Statystyki graczy
-````````````````````````````
-
-Opis:
-
-Pora by zacząć zbierać statystyki naszych wygranych i przegranych.
-Pod koniec gry (po wszystkich rozgrywkach) wyświetl ilość wygranych komputera i gracza, oraz wyświetl kto wygrał największą ilość razy.
+It is time to collect some statistical data from wins and fails.
+At the end of the game (after all rounds) print the number of players and computers wins and who is the winner.
 
 Explore:
 
-1. Oblicz procentowe wartości i wyświetl obok wyników.
+1. Count and print percentage values.
 
-2. Wyświetl najdłuższą sekwencję wygranych dla gracza i komputera.
+2. Print the longest wins sequence both for user and computer.
 
-3. Zbieraj więcej danych do analizy przy pomocy `list`.
+3. Collect more data for statistical analysis using lists.
 
   - https://docs.python.org/3.4/tutorial/introduction.html#lists
   - https://docs.python.org/3.4/tutorial/datastructures.html#more-on-lists
 
-  Wyświetl najdłuższe sekwencje wygranych (jak w punkcie 2.) i przegranych.
+  Print the longest wins sequence both for user and computer (ad. 2)
   
-Zadanie dodatkowe: Kółko i krzyżyk
-``````````````````````````````````
+Additional task: noughts and crosses
+````````````````````````````````````
 
-Opis:
+Description:
 
-Zaprogramuj grę kółko i krzyżyk dla dwóch graczy. 
-Zacznij od najważniejszej części: rozgrywki, później rozbuduj ją o menu, imiona graczy itp.
+Implement the game of noughts and crosses for two players.
+Start with the most important part: gameplay, next add menu, players names etc.
 
-Przykładowa rozgrywka mogła by wyglądać tak:
+An exemplary game can look like this:
 
-::
+.. code-block::
 
-   1   2   3
-  A  . | . | .
-  B  . | . | .
-  C  . | . | .
+       1   2   3
+    A  . | . | .
+    B  . | . | .
+    C  . | . | .
 
-  Gracz X, podaj pozycję: A1
+    Player X, mark position: A1
 
-   1   2   3
-  A  X | . | .
-  B  . | . | .
-  C  . | . | .
+       1   2   3
+    A  X | . | .
+    B  . | . | .
+    C  . | . | .
 
-  Gracz O, podaj pozycję: B2
+    Player O, mark position: B2
 
-   1   2   3
-  A  X | . | .
-  B  . | O | .
-  C  . | . | .
+       1   2   3
+    A  X | . | .
+    B  . | O | .
+    C  . | . | .
 
-  Gracz X, podaj pozycję: B1
+    Player X, mark position: B1
 
-  ...
+    ...
 
-   1   2   3
-  A  X | O | X
-  B  X | O | X
-  C  O | X | O
+       1   2   3
+    A  X | O | X
+    B  X | O | X
+    C  O | X | O
 
-  Remis!
+    Draw!
 
-  Czy chcesz grać dalej? [tak/nie]:
+    Would you like to continue? [yes/no]:

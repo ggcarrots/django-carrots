@@ -182,17 +182,17 @@ applications.
 Exercises
 ---------
 
-Zadanie 1: Losowość w grze
-``````````````````````````
+Task 1: Game randomness
+```````````````````````
+Description:
 
-Opis:
+Using the code from task Game of ‘rock-paper-scissors’ modify it so that computer's choice would be picked using
+`random` module.
 
-Wykorzystując kod z zadania *Gra 'papier, nożyczki, kamień'* zmodyfikuj kod by komputer losował swój wybór wykorzystując
-moduł `random`.
 
-**Podpowiedź:**
+**Hint:**
 
-Wykorzystamy w tym zadaniu tzw. `krotki` (ang. tuple), które służą do przechowywania sekwencji danych np.:
+We will use tuples that can store data sequence e.g.:
 
 .. code-block:: sh
 
@@ -201,53 +201,53 @@ Wykorzystamy w tym zadaniu tzw. `krotki` (ang. tuple), które służą do przech
     my_friends = ('John', 'Alice', 'Kate', 'Lucas')
     my_pets = ('skipper', 'Mr. Parrot', 'kitty', 'blacky')
 
-W krotce będziemy przechowywać 'papier', 'nożyce', 'kamień'.
+In tuple we will store ‘paper’, ‘scissors’, ‘rock’.
 
 Explore:
 
-* Spraw by wybór komputera był trochę `głupszy` i zamiast wybierać z pośród 3 możliwości z równym prawdopodobieństwem
-  wybierał jedną opcję z z prawdopodobieństwem 50% a pozostałe dwie z 25%.
-* Spraw by wybór komputera był `głupszy` jak w poprzednim punkcie, ale tym razem element, który będzie losowany z 50%
-  prawdopodobieństwem również był losowy, np:
+* Make computers choice a little bit less inteligent and bias the probability of picking towards one particular option
+  in proportion 50% / 25% / 25%
+* Make computers choice a little bit less inteligent just like previously, but make this favored option also beeing
+  picked randomly for every single round e.g.:
 
-  * W pierwszym uruchomieniu komputer może wybrać: kamień 50%, papier 25%, nożyczki 25%.
-  * W kolejnym uruchomieniu komputer może wybrać: kamień 25%, papier 50%, nożyczki 25%.
+  * In first run computer can pick with such probability: stone 50%, paper 25%, scissors 25%.
+  * In next run computer can pick with such probability: stone 25%, paper 50%, scissors 25%.
 
-**Uwaga:** powyższe przykłady nie mają ustalonej kolejności, wybory komputera powinny być losowe!
-Podpowiedź: należy wylosować indeks elementu, który będzie miał pradopodobieństwo 50%.
+**Notice:** examples do not have priority settled - they should be random! Hint: you should draw id of a favored
+element (the one with 50% probability).
 
-Zadanie 2. Dodanie menu do gry
-``````````````````````````````
+Task 2. Adding menu to the game
+```````````````````````````````
 
-Opis:
+Description:
 
-Aktualnie nasza gra przyjmuje wszystkie wartości jakie wpisze użytkownik i działa na nich jakby były zawsze poprawne.
-Pora to zmienić i przyjmować tylko określone wartości od użytkownika a na niepoprawną wartość wypisywać błąd.
+At this point our game accepts any input given by the user as it was always correct. Let's modify that so input would
+be verified and an error would occur in case of incorrect input.
 
 Explore:
 
- * Zamiast przyjmować wartości bezpośrednio wyświetl `menu` z możliwościami wyboru, np:
+ * Instead of accepting written input make menu with predefined choices, i.e.:
 
 ::
 
-    A. Kamień
-    B. Papier
-    C. Nożyczki
+    A. Stone
+    B. Paper
+    C. Scissors
     D. Help
-    Q. Wyjście
+    Q. Quit
 
 
- * Dodaj przed rozpoczęciem prawdziwej gry wybór poziomu trudności komputera, np:
+ * You can also add difficulty level option, e.g.:
 
 ::
 
-    A. Sprytny komputer
-    B. Mniej sprytny komputer
+A. Smart
+B. Less smart
 
-który będzie określał czy komputer ma być losowy (33%/33%/33%) czy `głupi` (50%/25%/25%).
+that will define if the computer is smart (33%/33%/33%) or less smart (50%/25%/25%).
 
-Zadanie 3. Lotto
-````````````````
+Task 3. Lotto
+`````````````
 
 Write program ``lotto.py`` that asks user to give 6 numbers from 1-49, then selects
 6 numbers from 1-49 by random and tell user if he won or not.
