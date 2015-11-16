@@ -398,7 +398,8 @@ tree, not just half of it?
 First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``.
 It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect:
 
-.. code-block::
+::
+
       *
      ***
     *****
@@ -508,14 +509,14 @@ Task for volunteers
 Create a class ``XMASTree`` which for a given size and upon calling the method ``draw`` will print the
 following pictures (sizes 1, 2 and 3):
 
-.. code-block::
+::
 
           *
          /|\
         /_|_\
           |
 
-.. code-block::
+::
 
            *
           /|\
@@ -525,7 +526,7 @@ following pictures (sizes 1, 2 and 3):
         /__|__\
            |
 
-.. code-block::
+::
 
             *
            /|\
@@ -642,7 +643,7 @@ And start next round. (but without a choice of difficulty level!)
 
 
 Task 2: Some addiotional screens
-`````````````````````````````````
+````````````````````````````````
 
 Description:
 
@@ -650,7 +651,7 @@ Adjust the game so it has such `screens`:
 
 Welcome screen:
 
-.. code-block::
+::
 
     Welcome:
     S - Start
@@ -659,7 +660,7 @@ Welcome screen:
 
 Level selection:
 
-.. code-block::
+::
 
     Difficulty level:
     A - Smart
@@ -667,7 +668,7 @@ Level selection:
 
 Game:
 
-.. code-block::
+::
 
     Your choice:
     K - Stone
@@ -676,7 +677,7 @@ Game:
 
 End of game:
 
-.. code-block::
+::
 
   Would you like to continue yes/no:
 
@@ -713,7 +714,7 @@ Start with the most important part: gameplay, next add menu, players names etc.
 
 An exemplary game can look like this:
 
-.. code-block::
+::
 
        1   2   3
     A  . | . | .
