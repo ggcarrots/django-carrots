@@ -13,7 +13,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.0dev1',
+        VERSION:     '2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -55,7 +55,7 @@ fine as long as the file is not much longer than 100 lines. As the file gets big
 is getting more and more difficult to find something in it. That&#8217;s why it is a good
 practice to keep the program files smaller, but obviously not all (or even most)
 the programs can fit into one file that small. Python solves this problem using
-<a class="reference external" href="http://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">import</span></tt></a> keyword.</p>
+<a class="reference external" href="http://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">import</span></tt></a> keyword.</p>
 <div class="section" id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
 <p>Lets get back for a second to our xmas tree example:</p>
@@ -152,7 +152,7 @@ good enough for our purpose.</p>
 </pre></div>
 </div>
 <p>Save it to a file <tt class="docutils literal"><span class="pre">lottery.py</span></tt>.</p>
-<p><a class="reference external" href="http://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">import</span></tt></a> keyword allows us to use not only files created by us, but also
+<p><a class="reference external" href="http://docs.python.org/3/reference/simple_stmts.html#import" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">import</span></tt></a> keyword allows us to use not only files created by us, but also
 included with Python. That is why we can write <tt class="docutils literal"><span class="pre">import</span> <span class="pre">random</span></tt> even though there
 is no <tt class="docutils literal"><span class="pre">random.py</span></tt> file in the same directory.</p>
 <div class="admonition note">
@@ -215,63 +215,63 @@ applications.</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="zadanie-1-losowosc-w-grze">
-<h3>Zadanie 1: Losowość w grze<a class="headerlink" href="#zadanie-1-losowosc-w-grze" title="Permalink to this headline">¶</a></h3>
-<p>Opis:</p>
-<p>Wykorzystując kod z zadania <em>Gra &#8216;papier, nożyczki, kamień&#8217;</em> zmodyfikuj kod by komputer losował swój wybór wykorzystując
-moduł <cite>random</cite>.</p>
-<p><strong>Podpowiedź:</strong></p>
-<p>Wykorzystamy w tym zadaniu tzw. <cite>krotki</cite> (ang. tuple), które służą do przechowywania sekwencji danych np.:</p>
+<div class="section" id="task-1-game-randomness">
+<h3>Task 1: Game randomness<a class="headerlink" href="#task-1-game-randomness" title="Permalink to this headline">¶</a></h3>
+<p>Description:</p>
+<p>Using the code from task Game of ‘rock-paper-scissors’ modify it so that computer&#8217;s choice would be picked using
+<cite>random</cite> module.</p>
+<p><strong>Hint:</strong></p>
+<p>We will use tuples that can store data sequence e.g.:</p>
 <div class="highlight-sh"><div class="highlight"><pre>python
 <span class="nv">my_numbers</span> <span class="o">=</span> <span class="o">(</span>1, 20, 3, 10<span class="o">)</span>
 <span class="nv">my_friends</span> <span class="o">=</span> <span class="o">(</span><span class="s1">&#39;John&#39;</span>, <span class="s1">&#39;Alice&#39;</span>, <span class="s1">&#39;Kate&#39;</span>, <span class="s1">&#39;Lucas&#39;</span><span class="o">)</span>
 <span class="nv">my_pets</span> <span class="o">=</span> <span class="o">(</span><span class="s1">&#39;skipper&#39;</span>, <span class="s1">&#39;Mr. Parrot&#39;</span>, <span class="s1">&#39;kitty&#39;</span>, <span class="s1">&#39;blacky&#39;</span><span class="o">)</span>
 </pre></div>
 </div>
-<p>W krotce będziemy przechowywać &#8216;papier&#8217;, &#8216;nożyce&#8217;, &#8216;kamień&#8217;.</p>
+<p>In tuple we will store ‘paper’, ‘scissors’, ‘rock’.</p>
 <p>Explore:</p>
 <ul class="simple">
-<li>Spraw by wybór komputera był trochę <cite>głupszy</cite> i zamiast wybierać z pośród 3 możliwości z równym prawdopodobieństwem
-wybierał jedną opcję z z prawdopodobieństwem 50% a pozostałe dwie z 25%.</li>
-<li>Spraw by wybór komputera był <cite>głupszy</cite> jak w poprzednim punkcie, ale tym razem element, który będzie losowany z 50%
-prawdopodobieństwem również był losowy, np:<ul>
-<li>W pierwszym uruchomieniu komputer może wybrać: kamień 50%, papier 25%, nożyczki 25%.</li>
-<li>W kolejnym uruchomieniu komputer może wybrać: kamień 25%, papier 50%, nożyczki 25%.</li>
+<li>Make computers choice a little bit less inteligent and bias the probability of picking towards one particular option
+in proportion 50% / 25% / 25%</li>
+<li>Make computers choice a little bit less inteligent just like previously, but make this favored option also beeing
+picked randomly for every single round e.g.:<ul>
+<li>In first run computer can pick with such probability: stone 50%, paper 25%, scissors 25%.</li>
+<li>In next run computer can pick with such probability: stone 25%, paper 50%, scissors 25%.</li>
 </ul>
 </li>
 </ul>
-<p><strong>Uwaga:</strong> powyższe przykłady nie mają ustalonej kolejności, wybory komputera powinny być losowe!
-Podpowiedź: należy wylosować indeks elementu, który będzie miał pradopodobieństwo 50%.</p>
+<p><strong>Notice:</strong> examples do not have priority settled - they should be random! Hint: you should draw id of a favored
+element (the one with 50% probability).</p>
 </div>
-<div class="section" id="zadanie-2-dodanie-menu-do-gry">
-<h3>Zadanie 2. Dodanie menu do gry<a class="headerlink" href="#zadanie-2-dodanie-menu-do-gry" title="Permalink to this headline">¶</a></h3>
-<p>Opis:</p>
-<p>Aktualnie nasza gra przyjmuje wszystkie wartości jakie wpisze użytkownik i działa na nich jakby były zawsze poprawne.
-Pora to zmienić i przyjmować tylko określone wartości od użytkownika a na niepoprawną wartość wypisywać błąd.</p>
+<div class="section" id="task-2-adding-menu-to-the-game">
+<h3>Task 2. Adding menu to the game<a class="headerlink" href="#task-2-adding-menu-to-the-game" title="Permalink to this headline">¶</a></h3>
+<p>Description:</p>
+<p>At this point our game accepts any input given by the user as it was always correct. Let&#8217;s modify that so input would
+be verified and an error would occur in case of incorrect input.</p>
 <p>Explore:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Zamiast przyjmować wartości bezpośrednio wyświetl <cite>menu</cite> z możliwościami wyboru, np:</li>
+<li>Instead of accepting written input make menu with predefined choices, i.e.:</li>
 </ul>
 </div></blockquote>
-<div class="highlight-python"><div class="highlight"><pre>   A. Kamień
-   B. Papier
-   C. Nożyczki
+<div class="highlight-python"><div class="highlight"><pre>   A. Stone
+   B. Paper
+   C. Scissors
    D. Help
-   Q. Wyjście
+   Q. Quit
 
 
-* Dodaj przed rozpoczęciem prawdziwej gry wybór poziomu trudności komputera, np:
+* You can also add difficulty level option, e.g.:
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>A. Sprytny komputer
-B. Mniej sprytny komputer
-</pre></div>
+<ol class="upperalpha simple">
+<li>Smart</li>
+<li>Less smart</li>
+</ol>
+<p>that will define if the computer is smart (33%/33%/33%) or less smart (50%/25%/25%).</p>
 </div>
-<p>który będzie określał czy komputer ma być losowy (33%/33%/33%) czy <cite>głupi</cite> (50%/25%/25%).</p>
-</div>
-<div class="section" id="zadanie-3-lotto">
-<h3>Zadanie 3. Lotto<a class="headerlink" href="#zadanie-3-lotto" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="task-3-lotto">
+<h3>Task 3. Lotto<a class="headerlink" href="#task-3-lotto" title="Permalink to this headline">¶</a></h3>
 <p>Write program <tt class="docutils literal"><span class="pre">lotto.py</span></tt> that asks user to give 6 numbers from 1-49, then selects
 6 numbers from 1-49 by random and tell user if he won or not.</p>
 </div>
@@ -289,7 +289,7 @@ B. Mniej sprytny komputer
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Słowniki</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_objects.html">Objects and classes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Multiple Files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#imports">Imports</a></li>
@@ -298,9 +298,9 @@ B. Mniej sprytny komputer
 <li class="toctree-l2"><a class="reference internal" href="#lottery">Lottery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#packages">Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#zadanie-1-losowosc-w-grze">Zadanie 1: Losowość w grze</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#zadanie-2-dodanie-menu-do-gry">Zadanie 2. Dodanie menu do gry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#zadanie-3-lotto">Zadanie 3. Lotto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-1-game-randomness">Task 1: Game randomness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-2-adding-menu-to-the-game">Task 2. Adding menu to the game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-3-lotto">Task 3. Lotto</a></li>
 </ul>
 </li>
 </ul>
@@ -313,7 +313,7 @@ B. Mniej sprytny komputer
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright Code Carrots powered by Intel (7-9 August).
+    &copy; Copyright Code Carrots.
   </div>
   
   <a href="https://github.com/ggcarrots/django-carrots">

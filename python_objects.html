@@ -13,7 +13,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.0dev1',
+        VERSION:     '2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Code Carrots" href="index.html" />
     <link rel="next" title="Multiple Files" href="python_import.html" />
-    <link rel="prev" title="Słowniki" href="python_dictionaries.html" /> 
+    <link rel="prev" title="Dictionaries" href="python_dictionaries.html" /> 
   </head>
   <body>
   
@@ -37,7 +37,7 @@
           <a href="python_import.html" title="Multiple Files"
              accesskey="N">next</a></li>
         <li class="right" >
-          <a href="python_dictionaries.html" title="Słowniki"
+          <a href="python_dictionaries.html" title="Dictionaries"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Code Carrots</a> &raquo;</li> 
       </ul>
@@ -55,7 +55,7 @@ basic things.</p>
 <div class="section" id="every-value-is-an-object">
 <h2>Every value is an object<a class="headerlink" href="#every-value-is-an-object" title="Permalink to this headline">¶</a></h2>
 <p>Everything that we have called a value until now can be called “an object” in the world of Python. We saw it in the
-example of integers, when <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> printed for us dozens of additional lines of information about
+example of integers, when <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.5)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> printed for us dozens of additional lines of information about
 <tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt>.</p>
 </div>
 <div class="section" id="every-object-has-a-class">
@@ -81,7 +81,7 @@ intuition.</p>
 <p>However, Python has to know exactly what it means to be a number, e.g., what should happen when we
 sum up two numbers and what when we divide them. The class <tt class="docutils literal"><span class="pre">int</span></tt> provides all this information and
 even more.</p>
-<p>By using <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> , check what the class <tt class="docutils literal"><span class="pre">str</span></tt> gives us. Here we give just a few interesting
+<p>By using <a class="reference external" href="http://docs.python.org/3/library/functions.html#help" title="(in Python v3.5)"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a> , check what the class <tt class="docutils literal"><span class="pre">str</span></tt> gives us. Here we give just a few interesting
 features:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">)</span>
 <span class="go">Help on method_descriptor:</span>
@@ -160,7 +160,7 @@ basically nothing but a group of functions. Lets define a class named <tt class=
         <span class="k">print</span><span class="p">(</span><span class="s">&quot;Woof! Woof!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Classes begin with the word <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">class</span></tt></a>, after which we give the name of the new class.
+<p>Classes begin with the word <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#class" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">class</span></tt></a>, after which we give the name of the new class.
 The <tt class="docutils literal"><span class="pre">(object)</span></tt> indicates that our new type <tt class="docutils literal"><span class="pre">Dog</span></tt> is a specific sub-type of <tt class="docutils literal"><span class="pre">object</span></tt>.
 That is, instances of our class, i.e. values created from it, will be of the type <tt class="docutils literal"><span class="pre">Dog</span></tt> but
 also of the more general type <tt class="docutils literal"><span class="pre">object</span></tt>.</p>
@@ -280,7 +280,7 @@ specific behaviour in <tt class="docutils literal"><span class="pre">Dog</span><
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_quickstart.html">Introduction to Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_xmas_tree.html">Christmas Tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Słowniki</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Dictionaries</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Objects and classes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#every-value-is-an-object">Every value is an object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#every-object-has-a-class">Every object has a class</a></li>
@@ -298,7 +298,7 @@ specific behaviour in <tt class="docutils literal"><span class="pre">Dog</span><
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright Code Carrots powered by Intel (7-9 August).
+    &copy; Copyright Code Carrots.
   </div>
   
   <a href="https://github.com/ggcarrots/django-carrots">

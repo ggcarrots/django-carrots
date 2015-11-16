@@ -13,7 +13,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.0dev1',
+        VERSION:     '2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Code Carrots" href="index.html" />
-    <link rel="next" title="Słowniki" href="python_dictionaries.html" />
+    <link rel="next" title="Dictionaries" href="python_dictionaries.html" />
     <link rel="prev" title="Introduction to Python" href="python_quickstart.html" /> 
   </head>
   <body>
@@ -34,7 +34,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="python_dictionaries.html" title="Słowniki"
+          <a href="python_dictionaries.html" title="Dictionaries"
              accesskey="N">next</a></li>
         <li class="right" >
           <a href="python_quickstart.html" title="Introduction to Python"
@@ -116,11 +116,11 @@ Claus. The result of the first one can be named <cite>gift_list</cite>, so that 
 the same as described above).</p>
 <p>A new element is a loop itself, which consists of:</p>
 <ul class="simple">
-<li>the word <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a>,</li>
+<li>the word <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a>,</li>
 <li>names we want to give to the next elements,</li>
-<li>the word <a class="reference external" href="http://docs.python.org/3/reference/expressions.html#in" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">in</span></tt></a>,</li>
+<li>the word <a class="reference external" href="http://docs.python.org/3/reference/expressions.html#in" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">in</span></tt></a>,</li>
 <li>the value of a list or the name that refers to it.</li>
-<li>the content indented of one level (the same way as in the case of <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#if" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">if</span></tt></a>).</li>
+<li>the content indented of one level (the same way as in the case of <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#if" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">if</span></tt></a>).</li>
 </ul>
 <p>Still we haven’t said anything about lists, as they do not differ much from the intuitive concept of
 lists in the everyday life. We can easily think of lists in Python as we think of any other list (a
@@ -131,7 +131,7 @@ shopping list, a guest list, exam results etc.) written on a paper and numbered.
 <span class="go">[]</span>
 </pre></div>
 </div>
-<p>At any time we can check how many items we have saved on our list by using the function <a class="reference external" href="http://docs.python.org/3/library/functions.html#len" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt></a>.</p>
+<p>At any time we can check how many items we have saved on our list by using the function <a class="reference external" href="http://docs.python.org/3/library/functions.html#len" title="(in Python v3.5)"><tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt></a>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 <span class="go">0</span>
 </pre></div>
@@ -160,7 +160,7 @@ brackets <tt class="docutils literal"><span class="pre">[</span></tt> and <tt cl
 <span class="gr">IndexError</span>: <span class="n">list index out of range</span>
 </pre></div>
 </div>
-<p>We can also use the loop <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a>,to execute instructions for every element of the list:</p>
+<p>We can also use the loop <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a>,to execute instructions for every element of the list:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 <span class="gp">...</span>
@@ -232,8 +232,8 @@ sequence never includes the end of the specified range.</p>
 <span class="go">####</span>
 </pre></div>
 </div>
-<p>When you use the keyword <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a>, we do not have to use the
-<tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt>. <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a> can handle the generator given by <cite>range</cite>. Hence, we can simplify our program even more:</p>
+<p>When you use the keyword <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a>, we do not have to use the
+<tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt>. <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#for" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">for</span></tt></a> can handle the generator given by <cite>range</cite>. Hence, we can simplify our program even more:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="s">&quot;#&quot;</span><span class="p">)</span>
 <span class="go">#</span>
@@ -307,7 +307,7 @@ have a function that solves it for us.</p>
         <span class="k">print</span><span class="p">(</span><span class="n">size</span><span class="o">*</span><span class="s">&quot;*&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The definition of a function always starts with the word <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#def" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">def</span></tt></a>. Next, we give the name to our
+<p>The definition of a function always starts with the word <a class="reference external" href="http://docs.python.org/3/reference/compound_stmts.html#def" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">def</span></tt></a>. Next, we give the name to our
 function. Between the parenthesizes, we indicate what names should be given to its arguments when the function is
 called. In the following lines we provide instructions to be executed when we use the function.</p>
 <p>As shown in the example, the instructions in the function may include names that we have given as the
@@ -360,7 +360,7 @@ Python tells you it is not defined:</p>
 <p>The functions which we have previously used had one important property that is missing in the
 functions created by ourselves - they gave back the value they computed
 instead of printing it immediately. To
-achieve the same effect, you need to use the instruction <a class="reference external" href="http://docs.python.org/3/reference/simple_stmts.html#return" title="(in Python v3.4)"><tt class="xref std std-keyword docutils literal"><span class="pre">return</span></tt></a>. This is a special
+achieve the same effect, you need to use the instruction <a class="reference external" href="http://docs.python.org/3/reference/simple_stmts.html#return" title="(in Python v3.5)"><tt class="xref std std-keyword docutils literal"><span class="pre">return</span></tt></a>. This is a special
 instruction that can be found only in functions.</p>
 <p>We can now improve our BMI calculator by adding a function to compute BMI:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">calc_bmi</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
@@ -533,10 +533,10 @@ for one gift you have about 10 microseconds.</td></tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="kalendarz">
-<h3>Kalendarz<a class="headerlink" href="#kalendarz" title="Permalink to this headline">¶</a></h3>
-<p>Opis:</p>
-<p>Przy pomocy danych:</p>
+<div class="section" id="calendar">
+<h3>Calendar<a class="headerlink" href="#calendar" title="Permalink to this headline">¶</a></h3>
+<p>Description:</p>
+<p>Using data:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="s">&#39;January&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">31</span><span class="p">)),</span>
     <span class="p">(</span><span class="s">&#39;February&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">28</span><span class="p">)),</span>
@@ -553,7 +553,7 @@ for one gift you have about 10 microseconds.</td></tr>
       <span class="p">]</span>
 </pre></div>
 </div>
-<p>Wyświetl kalendarz:</p>
+<p>Print a calendar:</p>
 <div class="highlight-python"><div class="highlight"><pre>January
 
 00 01 02 03 04 05 06
@@ -588,113 +588,112 @@ December
 28 29 30
 </pre></div>
 </div>
-<p>Podpowiedź: Zacznij od napisania funkcji, która wyświetli dni jednego miesiąca. Potem wywołaj ją dla wszystkich elementów listy &#8216;data&#8217;. Pamiętaj, że tydzień ma 7 dni.</p>
+<p>Hint: Start with a method that will print days of a single month. Run it for each element of the list ‘data’. Rememeber
+that every week has 7 days.</p>
 </div>
-<div class="section" id="rozbudowa-gry-papier-nozyce-i-kamien">
-<h3>Rozbudowa gry &#8216;papier, nożyce i kamień&#8217;<a class="headerlink" href="#rozbudowa-gry-papier-nozyce-i-kamien" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="zadanie-1-gramy-dalej-czyli-kilka-rozdan-w-jednej-grze">
-<h4>Zadanie 1: Gramy dalej, czyli kilka rozdań w jednej grze<a class="headerlink" href="#zadanie-1-gramy-dalej-czyli-kilka-rozdan-w-jednej-grze" title="Permalink to this headline">¶</a></h4>
-<p>Opis:</p>
-<p>Nasza gra nie jest aktualnie najlepsza ponieważ za każdym razem gdy chcemy zagrać musimy odpalać nasz skrypt i po jednej rozgrywce nasz program się kończy.
-Musimy dać użytkownikowi wybór czy po danej rozgrywce chce zakończyć grę czy grać dalej. Wykorzystamy do tego pętlę <cite>while</cite> i słówko kluczowe <cite>break</cite>.</p>
-<p>Po każdej rozgrywce użytkownik powinien zobaczyć pytanie:</p>
-<div class="highlight-python"><div class="highlight"><pre>Czy chcesz grać dalej? tak/nie:
+<div class="section" id="improvement-of-the-rock-paper-scissors-game">
+<h3>Improvement of the ‘rock-paper-scissors’ game<a class="headerlink" href="#improvement-of-the-rock-paper-scissors-game" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="task-1-let-s-play-some-more-i-e-few-rounds-of-a-game">
+<h4>Task 1: Let&#8217;s play some more, i.e. few rounds of a game<a class="headerlink" href="#task-1-let-s-play-some-more-i-e-few-rounds-of-a-game" title="Permalink to this headline">¶</a></h4>
+<p>Description:</p>
+<p>Our game is not the most playable at this point, because it has to be reload every single time. We have to give user
+a choice if he wants to continue or end the game after one round. Let&#8217;s use a <cite>while</cite> loop and keyword <cite>break</cite>.</p>
+<p>After every round user should see the question:</p>
+<div class="highlight-python"><div class="highlight"><pre>Would you like to continue yes/no:
 </pre></div>
 </div>
-<p>Głupi komputer potrafi też być uparty. Spraw, by czasami na odpowiedź <cite>nie</cite> na ostatnie pytanie wypisywał:</p>
-<div class="highlight-python"><div class="highlight"><pre>Nie!? Tak łatwo mi się nie wymkniesz! Gramy dalej!
+<p>The computer can also be stubborn. If user decides no in previous step, make it ask user addition question:</p>
+<div class="highlight-python"><div class="highlight"><pre>No!? You will not get away so easily! Prepare yourself for the next round!
 </pre></div>
 </div>
-<p>I zaczynał grę od początku. (ale bez wyboru poziomu umiejętności komputera!)</p>
+<p>And start next round. (but without a choice of difficulty level!)</p>
 </div>
-<div class="section" id="zadanie-2-dodanie-ekranow-do-gry">
-<h4>Zadanie 2: Dodanie ekranów do gry<a class="headerlink" href="#zadanie-2-dodanie-ekranow-do-gry" title="Permalink to this headline">¶</a></h4>
-<p>Opis:</p>
-<p>Nasz gra strasznie śmieci w terminalu, ale możemy to zmienić. Za każdym razem gdy będziemy rozpoczynać nową rozgrywkę chcemy mieć pusty ekran z powitaniem.
-Możemy wykorzystać do tego moduł <cite>os</cite> i jego funkcję <cite>system</cite> by wywołać polecenie systemowe <cite>cls</cite> (dla linuxa i macosx <cite>clear</cite>).</p>
-<p>Przykład:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;Witaj w grze!&quot;</span><span class="p">)</span>
+<div class="section" id="task-2-some-addiotional-screens">
+<h4>Task 2: Some addiotional screens<a class="headerlink" href="#task-2-some-addiotional-screens" title="Permalink to this headline">¶</a></h4>
+<p>Description:</p>
+<p>Adjust the game so it has such <cite>screens</cite>:</p>
+<p>Welcome screen:</p>
+<div class="highlight-python"><div class="highlight"><pre>Welcome:
+S - Start
+P - Difficulty level
+Q - Quit
 </pre></div>
 </div>
-<p>Dopracuj grę by jej przebieg miał następujące <cite>ekrany</cite>:</p>
-<div class="highlight-python"><div class="highlight"><pre>Witaj w grze:
-S - Start gry
-P - Wybierz poziom komputera
-Q - Wyjście
+<p>Level selection:</p>
+<div class="highlight-python"><div class="highlight"><pre>Difficulty level:
+A - Smart
+B - Stupid
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>Wybierz poziom komputera:
-A - Sprytny computer
-B - Głupi computer
+<p>Game:</p>
+<div class="highlight-python"><div class="highlight"><pre>Your choice:
+K - Stone
+P - Paper
+N - Scissors
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>Podaj swój wybór:
-K - Kamień
-P - Papier
-N - Nożyczki
+<p>End of game:</p>
+<div class="highlight-python"><div class="highlight"><pre>Would you like to continue yes/no:
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>Czy chcesz grać dalej? tak/nie:
-</pre></div>
+<p>Take under consideration all previously implemented functionality.</p>
 </div>
-<p>Uwzględnij wszystkie funkcjonalności jakie udało ci się zbudować wcześniej. Każdy z tych ekranów powinien pojawiać się na czystej konsoli.</p>
-</div>
-<div class="section" id="zadanie-3-statystyki-graczy">
-<h4>Zadanie 3: Statystyki graczy<a class="headerlink" href="#zadanie-3-statystyki-graczy" title="Permalink to this headline">¶</a></h4>
-<p>Opis:</p>
-<p>Pora by zacząć zbierać statystyki naszych wygranych i przegranych.
-Pod koniec gry (po wszystkich rozgrywkach) wyświetl ilość wygranych komputera i gracza, oraz wyświetl kto wygrał największą ilość razy.</p>
+<div class="section" id="task-3-user-stats">
+<h4>Task 3: User stats<a class="headerlink" href="#task-3-user-stats" title="Permalink to this headline">¶</a></h4>
+<p>Description:</p>
+<p>It is time to collect some statistical data from wins and fails.
+At the end of the game (after all rounds) print the number of players and computers wins and who is the winner.</p>
 <p>Explore:</p>
 <ol class="arabic simple">
-<li>Oblicz procentowe wartości i wyświetl obok wyników.</li>
-<li>Wyświetl najdłuższą sekwencję wygranych dla gracza i komputera.</li>
-<li>Zbieraj więcej danych do analizy przy pomocy <cite>list</cite>.</li>
+<li>Count and print percentage values.</li>
+<li>Print the longest wins sequence both for user and computer.</li>
+<li>Collect more data for statistical analysis using lists.</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
 <li><a class="reference external" href="https://docs.python.org/3.4/tutorial/introduction.html#lists">https://docs.python.org/3.4/tutorial/introduction.html#lists</a></li>
 <li><a class="reference external" href="https://docs.python.org/3.4/tutorial/datastructures.html#more-on-lists">https://docs.python.org/3.4/tutorial/datastructures.html#more-on-lists</a></li>
 </ul>
-<p>Wyświetl najdłuższe sekwencje wygranych (jak w punkcie 2.) i przegranych.</p>
+<p>Print the longest wins sequence both for user and computer (ad. 2)</p>
 </div></blockquote>
 </div>
-<div class="section" id="zadanie-dodatkowe-kolko-i-krzyzyk">
-<h4>Zadanie dodatkowe: Kółko i krzyżyk<a class="headerlink" href="#zadanie-dodatkowe-kolko-i-krzyzyk" title="Permalink to this headline">¶</a></h4>
-<p>Opis:</p>
-<p>Zaprogramuj grę kółko i krzyżyk dla dwóch graczy.
-Zacznij od najważniejszej części: rozgrywki, później rozbuduj ją o menu, imiona graczy itp.</p>
-<p>Przykładowa rozgrywka mogła by wyglądać tak:</p>
-<div class="highlight-python"><div class="highlight"><pre> 1   2   3
+<div class="section" id="additional-task-noughts-and-crosses">
+<h4>Additional task: noughts and crosses<a class="headerlink" href="#additional-task-noughts-and-crosses" title="Permalink to this headline">¶</a></h4>
+<p>Description:</p>
+<p>Implement the game of noughts and crosses for two players.
+Start with the most important part: gameplay, next add menu, players names etc.</p>
+<p>An exemplary game can look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>   1   2   3
 A  . | . | .
 B  . | . | .
 C  . | . | .
 
-Gracz X, podaj pozycję: A1
+Player X, mark position: A1
 
- 1   2   3
+   1   2   3
 A  X | . | .
 B  . | . | .
 C  . | . | .
 
-Gracz O, podaj pozycję: B2
+Player O, mark position: B2
 
- 1   2   3
+   1   2   3
 A  X | . | .
 B  . | O | .
 C  . | . | .
 
-Gracz X, podaj pozycję: B1
+Player X, mark position: B1
 
 ...
 
- 1   2   3
+   1   2   3
 A  X | O | X
 B  X | O | X
 C  O | X | O
 
-Remis!
+Draw!
 
-Czy chcesz grać dalej? [tak/nie]:
+Would you like to continue? [yes/no]:
 </pre></div>
 </div>
 </div>
@@ -720,13 +719,13 @@ Czy chcesz grać dalej? [tak/nie]:
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#the-entire-christmas-tree">The Entire Christmas tree</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#task-for-volunteers">Task for volunteers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#kalendarz">Kalendarz</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rozbudowa-gry-papier-nozyce-i-kamien">Rozbudowa gry &#8216;papier, nożyce i kamień&#8217;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calendar">Calendar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improvement-of-the-rock-paper-scissors-game">Improvement of the ‘rock-paper-scissors’ game</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Słowniki</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_dictionaries.html">Dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_objects.html">Objects and classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_import.html">Multiple Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Geek Girls Carrots Code of Conduct</a></li>
@@ -737,7 +736,7 @@ Czy chcesz grać dalej? [tak/nie]:
       <div class="clearer"></div>
     </div>
   <div class="footer">
-    &copy; Copyright Code Carrots powered by Intel (7-9 August).
+    &copy; Copyright Code Carrots.
   </div>
   
   <a href="https://github.com/ggcarrots/django-carrots">
