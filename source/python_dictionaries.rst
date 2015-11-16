@@ -61,16 +61,17 @@ EXAMPLE (one line output):
 
 .. code-block:: python
 
-  title_to_author = {'Structure and Interpretation of Computer Programs' : 'Harold Abelson',
-                   'Introduction to Algorithms' : 'Thomas H. Cormen',
-                   'The C Programming Language' : 'Brian W. Kernighan',
-                   'The Pragmatic Programmer: From Journeyman to Master' : 'Andrew Hunt',
-                   'Art of Computer Programming' : 'Donald Ervin Knuth',
-                   'Design Patterns: Elements of Reusable Object-Oriented Software' : 'Erich Gamma',
-                   'Artificial Intelligence: A Modern Approach' : 'Stuart Russell',
-                   'Introduction to the Theory of Computation' : 'Michael Sipser',
-                   'Code Complete' : 'Steve McConnell',
-                   'The Mythical Man-Month: Essays on Software Engineering' : 'Frederick P. Brooks Jr.'}
+  title_to_author = {
+    'Structure and Interpretation of Computer Programs' : 'Harold Abelson',
+    'Introduction to Algorithms' : 'Thomas H. Cormen',
+    'The C Programming Language' : 'Brian W. Kernighan',
+    'The Pragmatic Programmer: From Journeyman to Master' : 'Andrew Hunt',
+    'Art of Computer Programming' : 'Donald Ervin Knuth',
+    'Design Patterns: Elements of Reusable Object-Oriented Software' : 'Erich Gamma',
+    'Artificial Intelligence: A Modern Approach' : 'Stuart Russell',
+    'Introduction to the Theory of Computation' : 'Michael Sipser',
+    'Code Complete' : 'Steve McConnell',
+    'The Mythical Man-Month: Essays on Software Engineering' : 'Frederick P. Brooks Jr.'}
 
 
 Task 2
@@ -97,30 +98,32 @@ For key ``The C Programming Language`` dictionary ``title_to_book_record`` shoul
   
 .. code-block:: python
 
-  title_to_author = {'Structure and Interpretation of Computer Programs' : 'Harold Abelson',
-                   'Introduction to Algorithms' : 'Thomas H. Cormen',
-                   'The C Programming Language' : 'Brian W. Kernighan',
-                   'The Pragmatic Programmer: From Journeyman to Master' : 'Andrew Hunt',
-                   'Art of Computer Programming' : 'Donald Ervin Knuth',
-                   'Design Patterns: Elements of Reusable Object-Oriented Software' : 'Erich Gamma',
-                   'Artificial Intelligence: A Modern Approach' : 'Stuart Russell',
-                   'Introduction to the Theory of Computation' : 'Michael Sipser',
-                   'Code Complete' : 'Steve McConnell',
-                   'The Mythical Man-Month: Essays on Software Engineering' : 'Frederick P. Brooks Jr.'}
-                   
+  title_to_author = {
+    'Structure and Interpretation of Computer Programs' : 'Harold Abelson',
+    'Introduction to Algorithms' : 'Thomas H. Cormen',
+    'The C Programming Language' : 'Brian W. Kernighan',
+    'The Pragmatic Programmer: From Journeyman to Master' : 'Andrew Hunt',
+    'Art of Computer Programming' : 'Donald Ervin Knuth',
+    'Design Patterns: Elements of Reusable Object-Oriented Software' : 'Erich Gamma',
+    'Artificial Intelligence: A Modern Approach' : 'Stuart Russell',
+    'Introduction to the Theory of Computation' : 'Michael Sipser',
+    'Code Complete' : 'Steve McConnell',
+    'The Mythical Man-Month: Essays on Software Engineering' : 'Frederick P. Brooks Jr.'}
+
 .. code-block:: python
 
-  title_to_shelf_number = {'Structure and Interpretation of Computer Programs' : 1,
-                         'Introduction to Algorithms' : 34,
-                         'The C Programming Language' : 23,
-                         'The Pragmatic Programmer: From Journeyman to Master' : 12,
-                         'Art of Computer Programming' : 4,
-                         'Design Patterns: Elements of Reusable Object-Oriented Software' : 586,
-                         'Artificial Intelligence: A Modern Approach' : 32,
-                         'Introduction to the Theory of Computation' : 98,
-                         'Code Complete' : 77,
-                         'The Mythical Man-Month: Essays on Software Engineering' : 3}
-                         
+  title_to_shelf_number = {
+    'Structure and Interpretation of Computer Programs' : 1,
+    'Introduction to Algorithms' : 34,
+    'The C Programming Language' : 23,
+    'The Pragmatic Programmer: From Journeyman to Master' : 12,
+    'Art of Computer Programming' : 4,
+    'Design Patterns: Elements of Reusable Object-Oriented Software' : 586,
+    'Artificial Intelligence: A Modern Approach' : 32,
+    'Introduction to the Theory of Computation' : 98,
+    'Code Complete' : 77,
+    'The Mythical Man-Month: Essays on Software Engineering' : 3}
+
 
 Task 3
 ------
@@ -139,17 +142,22 @@ EXAMPLE (one line output)::
 
 .. code-block:: python
 
-  books = {'0262510871' : ('Structure and Interpretation of Computer Programs', 'Harold Abelson', 1),
-         '0262032937' : ('Introduction to Algorithms', 'Thomas H. Cormen', 34),
-         '0131103628' : ('The C Programming Language', 'Brian W. Kernighan', 23),
-         '020161622X' : ('The Pragmatic Programmer: From Journeyman to Master', 'Andrew Hunt', 12),
-         '0201485419' : ('Art of Computer Programming', 'Donald Ervin Knuth', 4),
-         '0201633612' : ('Design Patterns: Elements of Reusable Object-Oriented Software', 'Erich Gamma', 586),
-         '0130803022' : ('Artificial Intelligence: A Modern Approach', 'Stuart Russell', 32),
-         '0534950973' : ('Introduction to the Theory of Computation', 'Michael Sipser', 98),
-         '0735619670' : ('Code Complete', 'Steve McConnell', 77),
-         '0201835959' : ('The Mythical Man-Month: Essays on Software Engineering', 'Frederick P. Brooks Jr.', 3)}
-         
+  books = {
+    '0262510871' : ('Structure and Interpretation of Computer Programs', 'Harold Abelson', 1),
+    '0262032937' : ('Introduction to Algorithms', 'Thomas H. Cormen', 34),
+    '0131103628' : ('The C Programming Language', 'Brian W. Kernighan', 23),
+    '020161622X' : ('The Pragmatic Programmer: From Journeyman to Master', 'Andrew Hunt', 12),
+    '0201485419' : ('Art of Computer Programming', 'Donald Ervin Knuth', 4),
+    '0201633612' : (
+      'Design Patterns: Elements of Reusable Object-Oriented Software', 'Erich Gamma', 586),
+    '0130803022' : ('Artificial Intelligence: A Modern Approach', 'Stuart Russell', 32),
+    '0534950973' : ('Introduction to the Theory of Computation', 'Michael Sipser', 98),
+    '0735619670' : ('Code Complete', 'Steve McConnell', 77),
+    '0201835959' : (
+      'The Mythical Man-Month: Essays on Software Engineering', 'Frederick P. Brooks Jr.', 3
+    )
+  }
+
          
 Additional task
 ---------------
@@ -163,16 +171,21 @@ Running this script will execute test function, that will verify if the method w
 
 .. code-block:: python
 
-  books = {'0262510871' : ('Structure and Interpretation of Computer Programs', 'Harold Abelson', 1),
-         '0262032937' : ('Introduction to Algorithms', 'Thomas H. Cormen', 34),
-         '0131103628' : ('The C Programming Language', 'Brian W. Kernighan', 23),
-         '020161622X' : ('The Pragmatic Programmer: From Journeyman to Master', 'Andrew Hunt', 12),
-         '0201485419' : ('Art of Computer Programming', 'Donald Ervin Knuth', 4),
-         '0201633612' : ('Design Patterns: Elements of Reusable Object-Oriented Software', 'Erich Gamma', 586),
-         '0130803022' : ('Artificial Intelligence: A Modern Approach', 'Stuart Russell', 32),
-         '0534950973' : ('Introduction to the Theory of Computation', 'Michael Sipser', 98),
-         '0735619670' : ('Code Complete', 'Steve McConnell', 77),
-         '0201835959' : ('The Mythical Man-Month: Essays on Software Engineering', 'Frederick P. Brooks Jr.', 3)}
+  books = {
+    '0262510871' : ('Structure and Interpretation of Computer Programs', 'Harold Abelson', 1),
+    '0262032937' : ('Introduction to Algorithms', 'Thomas H. Cormen', 34),
+    '0131103628' : ('The C Programming Language', 'Brian W. Kernighan', 23),
+    '020161622X' : ('The Pragmatic Programmer: From Journeyman to Master', 'Andrew Hunt', 12),
+    '0201485419' : ('Art of Computer Programming', 'Donald Ervin Knuth', 4),
+    '0201633612' : (
+      'Design Patterns: Elements of Reusable Object-Oriented Software', 'Erich Gamma', 586),
+    '0130803022' : ('Artificial Intelligence: A Modern Approach', 'Stuart Russell', 32),
+    '0534950973' : ('Introduction to the Theory of Computation', 'Michael Sipser', 98),
+    '0735619670' : ('Code Complete', 'Steve McConnell', 77),
+    '0201835959' : (
+      'The Mythical Man-Month: Essays on Software Engineering', 'Frederick P. Brooks Jr.', 3
+    )
+  }
 
 CORRECT THE FUNCTION ``find_by_isbn_part``:
 
@@ -201,8 +214,11 @@ CORRECT THE FUNCTION ``find_by_isbn_part``:
     def single_test(books, input, expected_output):
         output = find_by_isbn_part(books, input)
         if set(output) != set(expected_output) or len(output) != len(expected_output):
-            print("WRONG! FOR '"+input+"' RESULT IS: '"+str(output)+"', EXPECTED: '"+str(expected_output)+"'")
+            print(
+              "WRONG! FOR '" + input +
+              "' RESULT IS: '" + str(output) +
+              "', EXPECTED: '" + str(expected_output) + "'")
         else:
-            print("OK! FOR '"+input+"'")
+            print("OK! FOR '" + input + "'")
 
     test(books)
