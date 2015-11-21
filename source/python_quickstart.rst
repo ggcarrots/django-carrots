@@ -696,7 +696,7 @@ immediately::
         print("two")
     elif n < 3:
         # ,if none of the previous condition was true.
-        # n >= 1 i n>= 2, ale n < 3
+        # n >= 1 i n>= 2, but n < 3
         print("three")
     else:
         # trolls can count only to three
