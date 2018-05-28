@@ -5,8 +5,8 @@ Geek Girls Carrots Code of Conduct
 
 Geek Girls Carrots (otherwise known as GGC) seeks to foster an encouraging and supportive
 learning environment in which individuals from all walks of life can comfortably participate,
-regardless of race, color, ethnicity, age, religion, political affiliation, physical ability, sexual
-orientation or socioeconomic staus.
+regardless of race, color, ethnicity, age, religion, political affiliation, physical ability,
+gender identity, sexual orientation or socioeconomic status.
 
 Geek Girls Carrots is dedicated to providing a respectful, harassment-free community for everyone.
 We do not tolerate harassment or bullying of any community member in any form. This not only

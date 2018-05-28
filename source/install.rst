@@ -11,6 +11,10 @@ You can download Python for Windows directly from `python.org`_.
 After downloading the file  ``*.msi``, open it and follow the instructions.
 It is important to remember the path of installation – the directory – as we will need this information during the :ref:`installation of tools <tools>`.
 
+.. note::
+    Remember to check "Add Python 3.4 to PATH" when running the installer . This way you will be able to run Python form
+    console by just writting ``python``.
+
 
 Linux (Ubuntu, Fedora, etc.) or Mac
 ===================================
@@ -182,7 +186,7 @@ Ensure your terminal is well configured:
     3.4.0
 
 
-.. _python.org: http://python.org/download/releases/3.4.0/
+.. _python.org: https://www.python.org/downloads/release/python-343/
 
 .. note::
     You may already have the ``pip`` command available on your system. Always check which pip you are using with command: ``pip --version``.

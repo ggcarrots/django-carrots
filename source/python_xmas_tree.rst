@@ -49,7 +49,7 @@ such a repetitive activity that the program can do it for us.
 Lists and the ``for`` loop
 ==========================
 
-Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere, 
+Loops will serve us to deal with such repetitive actions. Staying in the Christmas atmosphere,
 imagine for a moment that we are the Santa Claus and we have to deliver Christmas gifts to everyone.
 
 As you know, Santa has a list of people who deserve gifts. The simplest approach to guarantee that no
@@ -157,7 +157,7 @@ for the full story, or check these quick examples:
     [0, 1]
 
 The :func:`range` function does not directly create a list, but it returns a generator. Generators
-generate the elements of a sequence one at a time, thereby avoiding to store the full sequence in memory. 
+generate the elements of a sequence one at a time, thereby avoiding to store the full sequence in memory.
 In order to obtain a list of the sequence, we use the function :func:`list`. If we skip :func:`list` call,
 the result will look like this:
 
@@ -252,7 +252,7 @@ chapter.
 Defining a function
 ===================
 
-We have already seen how functions solve many of our problems. However, they do not solve all our problems 
+We have already seen how functions solve many of our problems. However, they do not solve all our problems
 – or at least not exactly the way we would like functions to solve them.
 Sometimes we must solve a problem on our own. If it occurs often in our program, it would be nice to
 have a function that solves it for us.
@@ -319,18 +319,18 @@ Firstly, argument names of a function are defined at each function call, and Pyt
 argument value to to each of the argument names it just created.
 
 Secondly, the argument names are not available outside the function as they are created when the function is called
-and forgotten after the call. That is, if you try now to access 
-the argument name ``n`` we defined in our :func:`plus_five` function outside of the function's code, 
+and forgotten after the call. That is, if you try now to access
+the argument name ``n`` we defined in our :func:`plus_five` function outside of the function's code,
 Python tells you it is not defined:
 
     >>> n
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     NameError: name 'n' is not defined
-    
+
 That is, our prim and proper Python cleans up his room at the end of a function call :)
-    
-    
+
+
 Returning values
 ----------------
 
@@ -395,8 +395,10 @@ How can we improve the function :func:`print_triangle`, o display the entire seg
 tree, not just half of it?
 
 
-First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``. 
-It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect::
+First of all, let’s determine how we want our result to look like for the exact value of argument  ``n``.
+It seems to make sense that, ``n`` would be the width. Then for ``n = 5``, we would expect:
+
+::
 
       *
      ***
@@ -419,7 +421,7 @@ the third argument :func:`range`:
     ***
     *****
 
-It is not exactly what we have wanted, as it should be aligned in the centre. The method/function 
+It is not exactly what we have wanted, as it should be aligned in the centre. The method/function
 :func:`unicode.center` mentioned in the previous section, helps us:
 
 
@@ -462,8 +464,8 @@ However, a new problem appears:
      *****
     *******
 
-If we know in advance, what size the widest segment is, we can add an additional argument to  
-:func:`print_segment`,  to align to the width. Combining all of the knowledge we have 
+If we know in advance, what size the widest segment is, we can add an additional argument to
+:func:`print_segment`,  to align to the width. Combining all of the knowledge we have
 acquired up to the moment:
 
 
@@ -508,12 +510,14 @@ Create a class ``XMASTree`` which for a given size and upon calling the method `
 following pictures (sizes 1, 2 and 3):
 
 ::
+
           *
          /|\
         /_|_\
           |
 
 ::
+
            *
           /|\
          /_|_\
@@ -523,6 +527,7 @@ following pictures (sizes 1, 2 and 3):
            |
 
 ::
+
             *
            /|\
           /_|_\
@@ -541,3 +546,204 @@ following pictures (sizes 1, 2 and 3):
 
 .. [#speed] Assuming you have 24 hours to deliver one gift for everyone in the world,
     for one gift you have about 10 microseconds.
+    
+    
+Calendar
+--------
+
+Description:
+
+Using data:
+
+.. code-block:: python
+
+  data = [
+      ('January', range(31)),
+      ('February', range(28)),
+      ('March', range(31)),
+      ('April', range(30)),
+      ('May', range(31)),
+      ('June', range(30)),
+      ('July', range(31)),
+      ('August', range(31)),
+      ('September', range(30)),
+      ('October', range(31)),
+      ('November', range(30)),
+      ('December', range(31)),
+        ]
+
+
+Print a calendar:
+
+::
+
+  January
+
+  00 01 02 03 04 05 06
+  07 08 09 10 11 12 13
+  14 15 16 17 18 19 20
+  21 22 23 24 25 26 27
+  28 29 30
+
+  February
+
+  00 01 02 03 04 05 06
+  07 08 09 10 11 12 13
+  14 15 16 17 18 19 20
+  21 22 23 24 25 26 27
+
+  ...
+
+  November
+
+  00 01 02 03 04 05 06
+  07 08 09 10 11 12 13
+  14 15 16 17 18 19 20
+  21 22 23 24 25 26 27
+  28 29
+
+  December
+
+  00 01 02 03 04 05 06
+  07 08 09 10 11 12 13
+  14 15 16 17 18 19 20
+  21 22 23 24 25 26 27
+  28 29 30
+  
+Hint: Start with a method that will print days of a single month. Run it for each element of the list ‘data’. Rememeber
+that every week has 7 days.
+
+    
+Improvement of the ‘rock-paper-scissors’ game
+---------------------------------------------
+
+
+Task 1: Let's play some more, i.e. few rounds of a game
+```````````````````````````````````````````````````````
+
+Description:
+
+Our game is not the most playable at this point, because it has to be reload every single time. We have to give user
+a choice if he wants to continue or end the game after one round. Let's use a `while` loop and keyword `break`.
+
+After every round user should see the question:
+
+::
+
+  Would you like to continue yes/no:
+
+
+The computer can also be stubborn. If user decides no in previous step, make it ask user addition question:
+
+::
+
+  No!? You will not get away so easily! Prepare yourself for the next round!
+  
+And start next round. (but without a choice of difficulty level!)
+
+
+Task 2: Some addiotional screens
+````````````````````````````````
+
+Description:
+
+Adjust the game so it has such `screens`:
+
+Welcome screen:
+
+::
+
+    Welcome:
+    S - Start
+    P - Difficulty level
+    Q - Quit
+
+Level selection:
+
+::
+
+    Difficulty level:
+    A - Smart
+    B - Stupid
+
+Game:
+
+::
+
+    Your choice:
+    K - Stone
+    P - Paper
+    N - Scissors
+
+End of game:
+
+::
+
+  Would you like to continue yes/no:
+
+Take under consideration all previously implemented functionality.
+
+Task 3: User stats
+``````````````````
+
+Description:
+
+It is time to collect some statistical data from wins and fails.
+At the end of the game (after all rounds) print the number of players and computers wins and who is the winner.
+
+Explore:
+
+1. Count and print percentage values.
+
+2. Print the longest wins sequence both for user and computer.
+
+3. Collect more data for statistical analysis using lists.
+
+  - https://docs.python.org/3.4/tutorial/introduction.html#lists
+  - https://docs.python.org/3.4/tutorial/datastructures.html#more-on-lists
+
+  Print the longest wins sequence both for user and computer (ad. 2)
+  
+Additional task: noughts and crosses
+````````````````````````````````````
+
+Description:
+
+Implement the game of noughts and crosses for two players.
+Start with the most important part: gameplay, next add menu, players names etc.
+
+An exemplary game can look like this:
+
+::
+
+       1   2   3
+    A  . | . | .
+    B  . | . | .
+    C  . | . | .
+
+    Player X, mark position: A1
+
+       1   2   3
+    A  X | . | .
+    B  . | . | .
+    C  . | . | .
+
+    Player O, mark position: B2
+
+       1   2   3
+    A  X | . | .
+    B  . | O | .
+    C  . | . | .
+
+    Player X, mark position: B1
+
+    ...
+
+       1   2   3
+    A  X | O | X
+    B  X | O | X
+    C  O | X | O
+
+    Draw!
+
+    Would you like to continue? [yes/no]:

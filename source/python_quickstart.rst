@@ -121,8 +121,10 @@ Our first program will look like this::
 
     print("Hi, my name is Lucas")
 
-Save this program in a new file called ``visitingcard.py``, and then run it from the command line using the
-command ``python visitingcard.py``:
+In order to write and save code in a file we need to use a text editor.
+Find a text editor that works on your OS (see `list of text editors on Wikipedia <http://en.wikipedia.org/wiki/List_of_text_editors>`_ for examples).
+Type the above Python code and save it in a new file called ``visitingcard.py``.
+Then run your first Python program, from the command line, using the following.
 
 .. code-block:: sh
 
@@ -234,7 +236,7 @@ We also can change the value assigned to the name. The new value does not need t
     >>> print(x)
     Scarab
 
-The names are independent of each other. We have just assigned a new valu
+The names are independent of each other. We have just assigned a new value
 to ``x``, but the value assigned to ``y`` remains unchanged:
 
     >>> print(y)
@@ -321,7 +323,7 @@ use the other functions:
         On Unix, GNU readline is used if enabled.  The prompt string, if given,
         is printed without a trailing newline before reading.
     <BLANKLINE>
-    
+
 We will use :func:`input` to load data from the user. As we read in the description, :func:`input` reads the
 string:
 
@@ -373,7 +375,7 @@ Is that enough to improve our program?
       File "<stdin>", line 1, in <module>
     TypeError: Can't convert 'int' object to str implicitly
 
-As you can see, Python doesn’t know what result we expect. Both strings (``str``), and 
+As you can see, Python doesn’t know what result we expect. Both strings (``str``), and
 numbers (``int``) can't be added together. Python does not know if we are referring to the number ``63.5``
 or to the string ``"60.5"``. Only we know that, so we have to include this information in the program.
 
@@ -495,7 +497,7 @@ All arguments are given in parentheses. To specify more than one, separate them 
 
 
 Checking conditions
-====================
+===================
 
 Let’s go to our next problem. We want our program to print the appropriate
 classification for the calculated BMI by using the table below:
@@ -694,7 +696,7 @@ immediately::
         print("two")
     elif n < 3:
         # ,if none of the previous condition was true.
-        # n >= 1 i n>= 2, ale n < 3
+        # n >= 1 i n>= 2, but n < 3
         print("three")
     else:
         # trolls can count only to three
@@ -863,6 +865,41 @@ We can also align the string ``-``  to the left by putting before the number of 
 
 Aligning towards the centre is an additional excercise for you :).
 
+Powtórzenie funkcji print i input
+---------------------------------
+
+Task 1: Game ‘rock-paper-scissors’
+``````````````````````````````````
+
+Description:
+
+We will implement a simple game called rock-paper-scissors. Let's define goals of the game:
+
+1. Show game manual.
+2. Get users choice as an input
+3. Compare user's choice with predefined computer's choice
+4. Print the outcome
+
+Initial code:
+
+.. code-block:: python
+
+    print("Welcome")
+    computer_choice = 'rock'
+
+    # Print game manual, possible chocies, author itp.
+
+    # Get user input
+
+    # Compare user's and computer's choices
+
+    # Print the outcome
+
+Explore:
+
+    * Print game manual in stylish frame
+    * Print game manual on call (for instance, when user's choice was help)
+
 
 Summary
 =======
@@ -870,7 +907,7 @@ Summary
 In this chapter we learned basics of Python syntax. We discovered how to print integers,
 floating-point numbers, strings and tuples.
 
-We learnt the function :func:`print`, that prints information for the user and the function 
+We learnt the function :func:`print`, that prints information for the user and the function
 :func:`input`, which reads it.
 
 We also know now that indentations can be important, especially when we want to use
@@ -882,4 +919,3 @@ user.
 
 This is quite a lot like for a first program. We still have a lot of work, anyhow you can be proud of
 what we have done so far!
-
