@@ -8,7 +8,7 @@ basic things.
 Every value is an object
 ------------------------
 
-Everything that we have called a value until now can be called “an object” in the world of Python. We saw it in the
+Everything that we have called a value until now can be called *an object* in the world of Python. We saw it in the
 example of integers, when :func:`help` printed for us dozens of additional lines of information about
 :func:`int`.
 

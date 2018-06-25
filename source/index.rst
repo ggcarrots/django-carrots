@@ -13,6 +13,10 @@ If you decide to use the manual, we would be grateful if you contact us (however
    install
    python_quickstart
    python_xmas_tree
+   django1.8
+   django_in_action
+   django_models
+   django_views
    python_dictionaries
    python_objects
    python_import
