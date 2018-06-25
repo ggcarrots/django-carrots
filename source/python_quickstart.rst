@@ -236,7 +236,7 @@ We also can change the value assigned to the name. The new value does not need t
     >>> print(x)
     Scarab
 
-The names are independent of each other. We have just assigned a new valu
+The names are independent of each other. We have just assigned a new value
 to ``x``, but the value assigned to ``y`` remains unchanged:
 
     >>> print(y)
@@ -497,7 +497,7 @@ All arguments are given in parentheses. To specify more than one, separate them 
 
 
 Checking conditions
-====================
+===================
 
 Let’s go to our next problem. We want our program to print the appropriate
 classification for the calculated BMI by using the table below:
@@ -696,7 +696,7 @@ immediately::
         print("two")
     elif n < 3:
         # ,if none of the previous condition was true.
-        # n >= 1 i n>= 2, ale n < 3
+        # n >= 1 i n>= 2, but n < 3
         print("three")
     else:
         # trolls can count only to three
@@ -864,6 +864,41 @@ We can also align the string ``-``  to the left by putting before the number of 
     -------------------------------
 
 Aligning towards the centre is an additional excercise for you :).
+
+Powtórzenie funkcji print i input
+---------------------------------
+
+Task 1: Game ‘rock-paper-scissors’
+``````````````````````````````````
+
+Description:
+
+We will implement a simple game called rock-paper-scissors. Let's define goals of the game:
+
+1. Show game manual.
+2. Get users choice as an input
+3. Compare user's choice with predefined computer's choice
+4. Print the outcome
+
+Initial code:
+
+.. code-block:: python
+
+    print("Welcome")
+    computer_choice = 'rock'
+
+    # Print game manual, possible chocies, author itp.
+
+    # Get user input
+
+    # Compare user's and computer's choices
+
+    # Print the outcome
+
+Explore:
+
+    * Print game manual in stylish frame
+    * Print game manual on call (for instance, when user's choice was help)
 
 
 Summary

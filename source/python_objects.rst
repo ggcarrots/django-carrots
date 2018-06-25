@@ -3,7 +3,7 @@ Objects and classes
 ===================
 
 In fact, this chapter could be the subject of a series of workshops, but we will focus on the most
-basic things, which we will need while working with Django.
+basic things.
 
 Every value is an object
 ------------------------
@@ -209,7 +209,7 @@ eariler ``self`` is a actual object of class ``Dog``. Now we can use this attrib
     Woof! Snoopy! Woof!
     Woof! Pluto! Woof!
 
-This :func:`__init__` function is called during the creation of an object.
+The :func:`__init__` function is called during the creation of an object.
 We call this special function a constructor, because it helps to build the object.
 In this example it accepts two arguments: ``self`` and ``name``, but when we create
 an instance of class ``Dog`` we need to provide only ``name`` arguemnt. ``self`` is
