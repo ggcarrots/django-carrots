@@ -31,7 +31,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
-    'sphinx.ext.pngmath'
+    'sphinx.ext.imgmath',
     # 'sphinxcontrib.blockdiag',
 ]
 
@@ -199,7 +199,7 @@ latex_elements = {
     ''',
 
     # for polish characters (and eglish to)
-    'babel': '\usepackage[polish,english]{babel}',
+    'babel': r'\usepackage[polish,english]{babel}',
     # Disable inputenc to use lualatex or xelatex
     'utf8extra': '',
     'inputenc': '',

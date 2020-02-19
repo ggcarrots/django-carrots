@@ -241,8 +241,8 @@ Explore:
 
 ::
 
-A. Smart
-B. Less smart
+    A. Smart
+    B. Less smart
 
 that will define if the computer is smart (33%/33%/33%) or less smart (50%/25%/25%).
 
