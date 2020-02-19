@@ -25,18 +25,18 @@ Creation of the new project
 Installation
 ------------
 
-Install Django by running it on the console ``pip install django==1.8.2``:
+Install Django by running it on the console ``pip install django==3.0.3``:
 
 .. code-block:: sh
 
-    (workshops) ~$ pip install django==1.8.2
-    Downloading/unpacking django==1.8.2
-      Downloading Django-1.8.2-py2.py3-none-any.whl (6.2MB): 6.2MB downloaded
-    Installing collected packages: django
-    Successfully installed django
-    Cleaning up...
+    (workshops) ~$ pip install django==3.0.3
+    Collecting django
+      Downloading Django-3.0.3-py3-none-any.whl (7.5 MB)
+    ...
+    Installing collected packages: ..., django
+    Successfully installed ...
 
-A suitable package will be downloaded from `PyPI <https://pypi.python.org/pypi>`_ - a package repository 
+A suitable package will be downloaded from `PyPI <https://pypi.org>`_ - a package repository 
 where you can find many useful libraries.
 
 

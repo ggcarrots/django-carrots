@@ -185,7 +185,7 @@ When you reload the page in a browser you should see a list of all the polls cre
 .. note::
 
    HTML and CSS are the formats that define the appearance of web pages. We will use Django templates to generate the HTML code. A good description of HTML is in the book
-   `Interactive Data Visualization for the Web <http://chimera.labs.oreilly.com/books/1230000000345/index.html>`_.
+   `Interactive Data Visualization for the Web <http://shop.oreilly.com/product/0636920026938.do>`_.
    The incredible characteristics of the Web is that HTML and CSS codes of every site are public. We recommend to look at the code of your favorite sites.
 
 In almost every view, you will eventually need to use a template. Therefore, in Django there is a

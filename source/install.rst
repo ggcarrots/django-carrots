@@ -2,7 +2,7 @@
 Installation
 ============
 
-For our workshop, we will need a Python 3.4 interpreter. Below are some directions on how to check if you already have the interpreter and how to install it along with some other tools.
+For our workshop, we will need a Python 3.8.1 interpreter. Below are some directions on how to check if you already have the interpreter and how to install it along with some other tools.
 
 Windows
 =======
@@ -12,7 +12,7 @@ After downloading the file  ``*.msi``, open it and follow the instructions.
 It is important to remember the path of installation – the directory – as we will need this information during the :ref:`installation of tools <tools>`.
 
 .. note::
-    Remember to check "Add Python 3.4 to PATH" when running the installer . This way you will be able to run Python form
+    Remember to check "Add Python 3.8.1 to PATH" when running the installer . This way you will be able to run Python form
     console by just writting ``python``.
 
 
@@ -24,7 +24,7 @@ In order to check our version of Python, enter the following in the command line
 .. code-block:: sh
 
     $ python --version
-    Python 3.4.0
+    Python 3.8.1
 
 If the ``python`` command is not available or the wrong version appears:
 
@@ -33,14 +33,14 @@ Ubuntu
 
 Enter in the command line::
 
-    sudo apt-get install python3.4
+    sudo apt-get install python3.8
 
 Fedora
 ------
 
 Enter in the command line::
 
-    sudo yum install python3.4
+    sudo yum install python3.8
 
 OS X
 ----
@@ -120,15 +120,15 @@ For example, if our home directory is ``C:\Users\lrekucki``, the command line wo
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> C:\Python34\python -m venv workshops
+    C:\Users\lrekucki> C:\Python38\python -m venv workshops
 
 .. code-block:: sh
 
     # Linux or Mac
-    ~$ python3.4 -m venv workshops
+    ~$ python3.8 -m venv workshops
 
 .. note::
-    Ubuntu 14.04 has a bug (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) that causes Python3.4 `venv` module to fail when installing with `pip`.
+    Ubuntu 14.04 has a bug (https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847) that causes Python3.4 ``venv`` module to fail when installing with ``pip``.
     To work around this please use this command to create virtual environment::
 
         ~$ python -m venv --without-pip workshops
@@ -178,7 +178,7 @@ Ensure your terminal is well configured:
     ...
 
     (workshops) C:\Users\lrekucki>python --version
-    3.4.0
+    3.8.1
 
 .. code-block:: sh
 
@@ -190,11 +190,10 @@ Ensure your terminal is well configured:
     ...
 
     (workshops) ~$ python --version
-    3.4.0
+    3.8.1
 
 
-    django1.8
-.. _python.org: https://www.python.org/downloads/release/python-343/
+.. _python.org: https://www.python.org/downloads/release/python-381/
 
 .. note::
     You may already have the ``pip`` command available on your system. Always check which pip you are using with command: ``pip --version``.
@@ -204,7 +203,7 @@ Ensure your terminal is well configured:
 
         ~$ pip --version
         ~$ pip3 --version
-        ~$ pip3.4 --version
+        ~$ pip3.8 --version
 
     It will give you the version of pip and a path to your virtual environment directory.
 
@@ -224,12 +223,12 @@ New virtual environment installation:
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> C:\Python34\python -m venv workshops
+    C:\Users\lrekucki> C:\Python38\python -m venv workshops
 
 .. code-block:: sh
 
     # Linux or Mac
-    ~$ python3.4 -m venv workshops
+    ~$ python3.8 -m venv workshops
 
 Virtual environment activation:
 
@@ -248,7 +247,7 @@ Just make sure that you use the proper Python version:
 .. code-block:: sh
 
     (workshops) ~$ python --version
-    3.4.0
+    3.8.1
 
 
 IPython

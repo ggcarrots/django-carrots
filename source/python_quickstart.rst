@@ -7,7 +7,7 @@ Let’s start with running the Python interpreter we installed in the previous c
 .. code-block:: sh
 
     (workshops) ~$ python
-    Python 3.4.0 (...)
+    Python 3.8.1 (...)
     Type "copyright", "credits" or "license" for more information.
 
     >>>
@@ -122,7 +122,7 @@ Our first program will look like this::
     print("Hi, my name is Lucas")
 
 In order to write and save code in a file we need to use a text editor.
-Find a text editor that works on your OS (see `list of text editors on Wikipedia <http://en.wikipedia.org/wiki/List_of_text_editors>`_ for examples).
+Find a text editor that works on your OS (see `list of text editors on Wikipedia <https://en.wikipedia.org/wiki/List_of_text_editors>`_ for examples).
 Type the above Python code and save it in a new file called ``visitingcard.py``.
 Then run your first Python program, from the command line, using the following.
 
@@ -185,7 +185,7 @@ As you can see, our program still needs some improvements:
 Programming is the art of solving problems, so... let's get to work! It will give us an
 opportunity to learn about some new features of Python.
 
-.. _`Body Mass Index`: http://pl.wikipedia.org/wiki/Body_Mass_Index
+.. _`Body Mass Index`: https://en.wikipedia.org/wiki/Body_Mass_Index
 
 
 Names
@@ -316,12 +316,13 @@ use the other functions:
     Help on function input in module builtins:
     <BLANKLINE>
     input(...)
-        input([prompt]) -> string
-    <BLANKLINE>
         Read a string from standard input.  The trailing newline is stripped.
-        If the user hits EOF (Unix: Ctl-D, Windows: Ctl-Z+Return), raise EOFError.
-        On Unix, GNU readline is used if enabled.  The prompt string, if given,
-        is printed without a trailing newline before reading.
+    <BLANKLINE>
+        The prompt string, if given, is printed to standard output without a
+        trailing newline before reading input.
+    <BLANKLINE>
+        If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
+        On *nix systems, readline is used if available.
     <BLANKLINE>
 
 We will use :func:`input` to load data from the user. As we read in the description, :func:`input` reads the
@@ -386,14 +387,14 @@ Let’s introduce two more functions:
     Help on class int in module builtins:
     <BLANKLINE>
     class int(object)
-     |  int(x=0) -> integer
+     |  int([x]) -> integer
      |  int(x, base=10) -> integer
      |
      |  Convert a number or string to an integer, or return 0 if no arguments
      |  are given.  If x is a number, return x.__int__().  For floating point
      |  numbers, this truncates towards zero.
      |
-     |  ...
+     | ...
 
 and
 
@@ -401,11 +402,11 @@ and
     Help on class float in module builtins:
     <BLANKLINE>
     class float(object)
-     |  float(x) -> floating point number
+     |  float(...)
      |
      |  Convert a string or number to a floating point number, if possible.
      |
-     |  ...
+     | ...
 
 The :func:`help` function does not hesitate to inform us that, in fact,
 :func:`int` and :func:`float` are not functions but classes (we will talk about those later), hence the information about all the other things that you can use them for. For now, we
@@ -865,8 +866,8 @@ We can also align the string ``-``  to the left by putting before the number of 
 
 Aligning towards the centre is an additional excercise for you :).
 
-Powtórzenie funkcji print i input
----------------------------------
+Repetition of the print and input functions
+-------------------------------------------
 
 Task 1: Game ‘rock-paper-scissors’
 ``````````````````````````````````

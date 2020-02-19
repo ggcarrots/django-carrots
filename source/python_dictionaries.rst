@@ -22,7 +22,9 @@ Try to create your own user entry.
 
 Nowoczesna Biblioteka Raczyńskich in Poznan wants to send its users birthday wishes. For the library worker to know when you were born it only takes to check:
 
-  >>> print reader['date_of_birth']
+.. code-block:: python
+
+  print(reader['date_of_birth'])
   '19-01-1985'
 
 The clerk recalled: to send you birthday wishes he needs your address aswell. You can add them to your reader's data in such manner:
@@ -42,7 +44,7 @@ To print to screen whole dictionary, we can use loop :keyword:`for`:
 .. code-block:: python
 
   for key in reader:
-    print key, reader[key]
+    print(key, reader[key])
 
 Using 'for' loop on dictionary allows to iterate though every single key. ``reader[key]`` gives access to the value under given key.
 Beware, the order of records is random, dictionaries do not have assigned order. If you want to use ordered structures use lists.

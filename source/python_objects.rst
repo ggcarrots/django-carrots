@@ -46,35 +46,29 @@ features:
     Help on method_descriptor:
     <BLANKLINE>
     lower(...)
-        S.lower() -> str
-    <BLANKLINE>
-        Return a copy of the string S converted to lowercase.
+        Return a copy of the string converted to lowercase.
     <BLANKLINE>
     >>> help(str.upper)
     Help on method_descriptor:
     <BLANKLINE>
     upper(...)
-        S.upper() -> str
-    <BLANKLINE>
-        Return a copy of S converted to uppercase.
+        Return a copy of the string converted to uppercase.
     <BLANKLINE>
     >>> help(str.ljust)
     Help on method_descriptor:
     <BLANKLINE>
     ljust(...)
-        S.ljust(width[, fillchar]) -> str
+        Return a left-justified string of length width.
     <BLANKLINE>
-        Return S left-justified in a Unicode string of length width. Padding is
-        done using the specified fill character (default is a space).
+        Padding is done using the specified fill character (default is a space).
     <BLANKLINE>
     >>> help(str.center)
     Help on method_descriptor:
     <BLANKLINE>
     center(...)
-        S.center(width[, fillchar]) -> str
+        Return a centered string of length width.
     <BLANKLINE>
-        Return S centered in a string of length width. Padding is
-        done using the specified fill character (default is a space)
+        Padding is done using the specified fill character (default is a space).
     <BLANKLINE>
 
 All these are operations that each string can do. We can get to them by using dots and calling the

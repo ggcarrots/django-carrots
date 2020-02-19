@@ -124,7 +124,7 @@ is no ``random.py`` file in the same directory.
     Python will have problem with importing ``random`` module, as it will try
     to import our file instead of the one included with Python.
 
-Lets finnish our lottery example by adding user input::
+Lets finish our lottery example by adding user input::
 
     import random
 

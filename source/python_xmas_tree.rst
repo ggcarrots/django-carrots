@@ -712,8 +712,8 @@ Explore:
 
 3. Collect more data for statistical analysis using lists.
 
-  - https://docs.python.org/3.4/tutorial/introduction.html#lists
-  - https://docs.python.org/3.4/tutorial/datastructures.html#more-on-lists
+  - https://docs.python.org/3/tutorial/introduction.html#lists
+  - https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
 
   Print the longest wins sequence both for user and computer (ad. 2)
   
