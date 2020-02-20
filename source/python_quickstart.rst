@@ -124,7 +124,7 @@ Our first program will look like this::
 In order to write and save code in a file we need to use a text editor.
 Find a text editor that works on your OS (see `list of text editors on Wikipedia <https://en.wikipedia.org/wiki/List_of_text_editors>`_ for examples).
 Type the above Python code and save it in a new file called ``visitingcard.py``.
-Then run your first Python program, from the command line, using the following.
+Then run your first Python program, from the command line, using the following:
 
 .. code-block:: sh
 

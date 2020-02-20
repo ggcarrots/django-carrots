@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Django Carrots 1.0\n"
@@ -13,15 +13,6 @@ msgstr ""
 
 #: ../../source/code_of_conduct.rst:3
 msgid "Geek Girls Carrots Code of Conduct"
-msgstr ""
-
-#: ../../source/code_of_conduct.rst:6
-msgid ""
-"Geek Girls Carrots (otherwise known as GGC) seeks to foster an encouraging "
-"and supportive learning environment in which individuals from all walks of "
-"life can comfortably participate, regardless of race, color, ethnicity, age,"
-" religion, political affiliation, physical ability, sexual orientation or "
-"socioeconomic staus."
 msgstr ""
 
 #: ../../source/code_of_conduct.rst:11
@@ -62,4 +53,13 @@ msgid ""
 "Conduct, which was in turn adapted from the Plone Foundation Code of "
 "Conduct; this particular Code of Conduct has been expanded and edited to "
 "suit the specific needs of Geek Girls Carrots."
+msgstr ""
+
+#: ../../source/code_of_conduct.rst:6
+msgid ""
+"Geek Girls Carrots (otherwise known as GGC) seeks to foster an encouraging "
+"and supportive learning environment in which individuals from all walks of "
+"life can comfortably participate, regardless of race, color, ethnicity, age,"
+" religion, political affiliation, physical ability, gender identity, sexual "
+"orientation or socioeconomic status."
 msgstr ""

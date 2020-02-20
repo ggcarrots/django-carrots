@@ -98,7 +98,7 @@ Use the following commands:
     Changes the current directory. For example, if you are in ``C:\Users\Name``,
     you can access the directory with your documents by entering ``cd Documents``. If you execute the
     ``dir`` command, you will see something familiar.
-    The command  ``cd..`` will move you one level up in the directory tree, that is, 
+    The command ``cd ..`` will move you one level up in the directory tree, that is, 
     to the directory that contains your current directory.
 
 ``mkdir directory``

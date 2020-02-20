@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Django Carrots 1.0\n"
@@ -12,24 +12,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../source/index.rst:3
-msgid "Django Carrots Manual"
+msgid "Code Carrots Manual"
 msgstr ""
 
 #: ../../source/index.rst:5
 msgid ""
-"We present you a manual to learn Python and Django. Even if you cannot "
-"program yet, by following the manual and doing all the exercises you should "
-"be able to create your own website."
+"This is a manual to learn Python. Even if you cannot program yet, you should"
+" be able to create your own applications by following the manual and doing "
+"all the exercises."
 msgstr ""
 
 #: ../../source/index.rst:7
 msgid ""
-"The manual is a part of the workshop Django Carrots organized by Geek Girls "
+"The manual is a part of the Code Carrots workshop organized by Geek Girls "
 "Carrots. You can use it to organize your own workshops or for self-study. If"
 " you decide to use the manual, we would be grateful if you contact us "
 "(however it is optional)."
-msgstr ""
-
-#: ../../source/index.rst:12
-msgid "Table of Contents"
 msgstr ""

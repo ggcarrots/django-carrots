@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Django Carrots 1.0\n"
@@ -15,23 +15,8 @@ msgstr ""
 msgid "Objects and classes"
 msgstr ""
 
-#: ../../source/python_objects.rst:5
-msgid ""
-"In fact, this chapter could be the subject of a series of workshops, but we "
-"will focus on the most basic things, which we will need while working with "
-"Django."
-msgstr ""
-
 #: ../../source/python_objects.rst:9
 msgid "Every value is an object"
-msgstr ""
-
-#: ../../source/python_objects.rst:11
-msgid ""
-"Everything that we have called a value until now can be called “an object” "
-"in the world of Python. We saw it in the example of integers, when "
-":func:`help` printed for us dozens of additional lines of information about "
-":func:`int`."
 msgstr ""
 
 #: ../../source/python_objects.rst:16
@@ -69,24 +54,24 @@ msgid ""
 "just a few interesting features:"
 msgstr ""
 
-#: ../../source/python_objects.rst:80
+#: ../../source/python_objects.rst:74
 msgid ""
 "All these are operations that each string can do. We can get to them by "
 "using dots and calling the function:"
 msgstr ""
 
-#: ../../source/python_objects.rst:91
+#: ../../source/python_objects.rst:85
 msgid ""
 "And one more important function of a class - it can create a new object of "
 "the type it describes. This is called called \"an instance\" of a class:"
 msgstr ""
 
-#: ../../source/python_objects.rst:103
+#: ../../source/python_objects.rst:97
 msgid ""
 "So an instance is a new, fresh, value of the type described by the class."
 msgstr ""
 
-#: ../../source/python_objects.rst:105
+#: ../../source/python_objects.rst:99
 msgid ""
 "In summary, we've looked at the classes :func:`int`, :func:`str`, "
 ":func:`tuple` and :func:`list`. To find out from which class is the value "
@@ -95,25 +80,25 @@ msgid ""
 "parentheses ``()``. For instance: ``int()``."
 msgstr ""
 
-#: ../../source/python_objects.rst:112
+#: ../../source/python_objects.rst:106
 msgid "Define classes"
 msgstr ""
 
-#: ../../source/python_objects.rst:114
+#: ../../source/python_objects.rst:108
 msgid ""
 "Classes like ``int`` or ``str`` are already known to Python, but we can "
 "create our own classes to customize their behavior. This is called defining "
 "a class."
 msgstr ""
 
-#: ../../source/python_objects.rst:117
+#: ../../source/python_objects.rst:111
 msgid ""
 "You can define your class as easy as you can define a function. In fact, a "
 "class is basically nothing but a group of functions. Lets define a class "
 "named ``Dog``:"
 msgstr ""
 
-#: ../../source/python_objects.rst:134
+#: ../../source/python_objects.rst:128
 msgid ""
 "Classes begin with the word :keyword:`class`, after which we give the name "
 "of the new class. The ``(object)`` indicates that our new type ``Dog`` is a "
@@ -122,14 +107,14 @@ msgid ""
 "general type ``object``."
 msgstr ""
 
-#: ../../source/python_objects.rst:139
+#: ../../source/python_objects.rst:133
 msgid ""
 "Actually this is what we said that every value is an object. Indeed, each "
 "class is a specialization of ``object`` in Python. Hence, every value always"
 " has ``object`` as most general type."
 msgstr ""
 
-#: ../../source/python_objects.rst:143
+#: ../../source/python_objects.rst:137
 msgid ""
 "However, it is worth to know that every function in the class must have at "
 "least one argument. Its value is an object from which we have called this "
@@ -139,79 +124,93 @@ msgid ""
 "lets test haw it works:"
 msgstr ""
 
-#: ../../source/python_objects.rst:157
+#: ../../source/python_objects.rst:151
 msgid ""
 "This argument can be named as you wish, but the `most widespread convention "
 "<https://www.python.org/dev/peps/pep-0008/#function-and-method-arguments>`_ "
 "is to call it ``self``."
 msgstr ""
 
-#: ../../source/python_objects.rst:163
+#: ../../source/python_objects.rst:157
 msgid "Attributes of objects"
 msgstr ""
 
-#: ../../source/python_objects.rst:165
+#: ../../source/python_objects.rst:159
 msgid ""
 "Besides methods (functions defined inside class) the objects can also have "
 "attributes:"
 msgstr ""
 
-#: ../../source/python_objects.rst:178
+#: ../../source/python_objects.rst:172
 msgid ""
 "Sometimes we want for every object of the class to have an attribute, such "
 "as every dog should have a name. We can add this requirement by adding a "
 "function with a special name ``__init__``::"
 msgstr ""
 
-#: ../../source/python_objects.rst:189
+#: ../../source/python_objects.rst:183
 msgid ""
 "In function ``__init__`` we have assigned a value to new attribute ``name`` "
 "on ``self``. As mentioned eariler ``self`` is a actual object of class "
 "``Dog``. Now we can use this attribute in other methods:"
 msgstr ""
 
-#: ../../source/python_objects.rst:212
-msgid ""
-"This :func:`__init__` function is called during the creation of an object. "
-"We call this special function a constructor, because it helps to build the "
-"object. In this example it accepts two arguments: ``self`` and ``name``, but"
-" when we create an instance of class ``Dog`` we need to provide only "
-"``name`` arguemnt. ``self`` is always filled automatically by Python."
-msgstr ""
-
-#: ../../source/python_objects.rst:219
+#: ../../source/python_objects.rst:213
 msgid "Inheritance"
 msgstr ""
 
-#: ../../source/python_objects.rst:221
+#: ../../source/python_objects.rst:215
 msgid ""
 "In previous chapter we created a ``Dog`` class that was subtype of "
 "``object``, but this is not the only possible case. We can for example say "
 "that that ``Dog`` is also an ``Animal``::"
 msgstr ""
 
-#: ../../source/python_objects.rst:235
+#: ../../source/python_objects.rst:229
 msgid ""
 "Here we have created new class, ``Animal``, that inherits from ``object``. "
 "``Dog`` class now inherits from ``Animal``. In other terms:"
 msgstr ""
 
-#: ../../source/python_objects.rst:238
+#: ../../source/python_objects.rst:232
 msgid "every Animal is an object"
 msgstr ""
 
-#: ../../source/python_objects.rst:239
+#: ../../source/python_objects.rst:233
 msgid "every Dog is an Animal and every Dog is an object"
 msgstr ""
 
-#: ../../source/python_objects.rst:241
+#: ../../source/python_objects.rst:235
 msgid ""
 "This way we can put some general behaviour in ``Animal`` class, like "
 "walking, and leave dog specific behaviour in ``Dog`` class::"
 msgstr ""
 
-#: ../../source/python_objects.rst:249
+#: ../../source/python_objects.rst:243
 msgid ""
 "Method ``run`` will be available in all subtypes of ``Animal`` (including "
 "``Dog``)::"
+msgstr ""
+
+#: ../../source/python_objects.rst:5
+msgid ""
+"In fact, this chapter could be the subject of a series of workshops, but we "
+"will focus on the most basic things."
+msgstr ""
+
+#: ../../source/python_objects.rst:11
+msgid ""
+"Everything that we have called a value until now can be called *an object* "
+"in the world of Python. We saw it in the example of integers, when "
+":func:`help` printed for us dozens of additional lines of information about "
+":func:`int`."
+msgstr ""
+
+#: ../../source/python_objects.rst:206
+msgid ""
+"The :func:`__init__` function is called during the creation of an object. We"
+" call this special function a constructor, because it helps to build the "
+"object. In this example it accepts two arguments: ``self`` and ``name``, but"
+" when we create an instance of class ``Dog`` we need to provide only "
+"``name`` arguemnt. ``self`` is always filled automatically by Python."
 msgstr ""

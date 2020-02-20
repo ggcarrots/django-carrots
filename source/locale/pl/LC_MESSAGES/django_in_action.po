@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Django Carrots 1.0\n"
@@ -19,32 +19,6 @@ msgstr ""
 msgid "What is Django?"
 msgstr ""
 
-#: ../../source/django_in_action.rst:9
-msgid ""
-"So far we have been learning about Python. Python is just a language (and a "
-"set of basic libraries) that allows you to create programs. Creating an "
-"interactive website in Python requires a huge amount of work, that is why we"
-" will use Django. Django gives us a set of tools, features (as the functions"
-" we learned earlier, but more complex ones), and classes which facilitate "
-"creation of websites."
-msgstr ""
-
-#: ../../source/django_in_action.rst:14
-msgid "On order to obtain a fully interactive website we need a few items:"
-msgstr ""
-
-#: ../../source/django_in_action.rst:16
-msgid "application server - here we use Django"
-msgstr ""
-
-#: ../../source/django_in_action.rst:17
-msgid "HTML and CSS files responsible for the appearance of the website"
-msgstr ""
-
-#: ../../source/django_in_action.rst:18
-msgid "Databases to store survey questions and answers."
-msgstr ""
-
 #: ../../source/django_in_action.rst:20
 msgid "We will start by creating an application server."
 msgstr ""
@@ -57,31 +31,8 @@ msgstr ""
 msgid "Installation"
 msgstr ""
 
-#: ../../source/django_in_action.rst:28
-msgid ""
-"Install Django by running it on the console ``pip install django==1.6.4``:"
-msgstr ""
-
-#: ../../source/django_in_action.rst:39
-msgid ""
-"A suitable package will be downloaded from `PyPI <http://pypi.python.org>`_ "
-"- a package repository where you can find many useful libraries."
-msgstr ""
-
 #: ../../source/django_in_action.rst:44
 msgid "Beginning of project"
-msgstr ""
-
-#: ../../source/django_in_action.rst:46
-msgid ""
-"Django provides the administrative script ``django-admin.py``. It allows you"
-" to create the scheme of our site."
-msgstr ""
-
-#: ../../source/django_in_action.rst:49
-msgid ""
-"To create a new project with the site, we launch ``django-admin.py "
-"startproject carrots``:"
 msgstr ""
 
 #: ../../source/django_in_action.rst:87
@@ -94,185 +45,245 @@ msgid ""
 "files."
 msgstr ""
 
-#: ../../source/django_in_action.rst:91
-msgid ""
-"The file ``carrots/settings.py`` includes the settings such as the language,"
-" a database, installed applications. We can edit the file by ourselves. "
-"Inside you will find the default settings and explanatory comments."
-msgstr ""
-
-#: ../../source/django_in_action.rst:96
-msgid ""
-"``manage.py`` file allows us to administer the web site, create or clear the"
-" database, run a simple application server, etc. Later we will see how to "
-"use it."
-msgstr ""
-
-#: ../../source/django_in_action.rst:100
-msgid ""
-"File ``carrots/urls.py`` contains information about the paths in the site."
-msgstr ""
-
-#: ../../source/django_in_action.rst:102
-msgid ""
-"Other files are less interesting. Usually we do not look inside them at all "
-"nor we modify them. The more curious ones can find more information by "
-"Google."
-msgstr ""
-
 #: ../../source/django_in_action.rst:106
 msgid "Settings of application"
 msgstr ""
 
-#: ../../source/django_in_action.rst:108
-msgid ""
-"In the ``carrots/settings.py`` file find ``TIME_ZONE`` and set time zone as "
-"Warsaw. You should get the following: ::"
-msgstr ""
-
-#: ../../source/django_in_action.rst:116
-msgid ""
-"To make it simpler we also exclude the advanced support for time zones in "
-"the database - it will not be needed in our project. In the ``settings.py`` "
-"file please find  ``USE_TZ``  and set them as False: ::"
-msgstr ""
-
-#: ../../source/django_in_action.rst:131
+#: ../../source/django_in_action.rst:132
 msgid "Database"
 msgstr ""
 
-#: ../../source/django_in_action.rst:133
-msgid ""
-"Now it's time to use the previously described file ``manage.py`` to create "
-"the database. For this purpose we execute the option ``syncdb``. In the "
-"project directory run ``python manage.py syncdb``:"
-msgstr ""
-
-#: ../../source/django_in_action.rst:163
-msgid ""
-"If all goes well Django asks you to provide data of the administrator "
-"account. The user name you may leave as it is proposed, you can give any "
-"e-mail address.  Memorize the provided data (i.e, username and password) so "
-"that you can log in the control panel. In the above example, the user will "
-"be ``beans``."
-msgstr ""
-
-#: ../../source/django_in_action.rst:168
+#: ../../source/django_in_action.rst:176
 msgid ""
 "If you want to learn more about ``manage.py``, run python ``manage.py "
 "help``:"
 msgstr ""
 
-#: ../../source/django_in_action.rst:175
+#: ../../source/django_in_action.rst:183
 msgid ""
 "You will get a list of all commands and options supported by ``manage.py``."
 msgstr ""
 
-#: ../../source/django_in_action.rst:178
+#: ../../source/django_in_action.rst:186
 msgid "To get help on a single command, run  ``manage.py help`` command:"
 msgstr ""
 
-#: ../../source/django_in_action.rst:185
+#: ../../source/django_in_action.rst:193
 msgid "Administration interface"
 msgstr ""
 
-#: ../../source/django_in_action.rst:187
-msgid ""
-"Now we can run our aplication. Run server by typing ``python manage.py "
-"runserver``:"
-msgstr ""
-
-#: ../../source/django_in_action.rst:200
-msgid ""
-"Our website will be available on the  http://127.0.0.1:8000/  or "
-"http://localhost:8000/ adress."
-msgstr ""
-
-#: ../../source/django_in_action.rst:202
-msgid ""
-"Administration panel is available on ``admin/`` path, that’s why we will go "
-"to http://localhost:8000/admin/."
-msgstr ""
-
-#: ../../source/django_in_action.rst:207
+#: ../../source/django_in_action.rst:215
 msgid "We create a new application for questionnaires"
 msgstr ""
 
-#: ../../source/django_in_action.rst:209
-msgid ""
-"For now, we have created a project ``carrots``. Projects in Django are "
-"divided into apps that provide specific functions."
-msgstr ""
-
-#: ../../source/django_in_action.rst:212
-msgid ""
-"We want to publish questionnaires on our website, that’s why we will add the"
-" application ``polls``."
-msgstr ""
-
-#: ../../source/django_in_action.rst:214
-msgid "From the command line type ``python manage.py startapp polls``:"
-msgstr ""
-
-#: ../../source/django_in_action.rst:237
-msgid ""
-"After creating the application it must be activated in our project. In the "
-"file ``carrots/settings.py`` we have to add the application ``polls`` to "
-"``INSTALLED_APPS``. The result should look like as follows::"
-msgstr ""
-
-#: ../../source/django_in_action.rst:251
+#: ../../source/django_in_action.rst:260
 msgid "Applications in ``Django`` consists of several files:"
 msgstr ""
 
-#: ../../source/django_in_action.rst:253
+#: ../../source/django_in_action.rst:262
 msgid "``admin.py`` - definitions for the administration panel,"
 msgstr ""
 
-#: ../../source/django_in_action.rst:254
+#: ../../source/django_in_action.rst:263
 msgid "``models.py`` - definitions of the models for the database,"
 msgstr ""
 
-#: ../../source/django_in_action.rst:255
+#: ../../source/django_in_action.rst:264
 msgid "``tests.py`` - testing applications,"
 msgstr ""
 
-#: ../../source/django_in_action.rst:256
+#: ../../source/django_in_action.rst:265
 msgid "``views.py`` - views of the application."
 msgstr ""
 
-#: ../../source/django_in_action.rst:259
+#: ../../source/django_in_action.rst:268
 msgid "Summary"
 msgstr ""
 
-#: ../../source/django_in_action.rst:261
+#: ../../source/django_in_action.rst:270
 msgid "Django installation:"
 msgstr ""
 
-#: ../../source/django_in_action.rst:267
-msgid "Project directory creation"
-msgstr ""
-
-#: ../../source/django_in_action.rst:282
+#: ../../source/django_in_action.rst:291
 msgid "Setup of time zone in ``carrots/settings.py`` file::"
 msgstr ""
 
-#: ../../source/django_in_action.rst:290
+#: ../../source/django_in_action.rst:299
 msgid ""
 "Creation of database (you need to run that command after adding every new "
 "model):"
 msgstr ""
 
-#: ../../source/django_in_action.rst:296
-msgid "Server's start-up:"
-msgstr ""
-
-#: ../../source/django_in_action.rst:302
+#: ../../source/django_in_action.rst:311
 msgid "Creation of the new application named ``polls``:"
 msgstr ""
 
-#: ../../source/django_in_action.rst:308
+#: ../../source/django_in_action.rst:317
 msgid ""
 "Just remember that after creating an application you should add it to "
 "``INSTALLED_APPS``."
+msgstr ""
+
+#: ../../source/django_in_action.rst:9
+msgid ""
+"So far we have been learning about Python. Python is just a language (and a "
+"set of basic libraries) that allows you to create programs. Creating an "
+"interactive website in Python requires a huge amount of work, which is why "
+"we will use the Django framework instead. Django gives us a set of tools, "
+"features (like the functions we learned about earlier, but more complex), "
+"and classes that facilitate the creation of websites."
+msgstr ""
+
+#: ../../source/django_in_action.rst:14
+msgid "In order to obtain a fully interactive website we need a few items:"
+msgstr ""
+
+#: ../../source/django_in_action.rst:16
+msgid "Application server - where we use Django"
+msgstr ""
+
+#: ../../source/django_in_action.rst:17
+msgid "HTML and CSS files - responsible for the appearance of the website"
+msgstr ""
+
+#: ../../source/django_in_action.rst:18
+msgid "Databases - to store survey questions and answers"
+msgstr ""
+
+#: ../../source/django_in_action.rst:28
+msgid ""
+"Install Django by running it on the console ``pip install django==3.0.3``:"
+msgstr ""
+
+#: ../../source/django_in_action.rst:39
+msgid ""
+"A suitable package will be downloaded from `PyPI <https://pypi.org>`_ - a "
+"package repository where you can find many useful libraries."
+msgstr ""
+
+#: ../../source/django_in_action.rst:46
+msgid ""
+"Django provides the administrative script ``django-admin.py``. It allows you"
+" to create the basic scheme of our site."
+msgstr ""
+
+#: ../../source/django_in_action.rst:49
+msgid ""
+"To create a new project with the site, launch ``django-admin.py startproject"
+" carrots``:"
+msgstr ""
+
+#: ../../source/django_in_action.rst:91
+msgid ""
+"The file ``carrots/settings.py`` includes the settings such as the language,"
+" a database, and installed applications. We can edit the file ourselves. "
+"Inside, you will find the default settings and explanatory comments."
+msgstr ""
+
+#: ../../source/django_in_action.rst:96
+msgid ""
+"The file ``manage.py`` allows us to administer the web site, create or clear"
+" the database, run a simple application server, etc. We will learn how to "
+"use it later on."
+msgstr ""
+
+#: ../../source/django_in_action.rst:100
+msgid ""
+"The file ``carrots/urls.py`` contains information about the paths in the "
+"site."
+msgstr ""
+
+#: ../../source/django_in_action.rst:102
+msgid ""
+"Other files are less interesting. Usually we do not look inside them at all "
+"nor do we modify them. If you are curious, you can find more information "
+"through Google."
+msgstr ""
+
+#: ../../source/django_in_action.rst:108
+msgid ""
+"In the ``carrots/settings.py`` file, find ``TIME_ZONE`` and set time zone as"
+" Warsaw. You should get the following: ::"
+msgstr ""
+
+#: ../../source/django_in_action.rst:116
+msgid ""
+"To make it simpler we also exclude the advanced support for time zones in "
+"the database - it will not be needed in our project. In the file "
+"``settings.py`` please find  ``USE_TZ``  and set it as False: ::"
+msgstr ""
+
+#: ../../source/django_in_action.rst:134
+msgid ""
+"Now it's time to use the previously described file ``manage.py`` to create "
+"the database. For this purpose we execute the option ``migrate``. In the "
+"project directory run ``python manage.py migrate``:"
+msgstr ""
+
+#: ../../source/django_in_action.rst:160
+msgid ""
+"You just installed Django's system base, which means you have empty tables "
+"in your database and have no administrators (administration accounts aka "
+"admins or superusers) defined. Let's create one by running ``python "
+"manage.py createsuperuser``:"
+msgstr ""
+
+#: ../../source/django_in_action.rst:172
+msgid ""
+"If all goes well, Django will ask you to provide data for the administrator "
+"account. You may leave the username as it is proposed, and you may give any "
+"e-mail address. Memorize the data you provided (i.e, username and password) "
+"so that you can log in to the control panel. In the above example, the user "
+"will be ``beans``."
+msgstr ""
+
+#: ../../source/django_in_action.rst:195
+msgid ""
+"Now we can run our application. Run the server by typing ``python manage.py "
+"runserver``:"
+msgstr ""
+
+#: ../../source/django_in_action.rst:208
+msgid ""
+"Our website will be available at ``http://127.0.0.1:8000/`` or "
+"``http://localhost:8000/``"
+msgstr ""
+
+#: ../../source/django_in_action.rst:210
+msgid ""
+"The administration panel is available in the ``admin/`` path, that’s why we "
+"will go to ``http://localhost:8000/admin/`` to find it."
+msgstr ""
+
+#: ../../source/django_in_action.rst:217
+msgid ""
+"For now, we have created the project ``carrots``. Projects in Django are "
+"divided into apps that provide specific functions."
+msgstr ""
+
+#: ../../source/django_in_action.rst:220
+msgid ""
+"We want to publish questionnaires on our website, so we will add the "
+"application ``polls``."
+msgstr ""
+
+#: ../../source/django_in_action.rst:222
+msgid ""
+"Quit the server and from the command line, type ``python manage.py startapp "
+"polls``:"
+msgstr ""
+
+#: ../../source/django_in_action.rst:247
+msgid ""
+"After creating the application, it must be activated in our project. In the "
+"file ``carrots/settings.py`` we have to add the application ``polls`` to "
+"``INSTALLED_APPS``. The result should look like this::"
+msgstr ""
+
+#: ../../source/django_in_action.rst:276
+msgid "Project directory creation:"
+msgstr ""
+
+#: ../../source/django_in_action.rst:305
+msgid "Server start-up:"
 msgstr ""

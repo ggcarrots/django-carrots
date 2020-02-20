@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Django Carrots 1.0\n"
@@ -271,17 +271,17 @@ msgid ""
 "it is not defined:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:331
+#: ../../source/python_xmas_tree.rst:344
 msgid ""
 "That is, our prim and proper Python cleans up his room at the end of a "
 "function call :)"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:335
+#: ../../source/python_xmas_tree.rst:348
 msgid "Returning values"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:337
+#: ../../source/python_xmas_tree.rst:350
 msgid ""
 "The functions which we have previously used had one important property that "
 "is missing in the functions created by ourselves - they gave back the value "
@@ -290,83 +290,76 @@ msgid ""
 " instruction that can be found only in functions."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:344
+#: ../../source/python_xmas_tree.rst:357
 msgid ""
 "We can now improve our BMI calculator by adding a function to compute BMI::"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:349
+#: ../../source/python_xmas_tree.rst:362
 msgid ""
 "Finally, as a last example on functions, here is a solution to the problem "
 "from the end of the previous chapter:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:378
+#: ../../source/python_xmas_tree.rst:391
 msgid "The Entire Christmas tree"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:380
+#: ../../source/python_xmas_tree.rst:393
 msgid ""
 "The previous chapter was fairly theoretical, so now we'll use some of this "
 "new knowledge to complete our program to display a Christmas tree."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:383
+#: ../../source/python_xmas_tree.rst:396
 msgid "For the record::"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:394
+#: ../../source/python_xmas_tree.rst:407
 msgid ""
 "How can we improve the function :func:`print_triangle`, o display the entire"
 " segment of the Christmas tree, not just half of it?"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:398
-msgid ""
-"First of all, let’s determine how we want our result to look like for the "
-"exact value of argument  ``n``. It seems to make sense that, ``n`` would be "
-"the width. Then for ``n = 5``, we would expect::"
-msgstr ""
-
-#: ../../source/python_xmas_tree.rst:405
+#: ../../source/python_xmas_tree.rst:420
 msgid ""
 "It is worth noting that each line consists of two asterix more than the "
 "previous one. So we can use the third argument :func:`range`:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:422
+#: ../../source/python_xmas_tree.rst:437
 msgid ""
 "It is not exactly what we have wanted, as it should be aligned in the "
 "centre. The method/function :func:`unicode.center` mentioned in the previous"
 " section, helps us:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:441
+#: ../../source/python_xmas_tree.rst:456
 msgid "However, a new problem appears:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:465
+#: ../../source/python_xmas_tree.rst:480
 msgid ""
 "If we know in advance, what size the widest segment is, we can add an "
 "additional argument to :func:`print_segment`,  to align to the width. "
 "Combining all of the knowledge we have acquired up to the moment:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:505
+#: ../../source/python_xmas_tree.rst:520
 msgid "Task for volunteers"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:507
+#: ../../source/python_xmas_tree.rst:522
 msgid ""
 "Create a class ``XMASTree`` which for a given size and upon calling the "
 "method ``draw`` will print the following pictures (sizes 1, 2 and 3):"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:541
+#: ../../source/python_xmas_tree.rst:559
 msgid "Notes"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:542
+#: ../../source/python_xmas_tree.rst:560
 msgid ""
 "Assuming you have 24 hours to deliver one gift for everyone in the world, "
 "for one gift you have about 10 microseconds."
@@ -389,158 +382,143 @@ msgid ""
 "outer loop."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:514 ../../source/python_xmas_tree.rst:523
-#: ../../source/python_xmas_tree.rst:538
-msgid "::"
+#: ../../source/python_xmas_tree.rst:411
+msgid ""
+"First of all, let’s determine how we want our result to look like for the "
+"exact value of argument  ``n``. It seems to make sense that, ``n`` would be "
+"the width. Then for ``n = 5``, we would expect:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:512 ../../source/python_xmas_tree.rst:518
-#: ../../source/python_xmas_tree.rst:520 ../../source/python_xmas_tree.rst:527
-#: ../../source/python_xmas_tree.rst:529 ../../source/python_xmas_tree.rst:532
-msgid "/|\\"
+#: ../../source/python_xmas_tree.rst:565
+msgid "Calendar"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:514 ../../source/python_xmas_tree.rst:519
-#: ../../source/python_xmas_tree.rst:528
-msgid "/_|_\\"
+#: ../../source/python_xmas_tree.rst:567 ../../source/python_xmas_tree.rst:637
+#: ../../source/python_xmas_tree.rst:661 ../../source/python_xmas_tree.rst:702
+#: ../../source/python_xmas_tree.rst:723
+msgid "Description:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:521 ../../source/python_xmas_tree.rst:530
-#: ../../source/python_xmas_tree.rst:533
-msgid "/ | \\"
+#: ../../source/python_xmas_tree.rst:569
+msgid "Using data:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:523 ../../source/python_xmas_tree.rst:532
-msgid "/__|__\\"
+#: ../../source/python_xmas_tree.rst:589
+msgid "Print a calendar:"
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:534
-msgid "/  |  \\"
+#: ../../source/python_xmas_tree.rst:626
+msgid ""
+"Hint: Start with a method that will print days of a single month. Run it for"
+" each element of the list ‘data’. Rememeber that every week has 7 days."
 msgstr ""
 
-#: ../../source/python_xmas_tree.rst:538
-msgid "/___|___\\"
+#: ../../source/python_xmas_tree.rst:631
+msgid "Improvement of the ‘rock-paper-scissors’ game"
 msgstr ""
 
-#~ msgid ""
-#~ "The :func:`range` function does not directly create a list, but it returns a"
-#~ " generator. Generators generate the elements of a sequence one at a time, "
-#~ "thereby avoiding to store the full sequence in memory. In order to obtain a "
-#~ "list of the sequence, we use the function :func:`list`."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:635
+msgid "Task 1: Let's play some more, i.e. few rounds of a game"
+msgstr ""
 
-#~ msgid "Objects and classes"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:639
+msgid ""
+"Our game is not the most playable at this point, because it has to be reload"
+" every single time. We have to give user a choice if he wants to continue or"
+" end the game after one round. Let's use a `while` loop and keyword `break`."
+msgstr ""
 
-#~ msgid ""
-#~ "In fact, this chapter could be the subject of a series of workshops, but we "
-#~ "will focus on the most basic things, which we will need while working with "
-#~ "Django."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:642
+msgid "After every round user should see the question:"
+msgstr ""
 
-#~ msgid "Every value is an object"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:649
+msgid ""
+"The computer can also be stubborn. If user decides no in previous step, make"
+" it ask user addition question:"
+msgstr ""
 
-#~ msgid ""
-#~ "Everything that we have called a value until now can be called “an object” "
-#~ "in the world of Python. We saw it in the example of integers, when "
-#~ ":func:`help` printed for us dozens of additional lines of information about "
-#~ ":func:`int`."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:655
+msgid "And start next round. (but without a choice of difficulty level!)"
+msgstr ""
 
-#~ msgid "Every object has a class"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:659
+msgid "Task 2: Some addiotional screens"
+msgstr ""
 
-#~ msgid ""
-#~ "The class is the type of an object. To know what is the class of an object, "
-#~ "simply use the function :func:`type`:"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:663
+msgid "Adjust the game so it has such `screens`:"
+msgstr ""
 
-#~ msgid ""
-#~ "When we use numbers in our program, we expect that it will behave like a "
-#~ "number - we rely on our intuition."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:665
+msgid "Welcome screen:"
+msgstr ""
 
-#~ msgid ""
-#~ "However, Python has to know exactly what it means to be an integer, e.g., "
-#~ "what should happen when we sum up two numbers and what when we divide them. "
-#~ "The class provides all this information and even more."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:674
+msgid "Level selection:"
+msgstr ""
 
-#~ msgid ""
-#~ "By using :func:`help` , check what the class ``str`` gives us. Here we give "
-#~ "just a few interesting features:"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:682
+msgid "Game:"
+msgstr ""
 
-#~ msgid ""
-#~ "All these are operations that each string can do. We can get to them by "
-#~ "using dots and calling the function:"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:691
+msgid "End of game:"
+msgstr ""
 
-#~ msgid ""
-#~ "And one more important function of a class - it can create a new object of "
-#~ "the type it describes. This is called called \"an instance\" of a class:"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:697
+msgid "Take under consideration all previously implemented functionality."
+msgstr ""
 
-#~ msgid ""
-#~ "So an instance is a new, fresh, value of the type described by the class."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:700
+msgid "Task 3: User stats"
+msgstr ""
 
-#~ msgid ""
-#~ "In summary, we've looked at the classes :func:`int`, :func:`str`, "
-#~ ":func:`tuple` and :func:`list`. To find out from which class is the value "
-#~ "(object), we use the function :func:`type`. To create an instance of a class"
-#~ " (a new object), we call the class like call a function, by using "
-#~ "parentheses ``()``. For instance: ``int()``."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:704
+msgid ""
+"It is time to collect some statistical data from wins and fails. At the end "
+"of the game (after all rounds) print the number of players and computers "
+"wins and who is the winner."
+msgstr ""
 
-#~ msgid "Define classes"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:707
+msgid "Explore:"
+msgstr ""
 
-#~ msgid ""
-#~ "Just as you can create your own functions, you can create your own classes. "
-#~ "In fact, a class is basically nothing but a group of functions:"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:709
+msgid "Count and print percentage values."
+msgstr ""
 
-#~ msgid ""
-#~ "Classes begin with the word :keyword:`class`, after which we give the name "
-#~ "of the new class. The ``(object)`` indicates that our new type ``Dog`` is a "
-#~ "specific sub-type of ``object``. That is, instances of our class, i.e. "
-#~ "values created from it, will be of the type ``Dog`` but also of the more "
-#~ "general type ``object``."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:711
+msgid "Print the longest wins sequence both for user and computer."
+msgstr ""
 
-#~ msgid ""
-#~ "Actually this is what we said that every value is an object. Indeed, each "
-#~ "class is a specialization of ``object`` in Python. Hence, every value value "
-#~ "has always ``object`` as most general type."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:713
+msgid "Collect more data for statistical analysis using lists."
+msgstr ""
 
-#~ msgid ""
-#~ "However, it is worth to know that every function in the class must have at "
-#~ "least one argument. Its value is an object from which we have called this "
-#~ "function (that is to say the object placed before the dot):"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:715
+msgid "https://docs.python.org/3/tutorial/introduction.html#lists"
+msgstr ""
 
-#~ msgid ""
-#~ "This argument can be named as you wish, but the `most widespread convention "
-#~ "<http://legacy.python.org/dev/peps/pep-0008/>`_ is to call it ``self``."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:716
+msgid "https://docs.python.org/3/tutorial/datastructures.html#more-on-lists"
+msgstr ""
 
-#~ msgid "Attributes of objects"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:718
+msgid "Print the longest wins sequence both for user and computer (ad. 2)"
+msgstr ""
 
-#~ msgid "Besides methods (functions) the objects can also have attributes:"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:721
+msgid "Additional task: noughts and crosses"
+msgstr ""
 
-#~ msgid ""
-#~ "Sometimes we want for every object of the class to have an attribute, such "
-#~ "as every dog should have a name. We can add this requirement by defining a "
-#~ "function with a special name ``__init__``:"
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:725
+msgid ""
+"Implement the game of noughts and crosses for two players. Start with the "
+"most important part: gameplay, next add menu, players names etc."
+msgstr ""
 
-#~ msgid ""
-#~ "This :func:`__init__` function is called during the creation of an object. "
-#~ "We call this special function a constructor, because it helps to build the "
-#~ "object."
-#~ msgstr ""
+#: ../../source/python_xmas_tree.rst:728
+msgid "An exemplary game can look like this:"
+msgstr ""

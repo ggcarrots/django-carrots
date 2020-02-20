@@ -1,0 +1,178 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Code Carrots 2.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-19 23:29+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/python_dictionaries.rst:2
+msgid "Dictionaries"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:5
+msgid "Introduction"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:7
+msgid ""
+"It is time for you to get to know useful data structure - dictionary. "
+"Dictionaries are used to store data as a key and value (just like in "
+"encyclopedia - you have entry and a description attached to it). Imagine you"
+" want to store information about library users. For every reader you have: "
+"name, surname, birthdate, birthplace, id number. In python such a structure "
+"would look like this:"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:20
+msgid ""
+"In this example ``name`` is a key (dictionary entry), witch assigned value "
+"``Kasia`` (entry description). Try to create your own user entry."
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:23
+msgid ""
+"Nowoczesna Biblioteka Raczyńskich in Poznan wants to send its users birthday"
+" wishes. For the library worker to know when you were born it only takes to "
+"check:"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:30
+msgid ""
+"The clerk recalled: to send you birthday wishes he needs your address "
+"aswell. You can add them to your reader's data in such manner:"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:36
+msgid ""
+"You can easily change the value in dictionary, if you make any mistake- it "
+"only takes to rewrite existing value:"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:42
+msgid "To print to screen whole dictionary, we can use loop :keyword:`for`:"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:49
+msgid ""
+"Using 'for' loop on dictionary allows to iterate though every single key. "
+"``reader[key]`` gives access to the value under given key. Beware, the order"
+" of records is random, dictionaries do not have assigned order. If you want "
+"to use ordered structures use lists."
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:53
+msgid "Task 1"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:55
+msgid ""
+"Description: Library system contains author data assigned to every book. "
+"Library clerk checks book author while putting books on shelf in alphabetic "
+"order. Try to write down pairs: book --> author for every record in "
+"dictionary, used to store library information."
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:58
+msgid "EXAMPLE (one line output):"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:80
+msgid "Task 2"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:82
+msgid ""
+"You can help the clerk to find out on which shelf given book should be "
+"putted. In this very moment the library store data about its books in two "
+"dictionaries:: ``title_to_author`` and ``title_to_shelf_number``. We need to"
+" join them. After join there will be one dictionary, containing information "
+"about shelf and author of a book. These information will be stored in "
+"tuplets of such elements (shelf number, author's full name)"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:86
+msgid ""
+"Merge two dictionaries ``title_to_author`` and ``title_to_shelf_number`` in "
+"one, stored in variable ``title_to_book_record``:"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:88
+msgid ""
+"The key in dictionary ``title_to_author`` is \"book's title\", and value is "
+"\"main author's name\""
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:89
+msgid ""
+"The key in dictionary ``title_to_shelf_number`` is \"book's title\", and "
+"value is \"shelf number\""
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:90
+msgid ""
+"The key in output dictionary ``title_to_book_record`` should be \"book's "
+"title\", and value should contain 2 elements tuple (\"main author's name\", "
+"\"shelf number\")"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:93
+msgid "EXAMPLE:"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:95
+msgid ""
+"For key ``The C Programming Language`` dictionary ``title_to_book_record`` "
+"should return a tuplet: ``('Brian W. Kernighan', 23)``. In Python "
+"interpreter:"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:131
+msgid "Task 3"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:133
+msgid ""
+"If you would like to find books particular edition by ISBN, you can use "
+"dictionary as below."
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:135
+msgid "Print out dictionary's content in such manner::"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:139
+msgid ""
+"The key in dictionary ``books`` is integer \"ISBN\" , and value is THREE "
+"ELEMENTS TUPLE (\"book's title\", \"main author's name\", \"shelf number\")"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:141
+msgid "EXAMPLE (one line output)::"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:165
+msgid "Additional task"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:167
+msgid ""
+"Fill the body of method ``find_by_isbn_part``, so it would return all books'"
+" titles matching part of given ISBN. The key in dictionary ``books`` is "
+"``ISBN``, and value is THREE ELEMENTS TUPLE::"
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:172
+msgid ""
+"Running this script will execute test function, that will verify if the "
+"method works properly and output the result to the terminal."
+msgstr ""
+
+#: ../../source/python_dictionaries.rst:192
+msgid "CORRECT THE FUNCTION ``find_by_isbn_part``:"
+msgstr ""
