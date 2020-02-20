@@ -15,48 +15,44 @@ msgstr ""
 msgid "Models"
 msgstr ""
 
-#: ../../source/django_models.rst:73
+#: ../../source/django_models.rst:66
 msgid "Playing in the console"
 msgstr ""
 
-#: ../../source/django_models.rst:75
+#: ../../source/django_models.rst:68
 msgid ""
 "Django provides its own console. It is a simple Python console (where we can"
 " do exactly the same thing as when you activate the command ``python``), but"
 " we can also use the tools and models of Django."
 msgstr ""
 
-#: ../../source/django_models.rst:91
+#: ../../source/django_models.rst:84
 msgid "We create the first survey::"
 msgstr ""
 
-#: ../../source/django_models.rst:96
+#: ../../source/django_models.rst:89
 msgid ""
 "Save the poll in the database. For this purpose, you always need to call "
 "``save()``::"
 msgstr ""
 
-#: ../../source/django_models.rst:100
+#: ../../source/django_models.rst:93
 msgid "Each object in the database is assigned to a unique ID::"
 msgstr ""
 
-#: ../../source/django_models.rst:105
+#: ../../source/django_models.rst:98
 msgid "``p`` is a simple object. We can read its attributes::"
 msgstr ""
 
-#: ../../source/django_models.rst:117
-msgid "``objects.all()`` returns a list of all the objects in the database::"
-msgstr ""
-
-#: ../../source/django_models.rst:223
+#: ../../source/django_models.rst:216
 msgid "Summary"
 msgstr ""
 
-#: ../../source/django_models.rst:227
+#: ../../source/django_models.rst:220
 msgid "To download every object in the model::"
 msgstr ""
 
-#: ../../source/django_models.rst:231
+#: ../../source/django_models.rst:224
 msgid "To download the object which satisfies the condition::"
 msgstr ""
 
@@ -88,50 +84,44 @@ msgid ""
 "migrations files, using the ``migrate`` command."
 msgstr ""
 
-#: ../../source/django_models.rst:52
-msgid ""
-"That’s it! However, probably we would like to be able to edit objects. The "
-"easiest way is to do it in"
-msgstr ""
-
-#: ../../source/django_models.rst:54
+#: ../../source/django_models.rst:47
 msgid "We create a file ``polls/admin.py``, which includes::"
 msgstr ""
 
-#: ../../source/django_models.rst:62
+#: ../../source/django_models.rst:55
 msgid ""
 "Now, the ``Poll`` and ``Choice`` models will be available from the "
 "administration panel."
 msgstr ""
 
-#: ../../source/django_models.rst:66
+#: ../../source/django_models.rst:59
 msgid ""
 "Some changes require a server restart. In the console with the server "
 "running, do ``Ctrl+C`` and then ``python manage.py runserver`` again."
 msgstr ""
 
-#: ../../source/django_models.rst:69
+#: ../../source/django_models.rst:62
 msgid ""
 "When we go back to ``http://localhost:8000/admin/`` we will see that a new "
 "bookmark ``Polls`` has appeared."
 msgstr ""
 
-#: ../../source/django_models.rst:82
+#: ../../source/django_models.rst:75
 msgid "Once you are in the shell, type::"
 msgstr ""
 
-#: ../../source/django_models.rst:86
+#: ../../source/django_models.rst:79
 msgid ""
 "All the surveys are the database, there's nothing here, so we get an empty "
 "list::"
 msgstr ""
 
-#: ../../source/django_models.rst:112
+#: ../../source/django_models.rst:105
 msgid ""
 "After changing the attributes we again call ``save()`` to save changes::"
 msgstr ""
 
-#: ../../source/django_models.rst:122
+#: ../../source/django_models.rst:115
 msgid ""
 "Django models are classes, which can define methods. A method is a function "
 "that gets an extra parameter ``self``, which is the current object (e.g. the"
@@ -139,7 +129,7 @@ msgid ""
 "additional behaviors or change the existing ones."
 msgstr ""
 
-#: ../../source/django_models.rst:126
+#: ../../source/django_models.rst:119
 msgid ""
 "One of the methods is ``__str__()``, which allows you to change the display "
 "of the model (a questionnaire or a question). ``<Poll: Poll object>`` "
@@ -147,53 +137,64 @@ msgid ""
 "``Poll`` and ``Choice``::"
 msgstr ""
 
-#: ../../source/django_models.rst:140
+#: ../../source/django_models.rst:133
 msgid ""
 "Django will use these methods for displaying objects, not just in the "
 "console but also in the administration interface."
 msgstr ""
 
-#: ../../source/django_models.rst:142
+#: ../../source/django_models.rst:135
 msgid ""
 "We can also add other methods.  In ``carrots/polls/models.py``, append the "
 "following (comments ``#...`` mean the code located in the file)::"
 msgstr ""
 
-#: ../../source/django_models.rst:153
+#: ../../source/django_models.rst:145
 msgid ""
 "Note that we had to add ``import datetime`` at the beginning of the file to "
 "use objects representing the time in Python."
 msgstr ""
 
-#: ../../source/django_models.rst:155
+#: ../../source/django_models.rst:147
 msgid ""
 "Let’s save the changes and run the intepreter with the command ``python "
 "manage.py shell`` once again::"
 msgstr ""
 
-#: ../../source/django_models.rst:163
+#: ../../source/django_models.rst:155
 msgid ""
 "Until now, we have used the method ``all`` to get a list of all objects of a"
 " defined type (e.g. all questions). There are other methods that allow us to"
 " find objects that meet certain conditions:"
 msgstr ""
 
-#: ../../source/django_models.rst:189
+#: ../../source/django_models.rst:181
 msgid "We can also have access to the answers (``Choice``):"
 msgstr ""
 
-#: ../../source/django_models.rst:225
+#: ../../source/django_models.rst:218
 msgid ""
 "We create models by defining classes inheriting from ``models.Model`` in "
 "``polls/models.py`` file."
 msgstr ""
 
-#: ../../source/django_models.rst:226
+#: ../../source/django_models.rst:219
 msgid ""
 "After creating a new model, we have to remember to run ``python manage.py "
 "makemigrations`` and ``python manage.py migrate``."
 msgstr ""
 
-#: ../../source/django_models.rst:235
+#: ../../source/django_models.rst:228
 msgid "To download a single object::"
+msgstr ""
+
+#: ../../source/django_models.rst:45
+msgid ""
+"That’s it! However, probably we would like to be able to edit objects. The "
+"easiest way is to do it in the administration panel."
+msgstr ""
+
+#: ../../source/django_models.rst:110
+msgid ""
+"``Poll.objects.all()`` returns a list of all the objects in the database::"
 msgstr ""

@@ -56,7 +56,8 @@ To create a new project with the site, launch ``django-admin.py startproject car
     (workshops) ~$ tree carrots
     carrots/
     ├── carrots
-    │   ├── __init__.py
+    │   ├── asgi.py
+    |   ├── __init__.py
     │   ├── settings.py
     │   ├── urls.py
     │   └── wsgi.py
@@ -77,10 +78,11 @@ To create a new project with the site, launch ``django-admin.py startproject car
     │   manage.py
     │
     └───carrots
+            asgi.py
+            __init__.py
             settings.py
             urls.py
             wsgi.py
-            __init__.py
 
 
 Structure of project
@@ -138,23 +140,24 @@ Now it's time to use the previously described file ``manage.py`` to create the d
     (workshops) ~$ cd carrots
     (workshops) ~/carrots$ python manage.py migrate
     Operations to perform:
-      Synchronize unmigrated apps: staticfiles, messages
-      Apply all migrations: admin, contenttypes, auth, sessions
-    Synchronizing apps without migrations:
-      Creating tables...
-        Running deferred SQL...
-      Installing custom SQL...
+      Apply all migrations: admin, auth, contenttypes, sessions
     Running migrations:
-      Rendering model states... DONE
       Applying contenttypes.0001_initial... OK
       Applying auth.0001_initial... OK
       Applying admin.0001_initial... OK
+      Applying admin.0002_logentry_remove_auto_add... OK
+      Applying admin.0003_logentry_add_action_flag_choices... OK
       Applying contenttypes.0002_remove_content_type_name... OK
       Applying auth.0002_alter_permission_name_max_length... OK
       Applying auth.0003_alter_user_email_max_length... OK
       Applying auth.0004_alter_user_username_opts... OK
       Applying auth.0005_alter_user_last_login_null... OK
       Applying auth.0006_require_contenttypes_0002... OK
+      Applying auth.0007_alter_validators_add_error_messages... OK
+      Applying auth.0008_alter_user_username_max_length... OK
+      Applying auth.0009_alter_user_last_name_max_length... OK
+      Applying auth.0010_alter_group_name_max_length... OK
+      Applying auth.0011_update_proxy_permissions... OK
       Applying sessions.0001_initial... OK
 
 You just installed Django's system base, which means you have empty tables in your database and have no administrators (administration accounts aka admins or superusers) defined. Let's create one by running ``python manage.py createsuperuser``:
@@ -164,10 +167,9 @@ You just installed Django's system base, which means you have empty tables in yo
     (workshops) ~/carrots$ python manage.py createsuperuser
     Username (leave blank to use 'teddybear'): beans
     Email address: admin@example.com
-    Password:
+    Password: 
     Password (again):
     Superuser created successfully.
-
 
 If all goes well, Django will ask you to provide data for the administrator account. You may leave the username 
 as it is proposed, and you may give any e-mail address. Memorize the data you provided (i.e, username 
@@ -195,11 +197,12 @@ Now we can run our application. Run the server by typing ``python manage.py runs
 .. code-block:: sh
 
     (workshops) ~/carrots$ python manage.py runserver
+    Watching for file changes with StatReloader
     Performing system checks...
 
     System check identified no issues (0 silenced).
-    June 01, 2015 - 3:14:15
-    Django version 1.8.2, using settings 'carrots.settings'
+    February 20, 2020 - 01:50:36
+    Django version 3.0.3, using settings 'carrots.settings'
     Starting development server at http://127.0.0.1:8000/
     Quit the server with CONTROL-C.
 
@@ -225,6 +228,7 @@ Quit the server and from the command line, type ``python manage.py startapp poll
     (workshops) ~/carrots$ tree .
     .
     ├── carrots
+    │   ├── asgi.py
     │   ├── __init__.py
     │   ├── settings.py
     │   ├── urls.py
@@ -233,6 +237,7 @@ Quit the server and from the command line, type ``python manage.py startapp poll
     ├── manage.py
     └── polls
         ├── admin.py
+        ├── apps.py
         ├── __init__.py
         ├── migrations
         │   └── __init__.py
@@ -240,7 +245,7 @@ Quit the server and from the command line, type ``python manage.py startapp poll
         ├── tests.py
         └── views.py
 
-    4 directories, 15 files
+    4 directories, 16 files
 
 After creating the application, it must be activated in our project. In the file ``carrots/settings.py``
 we have to add the application ``polls`` to ``INSTALLED_APPS``. The result should look like this::
@@ -252,11 +257,12 @@ we have to add the application ``polls`` to ``INSTALLED_APPS``. The result shoul
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
-        'polls'
+        'polls',
     )
 
 Applications in ``Django`` consists of several files:
 
+* ``apps.py`` - definitions for the application configuration,
 * ``admin.py`` - definitions for the administration panel,
 * ``models.py`` - definitions of the models for the database,
 * ``tests.py`` - testing applications,
@@ -269,7 +275,7 @@ Django installation:
 
 .. code-block:: sh
 
-    (workshops) ~$ pip install django==1.8.2
+    (workshops) ~$ pip install django==3.0.3
 
 Project directory creation:
 
